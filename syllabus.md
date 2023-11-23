@@ -2,6 +2,7 @@
 - Growth of functions
 - Order of growth
 - Asymptotic Notations – Big O, Omega, Theta
+- Common Runtimes - Constant, Logarithmic, Linear, Polynomial, Exponential, Factorial
 - Recursion Tree Method
 - Space Complexity
 - Analysis of algorithms, loops, recursion
@@ -9,12 +10,15 @@
 
 ### Searching
 - Linear Search
-- Binary Search (Iterative and Recursive)
-- Ternary Search
-- Jump Search
-- Exponential Search
-- Interpolation Search
+  - Sentinel Linear Search
 - Two Pointer Approach
+- Binary Search (Iterative, Recursive)
+  - Meta Binary Search
+- Ternary Search (Iterative, Recursive)
+- Jump Search
+- Interpolation Search
+- Exponential Search
+- Fibonacci Search
 
 ### Sorting
 - Bubble Sort
@@ -45,6 +49,7 @@
 - Pattern Matching
   - KMP Algorithm
   - Rabin Karp Algorithm
+  - Boyer Moore Algorithm
   - Z Algorithm
 - Manachar Algorithm
 
@@ -95,9 +100,18 @@
 - Traversals: BFS, DFS
 - Orders: Preorder, Postorder, Inorder, Level-order
 - Print: Left, Right, Top, Bottom Views
+- Binary Tree, Binary Search Tree, Full Binary Tree, Complete Binary Tree
+- Balanced and Unbalanced Trees
 - Binary Tree to Doubly Linked List
 - Binary Tree from Inorder and Postorder Traversal
 - Lowest Common Ancestor (LCA)
+
+### Balanced Search Tree
+- AVL Tree
+- Red Black Tree
+- 2-3 Search Tree
+- 2-3-4 Search Tree
+- K-ary / M-ary Tree
 - B Tree, B+ Tree
 
 ### Binary Search Tree
@@ -118,6 +132,7 @@
 - Representation: List, Matrix
 - Implementation
 - Traversal: BFS, DFS
+- A* Search Algorithm
 - Cycle Detection: Directed, Undirected
 - Minimum Spanning Tree
   - Kruskal Algorithm
@@ -152,6 +167,11 @@
 - Activity Selection Problem
 - Fractional Knapsack
 - Job Sequencing Problem
+- Djikstra Algorithm
+- Huffman Coding
+- Kruskal Algorithm
+- Ford Fulkerson Algorithm
+- Prim Algorithm
 
 ### Divide and Conquer
 - Master Theorem
@@ -160,6 +180,8 @@
 
 ### Recursion
 - Towers of Hanoi
+- Tail Recursion
+- Non-Tail Recursion
 
 ### BackTracking
 - Brute Force
@@ -215,3 +237,16 @@
 - Union By Rank
 - Path Compression
 - Kruskal Algorithm
+
+### Caches
+- LRU Cache
+- LFU Cache
+- MFU Cache
+
+### Complexity Classes
+- P, NP, Co-NP, NP Hard
+- P = NP
+- NP Complete
+  - Travelling Salesman Problem
+  - Knapsack Problem
+  - Longest Path Problem
