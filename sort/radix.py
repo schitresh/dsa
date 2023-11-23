@@ -7,6 +7,10 @@ examples = [
   }
 ]
 
+# Time Complexity: O(n * k), where k is the max element
+## Best Case: O(n * k)
+## Worst Case: O(n * k)
+# Space Complexity: O(n + k)
 class RadixSort:
   def digit_at(self, item, digit_position):
     return (item // (10 ** digit_position)) % 10

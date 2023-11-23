@@ -8,6 +8,10 @@ examples = [
   }
 ]
 
+# Time Complexity: O(n * log(n))
+## Best Case: O(n * log(n))
+## Worst Case: O(n^2)
+# Space Complexity: O(n)
 class QuickSort:
   def random_index(self, start, end):
     return randint(start, end)

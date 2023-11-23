@@ -7,6 +7,10 @@ examples = [
   }
 ]
 
+# Time Complexity: O(n * log(n))
+## Best Case: O(n * log(n))
+## Worst Case: O(n * log(n))
+# Space Complexity: O(n)
 class MergeSort:
   def merge(self, array, start, mid, end):
     left = start

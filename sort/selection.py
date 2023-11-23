@@ -7,6 +7,10 @@ examples = [
   }
 ]
 
+# Time Complexity: O(n^2)
+## Best Case: O(n^2)
+## Worst Case: O(n^2)
+# Space Complexity: O(1)
 class SelectionSort:
   def swap(self, array, index_1, index_2):
     array[index_1], array[index_2] = array[index_2], array[index_1]

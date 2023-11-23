@@ -7,6 +7,10 @@ examples = [
   }
 ]
 
+# Time Complexity: O(n * log(n)), where k is the range of numbers
+## Best Case: if keys are distinct O(n * log(n)), if keys are same O(n)
+## Worst Case: O(n * log(n))
+# Space Complexity: O(1)
 class HeapSort:
   def swap(self, array, index_1, index_2):
     array[index_1], array[index_2] = array[index_2], array[index_1]

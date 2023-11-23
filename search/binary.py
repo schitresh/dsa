@@ -18,7 +18,7 @@ examples = [
 
 # Time Complexity: O(log(n))
 # Space Complexity: O(1)
-# Comparisons: 3 * log(n)
+# Comparisons: 2 * log(n) excluding the while condition
 class BinarySearch:
   def solve(self, array, key):
     left = 0
@@ -82,7 +82,7 @@ class MetaBinarySearch:
 
 # Time Complexity: O(log(n))
 # Space Complexity: O(1)
-# Comparisons: 2 * log(n) + 2
+# Comparisons: log(n) + 2 excluding the while condition
 # Less comparisons than regular binary search
 class UbiquitousBinarySearch:
   def solve(self, array, key):

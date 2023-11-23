@@ -7,6 +7,10 @@ examples = [
   }
 ]
 
+# Time Complexity: O(n + k), where k is no of buckets
+## Best Case: O(n + k)
+## Worst Case: O(n^2)
+# Space Complexity: O(n + k)
 class BucketSort:
   def solve(self, array):
     length = len(array)

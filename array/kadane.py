@@ -9,6 +9,8 @@ examples = [
   }
 ]
 
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 class Solution:
   def solve(self, array):
     global_max = array[0]

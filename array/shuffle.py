@@ -1,13 +1,14 @@
 from random import randint
 
-# Fisher–Yates Shuffle Algo
 examples = [
   {
     'input': [[1, 6, 2, 5, 9, 8, 7, 3, 4]],
   }
 ]
 
-class Solution:
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+class FisherYatesShuffle:
   def swap(self, array, index_1, index_2):
     array[index_1], array[index_2] = array[index_2], array[index_1]
 
@@ -19,5 +20,5 @@ class Solution:
     return array
 
 for example in examples:
-  output = Solution().solve(*example['input'])
+  output = FisherYatesShuffle().solve(*example['input'])
   print(output)

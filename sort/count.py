@@ -7,6 +7,10 @@ examples = [
   }
 ]
 
+# Time Complexity: O(n + k), where k is no of buckets
+## Best Case: O(n + k)
+## Worst Case: O(n + k)
+# Space Complexity: O(n + k)
 class CountSort:
   def solve(self, array):
     max_item = max(array)

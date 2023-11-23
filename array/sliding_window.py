@@ -1,7 +1,5 @@
 from utils import test
 
-# Sliding Window Algo
-# Given an array & size k, find the subarray of length with size k having the max sum
 examples = [
   {
     'input': [[16, 12, 9, 19, 11, 8], 3],
@@ -9,17 +7,19 @@ examples = [
   }
 ]
 
+# Sliding Window Algorithm
+# Given an array, find the subarray of size k having the max sum
 class Solution:
-  def solve(self, array, ksize):
-    if len(array) < ksize:
+  def solve(self, array, window_size):
+    if len(array) < window_size:
       return 0
 
-    window_sum = sum(array[:ksize])
+    window_sum = sum(array[:window_size])
     max_sum = window_sum
 
-    for index in range(len(array) - ksize):
+    for index in range(len(array) - window_size):
       window_sum -= array[index]
-      window_sum += array[index + ksize]
+      window_sum += array[index + window_size]
       max_sum = max(max_sum, window_sum)
 
     return max_sum

@@ -14,6 +14,7 @@
 - Two Pointer Approach
 - Binary Search (Iterative, Recursive)
   - Meta Binary Search
+  - Ubiquitous Binary Search
 - Ternary Search (Iterative, Recursive)
 - Jump Search
 - Interpolation Search
@@ -21,8 +22,8 @@
 - Fibonacci Search
 
 ### Sorting
-- Bubble Sort
 - Selection Sort
+- Bubble Sort
 - Insertion Sort
 - Merge Sort
 - Quick Sort
@@ -33,17 +34,14 @@
 - Counting Sort
 - Radix Sort
 - Bucket Sort
-- Cycle Sort
 
 - Stability in Sorting Algorithm
 - Union And Intersection of Sorted Arrays
 
 ### Arrays
 - Kadane Algorithm
-- Shuffling Algorithms
+- Fisher Yates Shuffle Algorithm
 - Sliding Window
-- Pigeonhole
-- Multi Dmensional
 
 ### String
 - Pattern Matching

@@ -7,6 +7,10 @@ examples = [
   }
 ]
 
+# Time Complexity: O(n^2)
+## Best Case: O(n)
+## Worst Case: O(n^2)
+# Space Complexity: O(1)
 class InsertionSort:
   def solve(self, array):
     for i, element in enumerate(array):
