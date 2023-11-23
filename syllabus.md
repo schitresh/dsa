@@ -38,7 +38,7 @@
 - Stability in Sorting Algorithm
 - Union And Intersection of Sorted Arrays
 
-### Arrays
+### Array
 - Kadane Algorithm
 - Fisher Yates Shuffle Algorithm
 - Sliding Window
