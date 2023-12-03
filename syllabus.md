@@ -39,9 +39,12 @@
 - Union And Intersection of Sorted Arrays
 
 ### Array
+- Reverse
+- Rotation
+- Subarrays
 - Kadane Algorithm
-- Fisher Yates Shuffle Algorithm
 - Sliding Window
+- Fisher Yates Shuffle Algorithm
 
 ### String
 - Pattern Matching
