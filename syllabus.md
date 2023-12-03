@@ -49,7 +49,8 @@
   - Rabin Karp Algorithm
   - Boyer Moore Algorithm
   - Z Algorithm
-- Manachar Algorithm
+  - Finite Automata
+  - Manachar Algorithm
 
 ### Linked List
 - Singly Linked List

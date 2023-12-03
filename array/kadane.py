@@ -1,6 +1,6 @@
 from utils import test
 
-# Kadane Algo
+# Kadane Algorithm
 # Maximum sum of contiguous subarray
 examples = [
   {
