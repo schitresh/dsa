@@ -21,8 +21,10 @@ class Queue:
     self._size += 1
 
   def pop(self):
-    if self.empty(): return -1
-    if self.tail == self.head: self.tail = None
+    if self.empty():
+      return -1
+    if self.tail == self.head:
+      self.tail = None
 
     data = self.front()
     next = self.head.next
@@ -36,11 +38,12 @@ class Queue:
     return self._size
 
   def front(self):
-    if self.empty(): return -1
+    if self.empty():
+      return -1
     return self.head.data
 
   def empty(self):
-    return self.head == None
+    return self.head is None
 
 q = Queue()
 q.push(1)

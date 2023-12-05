@@ -123,4 +123,4 @@ def test():
   linked_list.reverse()
   linked_list.print()
 
-test()
+# test()

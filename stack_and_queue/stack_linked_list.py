@@ -11,13 +11,15 @@ class Stack:
   def push(self, data):
     node = Node(data)
 
-    if self.head: node.next = self.head
+    if self.head:
+      node.next = self.head
     self.head = node
 
     self._size += 1
 
   def pop(self):
-    if self.empty(): return -1
+    if self.empty():
+      return -1
 
     data = self.front()
     next = self.head.next
@@ -31,11 +33,12 @@ class Stack:
     return self._size
 
   def front(self):
-    if self.empty(): return -1
+    if self.empty():
+      return -1
     return self.head.data
 
   def empty(self):
-    return self.head == None
+    return self.head is None
 
 q = Stack()
 q.push(1)
