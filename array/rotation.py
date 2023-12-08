@@ -52,6 +52,8 @@ class RotateUsingTempArray:
 
     return output
 
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 class RotateByJuggling:
   def gcd(self, a, b):
     if b == 0:
@@ -79,6 +81,8 @@ class RotateByJuggling:
 
     return array
 
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 class RotateByReversal:
   # In-built methods will copy the array & increase space complexity
   def reverse(self, array, left, right):
