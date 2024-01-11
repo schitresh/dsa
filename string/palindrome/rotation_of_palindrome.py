@@ -44,5 +44,31 @@ class Solution:
 
     return False
 
+# Time Complexity: O(n^2)
+# Space Complexity: O(n) for storing rotated string
+class Solution2:
+  def is_palindrome(self, string):
+    left = 0
+    right = len(string) - 1
+
+    while left < right:
+      if string[left] != string[right]:
+        return False
+
+      left += 1
+      right -= 1
+
+    return True
+
+  def solve(self, string):
+    for i in range(len(string)):
+      rotated_string = string[i : ] + string[ : i]
+
+      if self.is_palindrome(rotated_string):
+        return True
+
+    return False
+
 
 test(Solution, examples)
+test(Solution2, examples)

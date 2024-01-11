@@ -13,3 +13,11 @@ def test_with_init(klass, examples):
     print(output)
 
   print()
+
+def test_method(method, examples):
+  for example in examples:
+    output = method(*example['input'])
+    print(output == example['output'], end = ': ')
+    print(output)
+
+  print()
