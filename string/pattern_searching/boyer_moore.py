@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_method
 
 examples = [
   {
@@ -7,43 +7,67 @@ examples = [
   }
 ]
 
+ASCII_COUNT = 256
+
+# Bad Character Heuristics
+# Align the pattern at the beginning of the text and start matching from right to left
+# Bad Character: The char of text that doesn't match with the current char of the pattern
+# On the occurance of bad char, search the last occurence (l) of bad char in the pattern
+# 1. If l is found, align l with the bad char
+# 2. Else, re-align the pattern from the next char in text
+
+# Good Suffix Heuristics: To do
+
 # Time Complexity: O(n + m)
 # Space Complexity: O(m)
-# Bad Char = The last char not matching & where to
-class Solution:
-  def bad_char_heuristic(self, key):
-    ascii_count = 256
-    bad_chars = [-1] * ascii_count
+class BoyerMoore:
+  def __init__(self, key):
+    self.key = key
+    self.last_occurs_at = self.bad_char_heuristic()
 
-    for i, char in enumerate(key):
-      bad_chars[ord(char)] = i
+  def bad_char_heuristic(self):
+    last_occurs_at = [-1] * ASCII_COUNT
 
-    return bad_chars
+    for i, char in enumerate(self.key):
+      last_occurs_at[ord(char)] = i
 
-  def solve(self, text, key):
+    return last_occurs_at
+
+  def shifts_to_align(self, text, ti, ki):
+    # Current pointer in text + Number of positions where match failed
+    bad_char = text[ti + ki]
+    shifts_to_align = ki - self.last_occurs_at[ord(bad_char)]
+    return max(1, shifts_to_align)
+
+  def search(self, text):
     indices = []
-    bad_chars = self.bad_char_heuristic(key)
+    key = self.key
+    last_index_for_matching = len(text) - len(key)
 
-    for i in range(len(text) - len(key) + 1):
+    i = 0
+    while i <= last_index_for_matching:
       j = len(key) - 1
 
       while j >= 0 and text[i + j] == key[j]:
         j -= 1
 
-      if j < 0:
+      if j >= 0:
+        i += self.shifts_to_align(text, i, j)
+      else:
         indices.append(i)
 
-        # Required when pattern occurs at the end of the text
-        if i < len(text) - len(key):
-          next_char = text[i + len(key)]
-          # To align next char in text with its last occurance in key
-          i += len(key) - bad_chars[ord(next_char)]
-        else:
+        # If i is the last valid index for matching, text[i + len(key)] will raise an error
+        # Hence, just increment it by 1 and continue
+        if i == last_index_for_matching:
           i += 1
-      else:
-        last_bad_char = text[i + j]
-        i += max(1, j - bad_chars[ord(last_bad_char)])
+        else:
+          # Since the pattern matched, next char in text will be considered as bad char (i + len(key))
+          i += self.shifts_to_align(text, i, len(key))
 
     return indices
 
-test(Solution, examples)
+def solve(text, key):
+  boyer_moore = BoyerMoore(key)
+  return boyer_moore.search(text)
+
+test_method(solve, examples)
