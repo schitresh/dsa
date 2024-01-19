@@ -50,15 +50,18 @@
 - Pattern Matching
   - KMP Algorithm
   - Rabin Karp Algorithm
-  - Boyer Moore Algorithm
   - Z Algorithm
   - Finite Automata
+  - Boyer Moore Algorithm
+  - Aho Corasick
   - Manachar Algorithm
 
 ### Linked List
-- Singly Linked List
-- Doubly Linked List
-- Circular Linked List
+- Types
+  - Singly
+  - Doubly
+  - Circular
+  - Circular Doubly
 - Finding Middle
 - Loop Detection and Removal
 - LRU Cache Design

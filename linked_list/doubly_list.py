@@ -1,30 +1,35 @@
+from linked_list import LinkedList
+
 class Node:
   def __init__(self, key):
     self.key = key
     self.prev = None
     self.next = None
 
-class DoublyLinkedList:
+class DoublyList(LinkedList):
   def __init__(self):
-    self.head = None
+    super().__init__()
     self.tail = None
 
-  def print(self):
-    temp = self.head
-    while temp:
-      print(temp.key, end=' ')
-      temp = temp.next
-    print()
+  # Utils
 
   def print_backward(self):
     temp = self.tail
+
     while temp:
       print(temp.key, end=' ')
       temp = temp.prev
+
     print()
+
+  def last_node(self):
+    return self.tail
+
+  # Insertion
 
   def append(self, key):
     node = Node(key)
+
     if not self.tail:
       self.head = node
       self.tail = node
@@ -36,6 +41,7 @@ class DoublyLinkedList:
 
   def prepend(self, key):
     node = Node(key)
+
     if not self.head:
       self.head = node
       self.tail = node
@@ -45,24 +51,26 @@ class DoublyLinkedList:
     self.head.prev = node
     self.head = node
 
-from doubly import DoublyLinkedList
-
 def test():
-  linked_list = DoublyLinkedList()
+  linked_list = DoublyList()
 
+  print('Insertion:')
   for i in range(5):
     linked_list.append(i)
   for i in range(5, 10):
     linked_list.prepend(i)
-
   linked_list.prepend(7)
   linked_list.append(7)
   linked_list.print()
+
+  print('Print Backwards:')
   linked_list.print_backward()
 
+  print('Deletion(7):')
   linked_list.delete(7)
   linked_list.print()
 
+  print('Search(5):')
   print(linked_list.search(5).key)
 
 # test()

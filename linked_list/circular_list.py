@@ -1,18 +1,18 @@
-class Node:
-  def __init__(self, key):
-    self.key = key
-    self.next = None
+from linked_list import Node, LinkedList
 
-class LinkedList:
-  def __init__(self):
-    self.head = None
-
+class CircularList(LinkedList):
   # Utils
 
   def print(self):
     temp = self.head
+    if not temp:
+      print()
+      return
 
-    while temp:
+    print(temp.key, end=' ')
+    temp = temp.next
+
+    while temp != self.head:
       print(temp.key, end=' ')
       temp = temp.next
 
@@ -24,7 +24,7 @@ class LinkedList:
       return 0
 
     length = 1
-    while temp.next:
+    while temp.next != self.head:
       length += 1
       temp = temp.next
 
@@ -35,7 +35,7 @@ class LinkedList:
     if not temp:
       return
 
-    while temp.next:
+    while temp.next != self.head:
       temp = temp.next
 
     return temp
@@ -46,16 +46,19 @@ class LinkedList:
     node = Node(key)
 
     if not self.head:
+      node.next = node
       self.head = node
-      return
+      return node
 
     last = self.last_node()
     last.next = node
+    node.next = self.head
+    return node
 
   def prepend(self, key):
-    node = Node(key)
-    node.next = self.head
+    node = self.append(key)
     self.head = node
+    return node
 
   # Deletion
 
@@ -69,7 +72,7 @@ class LinkedList:
       prev = temp
       temp = temp.next
 
-    while temp:
+    while temp != self.head:
       if temp.key == key:
         prev.next = temp.next
         del temp
@@ -81,9 +84,14 @@ class LinkedList:
   # Search
 
   def search(self, key):
-    temp = self.head
+    if not self.head:
+      return
 
-    while temp:
+    if self.head.key == key:
+      return self.head
+
+    temp = self.head.next
+    while temp != self.head:
       if temp.key == key:
         return temp
       temp = temp.next
@@ -97,16 +105,16 @@ class LinkedList:
 
     temp = prev.next
     prev.next = None
-    while temp:
+    while temp != self.head:
       temp_next = temp.next
       temp.next = prev
       prev = temp
       temp = temp_next
 
-    self.head = prev
+    self.head.next = prev
 
-def linked_list_from_array(array):
-  linked_list = LinkedList()
+def circular_list_from_array(array):
+  linked_list = CircularList()
 
   for item in array:
     linked_list.append(item)
@@ -114,7 +122,7 @@ def linked_list_from_array(array):
   return linked_list
 
 def test():
-  linked_list = LinkedList()
+  linked_list = CircularList()
 
   print('Insertion:')
   for i in range(5):
@@ -131,6 +139,10 @@ def test():
 
   print('Search(5):')
   print(linked_list.search(5).key)
+  print('Search(9):')
+  print(linked_list.search(9).key)
+  print('Search(4):')
+  print(linked_list.search(4).key)
 
   print('Reversal:')
   linked_list.reverse()
