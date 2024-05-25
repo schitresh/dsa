@@ -1,5 +1,5 @@
 from linked_list import linked_list_from_array
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -26,4 +26,4 @@ class Solution:
 
     return slow.key
 
-test(Solution, examples)
+test_class(Solution, examples)

@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -40,4 +40,4 @@ class InterpolationSearch:
 
     return -1
 
-test(InterpolationSearch, examples)
+test_class(InterpolationSearch, examples)

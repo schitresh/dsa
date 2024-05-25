@@ -1,4 +1,4 @@
-def test(klass, examples):
+def test_class(klass, examples):
   for example in examples:
     output = klass().solve(*example['input'])
     print(output == example['output'], end = ': ')

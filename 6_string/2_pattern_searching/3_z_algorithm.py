@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -66,4 +66,4 @@ class ZAlgorithm:
 
     return indices
 
-test(ZAlgorithm, examples)
+test_class(ZAlgorithm, examples)

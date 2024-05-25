@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -65,5 +65,5 @@ class TernarySearchRecursive:
   def solve(self, array, key):
     return self.search(array, key, 0, len(array) - 1)
 
-test(TernarySearch, examples)
-test(TernarySearchRecursive, examples)
+test_class(TernarySearch, examples)
+test_class(TernarySearchRecursive, examples)

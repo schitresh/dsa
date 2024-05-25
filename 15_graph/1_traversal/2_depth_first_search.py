@@ -1,5 +1,5 @@
 from queue import LifoQueue
-from utils import test, test_with_init
+from utils import test_class, test_with_init
 
 examples = [
   {
@@ -48,5 +48,5 @@ class DFSRecursive:
     self.traverse(0)
     return self.traversal
 
-test(DFS, examples)
+test_class(DFS, examples)
 test_with_init(DFSRecursive, examples)

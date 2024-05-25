@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -33,4 +33,4 @@ class BucketSort:
 
     return array
 
-test(BucketSort, examples)
+test_class(BucketSort, examples)

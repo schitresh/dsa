@@ -10,7 +10,7 @@
   - Common Runtimes
     - Constant, Logarithmic, Linear, Polynomial, Exponential, Factorial
   - Recursion Tree Method
-- Theoritical limitations and Complexity Classes
+- Theoritical Limitations and Complexity Classes
   - P, NP, Co-NP, NP-hard, NP-complete
 
 ## Searching

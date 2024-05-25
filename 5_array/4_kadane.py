@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Kadane Algorithm
 # Maximum sum of contiguous subarray
@@ -23,4 +23,4 @@ class Solution:
 
     return global_max
 
-test(Solution, examples)
+test_class(Solution, examples)

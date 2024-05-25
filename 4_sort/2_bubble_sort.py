@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -23,4 +23,4 @@ class BubbleSort:
 
     return array
 
-test(BubbleSort, examples)
+test_class(BubbleSort, examples)

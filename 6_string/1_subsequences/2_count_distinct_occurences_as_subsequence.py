@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Find the count of distinct occurrences of T in S as a subsequence
 examples = [
@@ -103,6 +103,6 @@ class Solution3:
     self.count = [[-1] * (len(key) + 1) for _ in range(len(string) + 1)]
     return self.count_subsequences(string, key, 0, 0)
 
-test(Solution, examples)
-test(Solution2, examples)
-test(Solution3, examples)
+test_class(Solution, examples)
+test_class(Solution2, examples)
+test_class(Solution3, examples)

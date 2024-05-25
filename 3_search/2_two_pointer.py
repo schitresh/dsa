@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Find a pair whose sum is equal to the given number
 examples = [
@@ -31,4 +31,4 @@ class Solution:
 
     return []
 
-test(Solution, examples)
+test_class(Solution, examples)

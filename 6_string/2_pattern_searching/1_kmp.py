@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Knuth Morris Pratt Algo
 # Given an array & size k, find the subarray of length with size k having the max sum
@@ -59,4 +59,4 @@ class Solution:
 
     return indices
 
-test(Solution, examples)
+test_class(Solution, examples)

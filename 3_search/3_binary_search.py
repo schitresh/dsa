@@ -1,5 +1,5 @@
 import math
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -103,7 +103,7 @@ class UbiquitousBinarySearch:
       return right
     return -1
 
-test(BinarySearch, examples)
-test(BinarySearchRecursive, examples)
-test(MetaBinarySearch, examples)
-test(UbiquitousBinarySearch, examples)
+test_class(BinarySearch, examples)
+test_class(BinarySearchRecursive, examples)
+test_class(MetaBinarySearch, examples)
+test_class(UbiquitousBinarySearch, examples)

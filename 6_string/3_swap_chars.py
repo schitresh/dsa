@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # For a given string, swap char with given places after it.
 # Repeat this for given number of times advancing one position at a time.
@@ -52,5 +52,5 @@ class Solution2:
 
     return ''.join(string)
 
-test(Solution, examples)
-test(Solution2, examples)
+test_class(Solution, examples)
+test_class(Solution2, examples)

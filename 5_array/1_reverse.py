@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Reverse an Array
 examples = [
@@ -26,4 +26,4 @@ class Solution:
 
     return array
 
-test(Solution, examples)
+test_class(Solution, examples)

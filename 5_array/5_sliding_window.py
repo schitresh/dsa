@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Sliding Window Algorithm
 # Given an array, find the subarray of size k having the max sum
@@ -26,4 +26,4 @@ class Solution:
 
     return max_sum
 
-test(Solution, examples)
+test_class(Solution, examples)

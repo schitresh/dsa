@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Kruskal's Minimum Spanning Tree
 # [weight, x, y]
@@ -37,4 +37,4 @@ class Kruskal:
 
     return mst
 
-test(Kruskal, examples)
+test_class(Kruskal, examples)

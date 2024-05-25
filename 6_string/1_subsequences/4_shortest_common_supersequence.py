@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {

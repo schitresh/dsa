@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -60,4 +60,4 @@ class Solution:
 
     return indices
 
-test(Solution, examples)
+test_class(Solution, examples)

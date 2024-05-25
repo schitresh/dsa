@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -51,4 +51,4 @@ class FibonacciSearch:
 
     return -1
 
-test(FibonacciSearch, examples)
+test_class(FibonacciSearch, examples)

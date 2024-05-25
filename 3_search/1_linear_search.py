@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -45,5 +45,5 @@ class SentinelLinearSearch:
 
     return -1
 
-test(LinearSearch, examples)
-test(SentinelLinearSearch, examples)
+test_class(LinearSearch, examples)
+test_class(SentinelLinearSearch, examples)

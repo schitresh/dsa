@@ -1,5 +1,5 @@
 import math
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -40,4 +40,4 @@ class JumpSearch:
 
     return -1
 
-test(JumpSearch, examples)
+test_class(JumpSearch, examples)

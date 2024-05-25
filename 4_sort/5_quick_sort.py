@@ -1,5 +1,5 @@
 from random import randint
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -45,4 +45,4 @@ class QuickSort:
     self.pivot_and_partition(array, 0, len(array) - 1)
     return array
 
-test(QuickSort, examples)
+test_class(QuickSort, examples)

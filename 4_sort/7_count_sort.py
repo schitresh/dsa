@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -56,5 +56,5 @@ class PositionalCountSort:
 
     return array
 
-test(CountSort, examples)
-test(PositionalCountSort, examples)
+test_class(CountSort, examples)
+test_class(PositionalCountSort, examples)

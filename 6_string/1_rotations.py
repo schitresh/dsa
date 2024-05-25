@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Generate all rotations
 examples = [
@@ -40,5 +40,5 @@ class Solution2:
 
     return output
 
-test(Solution, examples)
-test(Solution2, examples)
+test_class(Solution, examples)
+test_class(Solution2, examples)

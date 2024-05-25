@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -24,4 +24,4 @@ class InsertionSort:
 
     return array
 
-test(InsertionSort, examples)
+test_class(InsertionSort, examples)

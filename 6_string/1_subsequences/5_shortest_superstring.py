@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Find the count of distinct occurrences of T in S as a subsequence
 examples = [
@@ -97,5 +97,5 @@ class Solution2:
         overlaps[i][j] = self.overlap_length(strings[i], strings[j])
         overlaps[j][i] = self.overlap_length(strings[j], strings[i])
 
-test(Solution, examples)
-test(Solution2, examples)
+test_class(Solution, examples)
+test_class(Solution2, examples)

@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Generate all Subarrays
 examples = [
@@ -34,4 +34,4 @@ class Solution:
     self.generate_subarrays(array, 0, 0)
     return self.subarrays
 
-test(Solution, examples)
+test_class(Solution, examples)

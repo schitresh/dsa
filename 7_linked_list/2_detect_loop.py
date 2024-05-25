@@ -1,6 +1,6 @@
 from circular_list import circular_list_from_array
 from linked_list import linked_list_from_array
-from utils import test
+from utils import test_class
 
 def linked_list_with_loop():
   linked_list = linked_list_from_array([1, 2, 3, 4, 5, 6])
@@ -39,4 +39,4 @@ class Solution:
 
     return False
 
-test(Solution, examples)
+test_class(Solution, examples)

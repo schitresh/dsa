@@ -1,5 +1,5 @@
 from queue import PriorityQueue
-from utils import test
+from utils import test_class
 
 # x: [weight, y]
 examples = [
@@ -41,4 +41,4 @@ class Prim:
 
     return mst
 
-test(Prim, examples)
+test_class(Prim, examples)

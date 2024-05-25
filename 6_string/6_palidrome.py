@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -35,4 +35,4 @@ class Solution:
 
     return True
 
-test(Solution, examples)
+test_class(Solution, examples)

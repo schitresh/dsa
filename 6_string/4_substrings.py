@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Generate all substrings
 # Total substrings = n * (n - 1) / 2
@@ -36,5 +36,5 @@ class Solution2:
 
     return substrings
 
-test(Solution, examples)
-test(Solution2, examples)
+test_class(Solution, examples)
+test_class(Solution2, examples)

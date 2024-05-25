@@ -1,6 +1,6 @@
 from queue import PriorityQueue
 from sys import maxsize
-from utils import test
+from utils import test_class
 
 # x: [weight, y]
 examples = [
@@ -43,4 +43,4 @@ class Dijkstra:
 
     return distance
 
-test(Dijkstra, examples)
+test_class(Dijkstra, examples)

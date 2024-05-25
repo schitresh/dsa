@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -48,4 +48,4 @@ class HeapSort:
 
     return array
 
-test(HeapSort, examples)
+test_class(HeapSort, examples)

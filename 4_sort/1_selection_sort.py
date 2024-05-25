@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -27,4 +27,4 @@ class SelectionSort:
 
     return array
 
-test(SelectionSort, examples)
+test_class(SelectionSort, examples)

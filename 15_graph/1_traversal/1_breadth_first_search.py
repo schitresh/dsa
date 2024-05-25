@@ -1,5 +1,5 @@
 from queue import Queue
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -28,4 +28,4 @@ class BFS:
 
     return traversal
 
-test(BFS, examples)
+test_class(BFS, examples)

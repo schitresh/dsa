@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Right Rotation
 examples = [
@@ -103,7 +103,7 @@ class RotateByReversal:
 
     return array
 
-test(RotateOneByOne, examples)
-test(RotateUsingTempArray, examples)
-test(RotateByJuggling, examples)
-test(RotateByReversal, examples)
+test_class(RotateOneByOne, examples)
+test_class(RotateUsingTempArray, examples)
+test_class(RotateByJuggling, examples)
+test_class(RotateByReversal, examples)

@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -51,4 +51,4 @@ class RadixSort:
 
     return array
 
-test(RadixSort, examples)
+test_class(RadixSort, examples)

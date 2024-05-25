@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -50,4 +50,4 @@ class MergeSort:
     self.partition_and_merge(array, 0, len(array) - 1)
     return array
 
-test(MergeSort, examples)
+test_class(MergeSort, examples)

@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 # Generate all subsequences
 # Total subsequences = 2n - 1
@@ -46,5 +46,5 @@ class Solution2:
     self.generate_subsequences(string, '', 0)
     return self.subsequences
 
-test(Solution, examples)
-test(Solution2, examples)
+test_class(Solution, examples)
+test_class(Solution2, examples)

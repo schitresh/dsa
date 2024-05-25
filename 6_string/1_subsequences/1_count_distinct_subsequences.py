@@ -1,4 +1,4 @@
-from utils import test
+from utils import test_class
 
 examples = [
   {
@@ -98,6 +98,6 @@ class Solution3:
 
     return count - 1
 
-test(Solution, examples)
-test(Solution2, examples)
-test(Solution3, examples)
+test_class(Solution, examples)
+test_class(Solution2, examples)
+test_class(Solution3, examples)
