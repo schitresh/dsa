@@ -1,4 +1,4 @@
-from utils import test_class
+from utils import test_method
 
 examples = [
   {
@@ -18,32 +18,34 @@ examples = [
 # Time Complexity: O(n)
 # Space Complexity: O(1)
 # Comparisons: 2n + 1
-class LinearSearch:
-  def solve(self, array, key):
-    for i, item in enumerate(array):
-      if item == key:
-        return i
+# n + 1 comparisons to check index is not out of bounds
+# n comparisons to compare array items and key
+def linear_search(array, key):
+  for i, item in enumerate(array):
+    if item == key:
+      return i
 
-    return -1
+  return -1
 
 # Time Complexity: O(n)
 # Space Complexity: O(1)
 # Comparisons: n + 2
+# n comparisons to compare array items and key
+# 2 comparisons to check if the last index is reached or last element is key
 # Linear search with less comparisons
-class SentinelLinearSearch:
-  def solve(self, array, key):
-    last_index = len(array) - 1
-    last = array[last_index]
-    array[last_index] = key
+def sentinel_linear_search(array, key):
+  last_i = len(array) - 1
+  last = array[last_i]
+  array[last_i] = key
 
-    i = 0
-    while array[i] != key:
-      i +=1
+  i = 0
+  while array[i] != key:
+    i += 1
 
-    if i < last_index or last == key:
-      return i
+  if i < last_i or last == key:
+    return i
 
-    return -1
+  return -1
 
-test_class(LinearSearch, examples)
-test_class(SentinelLinearSearch, examples)
+test_method(linear_search, examples)
+test_method(sentinel_linear_search, examples)

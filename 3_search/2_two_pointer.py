@@ -14,7 +14,7 @@ examples = [
 
 # Time Complexity: O(n)
 # Space Complexity: O(1)
-class Solution:
+class TwoPointer:
   def solve(self, array, target_sum):
     left = 0
     right = len(array) - 1
@@ -31,4 +31,4 @@ class Solution:
 
     return []
 
-test_class(Solution, examples)
+test_class(TwoPointer, examples)
