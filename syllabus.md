@@ -1,4 +1,4 @@
-### Analysis of Algorithms
+## Analysis of Algorithms
 - Growth of functions
 - Order of growth
 - Asymptotic Notations – Big O, Omega, Theta
@@ -31,7 +31,7 @@
   - Choice of pivot and worst case
   - Tail Call elimination Quick Sort
 - Heap Sort
-- Counting Sort
+- Count Sort
 - Radix Sort
 - Bucket Sort
 
