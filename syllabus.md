@@ -1,14 +1,19 @@
 ## Analysis of Algorithms
-- Growth of functions
-- Order of growth
-- Asymptotic Notations – Big O, Omega, Theta
-- Common Runtimes - Constant, Logarithmic, Linear, Polynomial, Exponential, Factorial
-- Recursion Tree Method
+- Time Complexity
 - Space Complexity
-- Analysis of algorithms, loops, recursion
-- Theoritical limitations
+- Asymptotic Analysis
+  - Growth of functions
+  - Order of growth
+  - Asymptotic Notations – Big O, Omega, Theta
+- Analysing Complexity
+  - Analysis of algorithms, loops, recursion
+  - Common Runtimes
+    - Constant, Logarithmic, Linear, Polynomial, Exponential, Factorial
+  - Recursion Tree Method
+- Theoritical limitations and Complexity Classes
+  - P, NP, Co-NP, NP-hard, NP-complete
 
-### Searching
+## Searching
 - Linear Search
   - Sentinel Linear Search
 - Two Pointer Approach
@@ -27,14 +32,13 @@
 - Insertion Sort
 - Merge Sort
 - Quick Sort
-  - Different Partition Schemes – Naïve, Lomuto, Hoare
+  - Different partition schemes – Naïve, Lomuto, Hoare
   - Choice of pivot and worst case
-  - Tail Call elimination Quick Sort
+  - Tail call elimination quick sort
 - Heap Sort
 - Count Sort
 - Radix Sort
 - Bucket Sort
-
 - Stability in Sorting Algorithm
 - Union And Intersection of Sorted Arrays
 
@@ -247,11 +251,3 @@
 - LRU Cache
 - LFU Cache
 - MFU Cache
-
-### Complexity Classes
-- P, NP, Co-NP, NP Hard
-- P = NP
-- NP Complete
-  - Travelling Salesman Problem
-  - Knapsack Problem
-  - Longest Path Problem
