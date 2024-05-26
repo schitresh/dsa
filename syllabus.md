@@ -1,15 +1,20 @@
 ## Analysis of Algorithms
-- Time Complexity
-- Space Complexity
+- Complexity
+  - Time Complexity
+  - Space Complexity
 - Asymptotic Analysis
   - Growth of functions
   - Order of growth
-  - Asymptotic Notations – Big O, Omega, Theta
+  - Cases: Worst, Average, Best
+  - Asymptotic Notations: Big O, Omega, Theta
 - Analysing Complexity
   - Analysis of algorithms, loops, recursion
   - Common Runtimes
     - Constant, Logarithmic, Linear, Polynomial, Exponential, Factorial
   - Recursion Tree Method
+- Space Complexity
+  - Auxiliary Space
+  - Analysis of recursion, fibonacci number
 - Theoritical Limitations and Complexity Classes
   - P, NP, Co-NP, NP-hard, NP-complete
 
@@ -17,6 +22,9 @@
 - Linear Search
   - Sentinel Linear Search
 - Two Pointer Approach
+  - Find pair in unsorted array with given sum
+  - Find pair in sorted array with given sum
+  - Find triplet in array with given sum
 - Binary Search (Iterative, Recursive)
   - Meta Binary Search
   - Ubiquitous Binary Search
@@ -27,6 +35,7 @@
 - Fibonacci Search
 
 ### Sorting
+- Stability in sorting algorithms
 - Selection Sort
 - Bubble Sort
 - Insertion Sort
@@ -34,23 +43,25 @@
 - Quick Sort
   - Different partition schemes – Naïve, Lomuto, Hoare
   - Choice of pivot and worst case
-  - Tail call elimination quick sort
+  - Tail call elimination
 - Heap Sort
 - Count Sort
 - Radix Sort
 - Bucket Sort
-- Stability in Sorting Algorithm
-- Union And Intersection of Sorted Arrays
+- Union and intersection of sorted arrays
+- Count inversions in arrays
 
-### Array
+## Array
 - Reverse
-- Rotation
+- Rotations
 - Subarrays
 - Kadane Algorithm
 - Sliding Window
 - Fisher Yates Shuffle Algorithm
 
-### String
+## String
+- Substrings
+- Subsequences
 - Pattern Matching
   - KMP Algorithm
   - Rabin Karp Algorithm
@@ -59,63 +70,71 @@
   - Boyer Moore Algorithm
   - Aho Corasick
   - Manachar Algorithm
+- Palindromes
 
-### Linked List
+## Linked List
 - Types
   - Singly
   - Doubly
   - Circular
   - Circular Doubly
 - Finding Middle
-- Loop Detection and Removal
+- Loop
+  - Loop Detection
+  - Floyd Cycle Detection
+  - Loop Removal
 - LRU Cache Design
 
-### Stack
+## Stack
 - Implementation
   - Array
   - Linked List
 - Operations: Insertion, Deletion, Updation, Reversal
-- Infix to Postfix
-- Evaluation of Postfix
+- Infix, Prefix, Postfix
+  - Infix to Postfix
+  - Evaluation of Postfix
+  - Infix to Prefix
+  - Evaluation of Prefix
 
-### Queue
+## Queue
 - Implementation
   - Array
   - Linked List
   - Stack
 - Operations: Insertion, Deletion, Updation, Reversal
 
-### Dequeue
+## Dequeue
 - Implementation
   - Array
   - Linked List
 - Operations: Insertion, Deletion, Updation, Reversal
 - Rotation
 
-### Hash
+## Hash
 - Direct Address Table
 - Hashing Functions
-- Collision
-- Chaining
-- Open Addressing
-- Double Hashing
-- Chaining vs Open Addressing
-- Unordered set
-- Unordered map
+- Collision Handling
+  - Chaining
+  - Open Addressing
+  - Chaining vs Open Addressing
+  - Double Hashing
+- Unordered set or hash set
+- Unordered map or hash map
 
-### Tree
+## Tree
 - Implementation
 - Depth, Height, Diameter
 - Traversals: BFS, DFS
 - Orders: Preorder, Postorder, Inorder, Level-order
 - Print: Left, Right, Top, Bottom Views
-- Binary Tree, Binary Search Tree, Full Binary Tree, Complete Binary Tree
 - Balanced and Unbalanced Trees
-- Binary Tree to Doubly Linked List
-- Binary Tree from Inorder and Postorder Traversal
+- Binary Tree
+  - Binary Search Tree, Full Binary Tree, Complete Binary Tree
+  - Binary Tree to Doubly Linked List
+  - Binary Tree from Inorder and Postorder Traversal
 - Lowest Common Ancestor (LCA)
 
-### Balanced Search Tree
+## Balanced Search Tree
 - AVL Tree
 - Red Black Tree
 - 2-3 Search Tree
@@ -123,41 +142,55 @@
 - K-ary / M-ary Tree
 - B Tree, B+ Tree
 
-### Binary Search Tree
+## Binary Search Tree
 - Implementation
-- Insert, Search, Delete
+- Operations: Insertion, Deletion, Updation, Floor
 - Balanced and Unbalanced Trees
 - Self Balancing BST
 - AVL Tree
 - Red Black Tree
 
-### Heap
+## Heap
 - Implementation
-- Operations
+- Binary Heap
+  - Insertion
+  - Heapify and Extract
+  - Decrease Key
+  - Delete and Build Heap
 - Heap Sort
 - Priority Queue
 
-### Graph
-- Representation: List, Matrix
+## Graph
+- Representation
+  - Adjacency Matrix
+  - Adjacency List
+  - Adjacency Matrix vs List
 - Implementation
 - Traversal: BFS, DFS
-- A* Search Algorithm
-- Cycle Detection: Directed, Undirected
+- Cycle Detection
+  - In undirected graph
+  - In directed graph
 - Minimum Spanning Tree
   - Kruskal Algorithm
   - Prim Algorithm
 - Shortest Path
+  - In unweighted graph
+  - In directed acyclic graph
   - Bellman Ford Algorithm
   - Dijkstra Algorithm
   - Floyd Warshall Algorithm
+- A* Search Algorithm
 - Flood-fill Algorithm
-- Articulation Points and Bridges
-- Biconnected Components
+- Connectivity
+  - Articulation Points and Bridges
+  - Biconnected Components
 - Strongly Connected Components
   - Brute Force
   - Kosaraju Algorithm
   - Tarjan Algorithm
 - Topological Sort
+  - Kahn's BFS based
+  - DFS based
 - Hamiltonian Path
 - Maximum Flow
   - Ford Fulkerson Algorithm
@@ -167,12 +200,14 @@
   - Hungarian Algorithm
 - Min-cut
 
-### Trie
+## Trie
 - Implementation
-- Implementation with Hash Table
-- Insert, Search, Delete
+  - Tree
+  - Hash Table
+- Operations: Insert, Search, Delete
+- Count distinct rows in a binary matrix
 
-### Greedy Algorithm
+## Greedy
 - Activity Selection Problem
 - Fractional Knapsack
 - Job Sequencing Problem
@@ -182,17 +217,17 @@
 - Ford Fulkerson Algorithm
 - Prim Algorithm
 
-### Divide and Conquer
+## Divide and Conquer
 - Master Theorem
 - Sliding Window
 - Merge Intervals
 
-### Recursion
+## Recursion
 - Towers of Hanoi
 - Tail Recursion
 - Non-Tail Recursion
 
-### BackTracking
+## Backtracking
 - Brute Force
 - N Queens
 - Rat in maze
@@ -216,38 +251,38 @@
   - Longest Common Subsequence
 - Bit Masking
 
-### Math - Number Theory
+## Math
 - Bit Manipulation
 - Modular Arithmetic
 - Modular Exponentiation
 - GCD (Greatest Common Divisor)
+- LCM (Lowest Common Multiple)
 - Extended Euclidean Algorithm
 - Modular Multiplicative Inverse
 - Prime Numbers
   - Sieve of Eratosthenes
   - Sieve of Eratosthenes with fast factorization
   - Sieve of Eratosthenes on the segment
+- Combinatorics
+  - Rule of Product, Rule of Sum
+  - Permutations with repetition, Cominations with repetition
+  - Pascal Triangle
 
-### Math - Combinatorics
-- Rule of Product, Rule of Sum
-- Permutations with repetition, Cominations with repetition
-- Pascal Triangle
-
-### Advanced Data Structures
+## Advanced Data Structures
 - Segment Tree
 - Binary Indexed Tree (Fenwick Tree)
 - Suffix Trees
 - Suffix Arrays
 - Meet in the middle
 
-### Disjoint-Set
+## Disjoint-Set
 - Implementation
-- Union Find
-- Union By Rank
+- Find and Union operations
+- Union by Rank
 - Path Compression
 - Kruskal Algorithm
 
-### Caches
+## Caches
 - LRU Cache
 - LFU Cache
 - MFU Cache

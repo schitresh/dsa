@@ -18,7 +18,7 @@ examples = [
 # Time Complexity: O(n)
 # Space Complexity: O(1)
 # Comparisons: 2n + 1
-# n + 1 comparisons to check index is not out of bounds
+# n + 1 comparisons to run the loop (checking that index is not out of bounds)
 # n comparisons to compare array items and key
 def linear_search(array, key):
   for i, item in enumerate(array):
@@ -31,7 +31,7 @@ def linear_search(array, key):
 # Space Complexity: O(1)
 # Comparisons: n + 2
 # n comparisons to compare array items and key
-# 2 comparisons to check if the last index is reached or last element is key
+# 2 comparisons after the loop to check if key is found
 # Linear search with less comparisons
 def sentinel_linear_search(array, key):
   last_i = len(array) - 1

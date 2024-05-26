@@ -25,7 +25,8 @@ class BinarySearch:
     right = len(array) - 1
 
     while left <= right:
-      # left + right might overflow in some languages, so use this expression to calculate mid
+      # left + right might overflow in some languages
+      # So use this expression to calculate mid
       mid = left + (right - left) // 2
 
       if key < array[mid]:
@@ -40,7 +41,7 @@ class BinarySearch:
 # Time Complexity: O(log(n))
 # Space Complexity: O(1)
 # Recursion Space: O(log(n))
-class BinarySearchRecursive:
+class RecursiveBinarySearch:
   def search(self, array, key, left, right):
     if left > right:
       return -1
@@ -61,13 +62,16 @@ class BinarySearchRecursive:
 
 # Time Complexity: O(log(n))
 # Space Complexity: O(1)
+# Used to search an ordered array or elements
+# It performs less comparisons in that case
 class MetaBinarySearch:
   def solve(self, array, key):
     length = len(array)
     no_of_bits = int(math.log2(length - 1)) + 1
 
     index = 0
-    # Decrement (no of bits - 1) because the bit multiplier for 1st position is 0 (2^0)
+    # Start from (no of bits - 1)
+    # Because the bit multiplier for 1st position is 0 (2^0)
     for shift in range(no_of_bits - 1, -1, -1):
       if array[index] == key:
         return index
@@ -83,7 +87,7 @@ class MetaBinarySearch:
 # Time Complexity: O(log(n))
 # Space Complexity: O(1)
 # Comparisons: log(n) + 2 excluding the while condition
-# Less comparisons than regular binary search
+# Less comparisons than the regular binary search
 class UbiquitousBinarySearch:
   def solve(self, array, key):
     left = 0
@@ -104,6 +108,6 @@ class UbiquitousBinarySearch:
     return -1
 
 test_class(BinarySearch, examples)
-test_class(BinarySearchRecursive, examples)
+test_class(RecursiveBinarySearch, examples)
 test_class(MetaBinarySearch, examples)
 test_class(UbiquitousBinarySearch, examples)

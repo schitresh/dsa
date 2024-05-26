@@ -42,7 +42,7 @@ class TernarySearch:
 
     return -1
 
-class TernarySearchRecursive:
+class RecursiveTernarySearch:
   def search(self, array, key, left, right):
     mid1 = left + (right - left) // 3
     mid2 = right - (right - left) // 3
@@ -66,4 +66,4 @@ class TernarySearchRecursive:
     return self.search(array, key, 0, len(array) - 1)
 
 test_class(TernarySearch, examples)
-test_class(TernarySearchRecursive, examples)
+test_class(RecursiveTernarySearch, examples)
