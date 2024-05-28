@@ -20,6 +20,7 @@
 - Evaluates the performance of an algorithm in terms of input size
   - Without actually measuring the running time
   - Calculates how time/space taken by the algo increase with the input size
+- Order of growth: How the time of execution depends on the length of the input
 - For example
   - Consider running linear search on fast computer & binary search on slow computer
   - For small values of input size

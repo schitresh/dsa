@@ -1,11 +1,11 @@
 ## Analysis of Algorithms
-- Complexity
-  - Time Complexity
-  - Space Complexity
+- Analysis
+  - Performance
+  - Complexity: Time, Space
+  - Cases: Worst, Average, Best
 - Asymptotic Analysis
   - Growth of functions
   - Order of growth
-  - Cases: Worst, Average, Best
   - Asymptotic Notations: Big O, Omega, Theta
 - Analysing Complexity
   - Analysis of algorithms, loops, recursion
@@ -14,7 +14,7 @@
   - Recursion Tree Method
 - Space Complexity
   - Auxiliary Space
-  - Analysis of recursion, fibonacci number
+  - Analysis of recursion (fibonacci number)
 - Theoritical Limitations and Complexity Classes
   - P, NP, Co-NP, NP-hard, NP-complete
 
