@@ -15,22 +15,26 @@ examples = [
   }
 ]
 
-# Time Complexity: O(log(n))
-# Space Complexity: O(1)
+# Figure out the window exponentially in which the key must be present
+# Window indexes: 0 to 2^0, 2^0 to 2^1, 2^1 to 2^2, and so on
+# And then binary search the key within that window
 # Useful for unbounded arrays with large size
+# Time Complexity: O(log(n))
+# Auxiliary Space: O(1)
 class ExponentialSearch:
   def solve(self, array, key):
     length = len(array)
     # Important to start with 1 since 0 * 2 will always return 0
-    i = 1
-    while i < length and array[i] < key:
-      i *= 2
+    index = 1
+    while index < length and array[index] < key:
+      index *= 2
 
-    left = i // 2
-    right = min(i, length)
+    left = index // 2
+    right = min(index, length)
 
     while left <= right:
-      # left + right might overflow in some languages, so use this expression to calculate mid
+      # left + right might overflow in some languages
+      # So use this expression to calculate mid
       mid = left + (right - left) // 2
 
       if key < array[mid]:

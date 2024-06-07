@@ -15,9 +15,10 @@ examples = [
   }
 ]
 
+# Does more comparisions than binary search
+# So binary search is better than ternary search
 # Time Complexity: O(2 * log3(n))
-# Space Complexity: O(1)
-# Does more comparisions than binary search, so binary is better than ternary search
+# Auxiliary Space: O(1)
 class TernarySearch:
   def solve(self, array, key):
     left = 0
@@ -42,6 +43,8 @@ class TernarySearch:
 
     return -1
 
+# Time Complexity: Same as iterative
+# Auxiliary Space: O(log3(n)) for recusion
 class RecursiveTernarySearch:
   def search(self, array, key, left, right):
     mid1 = left + (right - left) // 3

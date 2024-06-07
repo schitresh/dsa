@@ -1,6 +1,6 @@
-from utils import test_class
+from utils import test_method
 
-# Find a pair whose sum is equal to the given number
+# Find a pair whose sum is equal to the given number in a sorted array
 examples = [
   {
     'input': [[2, 3, 5, 8, 9, 10, 11], 17],
@@ -12,8 +12,10 @@ examples = [
   }
 ]
 
+# Move pointers from either end of the sorted array
+# To find a triplet, can loop over the array to keep the third element static
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 def two_pointers(array, target_sum):
   left = 0
   right = len(array) - 1
@@ -30,4 +32,4 @@ def two_pointers(array, target_sum):
 
   return []
 
-test_class(two_pointers, examples)
+test_method(two_pointers, examples)

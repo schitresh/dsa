@@ -15,14 +15,14 @@ examples = [
   }
 ]
 
-# Time Complexity: O(log2(log2(n)))
-## Worst case: O(n)
-# Space Complexity: O(1)
 # Better than Binary Search if elements are uniformly distributed
-# Meaning that for any index i & j, if (aj - ai) is roughly the similar
+  # That is, if for any index i & j, if (aj - ai) is roughly the same
 # Instead of mid, a value based index is calculated
-# Value Index = left + (key - array[left]) * (right - left) / (array[right] - array[left])
-# This is derived from the equation of a line `y = mx + c` by putting left & right
+  # Value Index = left + (key - array[left]) * (right - left) / (array[right] - array[left])
+  # This is derived from the equation of a line `y = mx + c` by putting left & right
+# Time Complexity: O(log2(log2(n)))
+  # Worst case: O(n)
+# Auxiliary Space: O(1)
 class InterpolationSearch:
   def solve(self, array, key):
     left = 0
