@@ -7,13 +7,16 @@ examples = [
   }
 ]
 
-# Time Complexity: O(n * log(n)), where k is the range of numbers
-## Best Case: if keys are distinct O(n * log(n)), if keys are same O(n)
-## Worst Case: O(n * log(n))
-# Space Complexity: O(1)
+# Comparison based sort based on binary heap
+# Similar to selection sort where the minimum element is found and placed at the beginning
+# Unstable sort
+# Time Complexity: O(n * log(n))
+  # Best: O(n)
+  # Worst, Average: O(n * log(n))
+# Auxiliary Space: O(1)
 class HeapSort:
-  def swap(self, array, index_1, index_2):
-    array[index_1], array[index_2] = array[index_2], array[index_1]
+  def swap(self, array, i, j):
+    array[i], array[j] = array[j], array[i]
 
   def max_heapify(self, array, index, end):
     largest = index
@@ -31,7 +34,8 @@ class HeapSort:
 
   def build_max_heap(self, array):
     # Elements from mid + 1 to n are leaf nodes
-    # Start building the heap for their parents so that we can cover all the nodes
+    # Start building the heap from the parents of the leaf nodes
+    # So that we can cover all the nodes
     mid = len(array) // 2
     for index in range(mid, -1, -1):
       self.max_heapify(array, index, len(array))
@@ -40,8 +44,9 @@ class HeapSort:
     self.build_max_heap(array)
 
     # Remove element one by one from the heap
-    # Maximum element will be at the top (index 0)
-    # So move that to the end of the array, and heapify from root till before the end
+    # In max heap, the max element is always at the top (index 0)
+    # So in each iteration move that to the end of the array
+    # And heapify from the root till before the index to get the next max at the top
     for index in range(len(array) - 1, 0, -1):
       self.swap(array, 0, index)
       self.max_heapify(array, 0, index)

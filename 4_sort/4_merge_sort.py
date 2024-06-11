@@ -7,10 +7,12 @@ examples = [
   }
 ]
 
+
+# Divide and conquer approach that partitions, sorts, and merges
+# Stable sort
 # Time Complexity: O(n * log(n))
-## Best Case: O(n * log(n))
-## Worst Case: O(n * log(n))
-# Space Complexity: O(n)
+  # Best, Worst, Average: O(n * log(n))
+# Auxiliary Space: O(n) required for temporary array during merging
 class MergeSort:
   def merge(self, array, start, mid, end):
     left = start

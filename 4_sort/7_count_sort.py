@@ -7,10 +7,12 @@ examples = [
   }
 ]
 
-# Time Complexity: O(n + k), where k is no of buckets
-## Best Case: O(n + k)
-## Worst Case: O(n + k)
-# Space Complexity: O(n + k)
+# Non-comparision based sort that works well if there limited range of values
+# Counts frequency of elements and places them in their correct position\
+# Stable sort, but doesn't work on decimal values
+# Time Complexity: O(n + k), where k is the largest element
+  # Best, Worst, Average: O(n + k)
+# Auxiliary Space: O(k)
 class CountSort:
   def solve(self, array):
     max_item = max(array)
@@ -29,6 +31,9 @@ class CountSort:
 
     return array
 
+# Time Complexity: O(n + k), where k is the largest element
+  # Best, Worst, Average: O(n + k)
+# Auxiliary Space: O(n + k)
 class PositionalCountSort:
   def solve(self, array):
     length = len(array)
@@ -36,16 +41,18 @@ class PositionalCountSort:
     item_positions = [0] * (max_item + 1)
     sorted_array = [0] * (length)
 
+    # Calculate the count of elements
     for item in array:
       item_positions[item] += 1
 
+    # Calculate the position of elements by cumulating counts
     for item in range(max_item):
       item_positions[item + 1] += item_positions[item]
 
-    # Iterating from the last keeps the original order. That's why it is a stable sort.
-    # This is because highest position is assigned to the higher element in the original order.
-    # This is not prominent for integers, but important in case of sorting:
-    # pairs, objects with additional info, radix sort
+    # Iterating from the last keeps the original order, that's why it is a stable sort
+    # This is because highest position is assigned to the higher element in the original order
+    # This is not prominent for integers, but important in case of other data types
+    # like pairs, objects with additional info, radix sort
     for item in array:
       position = item_positions[item]
       sorted_array[position - 1] = item

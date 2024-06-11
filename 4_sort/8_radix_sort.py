@@ -7,10 +7,12 @@ examples = [
   }
 ]
 
-# Time Complexity: O(n * k), where k is the max element
-## Best Case: O(n * k)
-## Worst Case: O(n * k)
-# Space Complexity: O(n + k)
+# Linear sorting algorithm that processes elements digit by digit
+# Distributes elements into buckets based on each digit's value
+# Time Complexity: O(d * (n + b))
+  # Where d is the number of digits, b is the base of the number system used
+  # If k is the max element, d = logb(k)
+# Auxiliary Space: O(n + b)
 class RadixSort:
   def digit_at(self, item, digit_position):
     return (item // (10 ** digit_position)) % 10
@@ -28,10 +30,6 @@ class RadixSort:
     for digit in range(digit_count - 1):
       item_positions[digit + 1] += item_positions[digit]
 
-    # Iterating from the last keeps the original order. That's why it is a stable sort. Also:
-    # The current digit will can be same for multiple numbers
-    # In such cases, iterating from the last ensures that the highest position
-    # is assigned to the higher numbers from the last sorting iteration
     for item in reversed(array):
       digit = self.digit_at(item, digit_position)
       position = item_positions[digit]

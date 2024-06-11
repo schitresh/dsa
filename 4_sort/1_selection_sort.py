@@ -7,13 +7,14 @@ examples = [
   }
 ]
 
+# Selects the smallest element from the uniterated array and puts it at the front
+# Not a stable sort, since the swapping can place an element at any index
 # Time Complexity: O(n^2)
-## Best Case: O(n^2)
-## Worst Case: O(n^2)
-# Space Complexity: O(1)
+  # Best, Worst, Average: O(n^2)
+# Auxiliary Space: O(1)
 class SelectionSort:
-  def swap(self, array, index_1, index_2):
-    array[index_1], array[index_2] = array[index_2], array[index_1]
+  def swap(self, array, i, j):
+    array[i], array[j] = array[j], array[i]
 
   def solve(self, array):
     for i in range(len(array)):

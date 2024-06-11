@@ -22,8 +22,7 @@
 - Linear Search
   - Sentinel Linear Search
 - Two Pointer Approach
-  - Find pair in unsorted array with given sum
-  - Find pair in sorted array with given sum
+  - Find pair in array with given sum
   - Find triplet in array with given sum
 - Binary Search (Iterative, Recursive)
   - Meta Binary Search

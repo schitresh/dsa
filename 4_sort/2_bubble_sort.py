@@ -7,19 +7,29 @@ examples = [
   }
 ]
 
+# Keep swapping the adjacent elements
+# Till the smallest element bubbles up at the front
+# Stable sort since only the adjacent elements are swapped
 # Time Complexity: O(n^2)
-## Best Case: O(n)
-## Worst Case: O(n^2)
-# Space Complexity: O(1)
+  # Best: O(n)
+  # Worst, Average: O(n^2)
+# Auxiliary Space: O(1)
 class BubbleSort:
-  def swap(self, array, index_1, index_2):
-    array[index_1], array[index_2] = array[index_2], array[index_1]
+  def swap(self, array, i, j):
+    array[i], array[j] = array[j], array[i]
 
   def solve(self, array):
     for i in range(len(array)):
+      swapped = True
+
       for j in range(len(array) - 1 - i):
         if array[j] > array[j + 1]:
           self.swap(array, j, j + 1)
+          swapped = True
+
+      # If no element is swapped, it means array is sorted
+      if not swapped:
+        break
 
     return array
 
