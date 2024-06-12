@@ -12,26 +12,23 @@ examples = [
   }
 ]
 
-# Time Complexity: O(2^n)
-# Space Complexity: O(2^n)
+# Maintain two pointers left & right
+# Iterate left over all elements of the array
+# For each left, generate all subarrays from right = left to n
+# Time Complexity: O(n^2)
+# Auxiliary Space: O(n)
 class Solution:
-  def __init__(self):
-    self.subarrays = []
-
-  def generate_subarrays(self, array, left, right):
-    if left >= len(array):
-      return
-
-    if right >= len(array):
-      left += 1
-      self.generate_subarrays(array, left, left)
-      return
-
-    self.subarrays.append(array[left : right + 1])
-    self.generate_subarrays(array, left, right + 1)
-
   def solve(self, array):
-    self.generate_subarrays(array, 0, 0)
-    return self.subarrays
+    subarrays = []
+
+    for left in range(len(array)):
+      temp = []
+
+      for right in range(left, len(array)):
+        item = array[right]
+        temp.append(item)
+        subarrays.append(temp.copy())
+
+    return subarrays
 
 test_class(Solution, examples)

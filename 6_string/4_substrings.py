@@ -10,7 +10,7 @@ examples = [
 ]
 
 # Time Complexity: O(n^3)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class Solution:
   def solve(self, string):
     substrings = []
@@ -22,7 +22,7 @@ class Solution:
     return substrings
 
 # Time Complexity: O(n^2)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution2:
   def solve(self, string):
     substrings = []

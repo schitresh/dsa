@@ -33,7 +33,7 @@
 - Exponential Search
 - Fibonacci Search
 
-### Sorting
+## Sorting
 - Stability in sorting algorithms
 - Selection Sort
 - Bubble Sort

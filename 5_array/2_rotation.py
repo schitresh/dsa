@@ -16,8 +16,9 @@ examples = [
   }
 ]
 
+# Rotate items one by one, by iterating rotate_by number of times
 # Time Complexity: O(n * rotate_by)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class RotateOneByOne:
   def rotate_by_one(self, array):
     last_index = len(array) - 1
@@ -38,8 +39,9 @@ class RotateOneByOne:
 
     return array
 
+# Find the rotated place of an element and store it in another array
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class RotateUsingTempArray:
   def solve(self, array, rotate_by):
     array = array.copy()
@@ -52,8 +54,11 @@ class RotateUsingTempArray:
 
     return output
 
+# Divide the array into different sets
+# The number of sets is equal to GCD of array length & rotate_by
+# Rotate elements among these sets for each position of the first set
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class RotateByJuggling:
   def gcd(self, a, b):
     if b == 0:
@@ -64,25 +69,25 @@ class RotateByJuggling:
   def solve(self, array, rotate_by):
     array = array.copy()
     rotate_by = rotate_by % len(array)
-    gcd = self.gcd(len(array), rotate_by)
+    size_of_set = self.gcd(len(array), rotate_by)
 
-    for i in range(gcd):
-      j = i
-      # For left rotation, do j + rotate_by
-      k = (j - rotate_by) % len(array)
-      temp = array[j]
+    for pos in range(size_of_set):
+      temp = array[pos]
+      index = pos
+      # For left rotation, do index + rotate_by
+      next_index = (index - rotate_by) % len(array)
 
-      while k != i:
-        array[j] = array[k]
-        j = k
-        k = (j - rotate_by) % len(array)
+      while next_index != pos:
+        array[index] = array[next_index]
+        index = next_index
+        next_index = (index - rotate_by) % len(array)
 
-      array[j] = temp
+      array[index] = temp
 
     return array
 
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class RotateByReversal:
   # In-built methods will copy the array & increase space complexity
   def reverse(self, array, left, right):
@@ -94,6 +99,7 @@ class RotateByReversal:
   def solve(self, array, rotate_by):
     array = array.copy()
     rotate_by = rotate_by % len(array)
+
     # 5, 4, 3, 2, 1
     self.reverse(array, 0, len(array) - 1)
     # 4, 5, 3, 2, 1

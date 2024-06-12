@@ -1,3 +1,4 @@
+from utils import test_class
 from random import randint
 
 # Shuffle an Array Randomly
@@ -10,8 +11,8 @@ examples = [
 # Time Complexity: O(n)
 # Space Complexity: O(1)
 class FisherYatesShuffle:
-  def swap(self, array, index_1, index_2):
-    array[index_1], array[index_2] = array[index_2], array[index_1]
+  def swap(self, array, i, j):
+    array[i], array[j] = array[j], array[i]
 
   def solve(self, array):
     for index in range(len(array) - 1, 0, -1):

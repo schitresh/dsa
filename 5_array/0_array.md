@@ -3,3 +3,9 @@
   - This makes it easier to calculate the position of each element
   - By simply adding an offset to a base value (memory location of first element)
 - Allows for efficient access to elements using indices
+- Types: one-dimensional, multi-dimensional
+- Applications
+  - Storing data for processing
+  - Representing data in tables and matrices
+  - Implementing data structures like stacks, queues
+  - Creating dynamic data structures like linked lists, trees
