@@ -21,7 +21,7 @@ examples = [
 # Start from a node, and keep finding the shortest path for each neighbor
 # e = edges
 # Time Complexity: O(e + v * logv)
-# Space Complexity: O(e)
+# Auxiliary Space: O(e)
 class Dijkstra:
   def solve(self, graph):
     pqueue = PriorityQueue()

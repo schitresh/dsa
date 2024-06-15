@@ -10,7 +10,7 @@ examples = [
 ]
 
 # Time Complexity: O(n + m)
-# Space Complexity: O(m)
+# Auxiliary Space: O(m)
 class Solution:
   # Longest proper prefix which is also a suffix
   # Proper prefix means that the whole word is not considered a prefix

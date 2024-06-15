@@ -21,7 +21,7 @@ examples = [
 ]
 
 # Time Complexity: O(2^n)
-# Space Complexity: O(n) due to recursive stack
+# Auxiliary Space: O(n) due to recursive stack
 class Solution:
   def count_subsequences(self, string, key, string_index, key_index):
     if key_index == len(key):
@@ -45,7 +45,7 @@ class Solution:
     return self.count_subsequences(string, key, 0, 0)
 
 # Time Complexity: O(n * m)
-# Space Complexity: O(n * m)
+# Auxiliary Space: O(n * m)
 # Dynamic Programming
 class Solution2:
   def solve(self, string, key):
@@ -72,7 +72,7 @@ class Solution2:
     return count[len(key)][len(string)]
 
 # Time Complexity: O(n * m)
-# Space Complexity: O(n * m) ignoring recursion stack
+# Auxiliary Space: O(n * m) ignoring recursion stack
 class Solution3:
   def __init__(self):
     self.count = [[]]

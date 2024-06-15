@@ -61,6 +61,7 @@
 ## String
 - Substrings
 - Subsequences
+- Palindromes
 - Pattern Matching
   - KMP Algorithm
   - Rabin Karp Algorithm
@@ -69,7 +70,6 @@
   - Boyer Moore Algorithm
   - Aho Corasick
   - Manachar Algorithm
-- Palindromes
 
 ## Linked List
 - Types

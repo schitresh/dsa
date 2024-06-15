@@ -16,7 +16,7 @@ examples = [
 ]
 
 # Time Complexity: O(2^(n * m))
-# Space Complexity: O(n * m) due to recursive stack
+# Auxiliary Space: O(n * m) due to recursive stack
 class Solution:
   def find_lcs(self, string1, string2, index1, index2):
     if index1 == len(string1) or index2 == len(string2):

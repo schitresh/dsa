@@ -10,7 +10,7 @@ examples = [
 ]
 
 # Time Complexity: O(n * 2^n)
-# Space Complexity: O(n) due to recursive stack
+# Auxiliary Space: O(n) due to recursive stack
 class Solution:
   def __init__(self):
     self.subsequences = []
@@ -26,7 +26,7 @@ class Solution:
     return self.subsequences
 
 # Time Complexity: O(2^n)
-# Space Complexity: O(n) due to recursive stack
+# Auxiliary Space: O(n) due to recursive stack
 class Solution2:
   def __init__(self):
     self.subsequences = []

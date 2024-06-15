@@ -18,7 +18,7 @@ ASCII_COUNT = 256
 
 # Time Complexity: O(n + m)
 ## Worst Case: O(n * m)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class RabinKarp:
   def __init__(self, key):
     self.key = key

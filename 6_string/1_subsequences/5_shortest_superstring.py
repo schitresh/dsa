@@ -13,7 +13,7 @@ examples = [
 ]
 
 # Time Complexity: O(n^3 * max_length))
-# Space Complexity: O(n * max_length) due to recursive stack
+# Auxiliary Space: O(n * max_length) due to recursive stack
 # Greedy Approximate Algorithm
 class Solution:
   def overlap_length(self, string1, string2):
@@ -72,7 +72,7 @@ class Solution:
 
 
 # Time Complexity: O(n^3 * max_length))
-# Space Complexity: O(n * max_length) due to recursive stack
+# Auxiliary Space: O(n * max_length) due to recursive stack
 # Travelling Salesman DP Approach
 class Solution2:
   def overlap_length(self, string1, string2):

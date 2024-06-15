@@ -13,7 +13,7 @@ examples = [
 # If there is total match, it's possible that the next chars outside Z-box might match, so re-calculate Z-box
 
 # Time Complexity: O(n + m)
-# Space Complexity: O(m)
+# Auxiliary Space: O(m)
 class ZAlgorithm:
   def z_array(self, text):
     array = [0] * len(text)

@@ -1,7 +1,9 @@
 from utils import test_class
 
-# For a given string, swap char with given places after it.
-# Repeat this for given number of times advancing one position at a time.
+# Traverse a string from the beginning
+# Swap a char with the char after k places from it
+# Repeat this process for the given number of times
+# Input: [string, times, k_places]
 examples = [
   {
     'input': ['abcdefgh', 4, 3],
@@ -14,8 +16,7 @@ examples = [
 ]
 
 # Time Complexity: O(swap_till)
-# Space Complexity: O(1)
-# Brute Force
+# Auxiliary Space: O(1)
 class Solution:
   def solve(self, string, times, places):
     places = places % len(string)
@@ -29,7 +30,7 @@ class Solution:
     return ''.join(string)
 
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution2:
   def rotate_left(self, string, position):
     return string[position : ] + string[0 : position]
@@ -38,6 +39,7 @@ class Solution2:
     places = places % len(string)
     frequency = times // len(string)
     remaining_times = times % len(string)
+
     rotate_part1_by = ((len(string) % places) * frequency) % places
     rotate_part2_by = (places * frequency) % (len(string) - places)
 

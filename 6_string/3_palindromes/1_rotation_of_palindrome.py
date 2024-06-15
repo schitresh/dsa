@@ -20,7 +20,7 @@ examples = [
 ]
 
 # Time Complexity: O(n^2)
-# Space Complexity: O(n) for storing rotated string
+# Auxiliary Space: O(n) for storing rotated string
 class Solution:
   def is_palindrome(self, string):
     left = 0
@@ -45,7 +45,7 @@ class Solution:
     return False
 
 # Time Complexity: O(n^2)
-# Space Complexity: O(n) for storing rotated string
+# Auxiliary Space: O(n) for storing rotated string
 class Solution2:
   def is_palindrome(self, string):
     left = 0

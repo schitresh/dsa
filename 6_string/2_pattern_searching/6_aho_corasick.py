@@ -22,7 +22,7 @@ ASCII_OF_A = 97
 # Failure Link Construction: O(n)
 # Searching: O(w + m)
 
-# Space Complexity: O(w * a)
+# Auxiliary Space: O(w * a)
 
 # n = length of text
 # w = length of keywords

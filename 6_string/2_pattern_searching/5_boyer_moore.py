@@ -19,7 +19,7 @@ ASCII_COUNT = 256
 # Good Suffix Heuristics: To do
 
 # Time Complexity: O(n + m)
-# Space Complexity: O(m)
+# Auxiliary Space: O(m)
 class BoyerMoore:
   def __init__(self, key):
     self.key = key

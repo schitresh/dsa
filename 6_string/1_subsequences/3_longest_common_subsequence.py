@@ -17,7 +17,7 @@ examples = [
 ]
 
 # Time Complexity: O(2^(n * m))
-# Space Complexity: O(n * m) due to recursive stack
+# Auxiliary Space: O(n * m) due to recursive stack
 class Solution:
   def find_lcs(self, string1, string2, index1, index2):
     if index1 == len(string1) or index2 == len(string2):
@@ -34,7 +34,7 @@ class Solution:
     return self.find_lcs(string1, string2, 0, 0)
 
 # Time Complexity: O(n * m))
-# Space Complexity: O(n * m) due to recursive stack
+# Auxiliary Space: O(n * m) due to recursive stack
 # Memoization
 class Solution2:
   def __init__(self):
@@ -61,7 +61,7 @@ class Solution2:
     return self.find_lcs(string1, string2, 0, 0)
 
 # Time Complexity: O(n * m))
-# Space Complexity: O(n * m) due to recursive stack
+# Auxiliary Space: O(n * m) due to recursive stack
 # Tabulation
 class Solution3:
   def solve(self, string1, string2):
@@ -78,7 +78,7 @@ class Solution3:
     return lcs[len(string1)][len(string2)]
 
 # Time Complexity: O(n * m))
-# Space Complexity: O(m) due to recursive stack
+# Auxiliary Space: O(m) due to recursive stack
 # Tabulation with Space Optimization
 class Solution4:
   def solve(self, string1, string2):

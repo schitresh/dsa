@@ -8,28 +8,29 @@ examples = [
   }
 ]
 
+# Iterate through the string
+# For each iteration, copy chars from the index till it reaches the index again
 # Time Complexity: O(n^2)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution:
   def solve(self, string):
     output = []
 
     for i in range(len(string)):
       j = i
-      k = 0
-      rotated_string = [0] * len(string)
+      rotated_string = []
 
-      while k < len(string):
-        rotated_string[k] = string[j]
+      for _ in range(len(string)):
+        rotated_string.append(string[j])
         j = (j + 1) % len(string)
-        k += 1
 
       output.append(''.join(rotated_string))
 
     return output
 
+# Concat string with itself and create all the substrings
 # Time Complexity: O(n^2)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution2:
   def solve(self, string):
     output = []

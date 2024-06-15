@@ -10,7 +10,7 @@ examples = [
 ]
 
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class Solution:
   def solve(self, array, window_size):
     if len(array) < window_size:

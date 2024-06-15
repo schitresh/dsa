@@ -13,7 +13,7 @@ examples = [
 ]
 
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class Solution:
   def solve(self, array):
     left = 0

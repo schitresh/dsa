@@ -14,7 +14,7 @@ examples = [
 ASCII_COUNT = 256
 
 # Time Complexity: O(n + m)
-# Space Complexity: O(m)
+# Auxiliary Space: O(m)
 class Solution:
   def next_state(self, key, state, ascii_index):
     # If the character matches, next state will be state + 1

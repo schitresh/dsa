@@ -20,7 +20,7 @@ examples = [
 # Start from a node, and keep finding the shortest path for each neighbor
 # e = edges
 # Time Complexity:
-# Space Complexity:
+# Auxiliary Space:
 class Prim:
   def solve(self, graph):
     pqueue = PriorityQueue()

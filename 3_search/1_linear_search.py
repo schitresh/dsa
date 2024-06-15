@@ -16,7 +16,7 @@ examples = [
 ]
 
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 # Comparisons: 2n + 1
   # n + 1 comparisons to run the loop (checking that index is not out of bounds)
   # n comparisons to compare array items and key
@@ -29,7 +29,7 @@ def linear_search(array, key):
 
 # Linear search with less comparisons
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 # Comparisons: n + 2
   # n comparisons to compare array items and key
   # 2 comparisons after the loop to check if key is found

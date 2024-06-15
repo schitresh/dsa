@@ -9,7 +9,7 @@ examples = [
 ]
 
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class FisherYatesShuffle:
   def swap(self, array, i, j):
     array[i], array[j] = array[j], array[i]

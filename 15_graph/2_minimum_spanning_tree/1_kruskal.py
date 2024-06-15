@@ -11,7 +11,7 @@ examples = [
 
 # e = edges
 # Time Complexity: O(e * loge)
-# Space Complexity: O(e)
+# Auxiliary Space: O(e)
 class Kruskal:
   def root(self, parents, node):
     if parents[node] == node:

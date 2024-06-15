@@ -1,4 +1,4 @@
-## Space Complexity
+## Auxiliary Space
 - Auxiliary Space
   - The extra space that is taken by an algorithm temporarily to finish its work
 - Space Complexity

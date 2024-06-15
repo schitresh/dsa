@@ -10,7 +10,7 @@ examples = [
 ASCII_COUNT = 256
 
 # Time Complexity: O(2^n)
-# Space Complexity: O(n) due to recursive stack
+# Auxiliary Space: O(n) due to recursive stack
 class Solution:
   def __init__(self):
     self.count = 0
@@ -30,15 +30,16 @@ class Solution:
     self.generate_subsequences(string, '', 0)
     return self.count
 
-# Time Complexity: O(n)
-# Space Complexity: O(n)
 # Dynamic Programming
+# Time Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution2:
   def solve(self, string):
     # Last index where a char occurred
     char_last_index = [-1] * (ASCII_COUNT + 1)
-    # Start with length 0 since single chars will be appended to it
-    # There will be one subsequence with length 0
+    # Count of distinct subsequences till length denoted by index
+    # There will be only one subsequence with length 0, i.e. empty string
+    # Start with length 0 because further subsequences will append chars to it
     length_count = [1]
 
     for i in range(len(string)):
@@ -47,21 +48,22 @@ class Solution2:
       last_index = char_last_index[char_num]
       char_last_index[char_num] = i
 
-      # For each of the last subsequences, we can either include or exclude the current char
+      # For each of the last subsequences,
+      # we can either include or exclude the current char
       # So for current iteration, count will be 2 * count of last subsequences
-      length_count.append(2 * length_count[length - 1])
+      count = 2 * length_count[length - 1]
+      length_count.append(count)
 
       if last_index != -1:
-        # Example: Assume that the char is 'b'
-        # Last occurrence
-        # When the char occurred last time, it interacted with the previous subsequences and added the char
+        # Assume that the char is 'b'
+        # Last occurrence:
+        # When the char occurred last time, it was appended to the previous subsequences
         # Previous subsequences: '', 'a'
         # Iteration subsequences: '', 'a', 'b', 'ab'
-        # Length of previous subsequences = last length - 1 = last index
-
-        # Current occurrence
-        # All those subsequences are carry forwarded here and we are again appending the char again
-        # So it results in duplication of the same subsequences that were formed then
+        # Length for these previous subsequences = last_length - 1 = last_index
+        # Current occurrence:
+        # All those subsequences are carry forwarded here
+        # And we are appending the char again to those subsequences creating duplicates
         # Previous subsequences: '', 'a', 'b', 'ab', ....
         # Iteration subsequences: '', 'a', 'b', 'ab', ...., 'b', 'ab', 'bb', 'abb', ....
         length_count[length] -= length_count[last_index]
@@ -71,7 +73,7 @@ class Solution2:
 
 
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(n)
 # Improvement over DP solution: Store the count directly instead of tracking indexes
 class Solution3:
   def solve(self, string):
@@ -79,10 +81,10 @@ class Solution3:
       return 0
 
     # Count of previous subsequences to last occurrence for each char
-    # Instead of last index in DP solution, this stores the count directly
+    # Instead of storing last index in DP solution, this stores the count directly
     char_last_prev_count = [-1] * (ASCII_COUNT + 1)
-    # Start with length 0 since single chars will be appended to it
-    # There will be one subsequence with length 0
+    # Start with length 0, it will have one subsequence, i.e. empty string
+    # Further subsequences will append char to it
     count = 1
 
     for i in range(len(string)):
