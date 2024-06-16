@@ -17,6 +17,7 @@ examples = [
   },
 ]
 
+# Recursion
 # Time Complexity: O(2^(n + m))
 # Auxiliary Space: O(2^(n + m)) due to recursive stack
 class Solution:
@@ -34,7 +35,7 @@ class Solution:
   def solve(self, string1, string2):
     return self.find_lcs(string1, string2, 0, 0)
 
-# Memoization
+# Dynamic Programming with Memoization
 # Time Complexity: O(n * m)
 # Auxiliary Space: O(n * m)
 class Solution2:
@@ -61,7 +62,7 @@ class Solution2:
     self.lcs = [[-1] * len(string2) for _ in range(len(string1))]
     return self.find_lcs(string1, string2, 0, 0)
 
-# Tabulation
+# Dynamic Programming with Tabulation
 # Time Complexity: O(n * m)
 # Auxiliary Space: O(n * m)
 class Solution3:

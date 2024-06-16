@@ -20,6 +20,7 @@ examples = [
   }
 ]
 
+# Recursion
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(2^n) due to recursive stack
 class Solution:

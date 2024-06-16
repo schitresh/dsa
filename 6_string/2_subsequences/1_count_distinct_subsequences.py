@@ -9,6 +9,7 @@ examples = [
 
 ASCII_COUNT = 256
 
+# For every char, include and exclude it and proceed further
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(2^n) due to recursive stack
 class Solution:
