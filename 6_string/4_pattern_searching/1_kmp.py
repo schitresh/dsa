@@ -24,16 +24,26 @@ class Solution:
     right = 1
 
     while right < len(key):
+      # If chars are equal, it means prefix equals suffix
+      # Here prefix is string[0..left] and suffix is string[(right-left)..right]
+      # Because 0..left is already matched, lps of right should be left + 1
       if key[left] == key[right]:
+        lps[right] = left + 1
         left += 1
-        lps[right] = left
         right += 1
       else:
-        if left > 0:
-          left = lps[left - 1]
-        else:
+        # Since the chars don't match and left is at the start of the key
+        # lps of right should be 0 and right should be moved ahead to check next suffix
+        if left == 0:
           lps[right] = 0
           right += 1
+        # The current chars don't match and left at the start
+        # That means prefix till (left - 1) matched with suffix till (right - 1)
+        # But instead of starting from the start, we can check if there any suffix
+        # in the current prefix (left - 1) that matches any previous prefix
+        # If so, we can start matching from there, else lps[left - 1] will anyways be 0
+        else:
+          left = lps[left - 1]
 
     return lps
 
@@ -52,10 +62,10 @@ class Solution:
           indices.append(text_index - key_index)
           key_index = lps[key_index - 1]
       else:
-        if key_index > 0:
-          key_index = lps[key_index - 1]
-        else:
+        if key_index == 0:
           text_index += 1
+        else:
+          key_index = lps[key_index - 1]
 
     return indices
 
