@@ -11,20 +11,24 @@ ASCII_COUNT = 256
 
 # Calculate hash for the key
 # Keep a sliding window in text and keep rolling its hash
-# Consider both the hashes and if equal carry out the match process
-# The hash function might have same value even if pattern is not matching, this is called spurious hit
-# To minimize these hits, choose a good hash function
+# Consider both the hashes, if they are equal carry out the match process
+# The hash function might have the same value even if the pattern does not match
+# This is called spurious hit, choose a good hash function to minimize these hits
 # For example, abc = 1 * 26^2 + 2 * 26^1 + 3 * 26^0
+Choose a prime
 
 # Time Complexity: O(n + m)
-## Worst Case: O(n * m)
+  # Worst Case: O(n * m)
 # Auxiliary Space: O(1)
 class RabinKarp:
   def __init__(self, key):
-    self.key = key
-    # For hash function. The higher the prime number, the lower the collisions.
+    # Prime number for hash function
+    # The higher the prime number, the lower the collisions
     self.prime_number = 101
+
+    self.key = key
     self.key_hash = self.calculate_hash(key)
+
     # Multiplier for most significant bit of key
     self.msb_multiplier = self.calculate_msb_multiplier()
 
