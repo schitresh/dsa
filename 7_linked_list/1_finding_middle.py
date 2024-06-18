@@ -12,6 +12,9 @@ examples = [
   }
 ]
 
+# Using Floyd’s Cycle Finding Algorithm
+# Time Complexity: O(n)
+# Auxiliary Space: O(1)
 class Solution:
   def solve(self, head):
     if not head:

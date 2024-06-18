@@ -73,4 +73,4 @@ def test():
   print('Search(5):')
   print(linked_list.search(5).key)
 
-# test()
+test()
