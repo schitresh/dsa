@@ -12,7 +12,7 @@ examples = [
     'input': [linked_list_with_loop().head],
     'output': True
   },
-    {
+  {
     'input': [circular_list_from_array([1, 2, 3, 4, 5, 6]).head],
     'output': True
   },
