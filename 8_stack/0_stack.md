@@ -15,3 +15,25 @@
 - Backtracking to store previous state
 - OS: Memory management
 - Compiler Design: Parsing & syntax analysis
+
+## Python
+```py
+from queue import LifoQueue
+stack = LifoQueue()
+stack = LifoQueue(maxsize=10)
+stack.put('a')
+stack.get()
+stack.qsize()
+stack.empty()
+stack.full()
+
+from collections import deque
+stack = deque()
+stack = deque(maxlen=10)
+stack.append('a')
+stack.pop()
+stack.clear()
+stack.count(x)
+stack.insert(i, x)
+stack.remove(x)
+```
