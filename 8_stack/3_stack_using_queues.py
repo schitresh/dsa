@@ -1,5 +1,4 @@
 from queue import PriorityQueue, Queue
-
 from utils import print_class_name
 
 # Push the new item in the queue directly
