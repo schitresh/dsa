@@ -206,6 +206,11 @@
 - Operations: Insert, Search, Delete
 - Count distinct rows in a binary matrix
 
+## Divide and Conquer
+- Master Theorem
+- Sliding Window
+- Merge Intervals
+
 ## Greedy
 - Activity Selection Problem
 - Fractional Knapsack
@@ -215,11 +220,6 @@
 - Kruskal Algorithm
 - Ford Fulkerson Algorithm
 - Prim Algorithm
-
-## Divide and Conquer
-- Master Theorem
-- Sliding Window
-- Merge Intervals
 
 ## Recursion
 - Towers of Hanoi
