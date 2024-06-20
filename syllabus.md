@@ -238,13 +238,13 @@
 - Hamiltonian cycle
 
 ### Dynamic Programming
-- Memoization vs Tabulation
+- Optimal Subtructure Property
+- Overlapping Subproblems Property
+- Memoization (Top-down) vs Tabulation (Bottom-up)
 - Optimization vs Combinatorial
-- Bottom up vs Top down
 - Shortest Path
   - Bellman Ford Algorithm
   - Floyd Warshall Algorithm
-- Optimal vs Overlapping Substructure Property
 - Pattern Matching
 - State Space Reduction
   - Longest Common Subsequence

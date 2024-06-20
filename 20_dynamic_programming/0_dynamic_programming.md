@@ -10,7 +10,7 @@
     - Example: Finding minimum cost path in a weighted graph
       - Find minimum cost path from source to each intermediate node
       - Find minimum cost path from each intermediate to destination node
-  - Overlapping subproblem
+  - Overlapping subproblems
     - The same subproblems are solved repeatedly in different parts of the problem
     - Example: Computing fibonacci series
       - f(n) = f(n - 1) + f(n - 2) and f(n - 1) = f(n - 2) + f(n - 3)
