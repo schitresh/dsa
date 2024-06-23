@@ -1,5 +1,5 @@
 from binary_tree import Node
-from binary_tree_utils import sample_binary_tree
+from binary_nary_tree_utils import sample_binary_tree
 from queue import Queue
 
 from utils import print_class_name

@@ -1,19 +1,11 @@
 from queue import Queue
-from tree_utils import sample_tree1
-from utils import print_class_name
+from nary_tree import NaryTree
+from nary_tree_utils import test_class
 
-class Node:
-  def __init__(self, key):
-    self.key = key
-    self.children = []
-
-  def assign_children(self, *children):
-    self.children = list(map(Node, children))
-
-class Tree:
-  def __init__(self, root = None):
-    self.root = Node(root)
-
+class Tree(NaryTree):
+  # Time Complexity: O(n)
+  # Auxiliary Space: O(n), due to recursive stack
+    # Recursive stack will take O(h) space which can be n in worst case
   def siblings(self, key):
     parent = self.parent(self.root, key)
     if not parent: return []
@@ -22,10 +14,6 @@ class Tree:
     siblings.remove(key)
     return siblings
 
-  # Time Complexity: O(n)
-  # Auxiliary Space: O(n), due to recursive stack
-    # Recursive stack will take O(h) space, where h is height of the tree
-    # But in worst case h can be n
   def parent(self, node, key):
     if not node:
       return
@@ -37,10 +25,7 @@ class Tree:
       parent = self.parent(child, key)
       if parent: return parent
 
-class Tree2:
-  def __init__(self, root = None):
-    self.root = Node(root)
-
+class Tree2(NaryTree):
   # Time Complexity: O(n)
   # Auxiliary Space: O(n)
   def siblings(self, key):
@@ -66,12 +51,20 @@ class Tree2:
     siblings.remove(key)
     return siblings
 
-def test(klass):
-  print_class_name(klass)
-  tree = sample_tree1(klass)
-  print(tree.siblings('a')) # []
-  print(tree.siblings('d')) # [b, c, e]
-  print(tree.siblings('i')) # [h, j]
+examples = [
+  {
+    'input': ['a'],
+    'output': []
+  },
+  {
+    'input': ['d'],
+    'output': ['b', 'c', 'e']
+  },
+  {
+    'input': ['i'],
+    'output': ['h', 'j']
+  }
+]
 
-test(Tree)
-test(Tree2)
+test_class(Tree, 'siblings', examples)
+test_class(Tree2, 'siblings', examples)

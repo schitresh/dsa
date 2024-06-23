@@ -1,38 +1,28 @@
 from queue import LifoQueue
-from tree_utils import sample_tree1
-from utils import print_class_name
+from nary_tree import NaryTree, Node
+from nary_tree_utils import test_class
 
-class Node:
-  def __init__(self, key):
-    self.key = key
-    self.children = []
+class Tree(NaryTree):
+  def __init__(self, *args):
+    super().__init__(*args)
+    self.leaves = []
 
-  def assign_children(self, *children):
-    self.children = list(map(Node, children))
-
-class Tree:
-  def __init__(self, root = None):
-    self.root = Node(root)
-    self.leaf_nodes = []
-
-  def get_leaf_nodes(self):
+  def leaf_keys(self):
     self.reach_leaf_nodes(self.root)
-    return self.leaf_nodes
+    return self.leaves
 
   # Time Complexity: O(n)
   # Auxiliary Space: O(n), due to recursive stack
-    # Recursive stack will take O(h) space, where h is height of the tree
-    # But in worst case h can be n
+    # Recursive stack will take O(h) space which can be n in worst case
   def reach_leaf_nodes(self, node):
     if not node:
       return
 
     if len(node.children) == 0:
-      self.leaf_nodes.append(node.key)
+      self.leaves.append(node.key)
 
     for child in node.children:
       self.reach_leaf_nodes(child)
-
 
 class Tree2:
   def __init__(self, root = None):
@@ -40,7 +30,7 @@ class Tree2:
 
   # Time Complexity: O(n)
   # Auxiliary Space: O(n)
-  def get_leaf_nodes(self):
+  def leaf_keys(self):
     leaf_nodes = []
     # Stack used for DFS, Can use Queue instead for BFS
     stack = LifoQueue()
@@ -57,11 +47,13 @@ class Tree2:
 
     return leaf_nodes
 
-def test(klass):
-  print_class_name(klass)
-  tree = sample_tree1(klass)
-  # [k, g, c, h, n, m, j, e]
-  print(tree.get_leaf_nodes())
 
-test(Tree)
-test(Tree2)
+examples = [
+  {
+    'input': [],
+    'output': ['k', 'g', 'c', 'h', 'n', 'm', 'j', 'e']
+  }
+]
+
+test_class(Tree, 'leaf_keys', examples)
+test_class(Tree2, 'leaf_keys', examples)
