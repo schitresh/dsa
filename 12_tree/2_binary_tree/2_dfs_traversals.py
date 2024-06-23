@@ -1,6 +1,6 @@
-from binary_tree import Node
-from binary_nary_tree_utils import sample_binary_tree
 from queue import LifoQueue
+from binary_tree import BinaryTree
+from binary_tree_utils import sample_binary_tree
 
 from utils import print_class_name
 
@@ -10,9 +10,9 @@ from utils import print_class_name
   # Postorder: Left -> Right -> Node
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
-class Tree:
-  def __init__(self, root = None) -> None:
-    self.root = Node(root)
+class Tree(BinaryTree):
+  def __init__(self, *args) -> None:
+    super().__init__(*args)
     self.inorder_traversal = []
     self.preorder_traversal = []
     self.postorder_traversal = []
@@ -50,10 +50,7 @@ class Tree:
     self.traverse_postorder(node.right)
     self.postorder_traversal.append(node.key)
 
-class Tree2:
-  def __init__(self, root) -> None:
-    self.root = Node(root)
-
+class Tree2(BinaryTree):
   def inorder(self):
     inorder_traversal = []
     stack = LifoQueue()
@@ -109,6 +106,7 @@ class Tree2:
 def test(klass):
   print_class_name(klass)
   tree = sample_binary_tree(klass)
+
   # [d, b, h, e, a, i, k, f, j, c, g]
   print(tree.inorder())
   # [a, b, d, e, h, c, f, i, k, j, g]

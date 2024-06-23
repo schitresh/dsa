@@ -1,5 +1,4 @@
 from queue import Queue
-from utils import print_class_name
 
 class Tree:
   def __init__(self, root):

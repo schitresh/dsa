@@ -1,14 +1,11 @@
-from binary_tree import Node
-from binary_tree_array import sample_tree_array
 from queue import Queue
+from binary_tree import BinaryTree, Node
+from binary_tree_array import sample_tree_array
 from utils import print_class_name
 
 # Given the array representation of binary tree
 # Construct the binary tree using nodes
-class Tree:
-  def __init__(self, root = None):
-    self.root = Node(root)
-
+class Tree(BinaryTree):
   # Time Complexity: O(n)
   # Auxiliary Space: O(n)
   def construct_from_array(self, array):
@@ -35,28 +32,11 @@ class Tree:
         array[right_index] = node.right
         queue.put(right_index)
 
-  def level_order(self):
-    traversal = []
-    # Use Stack for iteration based DFS
-    queue = Queue()
-    queue.put([self.root, 0])
-
-    while not queue.empty():
-      node, level = queue.get()
-
-      if level == len(traversal):
-        traversal.append([])
-      traversal[level].append(node.key)
-
-      if node.left: queue.put([node.left, level + 1])
-      if node.right: queue.put([node.right, level + 1])
-
-    return traversal
-
 def test(klass):
   print_class_name(klass)
   tree = klass()
   array = sample_tree_array()
+
   tree.construct_from_array(array)
   print(tree.level_order())
 

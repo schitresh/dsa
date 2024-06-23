@@ -1,16 +1,10 @@
-from binary_tree import Node
-from binary_nary_tree_utils import sample_binary_tree
 from queue import Queue
-
-from utils import print_class_name
+from binary_tree import BinaryTree
+from binary_tree_utils import test_class
 
 # Time Complexity: O(n * log(n))
 # Auxiliary Space: O(n)
-class Tree:
-  def __init__(self, root = None) -> None:
-    self.root = Node(root)
-    self.diagonal_traversal = []
-
+class Tree(BinaryTree):
   def diagonal_order(self):
     self.diagonal_traversal = []
     self.traverse_diagonal(self.root, 0)
@@ -28,37 +22,36 @@ class Tree:
 
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
-class Tree2:
-  def __init__(self, root = None) -> None:
-    self.root = Node(root)
-
+class Tree2(BinaryTree):
   def diagonal_order(self):
     traversal = []
     queue = Queue()
     current = self.root
+    diagonal = 0
 
     while current:
-      traversal.append(current.key)
+      if diagonal == len(traversal): traversal.append([])
+      traversal[diagonal].append(current.key)
 
       if current.left:
-        queue.put(current.left)
+        queue.put([current.left, diagonal + 1])
 
       if current.right:
         current = current.right
       else:
         if not queue.empty():
-          current = queue.get()
+          current, diagonal = queue.get()
         else:
           current = None
 
     return traversal
 
-def test(klass):
-  print_class_name(klass)
-  tree = sample_binary_tree(klass)
-  # [a, c, g, b, e, f, j, d, h, i, k]
-  print(tree.diagonal_order())
-  print()
+examples = [
+  {
+    'input': [],
+    'output': [['a', 'c', 'g'], ['b', 'e', 'f', 'j'], ['d', 'h', 'i', 'k']]
+  }
+]
 
-test(Tree)
-test(Tree2)
+test_class(Tree, 'diagonal_order', examples)
+test_class(Tree2, 'diagonal_order', examples)
