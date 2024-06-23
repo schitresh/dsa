@@ -8,7 +8,8 @@ from utils import print_class_name
   # Inorder: Left -> Node -> Right
   # Preorder: Node -> Left -> Right
   # Postorder: Left -> Right -> Node
-
+# Time Complexity: O(n)
+# Auxiliary Space: O(n)
 class Tree:
   def __init__(self, root = None) -> None:
     self.root = Node(root)

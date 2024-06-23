@@ -1,6 +1,5 @@
 from binary_tree import Node
 from binary_tree_utils import sample_binary_tree
-from queue import LifoQueue
 
 from utils import print_class_name
 
@@ -39,32 +38,11 @@ class Tree:
 
   def preorder(self):
     preorder_traversal = []
-    stack = LifoQueue()
-    stack.put(self.root)
-
-    while not stack.empty():
-      node = stack.get()
-      preorder_traversal.append(node.key)
-
-      if node.right: stack.put(node.right)
-      if node.left: stack.put(node.left)
 
     return preorder_traversal
 
   def postorder(self):
     postorder_traversal = []
-    stack = LifoQueue()
-    stack.put([self.root, True])
-
-    while not stack.empty():
-      node, downwards = stack.get()
-
-      if downwards:
-        stack.put([node, False])
-        if node.right: stack.put([node.right, True])
-        if node.left: stack.put([node.left, True])
-      else:
-        postorder_traversal.append(node.key)
 
     return postorder_traversal
 
