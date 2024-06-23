@@ -32,9 +32,10 @@ class Tree:
 
     return False
 
-def test():
-  tree = sample_tree1(Tree)
+def test(klass):
+  print_class_name(klass)
+  tree = sample_tree1(klass)
   print(tree.search(tree.root, 'n')) # True
   print(tree.search(tree.root, 'zz')) # False
 
-test()
+test(Tree)
