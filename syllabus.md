@@ -127,19 +127,12 @@
 - Orders: Preorder, Postorder, Inorder, Level-order
 - Print: Left, Right, Top, Bottom Views
 - Balanced and Unbalanced Trees
-- Binary Tree
-  - Binary Search Tree, Full Binary Tree, Complete Binary Tree
-  - Binary Tree to Doubly Linked List
-  - Binary Tree from Inorder and Postorder Traversal
 - Lowest Common Ancestor (LCA)
 
-## Balanced Search Tree
-- AVL Tree
-- Red Black Tree
-- 2-3 Search Tree
-- 2-3-4 Search Tree
-- K-ary / M-ary Tree
-- B Tree, B+ Tree
+## Binary Tree
+- Binary Search Tree, Full Binary Tree, Complete Binary Tree
+- Binary Tree to Doubly Linked List
+- Binary Tree from Inorder and Postorder Traversal
 
 ## Binary Search Tree
 - Implementation
@@ -148,6 +141,14 @@
 - Self Balancing BST
 - AVL Tree
 - Red Black Tree
+
+## Balanced Search Tree
+- AVL Tree
+- Red Black Tree
+- 2-3 Search Tree
+- 2-3-4 Search Tree
+- K-ary / M-ary Tree
+- B Tree, B+ Tree
 
 ## Heap
 - Implementation
