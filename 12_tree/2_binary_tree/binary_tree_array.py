@@ -28,6 +28,7 @@ class Tree:
     return right_index
 
   def level_order(self):
+    length = len(self.tree)
     traversal = []
     queue = Queue()
     queue.put([0, 0])
@@ -35,15 +36,16 @@ class Tree:
     while not queue.empty():
       index, level = queue.get()
 
-      if level == len(traversal):
-        traversal.append([])
+      if level == len(traversal): traversal.append([])
       traversal[level].append(self.tree[index])
 
       left_index = 2 * index + 1
       right_index = 2 * index + 2
 
-      if self.tree[left_index]: queue.put([left_index, level + 1])
-      if self.tree[right_index]: queue.put([right_index, level + 1])
+      if left_index < length and self.tree[left_index]:
+        queue.put([left_index, level + 1])
+      if right_index < length and self.tree[right_index]:
+        queue.put([right_index, level + 1])
 
     return traversal
 
