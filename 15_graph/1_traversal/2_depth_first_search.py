@@ -4,16 +4,20 @@ from utils import test_class, test_with_init
 examples = [
   {
     'input': [[[1, 3], [0, 2], [1, 3, 4], [0, 2], [2]]],
-    'output': [0, 1, 2, 3, 4]
+    'output': [0, 1, 2, 3, 4] # Or, [0, 1, 2, 4, 3]
   },
 ]
 
+# Time Complexity: O(V + E)
+# Auxiliary Space: O(V)
 class DFS:
   def solve(self, graph):
     stack = LifoQueue()
     stack.put(0)
+
     visited = [False] * len(graph)
     visited[0] = True
+
     traversal = []
 
     while not stack.empty():
@@ -21,13 +25,14 @@ class DFS:
       traversal.append(node)
 
       for neighbor in reversed(graph[node]):
-        if visited[neighbor]:
-          continue
+        if visited[neighbor]: continue
         visited[neighbor] = True
         stack.put(neighbor)
 
     return traversal
 
+# Time Complexity: O(V + E)
+# Auxiliary Space: O(V + E), recursion stack requires O(E)
 class DFSRecursive:
   def __init__(self, graph):
     self.graph = graph
@@ -38,8 +43,7 @@ class DFSRecursive:
     self.traversal.append(node)
 
     for neighbor in self.graph[node]:
-      if self.visited[neighbor]:
-        continue
+      if self.visited[neighbor]: continue
       self.visited[neighbor] = True
       self.traverse(neighbor)
 

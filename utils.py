@@ -24,6 +24,8 @@ def test_class(klass, examples):
   print()
 
 def test_with_init(klass, examples):
+  print_class_name(klass)
+
   for example in examples:
     output = klass(*example['input']).solve()
     print(output == example['output'], end = ': ')

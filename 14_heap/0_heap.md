@@ -22,6 +22,7 @@
 
 ## Python
 ```py
+# heaq implements min heap
 import heapq
 array = [5, 3, 6, 7, 8, 2, 9]
 
@@ -30,6 +31,17 @@ heapq.heappush(array, 10)
 heapq.heappush(array, [10, 'Hello'])
 heapq.heapop(array)
 heapq.heapsort(array)
+
+# PriorityQueue also implements min heap
+import heapq
+from queue import PriorityQueue
+queue = PriorityQueue()
+queue = PriorityQueue(maxsize=10)
+queue.put('a')
+queue.get()
+queue.qsize()
+queue.empty()
+queue.full()
 ```
 
 ## Ruby

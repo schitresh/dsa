@@ -19,27 +19,30 @@ examples = [
 ]
 
 # Start from a node, and keep finding the shortest path for each neighbor
-# e = edges
-# Time Complexity: O(e + v * logv)
-# Auxiliary Space: O(e)
+# Time Complexity: O((E + V) * log(V))
+# Auxiliary Space: O(V)
 class Dijkstra:
   def solve(self, graph):
-    pqueue = PriorityQueue()
-    pqueue.put([0, 0])
+    queue = PriorityQueue()
+    queue.put([0, 0])
+
     distance = [maxsize] * len(graph)
     distance[0] = 0
+
     visited = [False] * len(graph)
 
-    while not pqueue.empty():
-      node_distance, node = pqueue.get()
-      if visited[node]:
-        continue
+    while not queue.empty():
+      node_dist, node = queue.get()
+
+      if visited[node]: continue
       visited[node] = True
 
-      for neighbor_distance, neighbor in graph[node]:
-        if node_distance + neighbor_distance < distance[neighbor]:
-          distance[neighbor] = node_distance + neighbor_distance
-          pqueue.put([distance[neighbor], neighbor])
+      for neighbor_dist, neighbor in graph[node]:
+        current_dist = node_dist + neighbor_dist
+
+        if current_dist < distance[neighbor]:
+          distance[neighbor] = current_dist
+          queue.put([distance[neighbor], neighbor])
 
     return distance
 

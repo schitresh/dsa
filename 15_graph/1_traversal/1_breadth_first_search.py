@@ -8,12 +8,16 @@ examples = [
   },
 ]
 
+# Time Complexity: O(V + E)
+# Auxiliary Space: O(V)
 class BFS:
   def solve(self, graph):
     queue = Queue()
     queue.put(0)
+
     visited = [False] * len(graph)
     visited[0] = True
+
     traversal = []
 
     while not queue.empty():
@@ -21,8 +25,7 @@ class BFS:
       traversal.append(node)
 
       for neighbor in graph[node]:
-        if visited[neighbor]:
-          continue
+        if visited[neighbor]: continue
         visited[neighbor] = True
         queue.put(neighbor)
 
