@@ -4,3 +4,9 @@
 - Each node consists of hashmap or array of pointers
   - Where each index represents a character
 - Each node has a flag to indicaate if a string ends at that node
+
+## Python
+- Not inbuilt
+
+## Ruby
+- Not inbuilt

@@ -19,3 +19,18 @@
 - Usually used to implement priority queues
   - Where the smallest (or the largest) element is always at the root
 - Used in graph algorithms like prim's mst and dijkstra's shortest path
+
+## Python
+```py
+import heapq
+array = [5, 3, 6, 7, 8, 2, 9]
+
+heapq.heapify(array)
+heapq.heappush(array, 10)
+heapq.heappush(array, [10, 'Hello'])
+heapq.heapop(array)
+heapq.heapsort(array)
+```
+
+## Ruby
+- Not inbuilt

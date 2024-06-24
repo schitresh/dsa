@@ -20,23 +20,33 @@
 ## Python
 ```py
 from queue import Queue
-stack = Queue()
-stack = Queue(maxsize=10)
-stack.put('a')
-stack.get()
-stack.qsize()
-stack.empty()
-stack.full()
+queue = Queue()
+queue = Queue(maxsize=10)
+queue.put('a')
+queue.get()
+queue.qsize()
+queue.empty()
+queue.full()
 
 from collections import deque
-stack = deque()
-stack = deque(maxlen=10)
-stack.append_left('a')
-stack.pop()
-stack.append('a')
-stack.pop_left()
-stack.clear()
-stack.count(x)
-stack.insert(i, x)
-stack.remove(x)
+queue = deque()
+queue = deque(maxlen=10)
+queue.append_left('a')
+queue.pop()
+queue.append('a')
+queue.pop_left()
+queue.clear()
+queue.count(x)
+queue.insert(i, x)
+queue.remove(x)
+```
+
+## Ruby
+```rb
+queue = Queue.new
+queue << 2
+queue.push(3)
+queue.pop
+queue.size
+queue.empty?
 ```

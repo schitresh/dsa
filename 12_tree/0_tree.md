@@ -42,3 +42,9 @@ class Node:
 - Compiler design: syntax tree
 - Database indexing: b tree, b+ tree
 - Dictionaries with prefix loop using trie
+
+## Python
+- Not inbuilt
+
+## Ruby
+- Not inbuilt

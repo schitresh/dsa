@@ -24,3 +24,9 @@
 - In mobile contacts for inserting a new contact alphabetically
 - OS: memory management, process scheduling, file system
 - LRU cache
+
+## Python
+- Not inbuilt
+
+## Ruby
+- Not inbuilt

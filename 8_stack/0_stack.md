@@ -37,3 +37,13 @@ stack.count(x)
 stack.insert(i, x)
 stack.remove(x)
 ```
+
+## Ruby
+```rb
+stack = []
+stack << 2
+stack << 3
+stack.pop
+stack.size
+stack.empty?
+```

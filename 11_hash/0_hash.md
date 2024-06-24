@@ -37,3 +37,24 @@
   - Separate Chaining
     - Store colliding keys in a linked list at each index
     - Dynamic arrays or binary search tree can also be used
+
+## Python
+```py
+hash = { 'a': 1, 'b': 2 }
+hash = { 1: 'a', 2: 'b' }
+hash.get('a') # No error if key not present
+hash['a'] # Error if key not present
+hash.keys()
+hash.values()
+hash.items()
+```
+
+## Ruby
+```rb
+hash = { a: 1, b: 2 }
+hash = { 1 => 'a', 2 => 'b' }
+hash[:a]
+hash.keys
+hash.values
+hash.entries
+```
