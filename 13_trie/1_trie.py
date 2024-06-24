@@ -1,8 +1,8 @@
-alphabets = 26
+ALPHABET_COUNT = 26
 
 class Node:
   def __init__(self):
-    self.next = [None] * alphabets
+    self.next = [None] * ALPHABET_COUNT
     self.is_word = False
 
 class Trie:
@@ -36,9 +36,9 @@ class Trie:
 
   def remove(self, word):
     if not word: return
-    self._remove(self.root, word, 0)
+    self.remove_from_node(self.root, word, 0)
 
-  def _remove(self, root, word, position):
+  def remove_from_node(self, root, word, position):
     if not root: return
 
     if position == len(word):
@@ -48,23 +48,26 @@ class Trie:
       return True
 
     index = self.next_index(word, position)
-    delete = self._remove(root.next[index], word, position + 1)
+    delete = self.remove_from_node(root.next[index], word, position + 1)
 
     if delete:
       del root.next[index]
       root.next[index] = None
       if not root.is_word: return True
 
-t = Trie()
-t.insert('abc')
-t.insert('abcdef')
-t.insert('xyz')
+def test():
+  trie = Trie()
+  trie.insert('abc')
+  trie.insert('abcdef')
+  trie.insert('xyz')
 
-print('ab', t.search('ab'))
-print('abcd', t.search('abcd'))
-print('abc', t.search('abc'))
-print('Remove abc', t.remove('abc'))
-print('abc', t.search('abc'))
-print('abcdef', t.search('abcdef'))
-print('Remove abcdef', t.remove('abcdef'))
-print('abcdef', t.search('abcdef'))
+  print('ab', trie.search('ab'))
+  print('abcd', trie.search('abcd'))
+  print('abc', trie.search('abc'))
+  print('Remove abc', trie.remove('abc'))
+  print('abc', trie.search('abc'))
+  print('abcdef', trie.search('abcdef'))
+  print('Remove abcdef', trie.remove('abcdef'))
+  print('abcdef', trie.search('abcdef'))
+
+test()

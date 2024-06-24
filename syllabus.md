@@ -150,6 +150,13 @@
 - K-ary / M-ary Tree
 - B Tree, B+ Tree
 
+## Trie
+- Implementation
+  - Tree
+  - Hash Table
+- Operations: Insert, Search, Delete
+- Count distinct rows in a binary matrix
+
 ## Heap
 - Implementation
 - Binary Heap
@@ -199,13 +206,6 @@
   - Cycle Cancelling Algorithm
   - Hungarian Algorithm
 - Min-cut
-
-## Trie
-- Implementation
-  - Tree
-  - Hash Table
-- Operations: Insert, Search, Delete
-- Count distinct rows in a binary matrix
 
 ## Divide and Conquer
 - Master Theorem
