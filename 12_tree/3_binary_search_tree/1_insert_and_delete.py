@@ -39,10 +39,10 @@ class Tree(BSTree):
   def delete_from_node(self, node, key):
     if not node: return
 
-    if node.key < key:
-      node.right = self.delete_from_node(node.right, key)
-    elif node.key > key:
+    if key < node.key:
       node.left = self.delete_from_node(node.left, key)
+    elif key > node.key:
+      node.right = self.delete_from_node(node.right, key)
     else:
       if not node.left:
         temp = node.right
@@ -54,6 +54,7 @@ class Tree(BSTree):
         return temp
 
       temp = node.right
+      # Get min value
       while temp.left: temp = temp.left
 
       node.key = temp.key

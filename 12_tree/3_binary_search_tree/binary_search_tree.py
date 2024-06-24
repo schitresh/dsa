@@ -16,10 +16,10 @@ class BSTree:
   def insert_from_node(self, node, key):
     if not node: return Node(key)
 
-    if node.key < key:
-      node.right = self.insert_from_node(node.right, key)
-    else:
+    if key < node.key:
       node.left = self.insert_from_node(node.left, key)
+    else:
+      node.right = self.insert_from_node(node.right, key)
 
     return node
 
@@ -44,6 +44,7 @@ class BSTree:
         return temp
 
       temp = node.right
+      # Get min value
       while temp.left: temp = temp.left
 
       node.key = temp.key
