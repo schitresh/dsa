@@ -2,6 +2,12 @@ from queue import PriorityQueue
 from sys import maxsize
 from utils import test_class
 
+# Dijkstra's Algorithm
+# Start from the source and iteratively select unvisited nodes
+# with the smallest tentative distance from the source
+# Then visit the neighbors of this vertex and update their tentative distance
+# Works for both directed and undirected graphs
+
 # x: [weight, y]
 examples = [
   {
@@ -18,7 +24,6 @@ examples = [
   }
 ]
 
-# Start from a node, and keep finding the shortest path for each neighbor
 # Time Complexity: O((E + V) * log(V))
 # Auxiliary Space: O(V)
 class Dijkstra:
@@ -37,8 +42,8 @@ class Dijkstra:
       if visited[node]: continue
       visited[node] = True
 
-      for neighbor_dist, neighbor in graph[node]:
-        current_dist = node_dist + neighbor_dist
+      for weight, neighbor in graph[node]:
+        current_dist = node_dist + weight
 
         if current_dist < distance[neighbor]:
           distance[neighbor] = current_dist

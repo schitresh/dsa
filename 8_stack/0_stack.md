@@ -36,6 +36,7 @@ stack.clear()
 stack.count(x)
 stack.insert(i, x)
 stack.remove(x)
+stack.queue # To get the queue array
 ```
 
 ## Ruby

@@ -42,6 +42,7 @@ queue.get()
 queue.qsize()
 queue.empty()
 queue.full()
+queue.queue # To get the queue array
 ```
 
 ## Ruby

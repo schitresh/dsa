@@ -39,6 +39,7 @@ queue.clear()
 queue.count(x)
 queue.insert(i, x)
 queue.remove(x)
+queue.queue # To get the queue array
 ```
 
 ## Ruby
