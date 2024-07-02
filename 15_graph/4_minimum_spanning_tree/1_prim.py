@@ -1,6 +1,10 @@
 from queue import PriorityQueue
 from utils import test_class
 
+# Prim's Minimum Spanning Tree
+# Starts with a single node and moves through adjacent nodes
+# Explores all the connected edges and picks up the minimum weight edge
+
 # x: [weight, y]
 examples = [
   {
@@ -17,10 +21,9 @@ examples = [
   }
 ]
 
-# Start from a node, and keep finding the shortest path for each neighbor
-# e = edges
-# Time Complexity:
-# Auxiliary Space:
+# Start from a node and keep finding the shortest path for each neighbor
+# Time Complexity: O(E * log(E))
+# Auxiliary Space: O(E)
 class Prim:
   def solve(self, graph):
     pqueue = PriorityQueue()
