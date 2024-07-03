@@ -14,7 +14,7 @@ examples = [
         [[4, 0], [3, 2]],
         [[3, 1], [2, 3], [2, 4]],
         [[1, 0], [2, 2]],
-        [[2,2]]
+        [[2, 2]]
       ]
     ],
     'output': 8
@@ -29,19 +29,19 @@ class Prim:
     pqueue = PriorityQueue()
     pqueue.put([0, 0])
     visited = [False] * len(graph)
-    # minimum spanning tree
-    mst = 0
+
+    minimum_spanning_tree = 0
 
     while not pqueue.empty():
       node_distance, node = pqueue.get()
-      if visited[node]:
-        continue
+
+      if visited[node]: continue
       visited[node] = True
-      mst += node_distance
+      minimum_spanning_tree += node_distance
 
       for neighbor_distance, neighbor in graph[node]:
         pqueue.put([neighbor_distance, neighbor])
 
-    return mst
+    return minimum_spanning_tree
 
 test_class(Prim, examples)
