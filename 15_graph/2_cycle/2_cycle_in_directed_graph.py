@@ -117,6 +117,48 @@ class TopologicalSorting:
 
     return visited != len(graph)
 
+
+# Time Complexity: O(E * log(V))
+# Auxiliary Space: O(V)
+class DisjointSet:
+  def __init__(self, graph):
+    self.graph = graph
+    self.visited = [False] * len(graph)
+    self.parent = [i for i in range(len(graph))]
+    self.rank = [False] * len(graph)
+
+  def solve(self):
+    for current in range(len(self.graph)):
+      curr_rep = self.find(current)
+
+      for neighbor in self.graph[current]:
+        neighbor_rep = self.find(neighbor)
+        if curr_rep == neighbor_rep: return True
+
+        self.union(curr_rep, neighbor_rep)
+
+    return False
+
+  def find(self, node):
+    parent = self.parent[node]
+    if parent != node:
+      self.parent[node] = self.find(parent)
+
+    return self.parent[node]
+
+  def union(self, i_rep, j_rep):
+    i_rank = self.rank[i_rep]
+    j_rank = self.rank[j_rep]
+
+    if i_rank < j_rank:
+      self.parent[i_rep] = j_rep
+    elif i_rank > j_rank:
+      self.parent[j_rep] = i_rep
+    else:
+      self.parent[i_rep] = j_rep
+      self.rank[j_rep] += 1
+
 test_with_init(DFSRecursive, examples)
 test_with_init(DFSColors, examples)
 test_class(TopologicalSorting, examples)
+test_with_init(DisjointSet, examples)

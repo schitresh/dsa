@@ -1,5 +1,4 @@
-from queue import LifoQueue, Queue
-from utils import test_class, test_with_init
+from utils import test_with_init
 
 examples = [
   {
@@ -20,7 +19,6 @@ class DFSRecursive:
   def __init__(self, graph):
     self.graph = graph
     self.visited = [False] * len(graph)
-    self.recursion_stack = [False] * len(graph)
 
   def traverse(self, node, parent):
     self.visited[node] = True
@@ -35,7 +33,6 @@ class DFSRecursive:
 
     # Pop the current node from the recursion stack
     # Since the current path is traversed
-    self.recursion_stack[node] = False
     return False
 
   def solve(self):
@@ -46,5 +43,3 @@ class DFSRecursive:
     return False
 
 test_with_init(DFSRecursive, examples)
-test_with_init(DFSColors, examples)
-test_class(TopologicalSorting, examples)
