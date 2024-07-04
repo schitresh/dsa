@@ -56,6 +56,7 @@ class Kruskal:
     for distance, node, neighbor in self.graph:
       node_root = self.root(node)
       neighbor_root = self.root(neighbor)
+      # If the roots are equal, then there is a cycle
       if node_root == neighbor_root: continue
 
       minimum_spanning_tree += distance

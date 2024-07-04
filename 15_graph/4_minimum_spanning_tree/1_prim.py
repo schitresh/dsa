@@ -1,6 +1,11 @@
 from queue import PriorityQueue
 from utils import test_class
 
+# Minimum Spanning Tree
+# Subset of edges of a connected undirected graph
+# that connects all the vertices together without any cycles
+# such that the weight of all selected edges is minimum
+
 # Prim's Minimum Spanning Tree
 # Starts with a single node and moves through adjacent nodes
 # Explores all the connected edges and picks up the minimum weight edge
