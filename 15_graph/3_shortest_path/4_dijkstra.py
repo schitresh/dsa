@@ -7,6 +7,7 @@ from utils import test_class
 # with the smallest tentative distance from the source
 # Then visit the neighbors of this vertex and update their tentative distance
 # Works for both directed and undirected graphs
+# Doesn't work for negative weights
 
 # x: [weight, y]
 examples = [

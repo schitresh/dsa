@@ -91,18 +91,18 @@ class DFSColors:
 # Auxiliary Space: O(V)
 class TopologicalSorting:
   def solve(self, graph):
-    indegree = [0] * len(graph)
+    in_degree = [0] * len(graph)
     queue = Queue()
     visited = 0
 
-    # Calculate indegree for each vertex
+    # Calculate in_degree for each vertex
     for node in range(len(graph)):
       for neighbor in graph[node]:
-        indegree[neighbor] += 1
+        in_degree[neighbor] += 1
 
     # Enqueue vertices with 0 in-degree
     for node in range(len(graph)):
-      if indegree[node] == 0:
+      if in_degree[node] == 0:
         queue.put(node)
 
     # BFS Traversal
@@ -111,12 +111,11 @@ class TopologicalSorting:
       visited += 1
 
       for neighbor in graph[node]:
-        indegree[neighbor] -= 1
-        if indegree[neighbor] == 0:
+        in_degree[neighbor] -= 1
+        if in_degree[neighbor] == 0:
           queue.put(neighbor)
 
     return visited != len(graph)
-
 
 # Time Complexity: O(E * log(V))
 # Auxiliary Space: O(V)

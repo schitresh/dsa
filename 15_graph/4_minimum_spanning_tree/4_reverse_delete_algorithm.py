@@ -6,7 +6,7 @@ from utils import test_class
 # Include the current edge if excluding it causes disconnection in the graph
 # Put another way, keep deleting edges if the deletion does not disconnect the graph
 
-# [weight, x, y]
+# [weight, y]
 examples = [
   {
     'input': [
