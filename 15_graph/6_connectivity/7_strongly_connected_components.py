@@ -72,4 +72,75 @@ class Solution:
 
     return False
 
+
+# Tarjan's Algorithm
+# Time Complexity: O(V + E)
+# Auxiliary Space: O(V + E)
+class Tarjan:
+  def __init__(self) -> None:
+    self.graph = [[]]
+    self.all_scc = []
+    self.disc = []
+    self.low = []
+    self.time = 0
+    self.stack = []
+    self.stack_member = []
+
+  def solve(self, graph):
+    self.graph = graph
+
+    # Stores all the connected ancestors
+    self.stack = []
+    # Index array for faster check of whether a node is in the stack
+    self.stack_member = [False] * len(graph)
+
+    # Stores discovery times of vertices (When a vertex was visited)
+    # So, it also tracks if a vertex was visited or not
+    self.disc = [float('inf')] * len(graph)
+    # Stores the earliest visited vertex that can be reached from the subtree rooted at u
+    # low[u] = min(disc[u], disc[w]), where w is an ancestor of u
+    # And there is a back edge from some descendant of u to w
+    # E.g. in 1 -> 2, 2-> 3, 3 -> 1: 3 -> 1 is a back edge
+    self.low = [float('inf')] * len(graph)
+
+    for node in range(len(graph)):
+      if self.disc[node] != float('inf'): continue
+      self.dfs(node)
+
+    return self.all_scc
+
+  def dfs(self, node):
+    self.stack.append(node)
+    self.stack_member[node] = True
+
+    self.disc[node] = self.time
+    self.low[node] = self.time
+    self.time += 1
+
+    for neighbor in self.graph[node]:
+      if self.disc[neighbor] == float('inf'):
+        self.dfs(neighbor)
+
+        # Check if subtree rooted at neighbor
+        # has a connection to one of the ancestor of the node
+        self.low[node] = min(self.low[node], self.low[neighbor])
+
+      # Update low value of node only if neighbor is still in stack
+      # That is, it's a back edge and not a cross edge
+      elif self.stack_member[neighbor]:
+        self.low[node] = min(self.low[node], self.disc[neighbor])
+
+    # Head node is found
+    if self.low[node] == self.disc[node]:
+      temp = -1
+      scc = []
+
+      while temp != node:
+        temp = self.stack.pop()
+        self.stack_member[temp] = False
+        scc.append(temp)
+
+      self.all_scc.append(scc)
+
 test_class(Solution, examples)
+test_class(Tarjan, examples)
