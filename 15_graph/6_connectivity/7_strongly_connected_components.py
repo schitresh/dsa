@@ -142,5 +142,61 @@ class Tarjan:
 
       self.all_scc.append(scc)
 
+# Kosaraju's Algorithm
+# Perform DFS on the graph, if any vertex is unvisited, then it is not SCC
+# Transpose the graph, i.e. reverse the direction of all the edges
+# Perform DFS on the transpose, if any vertex is unvisited, then it is not SCC
+# Time Complexity: O(V + E)
+# Auxiliary Space: O(V + E)
+class Kosaraju:
+  def solve(self, graph):
+    all_scc = []
+    stack = []
+    visited = [False] * len(graph)
+
+    for node in range(len(graph)):
+      if visited[node]: continue
+      self.dfs(graph, visited, stack, 0)
+
+    visited = [False] * len(graph)
+    transpose = self.get_transpose(graph)
+
+    while stack:
+      node = stack.pop()
+      if visited[node]: continue
+
+      scc = []
+      self.dfs_tranpose(transpose, visited, scc, node)
+      all_scc.append(scc)
+
+    return all_scc
+
+  def dfs(self, graph, visited, stack, node):
+    visited[node] = True
+
+    for neighbor in graph[node]:
+      if visited[neighbor]: continue
+      self.dfs(graph, visited, stack, neighbor)
+
+    stack.append(node)
+
+  def dfs_tranpose(self, graph, visited, scc, node):
+    visited[node] = True
+    scc.append(node)
+
+    for neighbor in graph[node]:
+      if visited[neighbor]: continue
+      self.dfs(graph, visited, scc, neighbor)
+
+  def get_transpose(self, graph):
+    transpose = [[] for _ in range(len(graph))]
+
+    for node in range(len(graph)):
+      for neighbor in graph[node]:
+        transpose[neighbor].append(node)
+
+    return transpose
+
 test_class(Solution, examples)
 test_class(Tarjan, examples)
+test_class(Kosaraju, examples)
