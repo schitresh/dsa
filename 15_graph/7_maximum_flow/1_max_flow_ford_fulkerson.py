@@ -28,12 +28,13 @@ examples = [
 
 # Ford-Fulkerson Algorithm
 # Works by iteratively finding an augmenting path
-# Augmenting is a path from the source # to the sink in the residual path
+# Augmenting is a path from the source to the sink in the residual path
 # Residual graph is obtained by subtracting the current flow from the capacity of each edge
 # That is, residual capacity = original capacity - current flow
 # The algorithm then increases the flow along this path by the maximum possible amount
 # DFS only promises to find a path from source to sink, not necessarily a shortest path
-# But BFS always finds a shortest path
+# But BFS always finds a shortest path (BFS variation is known as Edmond Karp algorithm)
+
 # Time Complexity: O(V * E^2)
 # Auxiliary Space: O(V)
 class Solution:
@@ -86,10 +87,10 @@ class Solution:
   # Also fills the parent array to store the path
   def bfs(self, src, sink, parent):
     visited = [False] * len(self.r_graph)
-    queue = Queue()
-
-    queue.put(src)
     visited[src] = True
+
+    queue = Queue()
+    queue.put(src)
 
     while not queue.empty():
       node = queue.get()
