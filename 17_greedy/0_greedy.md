@@ -26,4 +26,3 @@
 - Fractional knapsack to determine the most valuable items to carry in a knapsack
 - Activity selection problem to choose max non-overlappinig activities
 - Huffman coding to construct a binary code with min length of chars
--

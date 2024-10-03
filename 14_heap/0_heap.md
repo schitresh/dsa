@@ -33,7 +33,6 @@ heapq.heapop(array)
 heapq.heapsort(array)
 
 # PriorityQueue also implements min heap
-import heapq
 from queue import PriorityQueue
 queue = PriorityQueue()
 queue = PriorityQueue(maxsize=10)
