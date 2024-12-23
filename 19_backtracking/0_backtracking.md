@@ -1,6 +1,11 @@
 ## Backtracking
 - Explores different options or paths to find the best solution
-- If one doesn't work, backtracks and tries another until the right one is found
+  - If one doesn't work, backtracks and tries another until the right one is found
+- In other words, it involves trying different options
+  - And undoing them if they lead to a dead end
+- When a dead end is reached, the algorithm backtracks to the previous decision point
+  - And explores a different path until a solution is found
+  - Or all possibilities have been exhausted
 - Like searching a path in a maze or solving puzzles like sudoku
   - Creating smart bots to play board games like chess
   - Network routing and congestion control
@@ -10,7 +15,8 @@
 
 ## Terminologies
 - Candidate: Potential choice or element that can be added to the current solution
-- Partial Solution: Intermediate configuration being constructed
+- Solution: Valid and complete configuration that satisfies all problem constraints
+- Partial Solution: Intermediate configuration being constructed during the process
 - Feasible Solution: Partial or complete solution that adheres to all contraints
 - Decision Point: Specific step where a candidate is chosen and added to the partial solution
 - Decision Space: Set of all possible candidates or choices at each decision point
@@ -18,6 +24,21 @@
 - Backtrack: Undoing previous decisions and returning to a prior decision point
 - Search Space: All possible combinations of candidates and choices
 - Optimal Solution: Best possible solution
+
+## Types of Problems
+- Decision Problems: We search for a feasible solution
+- Optimization Problems: We search for the best solution
+- Enumeration Problems: We find set of all possible feasible solutions
+
+## How Backtracking Works
+- Imagine a tree with an initial state as the root node
+  - The recursion call starts at the initial state to find a valid solution
+- It has different checkpoints as nodes
+  - These checkpoints can further have another set of checkpoints
+  - At each checkpoint, the program makes some decisions and move to other checkpoints
+- The leaf nodes are terminal nodes where no further recursive calls can be made
+  - These nodes act as base case of recursion
+  - And the current solution is determined whether it is valid or not
 
 ## Example
 - Imagine there are 3 closed boxes, among which 2 are empty and 1 has a gold coin
