@@ -27,6 +27,18 @@
     - Removing a tail call to make the recursion a tail recursion
     - So that we can benefit from the space optimization of stack
 
+```py
+def factorial(n):
+  if n == 0: return 1
+  # Non-tail recursive since the recursive call is being used and not the last thing done
+  return n * factorial(n - 1)
+
+def factorial(n, answer):
+  if n <= 1: return answer
+  # Tail recursive
+  return factorial(n - 1, n * answer)
+```
+
 ## Application
 - Tree and graph traversal using dfs and bfs
 - Divide and conquer
