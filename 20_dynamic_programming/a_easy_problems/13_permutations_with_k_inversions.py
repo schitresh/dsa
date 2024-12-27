@@ -28,21 +28,15 @@ class Solution:
   def solve(self, n, inversion):
     self.inversion = inversion
     num = list(range(1, n + 1))
-
-    count = 0
-    for i in range(n):
-      count += self.permutations(num, i)
-
-    return count
+    return self.permutations(num, 0)
 
   def permutations(self, num, index):
-    if index == len(num): return 0
+    if index == len(num) - 1:
+      if self.inv_count(num) == self.inversion: return 1
+      return 0
 
     count = 0
-    if self.inv_count(num) == self.inversion:
-      count = 1
-
-    for j in range(index + 1, len(num)):
+    for j in range(index, len(num)):
       new_num = num.copy()
       new_num[index], new_num[j] = new_num[j], new_num[index]
 
