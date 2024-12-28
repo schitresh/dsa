@@ -84,7 +84,7 @@ class Solution:
 
     return strings[0]
 
-# TODO: Travelling Salesman DP Approach
+# Todo: Travelling Salesman DP Approach
 # We have to find the shortest string that has each char of the strings in the array
 # If we consider each char as a node, then each string becomes a directed path
 # And the array becomes a directed graph with all these paths

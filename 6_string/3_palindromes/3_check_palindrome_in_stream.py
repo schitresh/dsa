@@ -9,7 +9,7 @@ examples = [
   }
 ]
 
-# TODO: Using Rolling Hash
+# Todo: Using Rolling Hash
 # A simple solution is to check palindrome for each iteration
 # A better solution is to use the rolling hash used in rabin karp algorithm
 # Keep track of reverse of first half and second half

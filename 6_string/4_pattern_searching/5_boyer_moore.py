@@ -16,7 +16,8 @@ ASCII_COUNT = 256
 # 1. If l is found, align l with the bad char
 # 2. Else, re-align the pattern from the next char in text
 
-# Good Suffix Heuristics: To do
+# Good Suffix Heuristics
+# Todo
 
 # Time Complexity: O(n + m)
 # Auxiliary Space: O(m)

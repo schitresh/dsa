@@ -45,7 +45,7 @@ class Solution:
 
     return False
 
-# TODO: Using Mancher's algorithm
+# Todo: Using Mancher's algorithm
 # Time Complexity: O(n^2)
 # Auxiliary Space: O(n)
 class Solution2:

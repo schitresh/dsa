@@ -82,7 +82,7 @@ class Solution2:
     # Hence, cd is not the part of the longest substring that is palindrome
     return len(string) - lps[-1]
 
-# TODO: Using Z array of Z algorithm
+# Todo: Using Z array of Z algorithm
 # Concat the string with its reverse and calculate its Z array
 # Each index of Z array represents the length of the longest substring
 # starting at index i, which is also a proper prefix

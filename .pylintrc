@@ -422,21 +422,22 @@ confidence=HIGH,
 # no Warning level messages displayed, use "--disable=all --enable=classes
 # --disable=W".
 disable=
-  missing-module-docstring,
+  attribute-defined-outside-init,
+  bad-inline-option,
+  consider-using-enumerate,
+  deprecated-pragma,
+  file-ignored,
+  locally-disabled,
   missing-class-docstring,
   missing-function-docstring,
+  missing-module-docstring,
+  multiple-statements,
   raw-checker-failed,
-  bad-inline-option,
-  locally-disabled,
-  file-ignored,
   suppressed-message,
-  useless-suppression,
-  deprecated-pragma,
-  use-symbolic-message-instead,
   use-implicit-booleaness-not-comparison-to-string,
   use-implicit-booleaness-not-comparison-to-zero,
-  consider-using-enumerate,
-  multiple-statements
+  use-symbolic-message-instead,
+  useless-suppression
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option

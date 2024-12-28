@@ -99,6 +99,6 @@ class Solution:
 
     return True
 
-# To do: Solutions using bitmask, cross-hatching
+# Todo: Solutions using bitmask, cross-hatching
 
 test_class(Solution, examples)
