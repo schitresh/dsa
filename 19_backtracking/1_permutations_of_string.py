@@ -1,9 +1,9 @@
 from utils import test_class
 
-# Given a string S, print all permutations of a given string
+# Given a string S, print all permutations of a given string.
 # A permutation (also called 'arrangement number' or 'order') is a rearrangement
-# of the elements of an ordered list S into a one-to-one correspondence with S itself
-# A string of length N has N! permutations
+# of the elements of an ordered list S into a one-to-one correspondence with S itself.
+# A string of length N has N! permutations.
 
 examples = [
   {
@@ -16,7 +16,7 @@ examples = [
   },
 ]
 
-# Backtracking solution
+# Backtracking
 # It give duplicate permutations if there are repeating characters in the string
 # Time Complexity: O(n * n!)
 # Auxiliary Space: O(n)

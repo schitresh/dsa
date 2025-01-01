@@ -2,9 +2,9 @@ import random
 from utils import test_class
 
 # Knight's Tour
-# Given a N * N board with the Knight placed on the first block of an empty board
-# Knight must visit each square exactly once, moving according to the rules of chess
-# Print the order of each cell in which they are visited
+# Given a N * N board with the Knight placed on the first block of an empty board.
+# Knight must visit each square exactly once, moving according to the rules of chess.
+# Print the order of each cell in which they are visited.
 
 examples = [
   {
@@ -59,10 +59,12 @@ class Solution:
     if within_limits and self.board[x][y] == -1: return True
     return False
 
+test_class(Solution, examples)
+
 # Warnsdorff's Algorithm
 # 1. We can start from any initial position of the knight on the board
 # 2. We always move to an adjacent, unvisited square with minimal degree
-# i.e. minimum number of unvisited adjacent squares)
+# i.e. minimum number of unvisited adjacent squares
 # Time Complexity: O(8^(n^2))
 # Auxiliary Space: O(n^2)
 class Solution2:
@@ -139,5 +141,4 @@ class Solution2:
       if new_x == x2 and new_y == y2: return True
     return False
 
-# test_class(Solution, examples)
 test_class(Solution2, examples)
