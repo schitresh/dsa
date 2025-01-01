@@ -5,11 +5,13 @@ from utils import test_class
 examples = [
   {
     'input': ['GeeksforGeeks', 'GeeksQuiz'],
-    'output': 5, # Geeks
+    'output': 5,
+    # Geeks
   },
   {
     'input': ['abcdxyz', 'xyzabcd'],
-    'output': 4, # abcd
+    'output': 4,
+    # abcd
   },
   {
     'input': ['abc', ''],

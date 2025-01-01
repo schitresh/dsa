@@ -6,11 +6,13 @@ from utils import test_class
 examples = [
   {
     'input': [3],
-    'output': 1, # Already a triangle
+    'output': 1,
+    # Already a triangle
   },
   {
     'input': [4],
-    'output': 2, # Square can be cut into 2 triangles through one of the diagonal
+    'output': 2,
+    # Square can be cut into 2 triangles through one of the diagonal
   },
   {
     'input': [6],
@@ -35,9 +37,7 @@ class Solution:
     result = 1
 
     # Since C(n, r) = C(n, n - r) because C(n, r) = n!/(r! * (n - r)!)
-    # this
-    if r > n - r:
-      r = n - r
+    r = min(r, n - r)
 
     # On expanding the factorials in the formula, it can be simplified to:
     # C(n, r) = (n/1) * ((n-1)/2) * ... * ((n - (r - 1))/r)

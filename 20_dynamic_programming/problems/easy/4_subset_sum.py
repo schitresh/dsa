@@ -6,7 +6,8 @@ from utils import test_class
 examples = [
   {
     'input': [9, [3, 34, 4, 12, 5, 2]],
-    'output': True, # [4, 5]
+    'output': True,
+    # [4, 5]
   },
   {
     'input': [30, [3, 34, 4, 12, 5, 2]],

@@ -7,11 +7,13 @@ from utils import test_class
 examples = [
   {
     'input': [30, [25, 10, 5]],
-    'output': 2, # [25, 5]
+    'output': 2,
+    # [25, 5]
   },
   {
     'input': [19, [9, 6, 5, 1]],
-    'output': 3, # [9, 9, 1]
+    'output': 3,
+    # [9, 9, 1]
   },
   {
     'input': [0, [5, 1]],

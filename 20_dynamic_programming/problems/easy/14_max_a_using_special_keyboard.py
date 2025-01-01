@@ -14,11 +14,13 @@ from utils import test_class
 examples = [
   {
     'input': [3],
-    'output': 3, # A, A, A
+    'output': 3,
+    # A, A, A
   },
   {
     'input': [7],
-    'output': 9, # A, A, A, Ctrl-A, Ctrl-C, Ctrl-V, Ctrl-V
+    'output': 9,
+    # A, A, A, Ctrl-A, Ctrl-C, Ctrl-V, Ctrl-V
   },
   {
     'input': [11],

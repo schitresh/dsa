@@ -7,11 +7,13 @@ from utils import test_class
 examples = [
   {
     'input': [[1, 5, 8, 9, 10, 17, 17, 20]],
-    'output': 22, # Cut into 2 pieces of len 2 & 6 (5 + 17)
+    'output': 22,
+    # Cut into 2 pieces of len 2 & 6 (5 + 17)
   },
   {
     'input': [[3, 5, 8, 9, 10, 17, 17, 20]],
-    'output': 24, # Cut into 8 pieces of len 1 (8 * 3)
+    'output': 24,
+    # Cut into 8 pieces of len 1 (8 * 3)
   },
   {
     'input': [[3]],

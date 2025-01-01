@@ -1,7 +1,7 @@
 from utils import test_class
 
-# Given a knapsack weight and a set of n items with certain value and weight,
-# fill the knapsack in such a way that we can get the maximum profit.
+# Given a knapsack weight and a set of n items with certain value and weight, fill the
+# knapsack in such a way that we can get the maximum profit.
 # This is different from the classical Knapsack problem, here we are allowed to use
 # an unlimited number of instances of an item.
 
@@ -14,7 +14,8 @@ examples = [
   },
   {
     'input': [8, [10, 40, 50, 70], [1, 3, 4, 5]],
-    'output': 110, # 1 of weight 5 & 1 of weight 3
+    'output': 110,
+    # 1 of weight 5 & 1 of weight 3
   },
 ]
 

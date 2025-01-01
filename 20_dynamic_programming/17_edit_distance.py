@@ -1,8 +1,8 @@
 from utils import test_class
 
 # Given two strings s1 and s2 of lengths m and n respectively and below operations that
-# can be performed on s1. Find the minimum number of edits (operations) required
-# to convert ‘s1‘ into ‘s2‘.
+# can be performed on s1. Find the minimum number of edits (operations) required to
+# convert ‘s1‘ into ‘s2‘.
 # 1. Insert: Insert any character before or after any index of s1
 # 2. Remove: Remove a character of s1
 # 3. Replace: Replace a character at any index of s1 with some other character
@@ -11,19 +11,23 @@ from utils import test_class
 examples = [
   {
     'input': ['geek', 'gesek'],
-    'output': 1, # s1 can be converted to s2 by adding 's' between the two 'e's
+    'output': 1,
+    # s1 can be converted to s2 by adding 's' between the two 'e's
   },
   {
     'input': ['cat', 'cut'],
-    'output': 1, # Replace 'a' with 'u'
+    'output': 1,
+    # Replace 'a' with 'u'
   },
   {
     'input': ['sunday', 'saturday'],
-    'output': 3, # Replace 'n' with 'r' and insert 'a' & 't'
+    'output': 3,
+    # Replace 'n' with 'r' and insert 'a' & 't'
   },
   {
     'input': ['GEEXSFRGEEKKS', 'GEEKSFORGEEKS'],
-    'output': 3, # Replace 'x' with 'k', insert 'o' between 'f' & 'r', remove last 'k'
+    'output': 3,
+    # Replace 'x' with 'k', insert 'o' between 'f' & 'r', remove last 'k'
   },
 ]
 

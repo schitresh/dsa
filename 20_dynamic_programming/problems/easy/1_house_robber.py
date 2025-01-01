@@ -10,15 +10,18 @@ from utils import test_class
 examples = [
   {
     'input': [[5, 5, 10, 100, 10, 5]],
-    'output': 110, # [5, 100, 5]
+    'output': 110,
+    # [5, 100, 5]
   },
   {
     'input': [[3, 2, 7, 10]],
-    'output': 13, # [3, 10]
+    'output': 13,
+    # [3, 10]
   },
   {
     'input': [[3, 2, 5, 10, 7]],
-    'output': 15, # [3, 5, 7]
+    'output': 15,
+    # [3, 5, 7]
   },
 ]
 

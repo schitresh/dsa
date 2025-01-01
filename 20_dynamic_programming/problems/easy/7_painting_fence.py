@@ -97,7 +97,7 @@ class Solution4:
     prev2 = colors
     prev1 = colors * colors
 
-    for post in range(2, posts):
+    for _ in range(2, posts):
       curr = prev1 * (colors - 1)
       curr += prev2 * (colors - 1)
 

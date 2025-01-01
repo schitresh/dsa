@@ -9,7 +9,8 @@ from utils import test_class
 examples = [
   {
     'input': [[1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9]],
-    'output': 3, # 1 -> 3 -> 9 -> 9
+    'output': 3,
+    # 1 -> 3 -> 9 -> 9
   },
   {
     'input': [[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]],

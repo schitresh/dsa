@@ -43,6 +43,7 @@ class Solution2:
 
     for row in range(1, n):
       curr = [1]
+
       for i in range(1, row):
         item = pascal_row[i - 1] + pascal_row[i]
         curr.append(item)

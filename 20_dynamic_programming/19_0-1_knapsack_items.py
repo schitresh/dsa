@@ -1,9 +1,9 @@
 from utils import test_class
 
 # Given weights and values of n items, put these items in a knapsack of capacity W
-# to get the maximum total value in the knapsack.
+# to get the maximum total value in the knapsack. You cannot break an item, either pick
+# the complete item or don’t pick it (0-1 property).
 # Return the maximum value and the weights that were included.
-# You cannot break an item, either pick the complete item or don’t pick it (0-1 property).
 
 examples = [
   {
@@ -37,11 +37,9 @@ class Solution:
 
     profit = max_profit[len(weights)][knapsack_weight]
     weight = knapsack_weight
-
     items = []
-    # print(max_profit)
+
     for pos in range(len(weights) - 1, -1, -1):
-      # print(profit, weight, max_profit[pos][weight], weights[pos])
       if profit <= 0: break
       # The result comes from either
       # 1. max_profit[pos][weight], or

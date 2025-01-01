@@ -1,9 +1,8 @@
 from utils import test_class
 
-# There are n stairs
-# A person standing at the bottom wants to climb stairs to reach the top
-# The person can climb either 1 stair or 2 stairs at a time
-# Count the number of ways that a person can reach at the top
+# There are n stairs. A person standing at the bottom wants to climb stairs to reach
+# the top. The person can climb either 1 stair or 2 stairs at a time. Count the number
+# of ways that a person can reach at the top.
 
 examples = [
   {
@@ -25,30 +24,27 @@ examples = [
 # Auxiliary Space: O(n), due to recursive stack
 class Solution:
   def solve(self, stairs):
-    if stairs == 0 or stairs == 1: return 1
+    if stairs in (0, 1): return 1
 
     # A person can reach the nth stair
     # 1. By taking 1 step from the previous stair
     way1 = self.solve(stairs - 1)
-    # 2. By takinng 2 steps from the previous of previous stair
+    # 2. By taking 2 steps from the previous of the previous stair
     way2 = self.solve(stairs - 2)
     return way1 + way2
 
 test_class(Solution, examples)
 
 # Memoization (Top-Down)
-# If we notice carefully, the above recursive solution holds the two properties of DP
+# The above recursive solution holds the two properties of DP
 # 1. Optimal Substructure:
-# Number of ways to reach the nth stair ways(n) depends on the optimal solutions
-# of the subproblems ways(n-1) and ways(n-2).
-# By combining these optimal substructures, the total number of ways to reach the nth
-# stair can be calculated efficiently.
+# Number of ways to reach the nth stair ways(n) depends on the optimal solutions of the
+# subproblems ways(n-1) and ways(n-2). By combining these optimal substructures, the
+# total number of ways to reach the nth stair can be calculated efficiently.
 # 2. Overlapping Subproblems:
-# While applying a recursive approach we notice that certain subproblems are computed
-# multiple times.
-# For example, when calculating ways(4), ways(3) and ways(2) are recursively calculated,
-# while ways(3) in turn recursively computes ways(2) again
-# This redundancy leads to overlapping subproblems.
+# While applying a recursive approach, certain subproblems are computed multiple times.
+# For example, ways(4) recursively calculates ways(3) and ways(2), while ways(3) in turn
+# recursively computes ways(2). This redundancy leads to overlapping subproblems.
 # Time Complexity: O(n)
 # Auxiliary Space: O(n), due to recursive stack
 class Solution2:
@@ -57,12 +53,14 @@ class Solution2:
     return self.count_ways(stairs)
 
   def count_ways(self, stairs):
-    if stairs == 0 or stairs == 1: return 1
+    if stairs in (0, 1): return 1
 
     if self.ways[stairs]:
       return self.ways[stairs]
 
-    self.ways[stairs] = self.count_ways(stairs - 1) + self.count_ways(stairs - 2)
+    way1 = self.count_ways(stairs - 1)
+    way2 = self.count_ways(stairs - 2)
+    self.ways[stairs] = way1 + way2
     return self.ways[stairs]
 
 test_class(Solution2, examples)
@@ -78,17 +76,30 @@ class Solution3:
 
     for i in range(2, stairs + 1):
       ways[i] = ways[i - 1] + ways[i - 2]
+      print(ways[i - 2], ways[i - 1], ways[i])
 
     return ways[stairs]
 
 test_class(Solution3, examples)
 
-# Tabulation (Bottom - Up) with space optimization
+# Tabulation (Bottom-Up) with space optimization
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
-# Similar to Fibonacci
+class Solution4:
+  def solve(self, stairs):
+    prev2 = 1
+    prev1 = 1
 
-# Matrix Exponentiation
+    for _ in range(2, stairs + 1):
+      ways = prev2 + prev1
+
+      prev2 = prev1
+      prev1 = ways
+
+    return prev1
+
+test_class(Solution4, examples)
+
+# Todo: Matrix Exponentiation
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(log(n)), due to recursion stack
-# Similar to Fibonacci

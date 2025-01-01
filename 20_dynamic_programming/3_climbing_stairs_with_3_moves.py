@@ -1,8 +1,8 @@
 from utils import test_class
 
-# A child is running up a staircase with n steps
-# and can hop either 1 step, 2 steps, or 3 steps at a time
-# Count the number of possible ways the child can run up the stairs
+# A child is running up a staircase with n steps and can hop either 1 step, 2 steps,
+# or 3 steps at a time. Count the number of possible ways the child can run up to the
+# top of the stairs.
 
 examples = [
   {
@@ -37,18 +37,6 @@ class Solution:
 test_class(Solution, examples)
 
 # Memoization (Top-Down)
-# If we notice carefully, the above recursive solution holds the two properties of DP
-# 1. Optimal Substructure:
-# Number of ways to reach the nth stair ways(n) depends on the optimal solutions
-# of the subproblems ways(n-1), ways(n-2), and ways(n-2).
-# By combining these optimal substructures, the total number of ways to reach the nth
-# stair can be calculated efficiently.
-# 2. Overlapping Subproblems:
-# While applying a recursive approach we notice that certain subproblems are computed
-# multiple times.
-# For example, when calculating ways(4), ways(3), ways(2), and ways(1) are calculated,
-# while ways(3) in turn recursively computes ways(2) & ways(1) again
-# This redundancy leads to overlapping subproblems.
 # Time Complexity: O(n)
 # Auxiliary Space: O(n), due to recursive stack
 class Solution2:
@@ -107,7 +95,6 @@ class Solution4:
 
 test_class(Solution4, examples)
 
-# Todo
-# Matrix Exponentiation
+# Todo: Matrix Exponentiation
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(log(n)), due to recursion stack

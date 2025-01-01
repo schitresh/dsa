@@ -1,9 +1,8 @@
 from utils import test_class
 
-# Given a triangular array, find the minimum path sum from top to bottom.
-# For each step, we can move to the adjacent numbers of the row below. i.e.,
-# if we are on an index i of the current row, we can move to either index i or
-# index i + 1 on the next row.
+# Given a triangular array, find the minimum path sum from top to bottom. For each step,
+# we can move to the adjacent numbers of the row below. That is, if we are on an index i
+# of the current row, we can move to either index i or index i + 1 on the next row.
 
 examples = [
   {
@@ -13,7 +12,8 @@ examples = [
       [8, 5, 6],
       [6, 1, 9, 3]
     ]],
-    'output': 11, # 2 -> 3 -> 5 -> 1
+    'output': 11,
+    # 2 -> 3 -> 5 -> 1
   },
   {
     'input': [[
@@ -22,7 +22,8 @@ examples = [
       [8, 7, 1],
       [9, 6, 8, 2]
     ]],
-    'output': 15, # 3 -> 9 -> 1 -> 2
+    'output': 15,
+    # 3 -> 9 -> 1 -> 2
   },
 ]
 

@@ -7,15 +7,18 @@ from utils import test_class
 examples = [
   {
     'input': [4, [1, 2, 3]],
-    'output': 4, # There are 4 solutions: [1, 1, 1, 1], [1, 1, 2], [2, 2] and [1, 3]
+    'output': 4,
+    # There are 4 solutions: [1, 1, 1, 1], [1, 1, 2], [2, 2] and [1, 3]
   },
   {
     'input': [10, [2, 5, 3, 6]],
-    'output': 5, # [2, 2, 2, 2, 2], [2, 2, 3, 3], [2, 2, 6], [2, 3, 5] and [5, 5]
+    'output': 5,
+    # [2, 2, 2, 2, 2], [2, 2, 3, 3], [2, 2, 6], [2, 3, 5] and [5, 5]
   },
   {
     'input': [10, [10]],
-    'output': 1, # [10]
+    'output': 1,
+    # [10]
   },
   {
     'input': [5, [4]],

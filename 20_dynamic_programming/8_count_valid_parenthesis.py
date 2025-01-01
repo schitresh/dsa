@@ -1,6 +1,6 @@
 from utils import test_class
 
-# Given a number n, find the number of valid parentheses expressions of that length.
+# Given a number n, find the number of valid parenthesis expressions of that length.
 
 examples = [
   {
@@ -19,7 +19,7 @@ examples = [
 
 # Recursion
 # Time Complexity: O(2^n)
-# Auxiliary Space: O(n)
+# Auxiliary Space: O(n), due to recursive stack
 class Solution:
   def solve(self, n):
     self.n = n
@@ -28,7 +28,7 @@ class Solution:
     return len(self.result)
 
   def parenthesis(self, string, pos, balance):
-    # If right parenthesis becomes more than left, it cannot become valid
+    # If right parenthesis are more than left ones, it cannot become valid
     if balance < 0: return
     if pos == self.n:
       if balance == 0: self.result.append(string)
@@ -41,7 +41,7 @@ test_class(Solution, examples)
 
 # Recursion
 # Time Complexity: O(2^n)
-# Auxiliary Space: O(1)
+# Auxiliary Space: O(n), due to recursive stack
 class Solution2:
   def solve(self, n):
     self.n = n
@@ -54,13 +54,12 @@ class Solution2:
     return self.result
 
   def parenthesis(self, left, right):
+    # If right parenthesis are more than left ones, it cannot become valid
+    if right > left: return
     # If all the number of parenthesis consumed, add it to the result
     if left == 0 and right == 0:
       self.result += 1
       return
-
-    # If right parenthesis becomes more than left, it cannot become valid
-    if right > left: return
 
     if left > 0: self.parenthesis(left - 1, right)
     if right > 0: self.parenthesis(left, right - 1)
@@ -84,10 +83,8 @@ class Solution3:
   def binomial_coeff(self, n, r):
     result = 1
 
-    # Since C(n, r) = C(n, n - r) because C(n, r) = n!/(r! * (n - r)!)
-    # this
-    if r > n - r:
-      r = n - r
+    # C(n, r) = C(n, n - r) because C(n, r) = n!/(r! * (n - r)!)
+    r = min(r, n - r)
 
     # On expanding the factorials in the formula, it can be simplified to:
     # C(n, r) = (n/1) * ((n-1)/2) * ... * ((n - (r - 1))/r)

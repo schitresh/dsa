@@ -28,8 +28,9 @@ examples = [
 
 # Using Binomial Coefficient
 # (a + b)^n = nC0 * a^n * b^0 + nC1 * a^(n - 1) * b^1 + ...
-#             + nC(n-1) * a^1 * b^(n-1) + nCn * a^0 * b^n
+#           + nC(n-1) * a^1 * b^(n-1) + nCn * a^0 * b^n
 # where nCi is binomial coefficient
+# T(r + 1) = nCr * a^(n - r) * b^r
 # In pascal triangle, the value of ith entry in nth row is nCi
 # (a + b)^0 -> [1]
 # (a + b)^1 -> [1, 1]
@@ -43,6 +44,7 @@ class Solution:
 
     for row in range(n):
       array = []
+
       for i in range(row + 1):
         coeff = self.binomial_coeff(row, i)
         array.append(coeff)
@@ -54,10 +56,12 @@ class Solution:
   def binomial_coeff(self, n, k):
     coeff = 1
 
-    if k > n - k:
-      k = n - k
+    # C(n, r) = C(n, n - r) because C(n, r) = n!/(r! * (n - r)!)
+    # This will reduce the number of multiplications required
+    k = min(k, n - k)
 
-    # Expanded version of nCk
+    # On expanding the factorials in the formula, it can be simplified to:
+    # C(n, r) = (n/1) * ((n-1)/2) * ... * ((n - (r - 1))/r)
     for i in range(k):
       coeff *= (n - i)
       coeff //= (i + 1)
@@ -76,6 +80,7 @@ class Solution2:
 
     for row in range(n):
       array = []
+
       for i in range(row + 1):
         # First & last values in every row is 1
         if i == 0 or i == row:

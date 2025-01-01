@@ -5,7 +5,7 @@ from utils import test_class
 # Bell Number
 # Let S(n, k) be total number of partitions of n elements into k sets.
 # The value of the nth Bell Number is the sum of S(n, k) for k = 1 to n.
-# Bell(n) = Sum(from k = 1 to n)[S(n, k)]
+# Bell(n) = Sum(k = 1 to n)[S(n, k)]
 # Value of S(n, k) can be defined recursively as: S(n + 1, k) = k * S(n, k) + S(n, k - 1)
 # How does above recursive formula work?
 # When we add a (n + 1)th element to k partitions, there are two possibilities.

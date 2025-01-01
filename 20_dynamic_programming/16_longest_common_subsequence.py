@@ -1,7 +1,7 @@
 from utils import test_class
 
 # Given two strings s1 and s2, find the length of the Longest Common Subsequence.
-# If there is no common subsequence, return 0.
+# If there is no common subsequence, then return 0.
 # A subsequence is a string generated from the original string by deleting 0 or more
 # characters and without changing the relative order of the remaining characters.
 # For example, subsequences of ABC are '', A, B, C, AB, AC, BC and ABC.
@@ -10,19 +10,23 @@ from utils import test_class
 examples = [
   {
     'input': ['abc', 'acd'],
-    'output': 2, # The longest subsequence present in both strings is 'ac'
+    'output': 2,
+    # The longest subsequence present in both strings is 'ac'
   },
   {
     'input': ['aggtab', 'gxtxayb'],
-    'output': 4, # LCS is 'gtab'
+    'output': 4,
+    # LCS is 'gtab'
   },
   {
     'input': ['abc', 'cba'],
-    'output': 1, # LCS are 'a', 'b', 'c'
+    'output': 1,
+    # LCS are 'a', 'b', 'c'
   },
     {
     'input': ['abdefc', 'ac'],
-    'output': 2, # LCS is 'ac'
+    'output': 2,
+    # LCS is 'ac'
   },
 ]
 
@@ -101,6 +105,32 @@ class Solution4:
     # Track length in the dp instead of index because len = index2 + 1
     # Else we'll have to check whether index2 - 1 is out of bounds
     # This way we can do index2 + 1 instead which will always be valid
+    prev = [0] * (len(string2) + 1)
+    curr = [0] * (len(string2) + 1)
+
+    for index1 in range(len(string1)):
+      for index2 in range(len(string2)):
+        if string1[index1] == string2[index2]:
+          curr[index2 + 1] = 1 + prev[index2]
+        else:
+          len1 = prev[index2 + 1]
+          len2 = curr[index2]
+          curr[index2 + 1] = max(len1, len2)
+
+        prev = curr
+
+    return prev[-1]
+
+test_class(Solution4, examples)
+
+# Tabulation (Bottom-Up) with space optimization
+# Time Complexity: O(m * n)
+# Auxiliary Space: O(n)
+class Solution4b:
+  def solve(self, string1, string2):
+    # Track length in the dp instead of index because len = index2 + 1
+    # Else we'll have to check whether index2 - 1 is out of bounds
+    # This way we can do index2 + 1 instead which will always be valid
     dp = [0] * (len(string2) + 1)
 
     for index1 in range(len(string1)):
@@ -110,9 +140,9 @@ class Solution4:
         curr = dp[index2 + 1]
 
         if string1[index1] == string2[index2]:
-          dp[index2 + 1] = 1 + dp[index2]
+          dp[index2 + 1] = 1 + prev
         else:
-          len1 = dp[index2 + 1]
+          len1 = curr
           len2 = dp[index2]
           dp[index2 + 1] = max(len1, len2)
 
@@ -120,4 +150,4 @@ class Solution4:
 
     return dp[-1]
 
-test_class(Solution4, examples)
+test_class(Solution4b, examples)

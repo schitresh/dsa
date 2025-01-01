@@ -1,6 +1,5 @@
 from utils import test_class
 
-
 # Count the number of possible decodings of the given digit sequence.
 # Let 1 represent 'A', 2 represent 'B', and so on. Multiple interpretations can arise due
 # to overlapping possibilities for how digits can be grouped into valid letter mappings.
@@ -16,15 +15,18 @@ from utils import test_class
 examples = [
   {
     'input': ['121'],
-    'output': 3, # aba, au, la
+    'output': 3,
+    # aba, au, la
   },
   {
     'input': ['1234'],
-    'output': 3, # abcd, lcd, awd
+    'output': 3,
+    # abcd, lcd, awd
   },
   {
     'input': ['230'],
-    'output': 0, # All possibilities are invalid: (2, 3, 0), (2, 30), (23, 0)
+    'output': 0,
+    # All possibilities are invalid: (2, 3, 0), (2, 30), (23, 0)
   },
 ]
 

@@ -1,21 +1,24 @@
 from utils import test_class
 
 # Given a rod of length n, cut the rod in such a way that the total number of segments
-# is maximized. The segments can only be of length x, y, and z.
-# If no segment can be cut then return 0.
+# is maximized. The segments can only be of length x, y, or z. If no such segment can be
+# cut, then return 0.
 
 examples = [
   {
     'input': [4, [2, 1, 1]], # n, [x, y, z]
-    'output': 4, # Can make maximum of 4 segments each of length 1
+    'output': 4,
+    # Can make maximum of 4 segments each of length 1
   },
   {
     'input': [5, [5, 3, 2]],
-    'output': 2, # Can make two segments of length 3 & 2
+    'output': 2,
+    # Can make two segments of length 3 & 2
   },
   {
     'input': [7, [8, 9, 10]],
-    'output': 0, # All segment lenghts are more than the rod length
+    'output': 0,
+    # All segment lengths are more than the rod length
   },
 ]
 

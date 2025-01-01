@@ -1,8 +1,10 @@
 from utils import test_class
 
 # Given an integer values n and k, find the value of Binomial Coefficient C(n, k).
-# A binomial coefficient C(n, k) can be defined as the coefficient of x^k
-# in the expansion of (1 + x)^n.
+# A binomial coefficient C(n, k) can be defined as the coefficient of x^k in the
+# expansion of (1 + x)^n.
+# (1 + x)^n = nC0 * x^0 + nC1 * x^1  + nC2 * x^2 + ... + nCn * x^n
+# C(n, k) = nCk * x^k
 # A binomial coefficient C(n, k) also gives the number of ways, disregarding order,
 # that k objects can be chosen from among n objects. More formally, the number of
 # k-element subsets (or k-combinations) of a n-element set.
@@ -19,12 +21,13 @@ examples = [
 ]
 
 # Recursion
+# C(n, k) = C(n-1, k-1) + C(n-1, k)
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(n)
 class Solution:
   def solve(self, n, k):
     if k > n: return 0
-    if k == 0 or k == n: return 1
+    if k in (0, n): return 1
 
     return self.solve(n - 1, k - 1) + self.solve(n - 1, k)
 
@@ -40,7 +43,7 @@ class Solution2:
 
   def binomial_coeff(self, n, k):
     if k > n: return 0
-    if k == 0 or k == n: return 1
+    if k in (0, n): return 1
 
     if self.memo[n][k]:
       return self.memo[n][k]

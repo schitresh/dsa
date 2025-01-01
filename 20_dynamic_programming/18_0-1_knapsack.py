@@ -1,16 +1,17 @@
 from utils import test_class
 
-# There are N items where each item has some weight and profit associated with it
+# There are N items where each item has some weight and profit associated with it.
 # There is also a bag with capacity W, i.e. the bag can hold at most W weight in it.
-# Put the items into the bag such that the sum of profits associated with them is
-# the maximum possible.
+# Put the items into the bag such that the sum of profits associated with them is the
+# maximum possible.
 # The constraint here is that we can either put an item completely into the bag
 # or cannot put it at all. It is not possible to put a part of an item.
 
 examples = [
   {
     'input': [4, [1, 2, 3], [4, 5, 1]], # W (knapsack weight), profits, weights
-    'output': 3, # Put the item with weight 1 & profit 3
+    'output': 3,
+    # Put the item with weight 1 & profit 3
   },
   {
     'input': [3, [1, 2, 3], [4, 5, 6]],

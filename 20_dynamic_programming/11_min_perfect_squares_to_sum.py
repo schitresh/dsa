@@ -3,17 +3,19 @@ from queue import Queue
 from utils import test_class
 
 # Given a positive integer n, find the minimum number of squares that sum to n.
-# A number can always be represented as a sum of squares of other numbers.
-# Because 1 is a square number and it can be broken into any number as (1*1 + 1*1 + ...)
+# A number can always be represented as a sum of squares of other numbers. Because 1 is
+# a square number and it can be broken into any number as (1 * 1 + 1 * 1 + ... )
 
 examples = [
   {
     'input': [100],
-    'output': 1, # Can be written as [10^2] or [5^2 + 5^2 + 5^2 + 5^2], smallest is [10^2]
+    'output': 1,
+    # Can be written as [10^2] or [5^2 + 5^2 + 5^2 + 5^2], but [10^2] has min squares
   },
   {
     'input': [6],
-    'output': 3, # [2^2 + 1^2 + 1^2]
+    'output': 3,
+    # [2^2 + 1^2 + 1^2]
   },
 ]
 
@@ -25,7 +27,7 @@ class Solution:
     if num <= 3: return num
 
     # Any positive number can be represented as sum of 1^2 + 1^2 + ... n times,
-    # so we can initialize count with n
+    # so we can initialize the count with n
     count = num
 
     n_sqrt = int(math.sqrt(num))
@@ -73,22 +75,22 @@ test_class(Solution2, examples)
 # Auxiliary Space: O(n)
 class Solution3:
   def solve(self, num):
-    memo = [None] * (num + 1)
-    memo[0] = 0
-    memo[1] = 1
+    dp = [None] * (num + 1)
+    dp[0] = 0
+    dp[1] = 1
 
     for curr_num in range(2, num + 1):
       # Any positive number can be represented as sum of 1^2 + 1^2 + ... n times,
       # so we can initialize count with n
-      memo[curr_num] = curr_num
+      dp[curr_num] = curr_num
 
       curr_num_sqrt = int(math.sqrt(curr_num))
       for i in range(1, curr_num_sqrt + 1):
         remaining_num = curr_num - i * i
-        remaining_count = memo[remaining_num]
-        memo[curr_num] = min(memo[curr_num], 1 + remaining_count)
+        remaining_count = dp[remaining_num]
+        dp[curr_num] = min(dp[curr_num], 1 + remaining_count)
 
-    return memo[num]
+    return dp[num]
 
 test_class(Solution3, examples)
 
@@ -125,7 +127,6 @@ class Solution4:
 
 test_class(Solution4, examples)
 
-# Todo
-# Lagrange's Four Square Theorem
+# Todo: Lagrange's Four Square Theorem
 # Time Complexity: O(sqrt(n))
 # Auxiliary Space: O(1)
