@@ -1,10 +1,10 @@
 from utils import test_class
 
-# Given a string of 2N characters consisting of N [ brackets & N ] brackets
+# Given a string of 2N characters consisting of N [ brackets & N ] brackets.
 # A string is considered balanced if it can be represented in the form S2[S1]
-# where S1 and S2 are balanced strings
-# An unbalanced string can be balanced by swapping adjacent characters
-# Calculate the minimum number of adjacent swaps necessary to make a string balanced
+# where S1 and S2 are balanced strings.
+# An unbalanced string can be balanced by swapping adjacent characters.
+# Calculate the minimum number of adjacent swaps necessary to make a string balanced.
 
 examples = [
   {
@@ -54,6 +54,8 @@ class Solution:
       string[k] = string[k - 1]
     string[i] = temp
 
+test_class(Solution, examples)
+
 # Optmizied approach: Track the positions of '['
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
@@ -89,6 +91,8 @@ class Solution2:
 
     return swaps
 
+test_class(Solution2, examples)
+
 # Optmizied approach: Without trackings the positions of '['
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
@@ -110,6 +114,4 @@ class Solution3:
 
     return swaps
 
-test_class(Solution, examples)
-test_class(Solution2, examples)
 test_class(Solution3, examples)

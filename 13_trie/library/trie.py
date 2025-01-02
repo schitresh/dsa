@@ -18,7 +18,9 @@ class Trie:
 
     for position in range(len(word)):
       index = self.next_index(word, position)
-      if not temp.next[index]: temp.next[index] = Node()
+      if not temp.next[index]:
+        temp.next[index] = Node()
+
       temp = temp.next[index]
 
     temp.is_word = True
@@ -29,10 +31,13 @@ class Trie:
 
     for position in range(len(word)):
       index = self.next_index(word, position)
-      if not temp.next[index]: return False
+      if not temp.next[index]:
+        return False
+
       temp = temp.next[index]
 
-    return True if temp.is_word else False
+    if temp.is_word: return True
+    return False
 
   def remove(self, word):
     if not word: return
@@ -53,21 +58,25 @@ class Trie:
     if delete:
       del root.next[index]
       root.next[index] = None
-      if not root.is_word: return True
 
-def test():
-  trie = Trie()
+      if not root.is_word:
+        return True
+
+def test(klass):
+  trie = klass()
   trie.insert('abc')
   trie.insert('abcdef')
   trie.insert('xyz')
 
-  print('ab', trie.search('ab'))
-  print('abcd', trie.search('abcd'))
-  print('abc', trie.search('abc'))
-  print('Remove abc', trie.remove('abc'))
-  print('abc', trie.search('abc'))
-  print('abcdef', trie.search('abcdef'))
-  print('Remove abcdef', trie.remove('abcdef'))
-  print('abcdef', trie.search('abcdef'))
+  print('Search ab:', trie.search('ab'))
+  print('Search abcd:', trie.search('abcd'))
+  print('Search abc:', trie.search('abc'))
+  print('Remove abc:', trie.remove('abc'))
+  print('Search abc:', trie.search('abc'))
+  print('Search abcdef:', trie.search('abcdef'))
+  print('Remove abcdef:', trie.remove('abcdef'))
+  print('Search abcdef:', trie.search('abcdef'))
 
-test()
+# Do not execute while importing it in another file
+if __name__ == '__main__':
+  test(Trie)

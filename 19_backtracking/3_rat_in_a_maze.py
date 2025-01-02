@@ -1,14 +1,13 @@
 from utils import test_class
 
-# Consider a rat placed at (0, 0) in a square matrix of order N * N.
-# It has to reach the destination at (N – 1, N – 1).
-# Find all possible paths that the rat can take to reach from source to destination.
+# Consider a rat placed at (0, 0) in a square matrix of order N * N. It has to reach
+# the destination at (N – 1, N – 1). Find all the possible paths that the rat can take
+# to reach from source to destination. Return the list of paths in lexicographically
+# increasing order.
 # The directions in which the rat can move are U(up), D(down), L(left), R(right).
-# Value 0 at a cell in the matrix represents that it is blocked
-# and value 1 represents that rat can be travel through it.
-# Return the list of paths in lexicographically increasing order.
-# Note: In a path, no cell can be visited more than one time.
-# If the source cell is 0, the rat cannot move to any other cell.
+# Value 0 at a cell in the matrix represents that it is blocked and value 1 represents
+# that rat can be travel through it. In a path, no cell can be visited more than one
+# time. If the source cell is 0, the rat cannot move to any other cell.
 
 examples = [
   {
@@ -22,7 +21,7 @@ examples = [
   },
 ]
 
-# Backtracking solution
+# Backtracking
 # Time Complexity: O(3^(m * n))
 # Because we have to try 3 different directions for each cell
 # We won't check the cell from which we have visited in the last move

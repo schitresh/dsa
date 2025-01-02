@@ -1,7 +1,7 @@
 from utils import test_class
 
-# Given a set[] of non-negative integers and a value sum,
-# print the subset of the given set whose sum is equal to the given sum
+# Given a set[] of non-negative integers and a value sum, print the subset of the given
+# set whose sum is equal to the given sum.
 
 examples = [
   {
@@ -14,13 +14,14 @@ examples = [
   },
 ]
 
-# Backtracking solution
-# Subset sum can also be thought of as a special case of the 0–1 Knapsack problem
+# Backtracking
+# Subset sum can also be thought of as a special case of the 0-1 Knapsack problem.
 # For each item, there are two possibilities:
-# 1. Include the current element in the subset and recur for the remaining elements with the remaining Sum
+# 1. Include the current element in the subset and recur for the remaining elements with
+# the remaining sum.
 # 2. Exclude the current element from the subset and recur for the remaining elements.
-# Finally, if Sum becomes 0 then include current subset.
-# The recursion’s base case would be when no items are left or the sum becomes negative
+# The recursion’s base case would be when no items are left or the sum becomes negative.
+# Finally, if sum becomes 0 then include current subset.
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(n)
 class Solution:

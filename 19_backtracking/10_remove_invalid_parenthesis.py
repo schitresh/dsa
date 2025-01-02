@@ -65,6 +65,8 @@ class Solution:
 
     return count == 0
 
+test_class(Solution, examples)
+
 # Using BFS
 # Time Complexity: O(b^d) = O(2^n)
 # where b is the branching factor (average number of child nodes per node)
@@ -114,5 +116,4 @@ class Solution2:
 
     return count == 0
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

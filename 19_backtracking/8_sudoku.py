@@ -2,7 +2,7 @@ from utils import test_class
 
 # Given a partially filled 9×9 2D array, assign digits (from 1 to 9) to the empty cells
 # so that every row, column, and subgrid of size 3×3 contains exactly one instance
-# of the digits from 1 to 9
+# of the digits from 1 to 9.
 
 examples = [
   {
@@ -99,6 +99,7 @@ class Solution:
 
     return True
 
-# Todo: Solutions using bitmask, cross-hatching
-
 test_class(Solution, examples)
+
+# Todo: Bitmask
+# Todo: Cross-hatching

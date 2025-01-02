@@ -56,8 +56,8 @@ class Solution2:
 test_class(Solution2, examples)
 
 # Bit Manipulation
-# Since each element has only two choices i.e. either get included or get excluded,
-# assign these choices to a bit representation sp that 0 means excluded & 1 means included.
+# Since each element has only two choices i.e. either get included or get excluded, assign
+# these choices to a bit representation sp that 0 means excluded & 1 means included.
 # i'th bit represents i'th element of the array.
 # If there are N elements in the array, it will have 2^N subsets. These subsets can be
 # uniquely expressed in the form of bit representation of number from 0 to (2^N)-1.

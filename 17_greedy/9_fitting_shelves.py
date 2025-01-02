@@ -1,10 +1,10 @@
 from utils import test_class
 
-# Given a wall of length w and shelves of two lengths m and n
-# Find the number of each type of shelf that can be used
-# and the remaining empty space such that the empty space is minimum
-# The larger of the two shelves is cheaper so it is preferred
-# However cost is secondary and the first priority is to minimize empty space on wall
+# Given a wall of length w and shelves of two lengths m and n. Find the number of each
+# type of shelf that can be used and the remaining empty space, such that the empty space
+# is minimum.
+# The larger of the two shelves is cheaper so it is preferred. However cost is secondary
+# and the first priority is to minimize empty space on wall.
 
 examples = [
   {
@@ -51,7 +51,5 @@ class Solution:
         empty = curr_empty
 
     return [count_m, count_n, empty]
-
-
 
 test_class(Solution, examples)

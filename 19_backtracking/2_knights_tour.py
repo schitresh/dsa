@@ -22,7 +22,7 @@ examples = [
   },
 ]
 
-# Backtracking solution
+# Backtracking
 # It may take some time to run due to its large time complexity
 # Time Complexity: O(8^(n^2)), there are n^2 cells and 8 possible moves to choose from
 # Auxiliary Space: O(n^2)

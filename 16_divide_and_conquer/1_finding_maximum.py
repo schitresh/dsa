@@ -13,10 +13,13 @@ examples = [
 
 # Tournament Method
 # Number of comparisons: (3/2) * n - 2
-# In linear search: best case: ((n - 2) + 1),  worst case: (2 * (n - 2) + 1 )
+# In linear search: best case: ((n - 2) + 1), worst case: (2 * (n - 2) + 1 )
 # Time Complexity: O(n)
 # Auxiliary Space: O(log(n)), due to recursive stack
 class Solution:
+  def solve(self, array):
+    return self.find_max(array, 0, len(array) - 1)
+
   def find_max(self, array, left, right):
     if left > right:
       return float('inf')
@@ -29,8 +32,5 @@ class Solution:
     right_max = self.find_max(array, mid + 1, right)
 
     return max(left_max, right_max)
-
-  def solve(self, array):
-    return self.find_max(array, 0, len(array) - 1)
 
 test_class(Solution, examples)

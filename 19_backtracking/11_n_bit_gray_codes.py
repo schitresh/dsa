@@ -1,13 +1,13 @@
 from utils import test_class
 
-# Given a number n, generate n bit Gray codes
-# That is,generate bit patterns from 0 to 2^n-1 such that successive patterns
-# differ by one bit
+# Given a number n, generate n bit Gray codes. That is, generate bit patterns from
+# 0 to 2^n-1 such that successive patterns differ by one bit.
 
 examples = [
   {
     'input': [2],
-    'output': [0, 1, 3, 2] # 00 - 1, 01 - 1, 11 - 3, 10 - 2
+    'output': [0, 1, 3, 2]
+    # 00 - 1, 01 - 1, 11 - 3, 10 - 2
   },
   {
     'input': [3],

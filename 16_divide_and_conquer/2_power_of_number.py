@@ -1,8 +1,6 @@
-from utils import test_method
+from utils import test_class
 
-# Calculate x^n or x ** n or pow(x, n) using divide and conquer
-# Brute force approach is to iterate or recurse over n and keep multipying x
-# Time complexity of that is O(n)
+# Calculate x^n or x ** n or pow(x, n) using divide and conquer.
 examples = [
   {
     'input': [2, 3],
@@ -14,34 +12,42 @@ examples = [
   },
 ]
 
+# Brute force: Iterate or recurse over n and keep multipying x.
+# Time complexity: O(n)
+
+# Recursion
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(log(n)) for recursive stack
-def power(x, n):
-  if n == 0:
-    return 1
+class Solution:
+  def solve(self, x, n):
+    if n == 0:
+      return 1
 
-  half_power = power(x, n // 2)
-  result = half_power * half_power
+    half_power = self.solve(x, n // 2)
+    result = half_power * half_power
 
-  if n % 2 == 1:
-    result *= x
+    if n % 2 == 1:
+      result *= x
 
-  return result
+    return result
 
+test_class(Solution, examples)
+
+# Iteration
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(1)
-def power2(x, n):
-  result = 1
+class Solution2:
+  def solve(self, x, n):
+    result = 1
 
-  while n > 0:
-    if n % 2 == 0:
-      x *= x
-      n /= 2
-    else:
-      result *= x
-      n -= 1
+    while n > 0:
+      if n % 2 == 0:
+        x *= x
+        n /= 2
+      else:
+        result *= x
+        n -= 1
 
-  return result
+    return result
 
-test_method(power, examples)
-test_method(power2, examples)
+test_class(Solution2, examples)

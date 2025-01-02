@@ -42,5 +42,4 @@ class Solution:
     string[i], string[j] = string[j], string[i]
     return ''.join(string)
 
-
 test_class(Solution, examples)

@@ -1,9 +1,11 @@
 from utils import test_class
 
-# Hamiltonian Cycle or Circuit in a graph G is a cycle that visits
-# every vertex of G exactly once and returns to the starting vertex.
-# If graph contains a Hamiltonian cycle, it is called Hamiltonian graph
-# otherwise it is non-Hamiltonian.
+# Given an undirected graph, determine whether the graph contains a
+# Hamiltonian cycle or not. If it contains, then print the path.
+
+# Hamiltonian Cycle or Circuit in a graph G is a cycle that visits every vertex of G
+# exactly once and returns to the starting vertex. If graph contains a Hamiltonian cycle,
+# it is called Hamiltonian graph otherwise it is non-Hamiltonian.
 # Finding a Hamiltonian Cycle in a graph is a well-known NP-complete problem, which
 # means that there’s no known efficient algorithm to solve it for all types of graphs.
 # However, it can be solved for small or specific types of graphs.
@@ -12,9 +14,6 @@ from utils import test_class
 # but doesn’t have to return to the starting vertex. It’s an open path.
 # Similar to the Hamiltonian Cycle, it is also NP-complete and can be challenging.
 # However, it is often more easier than finding a Hamiltonian Cycle.
-
-# Problem Statement: Given an undirected graph, the task is to determine whether the graph
-# contains a Hamiltonian cycle or not. If it contains, then prints the path.
 
 examples = [
   {
@@ -35,7 +34,8 @@ examples = [
       [1, 1, 0, 0, 0],
       [0, 1, 1, 0, 0]
     ]],
-    'output': None # Solution doesn't exist
+    'output': None
+    # Solution doesn't exist
   },
 ]
 
@@ -67,6 +67,8 @@ class Solution:
       if new_path: return new_path
 
     self.visited[node] = False
+
+test_class(Solution, examples)
 
 # Time Complexity: O(n!)
 # Auxiliary Space: O(1)
@@ -105,5 +107,4 @@ class Solution2:
 
     return True
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

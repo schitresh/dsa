@@ -10,7 +10,7 @@ examples = [
   },
 ]
 
-# Backtracking solution
+# Backtracking
 # Time Complexity: O(n!)
 # Auxiliary Space: O(n^2), if board is included
 class Solution:
@@ -56,8 +56,9 @@ class Solution:
     within_limits = 0 <= row < self.size and 0 <= col < self.size
     return within_limits
 
+test_class(Solution, examples)
 
-# Backtracking solution
+# Backtracking with optimization to check safety of the queen
 # Time Complexity: O(n!)
 # Auxiliary Space: O(n^2), if board is included
 class Solution2:
@@ -107,5 +108,4 @@ class Solution2:
     within_limits = 0 <= row < self.size and 0 <= col < self.size
     return within_limits
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

@@ -1,31 +1,30 @@
 from utils import test_class
 
-# Every house in a colony has at most one pipe going into it
-# and at most one pipe going out of it
-# Tanks and taps are to be installed such that
-# every house with one outgoing pipe but no incoming pipe gets a tank installed
-# And every house with only an incoming pipe and no outgoing pipe gets a tap
+# Every house in a colony has at most one pipe going into it and at most one pipe going
+# out of it. Tanks and taps are to be installed such that every house with one outgoing
+# pipe but no incoming pipe gets a tank installed. And every house with only an incoming
+# pipe and no outgoing pipe gets a tap.
 
-# Given the number of houses and the number of pipes
-# The connections of pipe among the houses contain three input values: a, b, d
-# denoting the pipe of diameter d from house a to house b
+# Given are the number of houses, the number of pipes, and the connections of pipe among
+# the houses. The connections contain three input values: a, b, d denoting the pipe of
+# diameter d from house a to house b.
 
-# Find out the efficient solution for the network
-# The output will contain the number of pairs of tanks and taps installed in the first line
-# The next t lines contain three integers:
-# house number of tank, house number of tap and the minimum diameter of pipe between them
+# Find out the efficient solution for the network.
+# The output will contain the number of pairs of tanks and taps installed in the first
+# line. The next t lines contain three integers:house number of tank, house number of tap
+# and the minimum diameter of pipe between them.
 
 examples = [
   {
     'input': [
-      4, 2,
+      4,
       [[1, 2, 60], [3, 4, 50]]
     ],
     'output': [2, [[1, 2, 60], [3, 4, 50]]],
   },
   {
     'input': [
-      9, 6,
+      9,
       [[7, 4, 98], [5, 9, 72], [4, 6, 10 ], [2, 8, 22], [9, 7, 17], [3, 1, 66]]
     ],
     'output': [3, [[2, 8, 22], [3, 1, 66], [5, 6, 10]]],
@@ -38,7 +37,7 @@ examples = [
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
 class Solution:
-  def solve(self, house_count, pipe_count, pipes):
+  def solve(self, house_count, pipes):
     # Stores corresponding end house for the start house as index
     self.end_house = [0] * (house_count + 1)
     # Stores corresponding start house for the end house as index

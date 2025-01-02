@@ -1,12 +1,10 @@
 import heapq
 from utils import test_class
 
-# Given an array of jobs where each job has a deadline
-# and associated profit if the job is finished before the deadline
-# Each job takes a single unit of time to finish
-# Maximize the total profit if only one job can be scheduled at a time
+# Given an array of jobs where each job has a deadline and associated profit if the job
+# is finished before the deadline. Each job takes a single unit of time to finish.
+# Maximize the total profit if only one job can be scheduled at a time.
 
-# input: array of jobs with [name, deadline, profit]
 examples = [
   {
     'input': [[
@@ -15,13 +13,13 @@ examples = [
       ['c', 2, 27],
       ['d', 1, 25],
       ['e', 3, 15]
-    ]],
+    ]], # [name, deadline, profit]
     'output': ['c', 'a', 'e'],
   },
 ]
 
-# Greedily choose the job with the maximum profit first
-# by sorting the jobs in decreasing order of their profit
+# Greedily choose the job with the maximum profit first by sorting the jobs in
+# decreasing order of their profit
 # Time Complexity: O(n^2)
 # Auxiliary Space: O(n)
 class Solution:
@@ -43,11 +41,11 @@ class Solution:
 
 test_class(Solution, examples)
 
-# Sort the jobs in decreasing order of their deadlines
-# and then calculate the available slots between every consecutive deadlines
-# Include the profit of the job at the root of the max heap
-# while the empty slots are available and heap is not empty
-# This will help to choose the jobs with maximum profit for every set of available slots
+# Sort the jobs in decreasing order of their deadlines and then calculate the available
+# slots between every consecutive deadlines.
+# Include the profit of the job at the root of the max heap while the empty slots are
+# available and heap is not empty. This will help to choose the jobs with maximum profit
+# for every set of available slots.
 # Time Complexity: O(n * log(n))
 # Auxiliary Space: O(n)
 class Solution2:
@@ -79,6 +77,5 @@ class Solution2:
     selected_jobs.sort(key = lambda x: x[1])
 
     return list(map(lambda x: x[0], selected_jobs))
-
 
 test_class(Solution2, examples)

@@ -1,11 +1,10 @@
 from queue import PriorityQueue
 from utils import test_class
 
-# Given n activities with their start and finish time,
-# select the maximum number of activities that can be performed by a single person,
-# assuming that a person can only work on a single activity at a time
+# Given n activities with their start and finish time, select the maximum number of
+# activities that can be performed by a single person, assuming that a person can only
+# work on a single activity at a time.
 
-# input: Array of activities with [start_time, finish_time]
 examples = [
   {
     'input': [[[10, 20], [12, 25], [20, 30]]],
@@ -17,10 +16,10 @@ examples = [
   }
 ]
 
-# The greedy choice is to always pick the next activity
-# whose finish time is the least among the remaining activities
-# and the start time is more than or equal to the finish time of the previous activity
-# We can sort the activities according to their finishing time for easy selection
+# The greedy choice is to always pick the next activity whose finish time is the least
+# among the remaining activities and the start time is more than or equal to the finish
+# time of the previous activity.
+# We can sort the activities according to their finishing time for easy selection.
 # Time Complexity: O(n * log(n))
 # Auxiliary Space: O(n)
 class Solution:
@@ -43,8 +42,8 @@ class Solution:
 
 test_class(Solution, examples)
 
-# We can use min heap to get the activity with minimum finish tme
-# Min heap can be implemented using priority queue
+# We can use min heap to get the activity with minimum finish time.
+# Min heap can be implemented using priority queue.
 # Time Complexity: O(n * log(n))
 # Auxiliary Space: O(n)
 class Solution2:

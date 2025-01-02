@@ -1,8 +1,8 @@
 from utils import test_class
 
 # Given a value of V Rs and an infinite supply of each of the denominations
-# {1, 2, 5, 10, 20, 50, 100, 500, 1000} valued coins/notes
-# The task is to find the minimum number of coins and/or notes needed to make the change
+# {1, 2, 5, 10, 20, 50, 100, 500, 1000} valued coins/notes.
+# Find the minimum number of coins and/or notes needed to make the change.
 
 examples = [
   {
@@ -19,10 +19,11 @@ examples = [
   },
 ]
 
-# Greedy approach: Start with the largest possible denomination and keep adding
-# But this may not work for all denominations, like [9, 6, 5, 1] and V = 11
-# This would print 9, 1, 1, but we can use 2 denominations 5 & 6
-# For general input, dynamic programming needs to be used
+# Greedy
+# Start with the largest possible denomination and keep adding.
+# But this may not work for all denominations, like [9, 6, 5, 1] and V = 11.
+# This would print 9, 1, 1, but we can use 2 denominations 5 & 6.
+# For general input, dynamic programming needs to be used.
 # Time Complexity: O(n * log(n))
 # Auxiliary Space: O(1)
 class Solution:

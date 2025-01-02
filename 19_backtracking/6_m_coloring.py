@@ -1,8 +1,8 @@
 from utils import test_class
 
 # Given an undirected graph and a number m, color the graph with at most m colors
-# such that no two adjacent vertices of the graph are colored with the same color
-# Note: Here coloring of a graph means the assignment of colors to all vertices
+# such that no two adjacent vertices of the graph are colored with the same color.
+# Here coloring of a graph means the assignment of colors to all vertices.
 
 examples = [
   {

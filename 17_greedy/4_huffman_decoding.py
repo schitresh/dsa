@@ -2,8 +2,8 @@ from collections import defaultdict
 from queue import PriorityQueue
 from utils import test_class
 
-# To decode the encoded data we require the Huffman tree
-# Iterate through the binary encoded data
+# To decode the encoded data, we require the Huffman tree.
+# Iterate through the binary encoded data.
 # To find character corresponding to current bits, use these steps:
 # 1. Start from the root and do the following until a leaf is found
 # 2. If the current bit is 0, move to the left node of the tree
@@ -41,13 +41,11 @@ class Solution:
     char_freq = self.calculate_freq(string)
     huff_tree = self.huff_tree(char_freq)
     huff_code = self.huff_code(huff_tree)
+
     encoded_string = self.encode_string(string, huff_code)
     decoded_string = self.decode_string(encoded_string, huff_tree)
 
-    print(huff_code)
-    print(encoded_string)
     return decoded_string
-
 
   def encode_string(self, string, huff_code):
     encoded_string = ''

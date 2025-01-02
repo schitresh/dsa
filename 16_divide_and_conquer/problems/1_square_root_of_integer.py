@@ -14,7 +14,7 @@ examples = [
   }
 ]
 
-# Loop
+# Iteration
 # Time Complexity: O(sqrt(n))
 # Auxiliary Space: O(1)
 class Solution:

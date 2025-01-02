@@ -1,6 +1,6 @@
 from utils import test_class
 
-# Find the mean of the elements of given array
+# Check if the given string is a palindrome.
 
 examples = [
   {

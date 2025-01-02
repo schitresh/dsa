@@ -28,9 +28,8 @@ examples = [
 # Approach 2: For each policeman, catch the farthest possible thief
 # This works for example 2, but fails for example 3
 # Approach 3: Focusing on just the allotment
-# Get the lowest index of policemen & thief
-# Make an allotment if |p - t| < k and increment to the next p & t
-# Otherwise increment min(p, t) to the next p or t
+# Get the lowest index of policemen & thief. Make an allotment if |p - t| < k and]
+# increment to the next p & t. Otherwise increment min(p, t) to the next p or t.
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
 class Solution:
@@ -56,6 +55,8 @@ class Solution:
         thief += 1
 
     return max_theives_caught
+
+test_class(Solution, examples)
 
 # In the previous solution, directly calculate the next index fo police & thief
 # Time Complexity: O(n)
@@ -92,5 +93,4 @@ class Solution2:
 
     return -1
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

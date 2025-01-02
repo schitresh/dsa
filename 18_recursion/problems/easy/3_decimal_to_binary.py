@@ -1,6 +1,6 @@
 from utils import test_class
 
-# convert the given decimal number into an equivalent binary number.
+# Convert the given decimal number into an equivalent binary number.
 
 examples = [
   {

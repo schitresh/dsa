@@ -1,8 +1,8 @@
 import math
 from utils import test_class
 
-# Given an array of n points in a plane, find the closest pair of points
-# The brute force solution is to compute distance between each pair in O(n^2)
+# Given an array of n points in a plane, find the closest pair of points.
+
 examples = [
   {
     'input': [[[2, 3], [12, 30], [40, 50], [5, 1], [12, 10], [3, 4]]],
@@ -10,13 +10,14 @@ examples = [
   }
 ]
 
-# Sort the points according to x coordinates
-# This allows us to divide the points into two halves on x axis
-# Calculate min distance in each half
-# Consider the pairs that have one point in left half and the other in right half
-# Consider only those points whose distace from the mid y-line
-# is less than the current min distance
-# Sort these points according to y coordinates
+# Brute Force: Compute distance between each pair
+# Time Complexity: O(n^2)
+
+# Sort the points according to x coordinates. This allows us to divide the points into
+# two halves on x axis, and calculate min distance in each half.
+# Consider the pairs that have one point in left half and the other in right half.
+# Consider only those points whose distance from the mid y-line is less than the current
+# min distance. Sort these points according to y coordinates.
 # Find min distance in these points and compare with the current min distance
 # Time Complexity: O(n * log(n)^2)
 # Auxiliary Space: O(log(n))
