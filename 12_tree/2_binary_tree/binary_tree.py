@@ -27,6 +27,7 @@ class BinaryTree:
 
       if level == len(traversal):
         traversal.append([])
+
       traversal[level].append(node.key)
 
       if node.left: queue.put([node.left, level + 1])

@@ -1,13 +1,14 @@
 ## Heap
-- Complete binary tree that satisfies the heap property
-  - That is, for every node, the value of its children is less than or equal to its own value
-  - Or, more than or equal to
+- Complete binary tree that satisfies the heap property. That is, for every node:
+  - The value of its children is less than or equal to its own value (max heap)
+  - Or, its more than or equal to its own value (min heap)
 - Heapify is the process to rearrange the elements to maintain the heap property
   - Nodes can be imbalanced due to some operation on that node
 - Types
   - Max Heap: Values decrease as you move down the tree
   - Min heap: Values increase as you move down the tree
 - Not suitable for searching, O(n) in worst case
+- Height of a binary heap with n nodes: floor(log2(n))
 - Operations
   - Insertion: O(log(n))
   - Deletion: O(log(n))
@@ -32,7 +33,7 @@ heapq.heappush(array, [10, 'Hello'])
 heapq.heapop(array)
 heapq.heapsort(array)
 
-# PriorityQueue also implements min heap
+# queue.PriorityQueue implements min heap
 from queue import PriorityQueue
 queue = PriorityQueue()
 queue = PriorityQueue(maxsize=10)

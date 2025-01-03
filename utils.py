@@ -1,4 +1,5 @@
 import re
+from copy import deepcopy
 
 # Printers
 
@@ -17,6 +18,7 @@ def test_class(klass, examples):
   print_class_name(klass)
 
   for example in examples:
+    example = deepcopy(example)
     output = klass().solve(*example['input'])
     print(output == example['output'], end = ': ')
     print(output)
@@ -27,6 +29,7 @@ def test_with_init(klass, examples):
   print_class_name(klass)
 
   for example in examples:
+    example = deepcopy(example)
     output = klass(*example['input']).solve()
     print(output == example['output'], end = ': ')
     print(output)
@@ -37,6 +40,7 @@ def test_method(method, examples):
   print_method_name(method)
 
   for example in examples:
+    example = deepcopy(example)
     output = method(*example['input'])
     print(output == example['output'], end = ': ')
     print(output)
