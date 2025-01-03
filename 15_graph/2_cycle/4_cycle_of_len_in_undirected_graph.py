@@ -1,8 +1,11 @@
-from queue import LifoQueue, Queue
-from utils import test_class, test_with_init
+from utils import test_class
 
-# Given an undirected and connected graph, and a number N
-# Count the number of cycles of length N in the graph
+# Given an undirected and connected graph and a number n, count the total number of
+# simple cycles of length n in the graph. A simple cycle of length n is defined as a
+# cycle that contains exactly n vertices and n edges.
+# For an undirected graph, each cycle should only be counted once, regardless of
+# starting vertex or direction.
+
 examples = [
   {
     'input': [[[1, 3], [0, 2, 4], [1, 3], [0, 2, 4], [1, 3]], 4],
@@ -14,16 +17,28 @@ examples = [
   },
 ]
 
+# DFS
 # Track the current path in recursion stack
 # If the node appears again in the recursion stack, then there is a cycle
 # Time Complexity: O(V^2)
 # Auxiliary Space: O(V)
-class DFSRecursive:
-  def __init__(self, graph, cycle_len):
+class Solution:
+  def solve(self, graph, cycle_len):
     self.graph = graph
     self.cycle_len = cycle_len
     self.visited = [False] * len(graph)
     self.count = 0
+
+    for current in range(len(self.graph)):
+      self.traverse(current, current, 1)
+      # Every traverse call marks a node unvisited to consider different paths
+      # Hence, mark the current node visited after traversing is finished
+      self.visited[current] = True
+
+    # Every cycle will be counted twice
+    # Because one path will be clockwise and another would be couter-clockwise
+    # And both will be considered while iterating through neighbors of a node
+    return self.count // 2
 
   def traverse(self, start_node, curr_node, curr_len):
     self.visited[curr_node] = True
@@ -46,16 +61,4 @@ class DFSRecursive:
     # Mark the current node un-visited to check cycles for other starting nodes
     self.visited[curr_node] = False
 
-  def solve(self):
-    for current in range(len(self.graph)):
-      self.traverse(current, current, 1)
-      # Every traverse call marks a node unvisited to consider different paths
-      # Hence, mark the current node visited after traversing is finished
-      self.visited[current] = True
-
-    # Every cycle will be counted twice
-    # Because one path will be clockwise and another would be couter-clockwise
-    # And both will be considered while iterating through neighbors of a node
-    return self.count // 2
-
-test_with_init(DFSRecursive, examples)
+test_class(Solution, examples)

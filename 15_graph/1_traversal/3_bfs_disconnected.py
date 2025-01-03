@@ -1,6 +1,12 @@
 from queue import Queue
 from utils import test_class
 
+# The standard BFS takes a source as an input and considers only those vertices that are
+# reachable from the source. It will not consider all the vertices in the case of a
+# disconnected graph.
+# This algorithm considers all vertices without any source in the case where the given
+# graph maybe disconnected.
+
 examples = [
   {
     'input': [[[1, 3], [0, 2], [1, 3], [0, 2], []]],
@@ -8,9 +14,11 @@ examples = [
   },
 ]
 
+# Instead of calling BFS for a single vertex, call it for all the non-visited vertices
+# one by one.
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V)
-class BFS:
+class Solution:
   def solve(self, graph):
     queue = Queue()
     visited = [False] * len(graph)
@@ -33,4 +41,4 @@ class BFS:
 
     return traversal
 
-test_class(BFS, examples)
+test_class(Solution, examples)

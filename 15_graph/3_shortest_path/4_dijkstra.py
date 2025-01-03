@@ -2,14 +2,16 @@ from queue import PriorityQueue
 from sys import maxsize
 from utils import test_class
 
-# Dijkstra's Algorithm
-# Start from the source and iteratively select unvisited nodes
-# with the smallest tentative distance from the source
-# Then visit the neighbors of this vertex and update their tentative distance
-# Works for both directed and undirected graphs
-# Doesn't work for negative weights
+# Given a weighted graph and a source vertex in the graph, find the shortest paths from
+# the source to all the other vertices in the given graph. The given graph does not
+# contain any negative edge.
 
-# x: [weight, y]
+# Dijkstra's Algorithm
+# Start from the source and iteratively select unvisited nodes with the smallest
+# tentative distance from the source. Then visit the neighbors of this vertex and update
+# their tentative distance.
+# Works for both directed and undirected graphs. Doesn't work for negative weights.
+
 examples = [
   {
     'input': [
@@ -20,14 +22,15 @@ examples = [
         [[1, 0], [2, 2]],
         [[2, 2]]
       ]
-    ],
+    ], # x: [weight, y]
     'output': [0, 4, 1, 1, 3]
   }
 ]
 
+# Dijkstra
 # Time Complexity: O((E + V) * log(V))
 # Auxiliary Space: O(V)
-class Dijkstra:
+class Solution:
   def solve(self, graph):
     queue = PriorityQueue()
     queue.put([0, 0])
@@ -52,4 +55,4 @@ class Dijkstra:
 
     return distance
 
-test_class(Dijkstra, examples)
+test_class(Solution, examples)

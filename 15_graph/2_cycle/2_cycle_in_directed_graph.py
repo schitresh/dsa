@@ -1,5 +1,5 @@
-from queue import LifoQueue, Queue
-from utils import test_class, test_with_init
+from queue import Queue
+from utils import test_class
 
 examples = [
   {
@@ -12,15 +12,22 @@ examples = [
   },
 ]
 
+# Using Recursive DFS
 # Track the current path in recursion stack
 # If the node appears again in the recursion stack, then there is a cycle
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V)
-class DFSRecursive:
-  def __init__(self, graph):
+class Solution:
+  def solve(self, graph):
     self.graph = graph
     self.visited = [False] * len(graph)
     self.recursion_stack = [False] * len(graph)
+
+    for current in range(len(graph)):
+      if self.visited[current]: continue
+      if self.traverse(current): return True
+
+    return False
 
   def traverse(self, node):
     # Add the current node to the recusion stack
@@ -39,14 +46,9 @@ class DFSRecursive:
     self.recursion_stack[node] = False
     return False
 
-  def solve(self):
-    for current in range(len(self.graph)):
-      if self.visited[current]: continue
-      if self.traverse(current): return True
+test_class(Solution, examples)
 
-    return False
-
-
+# Color Coding
 # Use color codes to track status
 # White: Vertex is not processed yet, all vertices are white initially
 # Grey: Vertex is being processed, DFS has started but not finished
@@ -54,11 +56,18 @@ class DFSRecursive:
 # Black: Vertex is processed
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V)
-class DFSColors:
-  def __init__(self, graph):
+class Solution2:
+  def solve(self, graph):
     self.graph = graph
     self.visited = [False] * len(graph)
     self.color = ['white'] * len(graph)
+
+    for current in range(len(graph)):
+      if self.color[current] == 'white':
+        if self.traverse(current):
+          return True
+
+    return False
 
   def traverse(self, node):
     self.color[node] = 'grey'
@@ -70,26 +79,19 @@ class DFSColors:
       elif self.color[neighbor] == 'grey':
         return True
 
-
     self.color[node] = 'black'
     return False
 
-  def solve(self):
-    for current in range(len(self.graph)):
-      if self.color[current] == 'white':
-        if self.traverse(current):
-          return True
+test_class(Solution2, examples)
 
-    return False
-
-# Using Kahn's algorithm for topological sorting
-# If it successfully removes all vertices from the graph
-# then it's a DAG (Directed Acyclic Graph)
-# If there are remaining vertices with indegrees greater than 1
-# then there's at least one cycle
+# Using Kahn's Algorithm (For Topological Sorting)
+# If it successfully removes all vertices from the graph, then it's a DAG
+# (Directed Acyclic Graph).
+# If there are remaining vertices with indegrees greater than 1, then there's at least
+# one cycle
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V)
-class TopologicalSorting:
+class Solution3:
   def solve(self, graph):
     in_degree = [0] * len(graph)
     queue = Queue()
@@ -117,20 +119,22 @@ class TopologicalSorting:
 
     return visited != len(graph)
 
+test_class(Solution3, examples)
+
+# Disjoing Set
 # Time Complexity: O(E * log(V))
 # Auxiliary Space: O(V)
-class DisjointSet:
-  def __init__(self, graph):
+class Solution4:
+  def solve(self, graph):
     self.graph = graph
     self.visited = [False] * len(graph)
     self.parent = [i for i in range(len(graph))]
     self.rank = [False] * len(graph)
 
-  def solve(self):
-    for current in range(len(self.graph)):
+    for current in range(len(graph)):
       curr_rep = self.find(current)
 
-      for neighbor in self.graph[current]:
+      for neighbor in graph[current]:
         neighbor_rep = self.find(neighbor)
         if curr_rep == neighbor_rep: return True
 
@@ -157,7 +161,4 @@ class DisjointSet:
       self.parent[i_rep] = j_rep
       self.rank[j_rep] += 1
 
-test_with_init(DFSRecursive, examples)
-test_with_init(DFSColors, examples)
-test_class(TopologicalSorting, examples)
-test_with_init(DisjointSet, examples)
+test_class(Solution4, examples)

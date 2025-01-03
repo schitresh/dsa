@@ -2,15 +2,13 @@ from queue import PriorityQueue
 from utils import test_class
 
 # Minimum Spanning Tree
-# Subset of edges of a connected undirected graph
-# that connects all the vertices together without any cycles
-# such that the weight of all selected edges is minimum
+# Subset of edges of a connected undirected graph that connects all the vertices
+# together without any cycles such that the weight of all selected edges is minimum.
 
 # Prim's Minimum Spanning Tree
-# Starts with a single node and moves through adjacent nodes
-# Explores all the connected edges and picks up the minimum weight edge
+# Starts with a single node and moves through adjacent nodes.
+# Explores all the connected edges and picks up the minimum weight edge first.
 
-# x: [weight, y]
 examples = [
   {
     'input': [
@@ -21,7 +19,7 @@ examples = [
         [[1, 0], [2, 2]],
         [[2, 2]]
       ]
-    ],
+    ], # x: [weight, y]
     'output': 8
   }
 ]
@@ -29,7 +27,7 @@ examples = [
 # Start from a node and keep finding the shortest path for each neighbor
 # Time Complexity: O(E * log(E))
 # Auxiliary Space: O(E)
-class Prim:
+class Solution:
   def solve(self, graph):
     pqueue = PriorityQueue()
     pqueue.put([0, 0])
@@ -49,4 +47,4 @@ class Prim:
 
     return minimum_spanning_tree
 
-test_class(Prim, examples)
+test_class(Solution, examples)

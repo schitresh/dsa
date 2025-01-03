@@ -1,4 +1,6 @@
-from utils import test_with_init
+from utils import test_class
+
+# Given an undirected graph, check if there is a cycle in the given graph.
 
 examples = [
   {
@@ -11,14 +13,21 @@ examples = [
   },
 ]
 
+# Using Recursive DFS
 # Track the current path in recursion stack
 # If the node appears again in the recursion stack, then there is a cycle
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V)
-class DFSRecursive:
-  def __init__(self, graph):
+class Solution:
+  def solve(self, graph):
     self.graph = graph
     self.visited = [False] * len(graph)
+
+    for current in range(len(graph)):
+      if self.visited[current]: continue
+      if self.traverse(current, -1): return True
+
+    return False
 
   def traverse(self, node, parent):
     self.visited[node] = True
@@ -35,11 +44,4 @@ class DFSRecursive:
     # Since the current path is traversed
     return False
 
-  def solve(self):
-    for current in range(len(self.graph)):
-      if self.visited[current]: continue
-      if self.traverse(current, -1): return True
-
-    return False
-
-test_with_init(DFSRecursive, examples)
+test_class(Solution, examples)

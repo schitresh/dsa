@@ -3,8 +3,15 @@ from queue import PriorityQueue
 from utils import test_class
 
 # Find the minimum spanning tree that has the minimum product of the weights
+# Given a connected and undirected graph, a spanning tree of that graph is a subgraph
+# that is a tree and connects all the vertices together. A single graph can have many
+# different spanning trees.
+# A minimum product spanning tree for a weighted, connected, and undirected graph is a
+# spanning tree with a weight product less than or equal to the weight product of every
+# other spanning tree. The weight product of a spanning tree is the product of weights
+# corresponding to each edge of the spanning tree. All weights of the given graph will
+# be positive for simplicity.
 
-# x: [weight, y]
 examples = [
   {
     'input': [
@@ -15,7 +22,7 @@ examples = [
         [[1, 0], [2, 2]],
         [[2, 2]]
       ]
-    ],
+    ], # x: [weight, y]
     'output': 12
   },
   {
@@ -32,11 +39,12 @@ examples = [
   }
 ]
 
+# Prim's Algorithm
 # log(w1 * w2 * ... * wn) = log(w1) + log(w2) + ...  + log(wn)
 # So by minimizing log(wi), we can minimize the product
 # Time Complexity: O(E * log(E))
 # Auxiliary Space: O(E)
-class Prim:
+class Solution:
   def solve(self, graph):
     pqueue = PriorityQueue()
     # [log_dist, dist, node]
@@ -58,4 +66,4 @@ class Prim:
 
     return product
 
-test_class(Prim, examples)
+test_class(Solution, examples)

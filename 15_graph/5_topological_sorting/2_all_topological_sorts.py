@@ -1,4 +1,3 @@
-from queue import LifoQueue
 from utils import test_class
 
 examples = [
@@ -34,30 +33,24 @@ examples = [
   },
 ]
 
-# Time Complexity: O(V!)
-  # V! is absolute worst case when there are no edges
+# Time Complexity: O(V!), V! is the absolute worst case when there are no edges
 # Auxiliary Space: O(V)
-class AllTopoSort:
-  def __init__(self) -> None:
-    self.graph = [[]]
-    self.visited = []
-    self.in_degree = []
-    self.orders = []
-
+class Solution:
   def solve(self, graph):
     self.graph = graph
     self.visited = [False] * len(graph)
     self.in_degree = [0] * len(graph)
+    self.orders = []
 
     for neighbors in graph:
       for neighbor in neighbors:
         self.in_degree[neighbor] += 1
 
     path = []
-    self.find_topo_orders(path)
+    self.topo_orders(path)
     return self.orders
 
-  def find_topo_orders(self, path):
+  def topo_orders(self, path):
     if len(path) == len(self.graph):
       self.orders.append(path.copy())
       return
@@ -75,7 +68,7 @@ class AllTopoSort:
       self.visited[node] = True
       path.append(node)
 
-      self.find_topo_orders(path)
+      self.topo_orders(path)
 
       # Backtrack to consider next node for the current path
 
@@ -85,4 +78,4 @@ class AllTopoSort:
       self.visited[node] = False
       path.pop()
 
-test_class(AllTopoSort, examples)
+test_class(Solution, examples)

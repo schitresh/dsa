@@ -1,17 +1,16 @@
 from queue import Queue
 from utils import test_class
 
-# We can calculate shortest distances:
-# For a general (directed or undirected) weighted graph without negative cycle
-# using Bellman-Ford in O(V * E)
+# Given a weighted Directed Acyclic Graph (DAG) and a source vertex in the graph, find
+# the shortest paths from given source to all other vertices.
 
-# For a general (directed or undirected) weighted graph with no negative weights
-# using Dijkstra in O(E + V * log(V))
+# For a general weighted graph, we can calculate single source shortest distances in
+# O(V * E) time using Bellman–Ford Algorithm.
+# For a graph with no negative weights, we can do better and calculate single source
+# shortest distances in O(E + V * log(V)) time using Dijkstra’s algorithm.
+# For Directed Acyclic Graph (DAG), we can even do better. We can calculate single
+# source shortest distances in O(V+E) using Topological Sorting.
 
-# For a weighted directed acyclic graph (DAG)
-# using Topological sorting in O(V + E)
-
-# [weight, y]
 examples = [
   {
     'input': [
@@ -22,7 +21,7 @@ examples = [
         [],
         []
       ], 0
-    ],
+    ], # x: [weight, y]
     'output': [0, 4, 1, 1, 3]
   },
   {
@@ -52,8 +51,15 @@ examples = [
   },
 ]
 
+# Topological Sorting
 # Since this is a directed path, topological order will help in iterating
-# in a directional order and get the longest path
+# in a directional order and get the longest path.
+# Initialize distances to all vertices as infinite and distance to source as 0, then
+# find a topological sorting of the graph. Topological Sorting of a graph represents a
+# linear ordering of the graph. Once we have topological order (or linear
+# representation), we one by one process all vertices in topological order. For every
+# vertex being processed, we update distances of its adjacent using distance of current
+# vertex.
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
 class Solution:

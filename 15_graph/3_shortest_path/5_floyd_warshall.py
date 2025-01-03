@@ -1,14 +1,19 @@
 from utils import test_class
 
 # Floyd Warshall Algorithm
-# All pair shortest path algorithm, works for both directed and undirected graphs
-# Dijkstra and Bellman Ford are single source shortest path algorithms
-# Does not work with negative cycles (sum of edges in a cycle is negative)
-# Treats each vertex as an intermediate node one by one
-# Irrespective of edges, it runs for O(V^3), so it's best suited for dense graphs
-# For sparse graphs, Johnson's algorithm is more suitable
+# It finds the shortest paths between all pairs of nodes in a weighted graph, unlike
+# Dijkstra and Bellman Ford which are single source shortest path algorithms.
+# It works for both directed and undirected graphs. It can handle graphs with both
+# positive and negative edge weights, making it a versatile tool for solving a wide
+# range of network and connectivity problems. But does not work with negative cycles,
+# i.e. if the sum of edges in a cycle is negative.
 
-# x: [weight, y]
+# It follows Dynamic Programming approach to check every possible path going via every
+# possible node in order to calculate shortest distance between every pair of nodes.
+# It treats each vertex as an intermediate node one by one.
+# Irrespective of edges, it runs for O(V^3), so it's best suited for dense graphs.
+# For sparse graphs, Johnson's algorithm is more suitable.
+
 examples = [
   {
     'input': [
@@ -19,7 +24,7 @@ examples = [
         [[1, 0], [2, 2]],
         [[2, 2]]
       ]
-    ],
+    ], # x: [weight, y]
     'output': [
       [0, 4, 1, 1, 3],
       [4, 0, 3, 5, 5],

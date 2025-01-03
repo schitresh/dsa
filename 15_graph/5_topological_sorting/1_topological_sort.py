@@ -1,6 +1,9 @@
 from queue import LifoQueue, Queue
 from utils import test_class
 
+# Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices
+# such that for every directed edge u-v, vertex u comes before v in the ordering.
+
 examples = [
   {
     'input': [[[1, 2, 3], [2], [3, 4], [], []]],
@@ -20,14 +23,10 @@ examples = [
   },
 ]
 
+# DFS
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V)
-class DfsTopoSort:
-  def __init__(self) -> None:
-    self.graph = [[]]
-    self.stack = []
-    self.visited = []
-
+class Solution:
   def solve(self, graph):
     self.graph = graph
     self.stack = LifoQueue()
@@ -55,16 +54,17 @@ class DfsTopoSort:
   def stack_array(self):
     return list(reversed(self.stack.queue))
 
+test_class(Solution, examples)
+
 # Kahn's Algorithm
-# Uses BFS and works by repeatedly finding vertices with no incoming edges
-# That is, in-degree of the node is 0
-# Removing them from the graph and updating the incoming edges of remaining vertices
-# This is because when the in-degree is 0,
-# all the sources of that node has been visited
-# and hence can be added to the order
+# Uses BFS and works by repeatedly finding vertices with no incoming edges, i.e.
+# in-degree of the node is 0. Removing them from the graph and updating the incoming
+# edges of remaining vertices.
+# This is because when the in-degree is 0, all the sources of that node has been visited
+# and hence can be added to the order.
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
-class BfsTopoSort:
+class Solution2:
   def solve(self, graph):
     in_degree = [0] * len(graph)
     queue = Queue()
@@ -96,5 +96,4 @@ class BfsTopoSort:
 
     return order
 
-test_class(DfsTopoSort, examples)
-test_class(BfsTopoSort, examples)
+test_class(Solution2, examples)

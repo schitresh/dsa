@@ -1,7 +1,11 @@
 from sys import maxsize
 from utils import test_class
 
-# x: [weight, y]
+# Given a directed weighted graph, find whether the given graph contains any
+# negative-weight cycle or not.
+# A negative-weight cycle is a cycle in a graph whose edges sum to a negative value.
+# Negative cycle is possible in only directed graphs.
+
 examples = [
   {
     'input': [
@@ -12,7 +16,7 @@ examples = [
         [[1, 0], [2, 2]],
         [[2, 2]]
       ]
-    ],
+    ], # x: [weight, y]
     'output': False
   },
   {
@@ -29,12 +33,13 @@ examples = [
   }
 ]
 
+# Bellman Ford
 # Relax paths for N - 1 times to get the shortest distances
 # Relax for the Nth time and check if there is still a shorter path
 # If so, there is a negative cycle
 # Time Complexity: O(V * E)
 # Auxiliary Space: O(V)
-class BellmanFord:
+class Solution:
   def solve(self, graph):
     distance = [maxsize] * len(graph)
     distance[0] = 0
@@ -60,11 +65,14 @@ class BellmanFord:
 
     return False
 
+test_class(Solution, examples)
+
+# Floyd Warshall
 # Calculate the distances for all the pair of nodes
 # If there is any negative distance from a node to itself, there is a negative cycle
 # Time Complexity: O(V^3)
 # Auxiliary Space: O(V^2)
-class FloydWarshall:
+class Solution2:
   def solve(self, graph):
     # Store shortest distances between each pair of nodes
     dist = [[float('inf')] * len(graph) for _ in range(len(graph))]
@@ -93,5 +101,4 @@ class FloydWarshall:
 
     return False
 
-test_class(BellmanFord, examples)
-test_class(FloydWarshall, examples)
+test_class(Solution2, examples)

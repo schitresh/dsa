@@ -1,6 +1,9 @@
 from queue import Queue
 from utils import test_class
 
+# Given an unweighted, undirected graph of V nodes and E edges, a source node S, and
+# a destination node D, find the shortest path from node S to node D in the graph.
+
 examples = [
   {
     'input': [0, 4, [[1, 3], [0, 2], [1, 3, 4], [0, 2], [2]]],
@@ -15,9 +18,10 @@ examples = [
   },
 ]
 
+# BFS
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V)
-class BFS:
+class Solution:
   def solve(self, src, dest, graph):
     dist = [float('inf')] * len(graph)
     dist[src] = 0
@@ -45,4 +49,4 @@ class BFS:
 
     return list(reversed(path))
 
-test_class(BFS, examples)
+test_class(Solution, examples)

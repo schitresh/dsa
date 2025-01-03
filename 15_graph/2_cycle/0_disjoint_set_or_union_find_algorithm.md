@@ -9,17 +9,17 @@
 - Let's say we have 10 persons: a, b, c, d, e, f, g, h, i, j
   - We need to add these relationships
     - (a, b), (b, d), (c, f), (c, i), (j, e), (g, j)
-  - We can create four groups of friends like
-    - G1: { a, b, d }
-    - G2: { c, f, i }
-    - G3: { e, g, j }
-    - G4: { h }
-  - Now we can easily find the if persons x and y are friends or not
-  - To create such sets
-    - Start with individual sets for each element
-    - Iterate through the relationships, and create union set of the related sets
-    - Select a member in each set as representative
-      - A simple way is to select the one with the biggest index
+- We can create four groups of friends like
+  - G1: { a, b, d }
+  - G2: { c, f, i }
+  - G3: { e, g, j }
+  - G4: { h }
+- Now we can easily find if persons x and y are friends or not
+- To create such sets
+  - Start with individual sets for each element
+  - Iterate through the relationships, and create union set of the related sets
+  - Select a member in each set as representative
+    - A simple way is to select the one with the biggest index
 
 ## Data Structure
 - Array
@@ -122,5 +122,4 @@ class DisjointSet:
     else:
       self.parent[i_rep] = j_rep
       self.rank[j_rep] += 1
-
 ```

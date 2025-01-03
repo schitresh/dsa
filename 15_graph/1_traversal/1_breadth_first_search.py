@@ -1,6 +1,12 @@
 from queue import Queue
 from utils import test_class
 
+# Breadth First Search (BFS)
+# It starts from a given source and explores all reachable vertices from the given
+# source. It traverses vertices level by level using a queue.
+# But unlike trees, graphs may contain cycles, so we may come to the same node again.
+# To avoid processing a node more than once, we use a boolean visited array.
+
 examples = [
   {
     'input': [[[1, 3], [0, 2], [1, 3, 4], [0, 2], [2]]],
@@ -8,9 +14,10 @@ examples = [
   },
 ]
 
+# Using Queue
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V)
-class BFS:
+class Solution:
   def solve(self, graph):
     queue = Queue()
     queue.put(0)
@@ -31,4 +38,4 @@ class BFS:
 
     return traversal
 
-test_class(BFS, examples)
+test_class(Solution, examples)

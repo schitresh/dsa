@@ -1,16 +1,24 @@
 from queue import LifoQueue
-from utils import test_class, test_with_init
+from utils import test_class
+
+# Depth First Search (or DFS)
+# It traverses all adjacent vertices one by one. While traversing an adjacent vertex,
+# it completely finishes the traversal of all vertices reachable through that adjacent
+# vertex.
+# Unlike trees, graphs may contain cycles (a node may be visited more than once). To
+# avoid processing a node multiple times, we use a boolean visited array.
 
 examples = [
   {
     'input': [[[1, 3], [0, 2], [1, 3, 4], [0, 2], [2]]],
-    'output': [0, 1, 2, 3, 4] # Or, [0, 1, 2, 4, 3]
+    'output': [0, 1, 2, 3, 4] # or [0, 1, 2, 4, 3]
   },
 ]
 
+# Using Stack
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V)
-class DFS:
+class Solution:
   def solve(self, graph):
     stack = LifoQueue()
     stack.put(0)
@@ -31,13 +39,20 @@ class DFS:
 
     return traversal
 
+test_class(Solution, examples)
+
+# Recursion
 # Time Complexity: O(V + E)
-# Auxiliary Space: O(V + E), recursion stack requires O(E)
-class DFSRecursive:
-  def __init__(self, graph):
+# Auxiliary Space: O(V + E), O(E) due to recursive stack
+class Solution2:
+  def solve(self, graph):
     self.graph = graph
     self.visited = [False] * len(graph)
     self.traversal = []
+
+    self.visited[0] = True
+    self.traverse(0)
+    return self.traversal
 
   def traverse(self, node):
     self.traversal.append(node)
@@ -47,10 +62,4 @@ class DFSRecursive:
       self.visited[neighbor] = True
       self.traverse(neighbor)
 
-  def solve(self):
-    self.visited[0] = True
-    self.traverse(0)
-    return self.traversal
-
-test_class(DFS, examples)
-test_with_init(DFSRecursive, examples)
+test_class(Solution2, examples)
