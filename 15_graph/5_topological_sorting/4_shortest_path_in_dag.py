@@ -1,10 +1,9 @@
 from queue import Queue
 from utils import test_class
 
-# Given a weighted DAG and a source vertex
-# Find the shortest distance from the source vertex to all other vertices
+# Given a weighted DAG and a source vertex, find the shortest distance from the source
+# vertex to all other vertices.
 
-# [weight, y]
 examples = [
   {
     'input': [
@@ -17,7 +16,7 @@ examples = [
       ], 0
     ],
     'output': [0, 4, 1, 1, 3]
-  },
+  }, # x: [weight, y], src
   {
     'input': [
       [

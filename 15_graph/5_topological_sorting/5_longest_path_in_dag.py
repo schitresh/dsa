@@ -1,13 +1,12 @@
 from queue import Queue
 from utils import test_class
 
-# Given a weighted DAG and a source vertex
-# Find the longest distance from the source vertex to all other vertices
-# For a general graph, it is not as easy as the shortest path problem
-# because it doesn't have optimal substructure property (It is NP-Hard)
-# But for DAG, it has a linear time solution
+# Given a weighted DAG and a source vertex, find the longest distance from the source
+# vertex to all other vertices.
+# For a general graph, it is not as easy as the shortest path problem because it doesn't
+# have the optimal substructure property (it is NP-hard).
+# But for DAG, it has a linear time solution.
 
-# [weight, y]
 examples = [
   {
     'input': [
@@ -18,7 +17,7 @@ examples = [
         [],
         []
       ], 0
-    ],
+    ], # x: [weight, y], src
     'output': [0, 4, 7, 9, 9]
   },
   {
@@ -48,8 +47,8 @@ examples = [
   },
 ]
 
-# Since this is a directed path, topological order will help in iterating
-# in a directional order and get the longest path
+# Since this is a directed path, topological order will help in iterating in a
+# directional order and get the longest path.
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
 class Solution:

@@ -1,5 +1,7 @@
 from utils import test_class
 
+# Given a DAG, print all topological sorts of the graph.
+
 examples = [
   {
     'input': [[[1, 2, 3], [2], [3, 4], [], []]],
@@ -57,8 +59,8 @@ class Solution:
 
     for node in range(len(self.graph)):
       # If the in-degree is not 0, that means there are some unvisited nodes (sources)
-      # that have a directed edge towards the current node
-      # Hence, consider the current node only if in_degree is 0
+      # that have a directed edge towards the current node.
+      # Hence, consider the current node only if in_degree is 0.
       if self.visited[node] or self.in_degree[node] > 0:
         continue
 

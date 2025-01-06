@@ -1,9 +1,9 @@
 from queue import Queue
 from utils import test_class
 
-# Find the maximum number of edges that can be added to a given DAG
-# After which it still remains a DAG
-# That is, adding even a single edge will create a cycle in the graph
+# Find the maximum number of edges that can be added to a given DAG, after which it
+# still remains a DAG. That is, adding even a single edge will create a cycle in the
+# given graph.
 
 # If we just want the number without the exact edges, it can be solved like this:
 # We can link each node with the maximum number of edges
