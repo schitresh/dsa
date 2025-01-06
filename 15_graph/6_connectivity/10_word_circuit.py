@@ -2,26 +2,30 @@ from collections import defaultdict
 from queue import Queue
 from utils import test_class
 
-# Given a dictionary of words, find if they can be chained to form a circle
-# A string can be put before another one if its last char
-# is same as the first char of the other string
+# Given a dictionary of words, find if they can be chained to form a circle.
+# A string can be put before another one if its last char is same as the first char of
+# the other string.
 
 examples = [
   {
     'input': [['abcd', 'defgha']],
-    'output': True # abcd -> defgha
+    'output': True
+    # abcd -> defgha
   },
   {
     'input': [['aab', 'bac', 'aaa', 'cda']],
-    'output': True # aaa -> aab -> bac -> cda
+    'output': True
+    # aaa -> aab -> bac -> cda
   },
   {
     'input': [['aaa']],
-    'output': True # aaa
+    'output': True
+    # aaa
   },
   {
     'input': [['abc', 'efg', 'cde', 'ghi', 'ija']],
-    'output': True # abc -> cde -> efg -> ghi -> ija
+    'output': True
+    # abc -> cde -> efg -> ghi -> ija
   },
   {
     'input': [['ijk', 'kji', 'abc', 'cba']],
@@ -33,12 +37,13 @@ examples = [
   },
 ]
 
-# Create a directed graph of all chars and then find if there is an eulerian circuit
-# Create an edge from first char to last char of every word in the dictionary
-# Every word's last char will direct to the first char of another matching word
-# And that word's last c har will direct to yet another word's first char
+# Eulerian Circuit
+# Create a directed graph of all chars and then find if there is an eulerian circuit.
+# Create an edge from first char to last char of every word in the dictionary.
+# Every word's last char will direct to the first char of another matching word.
+# And that word's last c har will direct to yet another word's first char.
 # A directed graph has eulerian circuit if in-degree and out-degree of every vertex
-# is same and all non-zero degree vertices form a single strongly connnected component
+# is same and all non-zero degree vertices form a single strongly connnected component.
 # Time Complexity: O(N * K)
 # Auxiliary Space: O(max(N, K))
 # where N is number of words in dictionary and K is the max length of word

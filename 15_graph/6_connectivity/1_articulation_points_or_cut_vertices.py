@@ -1,16 +1,14 @@
 from utils import test_class
 
 # Articulation Points or Cut Vertices
-# A vertex V is an articulation point if removing V
-# increases the number of connected components
+# A vertex V is an articulation point if removing V increases the number of connected
+# components.
+# Connectivity in undirected graph refers to whether two vertices are reachable from
+# each other. If there is a path between two vertices, they are said to be connected.
 
-# Connectivity in undirected graph refers to whether two vertices
-# are reachable form each other
-# If there is a path between two vertices, they are said to be connected
-
-# Articulation points represent vulnerabilities in a connected network,
-# single points whose failure would split the network into two or more components
-# Useful for designing reliable networks
+# Articulation points represent vulnerabilities in a connected network, single points
+# whose failure would split the network into two or more components. Useful for designing
+# reliable networks.
 
 examples = [
   {
@@ -18,11 +16,13 @@ examples = [
     'output': [2]
   },
   {
-    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7], [3, 4, 6]]],
+    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7],
+                [3, 4, 6]]],
     'output': [0, 1, 3]
   },
 ]
 
+# DFS
 # Iterate over all the nodes
 # For each node, do DFS traversal excluding that node
 # Time Complexity: O(V * (V + E))
@@ -41,11 +41,11 @@ class Solution:
       for curr in range(len(graph)):
         if curr == node or visited[curr]: continue
 
-        # If the curr is not visited, that means it is a separate component
-        # That is, it is disconnected from other graphs
-        # Since, the initial value is 0, the first curr is obviously one componnent
-        # But after DFS traversal of the first curr, if other vertices are were not visited
-        # Then it's a separate component
+        # If the curr is not visited, that means it is a separate component. In other
+        # words, it is disconnected from other graphs.
+        # Since, the initial value is 0, the first curr is obviously one componnent.
+        # But after DFS traversal of the first curr, if other vertices were not visited,
+        # then it's a separate component.
         components += 1
         self.dfs(graph, visited, node, curr)
 
@@ -61,20 +61,12 @@ class Solution:
       if neighbor == node or visited[neighbor]: continue
       self.dfs(graph, visited, node, neighbor)
 
+test_class(Solution, examples)
 
 # Tarjan's Algorithm
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
-class Tarjan:
-  def __init__(self) -> None:
-    self.graph = [[]]
-    self.art_points = []
-    self.visited = []
-    self.disc = []
-    self.low = []
-    self.parent = []
-    self.time = 0
-
+class Solution2:
   def solve(self, graph):
     self.graph = graph
     self.art_points = []
@@ -88,6 +80,7 @@ class Tarjan:
     # E.g. in 1 -> 2, 2-> 3, 3 -> 1: 3 -> 1 is a back edge
     self.low = [float('inf')] * len(graph)
     self.parent = [-1] * len(graph)
+    self.time = 0
 
     for node in range(len(graph)):
       if self.visited[node]: continue
@@ -123,16 +116,15 @@ class Tarjan:
             self.art_points.append(node)
         # (2) The node is not the root
         # and any of its neighbor was discovered after the node
-        # That means there is no back edge to any ancestor of node
-        # So check if low value of one of its neighbor
-        # is more than discovery value of the node
+        # That means there is no back edge to any ancestor of the node
+        # So check if low value of one of its neighbor is more than discovery value of
+        # the node.
         else:
           if self.low[neighbor] >= self.disc[node]:
             self.art_points.append(node)
-      # If the neighbor is already visited and was discovered before the node
-      # Then update the low of node to the neighbor's discovery time
+      # If the neighbor is already visited and was discovered before the node, then update
+      # the low of node to the neighbor's discovery time
       elif neighbor != self.parent[node]:
         self.low[node] = min(self.low[node], self.disc[neighbor])
 
-test_class(Solution, examples)
-test_class(Tarjan, examples)
+test_class(Solution2, examples)

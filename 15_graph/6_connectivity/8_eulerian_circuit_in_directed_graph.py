@@ -69,5 +69,4 @@ class Solution:
 
     return transpose
 
-
 test_class(Solution, examples)

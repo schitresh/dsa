@@ -12,7 +12,8 @@ examples = [
     'output': False
   },
   {
-    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7], [3, 4, 6]]],
+    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7],
+                [3, 4, 6]]],
     'output': False
   },
   {
@@ -24,16 +25,7 @@ examples = [
 # If there is any articulation point, it is not a biconnected graph
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
-class BiconnectedGraph:
-  def __init__(self) -> None:
-    self.graph = [[]]
-    self.art_points = []
-    self.visited = []
-    self.disc = []
-    self.low = []
-    self.parent = []
-    self.time = 0
-
+class Solution:
   def solve(self, graph):
     self.graph = graph
     self.art_points = []
@@ -47,6 +39,7 @@ class BiconnectedGraph:
     # E.g. in 1 -> 2, 2-> 3, 3 -> 1: 3 -> 1 is a back edge
     self.low = [float('inf')] * len(graph)
     self.parent = [-1] * len(graph)
+    self.time = 0
 
     if self.any_art_point(0):
       return False
@@ -85,17 +78,17 @@ class BiconnectedGraph:
             return True
         # (2) The node is not the root
         # and any of its neighbor was discovered after the node
-        # That means there is no back edge to any ancestor of node
-        # So check if low value of one of its neighbor
-        # is more than discovery value of the node
+        # That means there is no back edge to any ancestor of the node
+        # So check if low value of one of its neighbor is more than discovery value of
+        # the node.
         else:
           if self.low[neighbor] >= self.disc[node]:
             return True
-      # If the neighbor is already visited and was discovered before the node
-      # Then update the low of node to the neighbor's discovery time
+      # If the neighbor is already visited and was discovered before the node, then update
+      # the low of node to the neighbor's discovery time
       elif neighbor != self.parent[node]:
         self.low[node] = min(self.low[node], self.disc[neighbor])
 
     return False
 
-test_class(BiconnectedGraph, examples)
+test_class(Solution, examples)

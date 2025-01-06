@@ -1,9 +1,9 @@
 from utils import test_class
 
 # Biconnected Component
-# Maximal biconnected subgraph
-# After removing articulation points, the subgraphs that will
-# remain biconnected are called biconnected components
+# A biconnected component is a maximal biconnected subgraph
+# After removing the articulation points, the subgraphs that will remain biconnected are
+# called biconnected components
 
 examples = [
   {
@@ -11,35 +11,28 @@ examples = [
     'output': [[(2, 4)], [(3, 0), (2, 3), (1, 2), (0, 1)]]
   },
   {
-    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7], [3, 4, 6]]],
-    'output': [[(1, 2)], [(7, 3), (6, 7), (6, 4), (5, 6), (4, 5), (3, 4)], [(0, 3)], [(0, 1)]]
+    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7],
+                [3, 4, 6]]],
+    'output': [[(1, 2)], [(7, 3), (6, 7), (6, 4), (5, 6), (4, 5), (3, 4)], [(0, 3)],
+                [(0, 1)]]
   },
   {
     'input': [[[1, 3], [0, 2], [1, 3, 4], [0, 2, 4], [2, 3]]],
     'output': [[(4, 2), (3, 4), (3, 0), (2, 3), (1, 2), (0, 1)]]
   },
   {
-    'input': [[[1, 6], [0, 2, 3, 5], [1, 3, 4], [1, 2, 4], [2, 3], [1, 6, 7, 8], [0, 5], [5, 8], [5, 7, 9], [8], [11], [10]]],
-    'output': [[(4, 2), (3, 4), (3, 1), (2, 3), (1, 2)], [(8, 9)], [(8, 5), (7, 8), (5, 7)], [(6, 0), (5, 6), (1, 5), (0, 1)], [(10, 11)]]
+    'input': [[[1, 6], [0, 2, 3, 5], [1, 3, 4], [1, 2, 4], [2, 3], [1, 6, 7, 8], [0, 5],
+                [5, 8], [5, 7, 9], [8], [11], [10]]],
+    'output': [[(4, 2), (3, 4), (3, 1), (2, 3), (1, 2)], [(8, 9)],
+                [(8, 5), (7, 8), (5, 7)], [(6, 0), (5, 6), (1, 5), (0, 1)], [(10, 11)]]
   },
 ]
 
 # Todo: Output not correct, check later
-# Almost same as checking for biconnected graph
-# Additionally, iterate over all the nodes
+# Almost same as checking for biconnected graph. Additionally iterate over all the nodes.
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
-class BiconnectedComponents:
-  def __init__(self) -> None:
-    self.graph = [[]]
-    self.biconnect_comps = []
-    self.stack = []
-    self.visited = []
-    self.disc = []
-    self.low = []
-    self.parent = []
-    self.time = 0
-
+class Solution:
   def solve(self, graph):
     self.graph = graph
     self.biconnect_comps = []
@@ -54,6 +47,7 @@ class BiconnectedComponents:
     # E.g. in 1 -> 2, 2-> 3, 3 -> 1: 3 -> 1 is a back edge
     self.low = [float('inf')] * len(graph)
     self.parent = [-1] * len(graph)
+    self.time = 0
 
     for node in range(len(graph)):
       if not self.visited[node]:
@@ -96,9 +90,9 @@ class BiconnectedComponents:
         # and has two or more children
         # (2) The node is not the root
         # and any of its neighbor was discovered after the node
-        # That means there is no back edge to any ancestor of node
-        # So check if low value of one of its neighbor
-        # is more than discovery value of the node
+        # That means there is no back edge to any ancestor of the node
+        # So check if low value of one of its neighbor is more than discovery value of
+        # the node
         if (
           self.parent[node] == -1 and children > 1
         ) or (
@@ -112,13 +106,13 @@ class BiconnectedComponents:
             curr_comp.append(edge)
 
           self.biconnect_comps.append(curr_comp)
-      # If the neighbor is already visited and was discovered before the node
-      # Then update the low of node to the neighbor's discovery time
+      # If the neighbor is already visited and was discovered before the node, then update
+      # the low of node to the neighbor's discovery time
       elif neighbor != self.parent[node]:
-        # Add the edge to stack only if low value of node
-        # is greater than discovery of neighbor
+        # Add the edge to stack only if low value of node is greater than discovery of
+        # neighbor
         if self.low[node] > self.disc[neighbor]:
           self.low[node] = min(self.low[node], self.disc[neighbor])
           self.stack.append((node, neighbor))
 
-test_class(BiconnectedComponents, examples)
+test_class(Solution, examples)

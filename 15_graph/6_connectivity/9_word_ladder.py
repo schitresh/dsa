@@ -2,23 +2,27 @@ from queue import Queue
 from utils import test_class
 
 # Word Ladder: Length of shortest chain to reach a target word
-# Given a dictionary and two words start & target (both of same length)
-# Find length of the smallest chain from start to target if it exists
-# such that adjacent words in the chain only differ by one character
-# and each word in the chain is a valid word (i.e. it exists in the dictionary)
-# and length of all the dictionary words is same
+# Given a dictionary and two words start & target (both of same length), find length of
+# the smallest chain from start to target (if it exists) such that adjacent words in the
+# chain only differ by one character and each word in the chain is a valid word (i.e. it
+# exists in the dictionary).
+# It can be assumed that the target word exists in the dictionary and the length of all
+# the dictionary words is same.
 
 examples = [
   {
     'input': ['toon', 'plea', {'poon', 'plee', 'same', 'poie', 'plea', 'plie', 'poin'}],
-    'output': 7 # toon -> poon -> poin -> poie -> plie -> plee -> plea
+    'output': 7
+    # toon -> poon -> poin -> poie -> plie -> plee -> plea
   },
   {
     'input': ['abcv', 'ebad', {'abcd', 'ebad', 'ebcd', 'xyza'}],
-    'output': 4 # abcv -> abcd -> ebcd -> ebad
+    'output': 4
+    # abcv -> abcd -> ebcd -> ebad
   },
 ]
 
+# BFS
 # Time Complexity: O(N^2 * K)
 # Auxiliary Space: O(N * K)
 # where N is number of words in dictionary and K is length of word
@@ -55,10 +59,12 @@ class Solution:
 
     return 0
 
+test_class(Solution, examples)
+
 # Keep track of intermediate words from the dictionary
-# For example, 'poon' will have intermediate words '*oon', 'p*on', 'po*n', 'poo*'
-# So, map of 'p*on' will store all such words in the dictionary
-# Then perform BFS, and keep checking if intermediate words match the target
+# For example, 'poon' will have intermediate words '*oon', 'p*on', 'po*n', 'poo*'.
+# So map of 'p*on' will store all such words in the dictionary. Then perform BFS, and
+# keep checking if intermediate words match the target.
 # Time Complexity: O(N^2 * K)
 # Auxiliary Space: O(N * K)
 # where N is number of words in dictionary and K is length of word
@@ -105,5 +111,4 @@ class Solution2:
 
     return 0
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

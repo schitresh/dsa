@@ -1,17 +1,17 @@
 from utils import test_class
 
 # Strongly Connected Components
-# SCC of a directed graph is a maximal subgraph where every pair of vertices
-# is mutually reachable
+# SCC of a directed graph is a maximal subgraph where every pair of vertices is mutually
+# reachable.
 # That is, subset of vertices where every vertex is reachable from every other vertex
-# in the same subset by traversing the directed edges
+# in the same subset by traversing the directed edges.
 
 # Connectivity is applicable to undirected graphs
 # SCC is applicable to directed graphs
-# Conventional DFS cannot be used to SCC
-# because there may not be directed path between different set of vertices
-# Two different components can be connected by adding a edge between the two
-# But the same is not true for SCCs due to its directional nature
+# Conventional DFS cannot be used to SCC, because there may not be directed path between
+# different set of vertices.
+# Two different components can be connected by adding a edge between the two. But the
+# same is not true for SCCs due to its directional nature.
 
 examples = [
   {
@@ -28,6 +28,7 @@ examples = [
   },
 ]
 
+# Brute Force
 # Time Complexity: O(V * (V + E))
 # Auxiliary Space: O(V)
 class Solution:
@@ -47,8 +48,8 @@ class Solution:
       for curr in range(node + 1, len(graph)):
         if is_scc_vertex[curr]: continue
 
-        # If there is a path from node to curr and from curr to node
-        # Then curr is part of the SCC started with node
+        # If there is a path from node to curr and from curr to node, then curr is part
+        # of the SCC started with node
         if self.is_path(node, curr) and self.is_path(curr, node):
           is_scc_vertex[curr] = True
           scc.append(curr)
@@ -72,22 +73,15 @@ class Solution:
 
     return False
 
+test_class(Solution, examples)
 
 # Tarjan's Algorithm
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
-class Tarjan:
-  def __init__(self) -> None:
-    self.graph = [[]]
-    self.all_scc = []
-    self.disc = []
-    self.low = []
-    self.time = 0
-    self.stack = []
-    self.stack_member = []
-
+class Solution2:
   def solve(self, graph):
     self.graph = graph
+    self.all_scc = []
 
     # Stores all the connected ancestors
     self.stack = []
@@ -102,6 +96,7 @@ class Tarjan:
     # And there is a back edge from some descendant of u to w
     # E.g. in 1 -> 2, 2-> 3, 3 -> 1: 3 -> 1 is a back edge
     self.low = [float('inf')] * len(graph)
+    self.time = 0
 
     for node in range(len(graph)):
       if self.disc[node] != float('inf'): continue
@@ -142,13 +137,15 @@ class Tarjan:
 
       self.all_scc.append(scc)
 
+test_class(Solution2, examples)
+
 # Kosaraju's Algorithm
 # Perform DFS on the graph, if any vertex is unvisited, then it is not SCC
 # Transpose the graph, i.e. reverse the direction of all the edges
 # Perform DFS on the transpose, if any vertex is unvisited, then it is not SCC
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
-class Kosaraju:
+class Solution3:
   def solve(self, graph):
     all_scc = []
     stack = []
@@ -197,6 +194,4 @@ class Kosaraju:
 
     return transpose
 
-test_class(Solution, examples)
-test_class(Tarjan, examples)
-test_class(Kosaraju, examples)
+test_class(Solution3, examples)

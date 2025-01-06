@@ -20,7 +20,8 @@ examples = [
     'output': [[2, 4]]
   },
   {
-    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7], [3, 4, 6]]],
+    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7],
+                [3, 4, 6]]],
     'output': [[1, 2], [0, 1], [0, 3]]
   },
   {
@@ -32,16 +33,7 @@ examples = [
 # Tarjan's Algorithm
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
-class Tarjan:
-  def __init__(self) -> None:
-    self.graph = [[]]
-    self.bridges = []
-    self.visited = []
-    self.disc = []
-    self.low = []
-    self.parent = []
-    self.time = 0
-
+class Solution:
   def solve(self, graph):
     self.graph = graph
     self.bridges = []
@@ -55,6 +47,7 @@ class Tarjan:
     # E.g. in 1 -> 2, 2-> 3, 3 -> 1: 3 -> 1 is a back edge
     self.low = [float('inf')] * len(graph)
     self.parent = [-1] * len(graph)
+    self.time = 0
 
     for node in range(len(graph)):
       if self.visited[node]: continue
@@ -74,19 +67,19 @@ class Tarjan:
 
         self.dfs(neighbor)
 
-        # Check if subtree rooted at neighbor
-        # has a connection to one of the ancestor of the node
+        # Check if subtree rooted at neighbor has a connection to one of the ancestor
+        # of the node
         self.low[node] = min(self.low[node], self.low[neighbor])
 
-        # No need to check for root like articulation points
-        # Because edges are independent of children
-        # In articualtion point, we check low[neighbor] >= disc[node]
-        # But here we check for only greater than
+        # No need to check for root like articulation points because edges are
+        # independent of children.
+        # In articualtion point, we check low[neighbor] >= disc[node], but here we check
+        # for only greater than
         if self.low[neighbor] > self.disc[node]:
           self.bridges.append([node, neighbor])
-      # If the neighbor is already visited and was discovered before the node
-      # Then update the low of node to the neighbor's discovery time
+      # If the neighbor is already visited and was discovered before the node, the update
+      # the low of node to the neighbor's discovery time
       elif neighbor != self.parent[node]:
         self.low[node] = min(self.low[node], self.disc[neighbor])
 
-test_class(Tarjan, examples)
+test_class(Solution, examples)

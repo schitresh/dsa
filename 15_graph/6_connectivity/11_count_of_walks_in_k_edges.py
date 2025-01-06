@@ -1,7 +1,7 @@
 from utils import test_class
 
-# Given a directed graph and two vertices u & v
-# Count all possible walks from u to v with exactly k edges on the walk
+# Given a directed graph and two vertices u & v, count all the possible walks from u to v
+# with exactly k edges on the walk.
 
 examples = [
   {
@@ -14,6 +14,7 @@ examples = [
   },
 ]
 
+# Recursion
 # Time Complexity: O(V^k), where k is edge_count
 # Auxiliary Space: O(V)
 class Solution:
@@ -29,7 +30,9 @@ class Solution:
 
     return count
 
-# Using Dynamic Programming
+test_class(Solution, examples)
+
+# Dynamic Programming
 # Time Complexity: O(V^3 * k), where k is edge_count
 # Auxiliary Space: O(V^2 * k)
 class Solution2:
@@ -50,5 +53,4 @@ class Solution2:
 
     return count[source][destination][edge_count]
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

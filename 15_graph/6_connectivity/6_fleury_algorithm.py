@@ -15,7 +15,8 @@ examples = [
     'output': [(2, 1), (1, 0), (0, 3), (3, 2), (2, 4)]
   },
   {
-    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7], [3, 4, 6]]],
+    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7],
+                [3, 4, 6]]],
     'output': []
   },
   {
@@ -56,11 +57,11 @@ class Solution:
     if len(self.graph[node]) == 1:
       return True
 
-    # If there are multiple adjacent vertices, we should choose a non-bridge edge
-    # So check if the current edge is a bridge or not
-    # To do so, calculate the number of connected vertices
-    # Remove the edge, and again calculate the connected vertices
-    # If the the connected vertices reduce, it is a bridge
+    # If there are multiple adjacent vertices, we should choose a non-bridge edge.
+    # So check if the current edge is a bridge or not.
+    # To do so, calculate the number of connected vertices. Then remove the edge, and
+    # again calculate the connected vertices. If the the connected vertices reduce, it
+    # is a bridge.
 
     visited = [False] * len(self.graph)
     connected_vertices = self.dfs_count(visited, node)

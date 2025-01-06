@@ -1,7 +1,7 @@
 from utils import test_class
 
-# Eulerian Path is a path in a graph that visits every edge exactly once
-# Eulerian Circuit (or Cycle) is an eulerian path that starts and ends on the same vertex
+# Eulerian Path is a path in a graph that visits every edge exactly once.
+# Eulerian Circuit (or Cycle) is an eulerian path that starts and ends on the same vertex.
 
 # An undirected graph has eulerian path if these two conditions are true
 # (1) All vertices with non-zero degree are connected
@@ -24,7 +24,8 @@ examples = [
     'output': 'Eulerian Path'
   },
   {
-    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7], [3, 4, 6]]],
+    'input': [[[1, 3], [0, 2], [1], [0, 4, 7], [3, 5, 6, 7], [4, 6], [4, 5, 7],
+                [3, 4, 6]]],
     'output': 'None'
   },
   {
@@ -33,10 +34,10 @@ examples = [
   },
 ]
 
-# All middle vertices in eulerian path must have even degree
-# Since we need at least two edges to pass through a vertex
-# For eulerian cycle, any vertex can be middle vertex
-# So all vertices must have an even degree
+# All middle vertices in eulerian path must have even degree, since we need at least two
+# edges to pass through a vertex.
+# For eulerian cycle, any vertex can be middle vertex.
+# So all vertices must have an even degree.
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
 class Solution:
