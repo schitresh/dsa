@@ -2,19 +2,19 @@ from queue import Queue
 from utils import test_class
 
 # Minimum cut in a flow network
-# Find the s-t cut with minimum capacity of a given network
+# Find the s-t cut with minimum capacity of a given network.
 
-# In a flow network, an s-t cut is a cut
-# that requires the source 's' and the sink 't' to be in different subsets
-# and it consists of edges going from the source's side to the sink's side
+# In a flow network, an s-t cut is a cut that requires the source 's' and the sink 't'
+# to be in different subsets. And it consists of edges going from the source's side to
+# the sink's side. The capacity of an s-t cut is defined by the sum of the capacity of
+# each edge in the cut set.
+# Min-Cut of a weighted graph is defined as the minimum sum of weights of (at least one)
+# edges that when removed from the graph divides the graph into two groups.
 
-# The capacity of an s-t cut is defined by the sum of the capacity
-# of each edge in the cut set
-
-# This problem can be solved using the Ford-Fulkerson algorithm
-# Based on the max-flow min-cut theorem, in a flow network
-# the amount of maximum flow is equal to the capacity of the minimum cut
-# To print the edges that form the min cut, residual graph can be used
+# This problem can be solved using the Ford-Fulkerson algorithm.
+# Based on the max-flow min-cut theorem, in a flow network, the amount of maximum flow
+# is equal to the capacity of the minimum cut. To print the edges that form the min cut,
+# residual graph can be used.
 
 examples = [
   {
@@ -31,13 +31,13 @@ examples = [
 ]
 
 # Ford-Fulkerson Algorithm
-# Works by iteratively finding an augmenting path
-# Augmenting is a path from the source # to the sink in the residual path
-# Residual graph is obtained by subtracting the current flow from the capacity of each edge
-# That is, residual capacity = original capacity - current flow
+# Works by iteratively finding an augmenting path, which is a  path from the source to
+# the sink in the residual path.
+# Residual graph is obtained by subtracting the current flow from the capacity of each
+# edge. That is, residual capacity = original capacity - current flow.
 # The algorithm then increases the flow along this path by the maximum possible amount
 # DFS only promises to find a path from source to sink, not necessarily a shortest path
-# But BFS always finds a shortest path
+# But BFS always finds a shortest path (Edmond Karp Algorithm)
 # Time Complexity: O(V * E^2)
 # Auxiliary Space: O(V)
 class Solution:
@@ -51,9 +51,6 @@ class Solution:
 
     edges = []
 
-    # print(graph)
-    # print(visited)
-    # print(self.r_graph)
     for i in range(len(graph)):
       for j in range(len(graph)):
         # If the edges were selected that means there was an exisiting edge

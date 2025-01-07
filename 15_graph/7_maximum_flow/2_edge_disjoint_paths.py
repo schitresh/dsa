@@ -1,15 +1,13 @@
 from queue import Queue
 from utils import test_class
 
-# Given a directed path and two vertices s & t
-# Find the maximum number of edge disjoint paths from s to t
-# Two paths are said to be edge disjoint if they don't share any edge
+# Given a directed path and two vertices s & t, find the maximum number of edge disjoint
+# paths from s to t.Two paths are said to be edge disjoint if they don't share any edge.
 
-# This problem can be solved by reducing it to maximum flow problem
-# Consider the given vertices as source and sink in flow network
-# Assign unit capacity to each edge
-# Run Ford-Fulkerson algorithm to find the maximum flow from source to sink
-# The maximum number of edge disjoint paths is equal to maxium flow
+# This problem can be solved by reducing it to maximum flow problem. Consider the given
+# vertices as source and sink in flow network.Assign unit capacity to each edge. Run
+# Ford-Fulkerson algorithm to find the maximum flow from source to sink. The maximum
+# number of edge disjoint paths is equal to maxium flow.
 
 examples = [
   {
@@ -27,7 +25,7 @@ examples = [
   }
 ]
 
-# Same as Ford-Fulkerson algorithm
+# Same as Ford-Fulkerson Algorithm
 # Time Complexity: O(V * E^2)
 # Auxiliary Space: O(V)
 class Solution:

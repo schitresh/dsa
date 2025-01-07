@@ -2,15 +2,14 @@ from queue import Queue
 from utils import test_class
 
 # Maximum Flow Problem
-# Finding the maximum amount of flow that can be sent through a network
-# of pipes, channels, or other pathways subject to capacity constraints
+# Finding the maximum amount of flow that can be sent through a network of pipes,
+# channels, or other pathways subject to capacity constraints.
+# Can be used to model a wide variety of real world situations like transportation
+# systems, communication networks, resource allocation
 
-# There is a directed graph with a source node 's' and a sink node 't'
-# Each edge has a capacity thta represents the maximum amount of flow possible
-# The goal is to find the max flow that can be sent from s to t
-
-# Can be used in wide variety of real world situations like transportation systems,
-# communication networks, resource allocation
+# There is a directed graph with a source node 's' and a sink node 't'. Each edge has a
+# capacity that represents the maximum amount of flow possible. Find the maximum flow
+# that can be sent from s to t.
 
 examples = [
   {
@@ -27,14 +26,15 @@ examples = [
 ]
 
 # Ford-Fulkerson Algorithm
-# Works by iteratively finding an augmenting path
-# Augmenting is a path from the source to the sink in the residual path
-# Residual graph is obtained by subtracting the current flow from the capacity of each edge
-# That is, residual capacity = original capacity - current flow
+# Works by iteratively finding an augmenting path, which is a path from the source to
+# the sink in the residual graph.
+# Residual graph is obtained by subtracting the current flow from the capacity of each
+# edge. That is, residual capacity = original capacity - current flow.
 # The algorithm then increases the flow along this path by the maximum possible amount
 # DFS only promises to find a path from source to sink, not necessarily a shortest path
 # But BFS always finds a shortest path (BFS variation is known as Edmond Karp algorithm)
 
+# Edmond-Karp Algorithm
 # Time Complexity: O(V * E^2)
 # Auxiliary Space: O(V)
 class Solution:

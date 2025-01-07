@@ -1,24 +1,21 @@
-from queue import Queue
 from utils import test_class
 
 # Maximum Bipartite Matching
 
 # A bipartite graph is a graph whose vertices can be divided into two independent sets
-# U & V such that every edge connects a vertex from U to V or from V to U
-# In other words, there is no edge that connects vertices of same set
+# U & V such that every edge connects a vertex from U to V (or from V to U). In other
+# words, there is no edge that connects the vertices of the same set.
 
 # A matching in a bipartitie graph is a set of the edges chosen in such a way
-# that no two edges share an endpoint
-# A maximum matching is a matching with maximum number of edges
-# There can be more than one maximum matchings for a given bipartite graph
+# that no two edges share an endpoint.
+# A maximum matching is a matching with maximum number of edges. There can be more than
+# one maximum matchings for a given bipartite graph.
 
-# It can be solved by converting it into a flow network
-# Example Problem: There are M applicants and N jobs
-# Each applicant has a subset of jobs that he is interested in
-# Each job can only accept one applicant
-# and an applicant can be appointed to only one job
-# Find an assignment of jobs to applicants in such a way that
-# as many applicants as possible get jobs
+# It can be solved by converting it into a flow network.
+# Example Problem: There are M applicants and N jobs. Each applicant has a subset of
+# jobs that he is interested in. Each job can only accept one applicant and an applicant
+# can be appointed to only one job. Find an assignment of jobs to applicants in such a
+# way that as many applicants as possible get jobs.
 
 examples = [
   {
@@ -61,10 +58,10 @@ class Solution:
 
       seen[job] = True
 
-      # Assign the job to current applicant if the job is not assigned
-      # or if previously assigned applicant has an alternate job available
-      # Since the job is marked seen, the previously assigned applicant
-      # won't get the current job again in the bpm call below
+      # Assign the job to current applicant if the job is not assigned, or if previously
+      # assigned applicant has an alternate job available.
+      # Since the job is marked seen, the previously assigned applicant won't get the
+      # current job again in the bpm call below.
       job_applicant = self.applicant[job]
       if job_applicant == -1 or self.bpm(job_applicant, seen):
         self.applicant[job] = applicant

@@ -1,16 +1,14 @@
-from queue import Queue
 from utils import test_class
 
-# There are M transmitter and N receiver stations
-# Given a matrix that keeps track of the number of packets to be transmitted
-# from a given transmitter to a receiver
-# During a time slot, a transmitter can send only one packet
-# and a receiver can receiver can receive only one packet
-# Find the channel assignments so that maximum number of packets are transferred
-# from transmitters to receivers during the next time slot
+# There are M transmitter and N receiver stations. And there is a matrix that keeps
+# track of the number of packets to be transmitted from a given transmitter to a
+# receiver. During a time slot, a transmitter can send only one packet and a receiver
+# can receive only one packet.
+# Find the channel assignments so that maximum number of packets are transferred from
+# transmitters to receivers during the next time slot.
 
-# It can be easily transformed into Maximum Bipartite Matching Problem (MBP)
-# that can be solved by converting it into a flow network
+# It can be easily transformed into Maximum Bipartite Matching Problem (MBP), that can
+# be solved by converting it into a flow network.
 
 examples = [
   {
@@ -52,9 +50,9 @@ class Solution:
       seen[receiver] = True
 
       # Assign the receiver to the current sender if the receiver is not assigned
-      # or if previously assigned receuver has an alternate sender available
-      # Since the receiver is marked seen, the previously assigned receiver
-      # won't get the current sender again in the bpm call below
+      # or if previously assigned receuver has an alternate sender available.
+      # Since the receiver is marked seen, the previously assigned receiver won't get
+      # the current sender again in the bpm call below.
       receiver_sender = self.sender[receiver]
       if receiver_sender == -1 or self.bpm(receiver_sender, seen):
         self.sender[receiver] = sender
