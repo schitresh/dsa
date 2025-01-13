@@ -31,4 +31,4 @@ def test():
   print('Top (2):', queue.front())
   print('Empty (False):', queue.empty())
 
-# test()
+test()

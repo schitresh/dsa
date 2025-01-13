@@ -6,6 +6,8 @@ class Deque:
     self.rear = 0
     self.size = 0
 
+  # Utils
+
   def empty(self):
     return self.size == 0
 
@@ -14,6 +16,11 @@ class Deque:
 
   def print(self):
     print(self.array)
+
+  def clear(self):
+    self.__init__(self.capacity)
+
+  # Actions
 
   def append_left(self, item):
     if self.full():
@@ -60,9 +67,6 @@ class Deque:
 
     return item
 
-  def clear(self):
-    self.__init__(self.capacity)
-
 def test():
   deque = Deque(10)
   deque.append_left(1)
@@ -73,8 +77,7 @@ def test():
   deque.print()
 
   print(deque.pop_left())
-  for _ in range(3):
-    deque.pop_left()
+  for _ in range(3): deque.pop_left()
   print(deque.front, deque.rear)
 
   deque.append_left(1)
@@ -85,8 +88,7 @@ def test():
   deque.print()
 
   print(deque.pop())
-  for _ in range(3):
-    deque.pop()
+  for _ in range(3): deque.pop()
   print(deque.front, deque.rear)
 
 test()

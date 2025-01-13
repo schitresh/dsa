@@ -1,5 +1,4 @@
 from queue import LifoQueue
-from utils import print_class_name
 
 # Pop all the old items and push them to a temp stack
 # Push the new item in the stack
@@ -29,12 +28,11 @@ class Queue:
       return self.stack.get()
 
 def test(klass):
-  print_class_name(klass)
-  stack = klass()
-  stack.put(1)
-  stack.put(2)
-  stack.put(3)
-  print(stack.get())
-  print(stack.get())
+  queue = klass()
+  queue.put(1)
+  queue.put(2)
+  queue.put(3)
+  print(queue.get())
+  print(queue.get())
 
 test(Queue)

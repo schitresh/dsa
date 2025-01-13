@@ -9,7 +9,7 @@ class Stack(LifoQueue):
     super().__init__(maxsize)
     self.min_stack = LifoQueue()
 
-  def put(self, item):
+  def put(self, item, *_args):
     if self.empty():
       super().put(item)
       self.min_stack.put(item)
@@ -21,7 +21,7 @@ class Stack(LifoQueue):
       if item < mini:
         self.min_stack.put(item)
 
-  def get(self):
+  def get(self, *_args):
     item = super().get()
     mini = self.min_stack.get()
 
@@ -41,13 +41,13 @@ class Stack2(LifoQueue):
     super().__init__(maxsize)
     self.min_item = None
 
-  def put(self, item):
+  def put(self, item, *_args):
     if not self.min_item or item < self.min_item:
       self.min_item = item
 
     super().put([item, self.min_item])
 
-  def get(self):
+  def get(self, *_args):
     item_and_min = super().get()
     return item_and_min[0]
 

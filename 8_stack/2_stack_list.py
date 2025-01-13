@@ -48,4 +48,4 @@ def test():
   print('Top (4):', stack.top())
   print('Empty (False):', stack.empty())
 
-# test()
+test()

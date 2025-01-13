@@ -10,6 +10,8 @@ class Deque:
     self.tail = None
     self.size = 0
 
+  # Utils
+
   def print(self):
     temp = self.head
     while temp:
@@ -19,6 +21,15 @@ class Deque:
         print(temp.key)
 
       temp = temp.next
+
+  def clear(self):
+    temp = self.head
+    while temp:
+      next = temp.next
+      del temp
+      temp = next
+
+  # Actions
 
   def append_left(self, item):
     node = Node(item)
@@ -78,13 +89,6 @@ class Deque:
 
     return item
 
-  def clear(self):
-    temp = self.head
-    while temp:
-      next = temp.next
-      del temp
-      temp = next
-
 def test():
   deque = Deque()
   deque.append_left(1)
@@ -94,16 +98,14 @@ def test():
   deque.print()
 
   print(deque.pop_left())
-  for _ in range(3):
-    deque.pop_left()
+  for _ in range(3): deque.pop_left()
 
   deque.append_left(1)
   deque.append_left(2)
   deque.print()
 
   print(deque.pop())
-  for _ in range(3):
-    deque.pop()
+  for _ in range(3): deque.pop()
 
   deque.append(5)
   deque.append(6)
