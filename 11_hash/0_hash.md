@@ -1,7 +1,8 @@
 ## Hash
 - Efficiently stores and retrieves data in a way that allows for quick access
   - Enables fast retrieval of data based on its key
-- Maps data to a specific index in a hash table (also called hash map) using a hash function
+- Maps data to a specific index in a hash table (also called hash map)
+  - A hash function is used to determine the index
 - Trivial hashing (or index mapping)
   - Simple form of hashing where data is directly mapped to an index in hash table
 - Used in databases, caching systems, search optimization, network routing
@@ -9,11 +10,11 @@
 ## Hash Collision
 - Happens when two different keys map to the same index in the hash table
 - Can happen due to
-  - Poor hash function that does not distribute keys evenly across hash table
+  - Poor hash function that does not distribute keys evenly across the hash table
   - High load factor (ratio of keys to hash table size)
   - Similar keys
 - Load factor
-  - If there are n enries in hash table
+  - If there are n entries in hash table
   - And b is the size of array used for chaining at each index
   - Then load factor is n/b
 
