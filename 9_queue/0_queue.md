@@ -28,6 +28,7 @@ queue.qsize()
 queue.empty()
 queue.full()
 
+# Dequeue (Double ended queue)
 from collections import deque
 queue = deque()
 queue = deque(maxlen=10)
