@@ -3,6 +3,8 @@ class Node:
     self.data = data
     self.next = None
 
+# Time Complexity: O(1) for both push & pop
+# Auxiliary Space: O(n)
 class Queue:
   def __init__(self):
     self.head = None

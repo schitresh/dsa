@@ -1,3 +1,5 @@
+# Time Complexity: O(1) for push, O(n) for pop
+# Auxiliary Space: O(n)
 class Queue:
   def __init__(self):
     self.queue = []

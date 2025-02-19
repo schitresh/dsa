@@ -15,7 +15,6 @@
 - Inter-process communication using queues
 - Producer & consumer queues
 - Algorithms like breadth first search, topological sort, etc.
--
 
 ## Python
 ```py

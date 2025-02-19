@@ -1,3 +1,5 @@
+# Time Complexity: O(1) for both push & for pop
+# Auxiliary Space: O(n)
 class Deque:
   def __init__(self, capacity) -> None:
     self.capacity = capacity

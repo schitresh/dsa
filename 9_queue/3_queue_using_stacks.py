@@ -7,6 +7,8 @@ from queue import LifoQueue
 # Another way can be to do this while popping
 # Pop all the (size - 1) and push them to a temp stack
 # Pop the last item to return it and swap the original and the temp stack
+# Time Complexity: O(n) for push & O(1) for pop
+# Auxiliary Space: O(n)
 class Queue:
   def __init__(self) -> None:
     self.stack = LifoQueue()
