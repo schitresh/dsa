@@ -1,13 +1,12 @@
 from queue import PriorityQueue, Queue
 from utils import print_class_name
 
-# Push the new item in the queue directly
-# And pop all the old items and push them again
-# This way the new item will be at the front
-
-# Another way can be to do this while popping
-# Pop all the (size - 1) and push them again
-# Pop the last item and return it
+# Push the new item in the queue directly, then pop all the old items and push them again.
+# This way the new item will be at the front.
+# Another way can be to do this while popping. Pop all the (size - 1) items and push them
+# again. Pop the last item and return it.
+# Time Complexity: O(n) for both push & pop
+# Auxiliary Space: O(n)
 class Stack:
   def __init__(self) -> None:
     self.queue = Queue()
@@ -25,6 +24,8 @@ class Stack:
       return self.queue.get()
 
 # Using Priority Queue (or Heap)
+# Time Complexity: O(log(n)) for both push & pop
+# Auxiliary Space: O(n)
 class Stack2:
   def __init__(self) -> None:
     self.queue = PriorityQueue()

@@ -4,6 +4,8 @@ from utils import print_class_name
 # Get minimum element in the stack in constant time
 # An auxiliary stack can be maintained will be keep track of the min elements
 # Modify put & get methods such that the top of the auxiliary stack in always the min
+# Time Complexity: O(1) for both push & pop
+# Auxiliary Space: O(n)
 class Stack(LifoQueue):
   def __init__(self, maxsize: int = 0) -> None:
     super().__init__(maxsize)
@@ -36,6 +38,8 @@ class Stack(LifoQueue):
     return mini
 
 # Store min element with each item
+# Time Complexity: O(1) for both push & pop
+# Auxiliary Space: O(n)
 class Stack2(LifoQueue):
   def __init__(self, maxsize: int = 0) -> None:
     super().__init__(maxsize)

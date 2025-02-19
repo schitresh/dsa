@@ -1,3 +1,5 @@
+# Time Complexity: O(1) for both push & pop
+# Auxiliary Space: O(n)
 class Stack:
   def __init__(self):
     self.stack = []
