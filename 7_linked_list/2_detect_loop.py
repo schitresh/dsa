@@ -1,5 +1,5 @@
-from circular_list import circular_list_from_array
-from linked_list import linked_list_from_array
+from library.circular_list import circular_list_from_array
+from library.linked_list import linked_list_from_array
 from utils import test_class
 
 def linked_list_with_loop():
@@ -22,6 +22,7 @@ examples = [
   },
 ]
 
+# Using slow & fast pointers
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
 class Solution:

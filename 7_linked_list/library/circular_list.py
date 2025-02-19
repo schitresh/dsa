@@ -1,4 +1,4 @@
-from linked_list import Node, LinkedList
+from library.linked_list import Node, LinkedList
 
 class CircularList(LinkedList):
   # Utils
@@ -137,15 +137,14 @@ def test():
   linked_list.delete(7)
   linked_list.print()
 
-  print('Search(5):')
-  print(linked_list.search(5).key)
-  print('Search(9):')
-  print(linked_list.search(9).key)
-  print('Search(4):')
-  print(linked_list.search(4).key)
+  print('Search(5):', linked_list.search(5).key)
+  print('Search(9):', linked_list.search(9).key)
+  print('Search(4):', linked_list.search(4).key)
 
   print('Reversal:')
   linked_list.reverse()
   linked_list.print()
 
-# test()
+# Do not execute while importing it in another file
+if __name__ == '__main__':
+  test()

@@ -1,4 +1,4 @@
-from linked_list import LinkedList
+from library.linked_list import LinkedList
 
 class Node:
   def __init__(self, key):
@@ -70,7 +70,8 @@ def test():
   linked_list.delete(7)
   linked_list.print()
 
-  print('Search(5):')
-  print(linked_list.search(5).key)
+  print('Search(5):', linked_list.search(5).key)
 
-test()
+# Do not execute while importing it in another file
+if __name__ == '__main__':
+  test()

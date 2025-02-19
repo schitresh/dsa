@@ -40,6 +40,16 @@ class LinkedList:
 
     return temp
 
+  def elements(self):
+    result = []
+    temp = self.head
+
+    while temp:
+      result.append(temp.key)
+      temp = temp.next
+
+    return result
+
   # Insertion
 
   def append(self, key):
@@ -129,11 +139,12 @@ def test():
   linked_list.delete(7)
   linked_list.print()
 
-  print('Search(5):')
-  print(linked_list.search(5).key)
+  print('Search(5):', linked_list.search(5).key)
 
   print('Reversal:')
   linked_list.reverse()
   linked_list.print()
 
-# test()
+# Do not execute while importing it in another file
+if __name__ == '__main__':
+  test()
