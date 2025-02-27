@@ -34,7 +34,7 @@ class Solution:
 
 test_class(Solution, examples)
 
-# Moore's Voting Algorithm
+# Todo: Moore's Voting Algorithm
 # There can be at max k – 1 elements present in the array which appears more than n/k
 # times. When we encounter an element which is one of our candidates then increment the
 # count else decrement the count.
@@ -42,6 +42,8 @@ test_class(Solution, examples)
 #  Auxiliary Space: O(n)
 class Solution2:
   def solve(self, array, k):
+    counts = {}
+
     return
 
 test_class(Solution2, examples)

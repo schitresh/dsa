@@ -15,14 +15,15 @@ examples = [
 # Auxiliary Space: O(1)
 class InsertionSort:
   def solve(self, array):
-    for i, item in enumerate(array):
+    for i in range(len(array)):
       j = i
+      curr = array[i]
 
-      while j > 0 and array[j - 1] > item:
+      while j > 0 and array[j - 1] > curr:
         array[j] = array[j - 1]
         j -= 1
 
-      array[j] = item
+      array[j] = curr
 
     return array
 
