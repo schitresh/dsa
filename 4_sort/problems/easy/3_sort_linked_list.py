@@ -86,20 +86,46 @@ class Solution2:
 
 test_class(Solution2, examples)
 
-# Quick Sort
+# Merge Sort
 # Time Complexity: O(n * log(n))
 # Auxiliary Space: O(1)
 class Solution3:
   def solve(self, llist):
+    llist.head = self.merge_sort(llist.head)
     return llist.elements()
+
+  def merge_sort(self, head):
+    if not head or not head.next:
+      return head
+
+    left = head
+    mid = self.mid_node(head)
+    right = mid.next
+    mid.next = None
+
+    left = self.merge_sort(left)
+    right = self.merge_sort(right)
+    return self.merge(left, right)
+
+  def merge(self, left, right):
+    if not left: return right
+    if not right: return left
+
+    if left.key < right.key:
+      left.next = self.merge(left.next, right)
+      return left
+
+    right.next = self.merge(left, right.next)
+    return right
+
+  def mid_node(self, head):
+    slow = head
+    fast = head
+
+    while fast and fast.next:
+      fast = fast.next.next
+      if fast: slow = slow.next
+
+    return slow
 
 test_class(Solution3, examples)
-
-# Merge Sort
-# Time Complexity: O(n * log(n))
-# Auxiliary Space: O(1)
-class Solution4:
-  def solve(self, llist):
-    return llist.elements()
-
-test_class(Solution4, examples)
