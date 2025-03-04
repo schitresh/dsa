@@ -13,7 +13,7 @@ examples = [
     'input': [50, 55, [1, 14, 11, 51, 15]],
     'output': [50, 52, 53, 54, 55],
   },
-    {
+  {
     'input': [1, 5, [8, 9, 11, 7, 6]],
     'output': [1, 2, 3, 4, 5],
   },
@@ -47,7 +47,7 @@ class Solution:
 
 test_class(Solution, examples)
 
-# Hashing
+# Hashing range nums
 # Time Complexity: O(n + high - low)
 # Auxiliary Space: O(high - low)
 class Solution2:
@@ -67,7 +67,7 @@ class Solution2:
 
 test_class(Solution2, examples)
 
-# Hash Set
+# Hashsing array nums
 # Time Complexity: O(n + high - low)
 # Auxiliary Space: O(n)
 class Solution3:

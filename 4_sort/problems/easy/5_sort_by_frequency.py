@@ -16,8 +16,8 @@ examples = [
 ]
 
 # Hashing & Sorting
-# Time Complexity: O(n^2)
-# Auxiliary Space: O(1)
+# Time Complexity: O(n * log(n))
+# Auxiliary Space: O(n)
 class Solution:
   def solve(self, array):
     freq = {}

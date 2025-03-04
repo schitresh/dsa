@@ -178,6 +178,7 @@ class Solution5:
       high += 1
     high -= 1
 
+    # Using array[low:mid] will generate auxiliary array, so use custom reverse method
     # Reverse odd part of left subarray
     self.reverse(array, low, mid)
     # Reverse even part of right subarray
