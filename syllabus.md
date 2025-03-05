@@ -15,10 +15,28 @@
 - Space Complexity
   - Auxiliary Space
   - Analysis of recursion (fibonacci number)
-- Theoritical Limitations and Complexity Classes
+- Complexity Classes and Theoritical Limitations
   - P, NP, Co-NP, NP-hard, NP-complete
 
-## Searching
+## Math
+- Bit Manipulation
+- Modular Arithmetic
+  - Modular Exponentiation
+  - Modular Multiplicative Inverse
+- GCD & LCM
+  - GCD (Greatest Common Divisor)
+  - LCM (Lowest Common Multiple)
+  - Extended Euclidean Algorithm
+- Prime Numbers
+  - Sieve of Eratosthenes
+  - Sieve of Eratosthenes with fast factorization
+  - Sieve of Eratosthenes on the segment
+- Combinatorics
+  - Rule of Product, Rule of Sum
+  - Permutations with repetition, Cominations with repetition
+  - Pascal Triangle
+
+## Search
 - Linear Search
   - Sentinel Linear Search
 - Two Pointer Approach
@@ -33,7 +51,7 @@
 - Exponential Search
 - Fibonacci Search
 
-## Sorting
+## Sort
 - Stability in sorting algorithms
 - Selection Sort
 - Bubble Sort
@@ -250,23 +268,6 @@
 - State Space Reduction
   - Longest Common Subsequence
 - Bit Masking
-
-## Math
-- Bit Manipulation
-- Modular Arithmetic
-- Modular Exponentiation
-- GCD (Greatest Common Divisor)
-- LCM (Lowest Common Multiple)
-- Extended Euclidean Algorithm
-- Modular Multiplicative Inverse
-- Prime Numbers
-  - Sieve of Eratosthenes
-  - Sieve of Eratosthenes with fast factorization
-  - Sieve of Eratosthenes on the segment
-- Combinatorics
-  - Rule of Product, Rule of Sum
-  - Permutations with repetition, Cominations with repetition
-  - Pascal Triangle
 
 ## Advanced Data Structures
 - Segment Tree

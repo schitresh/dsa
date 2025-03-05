@@ -1,6 +1,0 @@
-{
-  "python.analysis.extraPaths": [
-    "./7_linked_list/library"
-  ],
-  "python.REPL.enableREPLSmartSend": false
-}
