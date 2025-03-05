@@ -1,6 +1,7 @@
 from utils import test_class
 
 # Find the count of distinct occurrences of key in given string as a subsequence
+
 examples = [
   {
     'input': ['banana', 'ban'],
@@ -24,6 +25,12 @@ examples = [
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(2^n) due to recursive stack
 class Solution:
+  def solve(self, string, key):
+    if len(string) < len(key):
+      return 0
+
+    return self.count_subsequences(string, key, 0, 0)
+
   def count_subsequences(self, string, key, string_index, key_index):
     if key_index == len(key):
       return 1
@@ -35,15 +42,12 @@ class Solution:
 
     count_by_including = 0
     if string[string_index] == key[key_index]:
-      count_by_including = self.count_subsequences(string, key, string_index + 1, key_index + 1)
+      count_by_including = \
+        self.count_subsequences(string, key, string_index + 1, key_index + 1)
 
     return count_by_including + count_by_excluding
 
-  def solve(self, string, key):
-    if len(string) < len(key):
-      return 0
-
-    return self.count_subsequences(string, key, 0, 0)
+test_class(Solution, examples)
 
 # Dynamic Programming
 # Time Complexity: O(n * m)
@@ -58,27 +62,37 @@ class Solution2:
     for i in range(0, len(key)):
       for j in range(0, len(string)):
         if key[i] == string[j]:
-          # Occurrences of ab in aabbb = Occurrences of ab in aabb + Occurrences of a in aabb
+          # Occurrences of ab in aabbb
+          # = Occurrences of ab in aabb + Occurrences of a in aabb
           # 6 = 4 + 2
-          # Occurences of ab in aabb: Same key that is matched in string till now holds true for this iteration also
+          # Occurences of ab in aabb: Same key that is matched in string till now holds
+          # true for this iteration also
           # Occurences of a in aabb: The current char is common in both string & key
           # So we can match the prefixes of both string & key and add current char
           count[i + 1][j + 1] = count[i + 1][j] + count[i][j]
         else:
           # Occurrences of ab in aabbx = Occurences of ab in aabb
           # 4 = 4
-          # Occurences of ab in aabb: Same key that is matched in string till now holds true for this iteration also
-          # Occurences of a in aabb: This condition doesn't apply because the current char is not common here
+          # Occurences of ab in aabb: Same key that is matched in string till now holds
+          # true for this iteration also
+          # Occurences of a in aabb: This condition doesn't apply because the current
+          # char is not common here
           count[i + 1][j + 1] = count[i + 1][j]
 
     return count[len(key)][len(string)]
+
+test_class(Solution2, examples)
 
 # Dynamic Programming by top-down approach by memoization
 # Time Complexity: O(n * m)
 # Auxiliary Space: O(n * m) ignoring recursion stack
 class Solution3:
-  def __init__(self):
-    self.count = [[]]
+  def solve(self, string, key):
+    if len(string) < len(key):
+      return 0
+
+    self.count = [[-1] * (len(key) + 1) for _ in range(len(string) + 1)]
+    return self.count_subsequences(string, key, 0, 0)
 
   def count_subsequences(self, string, key, string_index, key_index):
     if key_index == len(key):
@@ -91,21 +105,14 @@ class Solution3:
       return self.count[string_index][key_index]
 
     # Count by excluding
-    self.count[string_index][key_index] = self.count_subsequences(string, key, string_index + 1, key_index)
+    self.count[string_index][key_index] = \
+      self.count_subsequences(string, key, string_index + 1, key_index)
 
     if string[string_index] == key[key_index]:
       # Count by including
-      self.count[string_index][key_index] += self.count_subsequences(string, key, string_index + 1, key_index + 1)
+      self.count[string_index][key_index] += \
+        self.count_subsequences(string, key, string_index + 1, key_index + 1)
 
     return self.count[string_index][key_index]
 
-  def solve(self, string, key):
-    if len(string) < len(key):
-      return 0
-
-    self.count = [[-1] * (len(key) + 1) for _ in range(len(string) + 1)]
-    return self.count_subsequences(string, key, 0, 0)
-
-test_class(Solution, examples)
-test_class(Solution2, examples)
 test_class(Solution3, examples)

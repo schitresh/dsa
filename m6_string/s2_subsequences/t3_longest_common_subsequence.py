@@ -2,6 +2,7 @@ from utils import test_class
 
 # Find the longest common subsequence (LCS) for the two given strings
 # LCS is the longest subsequence that is present in both the strings
+
 examples = [
   {
     'input': ['abcd', 'bd'],
@@ -21,6 +22,9 @@ examples = [
 # Time Complexity: O(2^(n + m))
 # Auxiliary Space: O(2^(n + m)) due to recursive stack
 class Solution:
+  def solve(self, string1, string2):
+    return self.find_lcs(string1, string2, 0, 0)
+
   def find_lcs(self, string1, string2, index1, index2):
     if index1 == len(string1) or index2 == len(string2):
       return 0
@@ -32,15 +36,15 @@ class Solution:
     len2 = self.find_lcs(string1, string2, index1, index2 + 1)
     return max(len1, len2)
 
-  def solve(self, string1, string2):
-    return self.find_lcs(string1, string2, 0, 0)
+test_class(Solution, examples)
 
 # Dynamic Programming with Memoization
 # Time Complexity: O(n * m)
 # Auxiliary Space: O(n * m)
 class Solution2:
-  def __init__(self):
-    self.lcs = [[]]
+  def solve(self, string1, string2):
+    self.lcs = [[-1] * len(string2) for _ in range(len(string1))]
+    return self.find_lcs(string1, string2, 0, 0)
 
   def find_lcs(self, string1, string2, index1, index2):
     if index1 == len(string1) or index2 == len(string2):
@@ -50,7 +54,8 @@ class Solution2:
       return self.lcs[index1][index2]
 
     if string1[index1] == string2[index2]:
-      self.lcs[index1][index2] = 1 + self.find_lcs(string1, string2, index1 + 1, index2 + 1)
+      self.lcs[index1][index2] = \
+        1 + self.find_lcs(string1, string2, index1 + 1, index2 + 1)
       return self.lcs[index1][index2]
 
     len1 = self.find_lcs(string1, string2, index1 + 1, index2)
@@ -58,9 +63,7 @@ class Solution2:
     self.lcs[index1][index2] = max(len1, len2)
     return self.lcs[index1][index2]
 
-  def solve(self, string1, string2):
-    self.lcs = [[-1] * len(string2) for _ in range(len(string1))]
-    return self.find_lcs(string1, string2, 0, 0)
+test_class(Solution2, examples)
 
 # Dynamic Programming with Tabulation
 # Time Complexity: O(n * m)
@@ -77,6 +80,8 @@ class Solution3:
           lcs[i + 1][j + 1] = max(lcs[i + 1][j], lcs[i][j + 1])
 
     return lcs[len(string1)][len(string2)]
+
+test_class(Solution3, examples)
 
 # Tabulation with Space Optimization
 # We need values of only two rows: lcs[i] and lcs[i + 1]
@@ -101,7 +106,4 @@ class Solution4:
 
     return curr[len(string2)]
 
-test_class(Solution, examples)
-test_class(Solution2, examples)
-test_class(Solution3, examples)
 test_class(Solution4, examples)

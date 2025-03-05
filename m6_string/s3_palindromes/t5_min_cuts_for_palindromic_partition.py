@@ -2,6 +2,7 @@ from utils import test_class
 
 # Find the minimum number of cuts required to create a palindromic partition
 # of the given string
+
 examples = [
   {
     'input': ['abcba'],
@@ -30,6 +31,9 @@ examples = [
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(2^n) for recursion stack
 class Solution:
+  def solve(self, string):
+    return self.min_partition(string, 0, len(string) - 1)
+
   def is_palidrome(self, string, left, right):
     while left < right:
       if string[left] != string[right]:
@@ -52,8 +56,7 @@ class Solution:
 
     return min_count
 
-  def solve(self, string):
-    return self.min_partition(string, 0, len(string) - 1)
+test_class(Solution, examples)
 
 # Stored computed results in the recursion approach
 # Time Complexity: O(n^3)
@@ -94,6 +97,7 @@ class Solution2:
 
     return min_cuts[0][len(string) - 1]
 
+test_class(Solution2, examples)
 
 # Stored computed results with space optimization
 # Cuts are required between each palindrome such that its length is max
@@ -102,28 +106,6 @@ class Solution2:
 # Time Complexity: O(n^2)
 # Auxiliary Space: O(n^2)
 class Solution3:
-  def palindrome_matrix(self, string):
-    palindrome = [[False] * len(string) for _ in range(len(string))]
-
-    # Base Case 1: Each char is a palindrome of itself
-    for i in range(len(string)):
-      palindrome[i][i] = True
-
-    # Base Case 2: Two same consecutive chars is a palindrome
-    for i in range(len(string) - 1):
-      if string[i] == string[i + 1]:
-        palindrome[i][i + 1] = True
-
-    # Length 1 & 2 covered in base cases, now start with length 3
-    for substr_len in range(2, len(string) + 1):
-      for l in range(len(string) - substr_len + 1):
-        r = l + substr_len - 1
-
-        if string[l] == string[r] and palindrome[l + 1][r - 1]:
-          palindrome[l][r] = True
-
-    return palindrome
-
   def solve(self, string):
     if not string:
       return 0
@@ -151,7 +133,26 @@ class Solution3:
 
     return min_cuts[-1]
 
+  def palindrome_matrix(self, string):
+    palindrome = [[False] * len(string) for _ in range(len(string))]
 
-test_class(Solution, examples)
-test_class(Solution2, examples)
+    # Base Case 1: Each char is a palindrome of itself
+    for i in range(len(string)):
+      palindrome[i][i] = True
+
+    # Base Case 2: Two same consecutive chars is a palindrome
+    for i in range(len(string) - 1):
+      if string[i] == string[i + 1]:
+        palindrome[i][i + 1] = True
+
+    # Length 1 & 2 covered in base cases, now start with length 3
+    for substr_len in range(2, len(string) + 1):
+      for l in range(len(string) - substr_len + 1):
+        r = l + substr_len - 1
+
+        if string[l] == string[r] and palindrome[l + 1][r - 1]:
+          palindrome[l][r] = True
+
+    return palindrome
+
 test_class(Solution3, examples)

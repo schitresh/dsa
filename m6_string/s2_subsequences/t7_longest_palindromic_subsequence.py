@@ -29,6 +29,10 @@ examples = [
 # Time Complexity: O(n^2)
 # Auxiliary Space: O(n)
 class Solution:
+  def solve(self, string):
+    if len(string) == 0: return 0
+    return self.lps(string, 0, len(string) - 1)
+
   def lps(self, string, left, right):
     if left == right:
       return 1
@@ -44,9 +48,7 @@ class Solution:
     len2 = self.lps(string, left, right - 1)
     return max(len1, len2)
 
-  def solve(self, string):
-    if len(string) == 0: return 0
-    return self.lps(string, 0, len(string) - 1)
+test_class(Solution, examples)
 
 # Similar to the longest common subsequence
 # Find lcs of string and its reversed string
@@ -70,5 +72,4 @@ class Solution2:
 
     return curr[-1]
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

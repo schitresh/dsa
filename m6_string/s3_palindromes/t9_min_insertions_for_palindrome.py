@@ -5,6 +5,7 @@ from utils import test_class
 # it can become a palindrome
 # Permutations are allowed, that is the positions of chars can be changed
 # Similar to 2_rearrange_to_palindrome
+
 examples = [
   {
     'input': ['aabbc'],
@@ -42,6 +43,8 @@ class Solution:
 
     return 0 if odd_chars == 0 else odd_chars - 1
 
+test_class(Solution, examples)
+
 # Using Bits
 # Keep track if the counts are odd or even instead of keeping actual counts
 # Uses bitvector to store this nature of counts
@@ -68,5 +71,4 @@ class Solution2:
 
     return count - 1
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

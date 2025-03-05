@@ -13,8 +13,10 @@ ASCII_COUNT = 256
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(2^n) due to recursive stack
 class Solution:
-  def __init__(self):
+  def solve(self, string):
     self.count = 0
+    self.generate_subsequences(string, '', 0)
+    return self.count
 
   def generate_subsequences(self, string, prefix, index):
     if index == len(string):
@@ -27,9 +29,7 @@ class Solution:
     # Exclude the current char
     self.generate_subsequences(string, prefix, index + 1)
 
-  def solve(self, string):
-    self.generate_subsequences(string, '', 0)
-    return self.count
+test_class(Solution, examples)
 
 # Dynamic Programming
 # Time Complexity: O(n)
@@ -72,6 +72,8 @@ class Solution2:
     # Subtract count of empty subsequence
     return length_count[len(string)] - 1
 
+test_class(Solution2, examples)
+
 # Improvement over DP solution
 # Store the count directly instead of tracking indexes
 # Time Complexity: O(n)
@@ -101,6 +103,4 @@ class Solution3:
 
     return count - 1
 
-test_class(Solution, examples)
-test_class(Solution2, examples)
 test_class(Solution3, examples)

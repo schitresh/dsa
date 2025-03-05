@@ -2,6 +2,7 @@ from utils import test_class
 
 # Find the length of the longest palindromic substring for a given string
 # That is the longest substring that is also a palindrome
+
 examples = [
   {
     'input': ['abc'],
@@ -42,6 +43,8 @@ class Solution:
 
     return string[lps_start : lps_end + 1]
 
+test_class(Solution, examples)
+
 # Dynamic Programming
 # Time Complexity: O(n^2)
 # Auxiliary Space: O(n^2)
@@ -78,24 +81,13 @@ class Solution2:
 
     return string[lps_start : lps_end + 1]
 
+test_class(Solution2, examples)
+
 # Expansion from center
 # For each char, check if it can be the center of a palindromic substring
 # Time Complexity: O(n^2)
 # Auxiliary Space: O(1)
 class Solution3:
-  def palindrome_pointers(self, string, middle, even_length = False):
-    left = middle
-    right = middle
-
-    if even_length and middle + 1 < len(string):
-      right = middle + 1
-
-    while left >= 0 and right < len(string) and string[left] == string[right]:
-      left -= 1
-      right += 1
-
-    return left + 1, right - 1
-
   def solve(self, string):
     lps_start = 0
     lps_end = 0
@@ -118,6 +110,17 @@ class Solution3:
 
     return string[lps_start : lps_end + 1]
 
-test_class(Solution, examples)
-test_class(Solution2, examples)
+  def palindrome_pointers(self, string, middle, even_length = False):
+    left = middle
+    right = middle
+
+    if even_length and middle + 1 < len(string):
+      right = middle + 1
+
+    while left >= 0 and right < len(string) and string[left] == string[right]:
+      left -= 1
+      right += 1
+
+    return left + 1, right - 1
+
 test_class(Solution3, examples)

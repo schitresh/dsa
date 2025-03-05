@@ -2,6 +2,7 @@ from collections import defaultdict
 from utils import test_class
 
 # Given a string, check if the chars can be rearranged to form a palindrome
+
 examples = [
   {
     'input': ['abcdabc'],
@@ -46,6 +47,8 @@ class Solution:
 
     return True
 
+test_class(Solution, examples)
+
 # Using Bits
 # Keep track if the counts are odd or even instead of keeping actual counts
 # Uses bitvector to store this nature of counts
@@ -71,5 +74,4 @@ class Solution2:
     one_count_odd = (bitvector & (bitvector - 1)) == 0
     return all_counts_even or one_count_odd
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

@@ -1,6 +1,7 @@
 from utils import test_class
 
 # Generate all rotations
+
 examples = [
   {
     'input': ['abcd'],
@@ -28,6 +29,8 @@ class Solution:
 
     return output
 
+test_class(Solution, examples)
+
 # Concat string with itself and create all the substrings
 # Time Complexity: O(n^2)
 # Auxiliary Space: O(n)
@@ -41,5 +44,4 @@ class Solution2:
 
     return output
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

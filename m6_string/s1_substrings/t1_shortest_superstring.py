@@ -4,6 +4,7 @@ from utils import test_class
 # that contains each of the strings in the array as substring
 # Assume that no string is substring of another string in the array
 # NP Hard problem (solution takes exponential time)
+
 examples = [
   {
     'input': [['abcd', 'efg', 'hi']],
@@ -23,6 +24,35 @@ examples = [
 # Time Complexity: O(n^3 * max_length_of_string))
 # Auxiliary Space: O(n * max_length_of_string) for temp array
 class Solution:
+  def solve(self, input_strings):
+    strings = input_strings.copy()
+
+    # In each iteration, find two most overlapping strings and merge them
+    for strings_left in range(len(strings), 1, -1):
+      # Initialize max_overlap_len with -1
+      # Because we will merge two strings even if there is no overlap
+      # In such a case, overlap_len will be 0
+      max_overlap_len = -1
+      max_merged_string = ''
+      index1 = 0
+      index2 = 0
+
+      for i in range(strings_left):
+        for j in range(i + 1, strings_left):
+          merged_string, overlap_len = self.merged_string(strings[i], strings[j])
+
+          if max_overlap_len < overlap_len:
+            max_overlap_len = overlap_len
+            max_merged_string = merged_string
+            index1 = i
+            index2 = j
+
+      # If there is no overlap, initial two strings will considered and merged
+      strings[index1] = max_merged_string
+      strings[index2] = strings[strings_left - 1]
+
+    return strings[0]
+
   def overlap_length(self, string1, string2):
     suffix1 = ''
     prefix2 = ''
@@ -55,34 +85,7 @@ class Solution:
 
     return merged_string, overlap_len
 
-  def solve(self, input_strings):
-    strings = input_strings.copy()
-
-    # In each iteration, find two most overlapping strings and merge them
-    for strings_left in range(len(strings), 1, -1):
-      # Initialize max_overlap_len with -1
-      # Because we will merge two strings even if there is no overlap
-      # In such a case, overlap_len will be 0
-      max_overlap_len = -1
-      max_merged_string = ''
-      index1 = 0
-      index2 = 0
-
-      for i in range(strings_left):
-        for j in range(i + 1, strings_left):
-          merged_string, overlap_len = self.merged_string(strings[i], strings[j])
-
-          if max_overlap_len < overlap_len:
-            max_overlap_len = overlap_len
-            max_merged_string = merged_string
-            index1 = i
-            index2 = j
-
-      # If there is no overlap, initial two strings will considered and merged
-      strings[index1] = max_merged_string
-      strings[index2] = strings[strings_left - 1]
-
-    return strings[0]
+test_class(Solution, examples)
 
 # Todo: Travelling Salesman DP Approach
 # We have to find the shortest string that has each char of the strings in the array
@@ -92,34 +95,3 @@ class Solution:
 # which visits every node exactly once
 # Time Complexity: O(n^2 * 2^n))
 # Auxiliary Space: O(n * 2^n)
-class Solution2:
-  def overlap_length(self, string1, string2):
-    suffix1 = ''
-    prefix2 = ''
-    overlap_len = 0
-
-    for i in range(min(len(string1), len(string2))):
-      suffix1 = string1[i] + suffix1
-      prefix2 += string2[i]
-
-      if suffix1 == prefix2:
-        overlap_len = i + 1
-
-    return overlap_len
-
-  def solve(self, strings):
-    # This is similar to edges matrix storing weights of the edges
-    # Though the weight (overlap) for i -> j will be different from j -> i
-    overlaps = [[0] * len(strings) for _ in range(len(strings))]
-
-    for i in range(len(strings)):
-      for j in range(i, len(strings)):
-        overlaps[i][j] = self.overlap_length(strings[i], strings[j])
-        overlaps[j][i] = self.overlap_length(strings[j], strings[i])
-
-    # For two strings, we can combine string1 + string2 or string2 + string1
-    # So, number of combinations: 2 * 2 * ... (n - 1) times = 2^n
-    combinations = 1 << len(strings) # 1 * 2^len(strings)
-
-test_class(Solution, examples)
-# test_class(Solution2, examples)

@@ -2,6 +2,7 @@ from utils import test_class
 
 # Generate all substrings
 # Total substrings = n * (n - 1) / 2
+
 examples = [
   {
     'input': ['abcd'],
@@ -21,6 +22,8 @@ class Solution:
 
     return substrings
 
+test_class(Solution, examples)
+
 # Time Complexity: O(n^2)
 # Auxiliary Space: O(n)
 class Solution2:
@@ -36,5 +39,4 @@ class Solution2:
 
     return substrings
 
-test_class(Solution, examples)
 test_class(Solution2, examples)

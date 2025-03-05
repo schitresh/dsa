@@ -16,6 +16,28 @@ ASCII_COUNT = 256
 # Time Complexity: O(n + m)
 # Auxiliary Space: O(m)
 class Solution:
+  def solve(self, text, key):
+    indices = []
+    transition_table = self.transition_table(key)
+    state = 0
+
+    for i in range(len(text)):
+      state = transition_table[state][ord(text[i])]
+      if state == len(key):
+        indices.append(i - len(key) + 1)
+
+    return indices
+
+  def transition_table(self, key):
+    state_count = len(key) + 1
+    table = [[0] * ASCII_COUNT for _ in range(state_count)]
+
+    for state in range(state_count):
+      for ascii_index in range(ASCII_COUNT):
+        table[state][ascii_index] = self.next_state(key, state, ascii_index)
+
+    return table
+
   def next_state(self, key, state, ascii_index):
     # If the character matches, next state will be state + 1
     if state < len(key) and ord(key[state]) == ascii_index:
@@ -37,27 +59,5 @@ class Solution:
         return j + 1
 
     return 0
-
-  def transition_table(self, key):
-    state_count = len(key) + 1
-    table = [[0] * ASCII_COUNT for _ in range(state_count)]
-
-    for state in range(state_count):
-      for ascii_index in range(ASCII_COUNT):
-        table[state][ascii_index] = self.next_state(key, state, ascii_index)
-
-    return table
-
-  def solve(self, text, key):
-    indices = []
-    transition_table = self.transition_table(key)
-    state = 0
-
-    for i in range(len(text)):
-      state = transition_table[state][ord(text[i])]
-      if state == len(key):
-        indices.append(i - len(key) + 1)
-
-    return indices
 
 test_class(Solution, examples)

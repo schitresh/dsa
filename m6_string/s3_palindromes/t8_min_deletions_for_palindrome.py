@@ -2,6 +2,7 @@ from utils import test_class
 
 # Given a string, remove minimum number of chars so that
 # the resultant string is a palindrome
+
 examples = [
   {
     'input': ['aebcbda'],
@@ -24,6 +25,9 @@ examples = [
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(n), maximum depth of the recursion tree can be n
 class Solution:
+  def solve(self, string):
+    return self.min_deletion(string, 0, len(string) - 1)
+
   def min_deletion(self, string, left, right):
     if left >= right:
       return 0
@@ -35,15 +39,15 @@ class Solution:
     count2 = self.min_deletion(string, left, right - 1)
     return 1 + min(count1, count2)
 
-  def solve(self, string):
-    return self.min_deletion(string, 0, len(string) - 1)
+test_class(Solution, examples)
 
 # Time Complexity: O(n * m)
 # Auxiliary Space: O(n * m)
 class Solution2:
-  def __init__(self):
-    self.char_count = [[]]
+  def solve(self, string):
     self.k = 0
+    self.char_count = [[-1] * len(string) for _ in range(len(string))]
+    return self.min_deletion(string, 0, len(string) - 1)
 
   def min_deletion(self, string, left, right):
     if left >= right:
@@ -61,13 +65,15 @@ class Solution2:
     self.char_count[left][right] = 1 + min(count1, count2)
     return self.char_count[left][right]
 
-  def solve(self, string):
-    self.char_count = [[-1] * len(string) for _ in range(len(string))]
-    return self.min_deletion(string, 0, len(string) - 1)
+test_class(Solution2, examples)
 
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(n), maximum depth of the recursion tree can be n
 class Solution3:
+  def solve(self, string):
+    # Subtract longest palindromic subsequence
+    return len(string) - self.lps_len(string)
+
   def lps_len(self, string):
     lps = [[0] * len(string) for _ in range(len(string))]
 
@@ -91,14 +97,15 @@ class Solution3:
 
     return lps[0][len(string) - 1]
 
-  def solve(self, string):
-    # Subtract longest palindromic subsequence
-    return len(string) - self.lps_len(string)
-
+test_class(Solution3, examples)
 
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(n), maximum depth of the recursion tree can be n
 class Solution4:
+  def solve(self, string):
+    # Subtract longest palindromic subsequence
+    return len(string) - self.lps_len(string)
+
   def lps_len(self, string):
     rev_string = string[::-1]
     prev = [0] * (len(string) + 1)
@@ -115,9 +122,7 @@ class Solution4:
 
     return curr[-1]
 
-  def solve(self, string):
-    # Subtract longest palindromic subsequence
-    return len(string) - self.lps_len(string)
+test_class(Solution4, examples)
 
 # Time Complexity: O(2^n)
 # Auxiliary Space: O(n), maximum depth of the recursion tree can be n
@@ -137,8 +142,4 @@ class Solution5:
 
     return curr[-1]
 
-test_class(Solution, examples)
-test_class(Solution2, examples)
-test_class(Solution3, examples)
-test_class(Solution4, examples)
 test_class(Solution5, examples)

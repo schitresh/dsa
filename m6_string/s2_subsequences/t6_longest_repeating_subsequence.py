@@ -2,6 +2,7 @@ from utils import test_class
 
 # Find the length of the longest repeating subsequence for a given string
 # Such that two subsequences don't have the same string char at the same position
+
 examples = [
   {
     'input': ['abc'],
@@ -43,12 +44,15 @@ class Solution:
 
     return curr[len(string)]
 
+test_class(Solution, examples)
+
 # Bottom-Up Memoization
 # Time Complexity: O(n * m)
 # Auxiliary Space: O(n * m)
 class Solution2:
-  def __init__(self):
-    self.lrs = [[]]
+  def solve(self, string):
+    self.lrs = [[-1] * len(string) for _ in range(len(string))]
+    return self.find_lrs(string, len(string) - 1, len(string) - 1)
 
   def find_lrs(self, string, index1, index2):
     if index1 < 0 or index2 < 0:
@@ -66,16 +70,15 @@ class Solution2:
     self.lrs[index1][index2] = max(len1, len2)
     return self.lrs[index1][index2]
 
-  def solve(self, string):
-    self.lrs = [[-1] * len(string) for _ in range(len(string))]
-    return self.find_lrs(string, len(string) - 1, len(string) - 1)
+test_class(Solution2, examples)
 
 # Top-down Memoization
 # Time Complexity: O(n * m)
 # Auxiliary Space: O(n * m)
 class Solution3:
-  def __init__(self):
-    self.lrs = [[]]
+  def solve(self, string):
+    self.lrs = [[-1] * len(string) for _ in range(len(string))]
+    return self.find_lrs(string, 0, 0)
 
   def find_lrs(self, string, index1, index2):
     if index1 == len(string) or index2 == len(string):
@@ -93,10 +96,4 @@ class Solution3:
     self.lrs[index1][index2] = max(len1, len2)
     return self.lrs[index1][index2]
 
-  def solve(self, string):
-    self.lrs = [[-1] * len(string) for _ in range(len(string))]
-    return self.find_lrs(string, 0, 0)
-
-test_class(Solution, examples)
-test_class(Solution2, examples)
 test_class(Solution3, examples)

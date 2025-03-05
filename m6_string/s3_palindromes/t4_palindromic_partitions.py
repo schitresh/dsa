@@ -3,6 +3,7 @@ from utils import test_class
 # Find all the possible palindromic partitions of the given string
 # Generate all the partitions such that
 # The string is divided into substrings that are all palindromes
+
 examples = [
   {
     'input': ['abcba'],
@@ -37,8 +38,11 @@ examples = [
 # Time Complexity: O(n * 2^n)
 # Auxiliary Space: O(2^n) to store all the partitions
 class Solution:
-  def __init__(self):
+  def solve(self, string):
     self.partitions = []
+    bit_string = ''
+    self.bit_manipulation(string, bit_string)
+    return self.partitions
 
   def is_palidromic(self, partition):
     for substr in partition:
@@ -81,18 +85,16 @@ class Solution:
     self.bit_manipulation(string, bit_string + '1')
     self.bit_manipulation(string, bit_string + '0')
 
-  def solve(self, string):
-    bit_string = ''
-    self.bit_manipulation(string, bit_string)
-    return self.partitions
-
+test_class(Solution, examples)
 
 # Recursion and Backtracking
 # Time Complexity: O(n * 2^n)
 # Auxiliary Space: O(2^n) to store all the partitions
 class Solution2:
-  def __init__(self):
+  def solve(self, string):
     self.partitions = []
+    self.partition(string, 0, [])
+    return self.partitions
 
   def is_palidrome(self, string):
     left = 0
@@ -121,9 +123,4 @@ class Solution2:
       if self.is_palidrome(sub_string):
         self.partition(string, i + 1, curr + [sub_string])
 
-  def solve(self, string):
-    self.partition(string, 0, [])
-    return self.partitions
-
-test_class(Solution, examples)
 test_class(Solution2, examples)

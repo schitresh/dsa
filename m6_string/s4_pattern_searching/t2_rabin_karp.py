@@ -1,4 +1,12 @@
-from utils import test_method
+from utils import test_class
+
+# Calculate hash for the key
+# Keep a sliding window in text and keep rolling its hash
+# Consider both the hashes, if they are equal carry out the match process
+# The hash function might have the same value even if the pattern does not match
+# This is called spurious hit, choose a good hash function to minimize these hits
+# For example, abc = 1 * 26^2 + 2 * 26^1 + 3 * 26^0
+# Choose a prime
 
 examples = [
   {
@@ -9,19 +17,15 @@ examples = [
 
 ASCII_COUNT = 256
 
-# Calculate hash for the key
-# Keep a sliding window in text and keep rolling its hash
-# Consider both the hashes, if they are equal carry out the match process
-# The hash function might have the same value even if the pattern does not match
-# This is called spurious hit, choose a good hash function to minimize these hits
-# For example, abc = 1 * 26^2 + 2 * 26^1 + 3 * 26^0
-Choose a prime
-
 # Time Complexity: O(n + m)
   # Worst Case: O(n * m)
 # Auxiliary Space: O(1)
 class RabinKarp:
-  def __init__(self, key):
+  def solve(self, text, key):
+    self.process_key(key)
+    return self.search(text)
+
+  def process_key(self, key):
     # Prime number for hash function
     # The higher the prime number, the lower the collisions
     self.prime_number = 101
@@ -89,8 +93,4 @@ class RabinKarp:
 
     return indices
 
-def solve(text, key):
-  rabin_karp = RabinKarp(key)
-  return rabin_karp.search(text)
-
-test_method(solve, examples)
+test_class(RabinKarp, examples)

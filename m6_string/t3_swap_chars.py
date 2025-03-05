@@ -4,6 +4,7 @@ from utils import test_class
 # Swap a char with the char after k places from it
 # Repeat this process for the given number of times
 # Input: [string, times, k_places]
+
 examples = [
   {
     'input': ['abcdefgh', 4, 3],
@@ -29,12 +30,11 @@ class Solution:
 
     return ''.join(string)
 
+test_class(Solution, examples)
+
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
 class Solution2:
-  def rotate_left(self, string, position):
-    return string[position : ] + string[0 : position]
-
   def solve(self, string, times, places):
     places = places % len(string)
     frequency = times // len(string)
@@ -54,5 +54,7 @@ class Solution2:
 
     return ''.join(string)
 
-test_class(Solution, examples)
+  def rotate_left(self, string, position):
+    return string[position : ] + string[0 : position]
+
 test_class(Solution2, examples)

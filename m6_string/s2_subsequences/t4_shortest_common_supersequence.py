@@ -2,6 +2,7 @@ from utils import test_class
 
 # Find the length of the shortest string
 # that has both the given strings as subsequences
+
 examples = [
   {
     'input': ['abcd', 'bdef'],
@@ -27,6 +28,10 @@ examples = [
 # Time Complexity: O(n * m)
 # Auxiliary Space: O(m) to calculate lcs
 class Solution:
+  def solve(self, string1, string2):
+    lcs_len = self.find_lcs_len(string1, string2)
+    return len(string1) + len(string2) - lcs_len
+
   def find_lcs_len(self, string1, string2):
     prev = [0] * (len(string2) + 1)
     curr = [0] * (len(string2) + 1)
@@ -42,14 +47,15 @@ class Solution:
 
     return curr[len(string2)]
 
-  def solve(self, string1, string2):
-    lcs_len = self.find_lcs_len(string1, string2)
-    return len(string1) + len(string2) - lcs_len
+test_class(Solution, examples)
 
 # Recursive Solution
 # Time Complexity: O(2^(n + m))
 # Auxiliary Space: O(n + m) for the recursive stack
 class Solution2:
+  def solve(self, string1, string2):
+    return self.scs_len(string1, string2, len(string1) - 1, len(string2) - 1)
+
   def scs_len(self, string1, string2, index1, len2):
     # If string1 is fully iterated, remaining chars of string2 cannot be common
     # Hence return remaining length of string2, i.e. len2 + 1
@@ -60,7 +66,7 @@ class Solution2:
     if len2 < 0:
       return index1 + 1
 
-    if (string1[index1] == string2[len2]):
+    if string1[index1] == string2[len2]:
       return 1 + self.scs_len(string1, string2, index1 - 1, len2 - 1)
 
     len1 = self.scs_len(string1, string2, index1 - 1, len2)
@@ -68,8 +74,7 @@ class Solution2:
     # Count the current char, and add the min scs length for rest of the strings
     return 1 + min(len1, len2)
 
-  def solve(self, string1, string2):
-    return self.scs_len(string1, string2, len(string1) - 1, len(string2) - 1)
+test_class(Solution2, examples)
 
 # Dynamic Programming for the recursive solution
 # Time Complexity: O(n * m)
@@ -97,12 +102,15 @@ class Solution3:
 
     return scs[len(string1)][len(string2)]
 
+test_class(Solution3, examples)
+
 # Dynamic Programming with top down memoization
 # Time Complexity: O(n * m)
 # Auxiliary Space: O(n * m) for the recursive stack
 class Solution4:
-  def __init__(self):
-    self.scs = [[]]
+  def solve(self, string1, string2):
+    self.scs = [[0] * (len(string2) + 1) for _ in range(len(string1) + 1)]
+    return self.scs_len(string1, string2, len(string1), len(string2))
 
   def scs_len(self, string1, string2, len1, len2):
     if len1 == 0 or len2 == 0:
@@ -111,7 +119,7 @@ class Solution4:
     if self.scs[len1][len2] > 0:
       return self.scs[len1][len2]
 
-    if (string1[len1 - 1] == string2[len2 - 1]):
+    if string1[len1 - 1] == string2[len2 - 1]:
       self.scs[len1][len2] = 1 + self.scs_len(string1, string2, len1 - 1, len2 - 1)
       return self.scs[len1][len2]
 
@@ -121,9 +129,7 @@ class Solution4:
     self.scs[len1][len2] = 1 + min(scs_len1, scs_len2)
     return self.scs[len1][len2]
 
-  def solve(self, string1, string2):
-    self.scs = [[0] * (len(string2) + 1) for _ in range(len(string1) + 1)]
-    return self.scs_len(string1, string2, len(string1), len(string2))
+test_class(Solution4, examples)
 
 # Dynamic Programming with space optimization
 # Time Complexity: O(n * m)
@@ -148,8 +154,4 @@ class Solution5:
 
     return curr[len(string2)]
 
-test_class(Solution, examples)
-test_class(Solution2, examples)
-test_class(Solution3, examples)
-test_class(Solution4, examples)
 test_class(Solution5, examples)

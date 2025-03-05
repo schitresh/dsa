@@ -2,6 +2,7 @@ from utils import test_class
 
 # Knuth Morris Pratt Algo
 # Given an array & size k, find the subarray of length with size k having the max sum
+
 examples = [
   {
     'input': ['ababaaaaaba', 'aba'],
@@ -12,6 +13,28 @@ examples = [
 # Time Complexity: O(n + m)
 # Auxiliary Space: O(m)
 class Solution:
+  def solve(self, text, key):
+    text_index = 0
+    key_index = 0
+    indices = []
+    lps = self.calculate_lps(key)
+
+    while text_index < len(text):
+      if text[text_index] == key[key_index]:
+        text_index += 1
+        key_index += 1
+
+        if key_index == len(key):
+          indices.append(text_index - key_index)
+          key_index = lps[key_index - 1]
+      else:
+        if key_index == 0:
+          text_index += 1
+        else:
+          key_index = lps[key_index - 1]
+
+    return indices
+
   # Longest proper prefix which is also a suffix
   # Proper prefix means that the whole word is not considered a prefix
   # Let's say that a text matches the pattern till k chars
@@ -46,27 +69,5 @@ class Solution:
           left = lps[left - 1]
 
     return lps
-
-  def solve(self, text, key):
-    text_index = 0
-    key_index = 0
-    indices = []
-    lps = self.calculate_lps(key)
-
-    while text_index < len(text):
-      if text[text_index] == key[key_index]:
-        text_index += 1
-        key_index += 1
-
-        if key_index == len(key):
-          indices.append(text_index - key_index)
-          key_index = lps[key_index - 1]
-      else:
-        if key_index == 0:
-          text_index += 1
-        else:
-          key_index = lps[key_index - 1]
-
-    return indices
 
 test_class(Solution, examples)

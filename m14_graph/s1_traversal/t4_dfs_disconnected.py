@@ -1,5 +1,5 @@
 from queue import LifoQueue
-from utils import test_class, test_with_init
+from utils import test_class
 
 # The standard DFS takes a source as an input and considers only those vertices that are
 # reachable from the source. It will not consider all the vertices in the case of a

@@ -1,6 +1,7 @@
-from utils import test_method
+from utils import test_class
 
 # Find a pair whose sum is equal to the given number in a sorted array
+
 examples = [
   {
     'input': [[2, 3, 5, 8, 9, 10, 11], 17],
@@ -16,20 +17,21 @@ examples = [
 # To find a triplet, can loop over the array to keep the third element static
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
-def two_pointers(array, target_sum):
-  left = 0
-  right = len(array) - 1
+class Solution:
+  def solve(self, array, target_sum):
+    left = 0
+    right = len(array) - 1
 
-  while left < right:
-    pair_sum = array[left] + array[right]
+    while left < right:
+      pair_sum = array[left] + array[right]
 
-    if pair_sum > target_sum:
-      right -= 1
-    elif pair_sum < target_sum:
-      left += 1
-    else:
-      return [array[left], array[right]]
+      if pair_sum > target_sum:
+        right -= 1
+      elif pair_sum < target_sum:
+        left += 1
+      else:
+        return [array[left], array[right]]
 
-  return []
+    return []
 
-test_method(two_pointers, examples)
+test_class(Solution, examples)

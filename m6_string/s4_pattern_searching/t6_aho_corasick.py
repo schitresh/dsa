@@ -1,15 +1,5 @@
 from collections import defaultdict
-from utils import test_method
-
-examples = [
-  {
-    'input': ['ahishers', ['he', 'she', 'his', 'hers']],
-    'output': { 'he': [4], 'she': [3], 'his': [1], 'hers': [4] }
-  }
-]
-
-ASCII_COUNT = 256
-ASCII_OF_A = 97
+from utils import test_class
 
 # For the given words, build a state machine
 ## Construct a trie
@@ -28,8 +18,23 @@ ASCII_OF_A = 97
 # w = length of keywords
 # m = number of matches/occurrences
 # a = length of alphabet (Since it is the max number of children a node can have)
+
+examples = [
+  {
+    'input': ['ahishers', ['he', 'she', 'his', 'hers']],
+    'output': { 'he': [4], 'she': [3], 'his': [1], 'hers': [4] }
+  }
+]
+
+ASCII_COUNT = 256
+ASCII_OF_A = 97
+
 class AhoCorasick:
-  def __init__(self, words):
+  def solve(self, text, words):
+    self.process_words(words)
+    return self.search_words(text)
+
+  def process_words(self, words):
     for i in range(len(words)):
       words[i] = words[i].lower()
 
@@ -146,8 +151,4 @@ class AhoCorasick:
 
     return dict(result)
 
-def solve(text, words):
-  aho_corasick = AhoCorasick(words)
-  return aho_corasick.search_words(text)
-
-test_method(solve, examples)
+test_class(AhoCorasick, examples)

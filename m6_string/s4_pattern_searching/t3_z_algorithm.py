@@ -1,12 +1,5 @@
 from utils import test_class
 
-examples = [
-  {
-    'input': ['ababaaaaaba', 'aba'],
-    'output': [0, 2, 8]
-  }
-]
-
 # Z Array
 # Z[i] stores length of the longest substring from string[i]
 # which is also a prefix of the string
@@ -24,9 +17,29 @@ examples = [
 # If Z value is equal to pattern length, then the pattern is present
 # Because pattern is the prefix here and Z value give length of the matching prefix
 
+examples = [
+  {
+    'input': ['ababaaaaaba', 'aba'],
+    'output': [0, 2, 8]
+  }
+]
+
 # Time Complexity: O(n + m)
 # Auxiliary Space: O(m)
 class ZAlgorithm:
+  def solve(self, text, key):
+    indices = []
+    text_and_key = key + '$' + text
+    z_array = self.z_array(text_and_key)
+
+    # Since pattern is prefixed in the calculated z array of text and key
+    # Start checking after pattern's length
+    for i in range(len(key), len(z_array)):
+      if z_array[i] == len(key):
+        indices.append(i - len(key) - 1)
+
+    return indices
+
   def z_array(self, text):
     array = [0] * len(text)
     # Left and right indexes of Z-box
@@ -74,18 +87,5 @@ class ZAlgorithm:
           array[i] = right - left + 1
 
     return array
-
-  def solve(self, text, key):
-    indices = []
-    text_and_key = key + '$' + text
-    z_array = self.z_array(text_and_key)
-
-    # Since pattern is prefixed in the calculated z array of text and key
-    # Start checking after pattern's length
-    for i in range(len(key), len(z_array)):
-      if z_array[i] == len(key):
-        indices.append(i - len(key) - 1)
-
-    return indices
 
 test_class(ZAlgorithm, examples)
