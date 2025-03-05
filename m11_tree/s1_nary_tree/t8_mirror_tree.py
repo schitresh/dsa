@@ -1,15 +1,25 @@
 from queue import Queue
-from nary_tree import NaryTree
-from nary_tree_utils import sample_nary_tree
-from utils import print_class_name
+from utils import test_class
+from m11_tree.library.nary_tree import sample_nary_tree
+
+# Given a tree, convert the tree to its mirror image.
+
+examples = [
+  {
+    'input': [sample_nary_tree()],
+    'output': [
+      ['a'], ['e', 'd', 'c', 'b'], ['j', 'i', 'h', 'g', 'f'], ['m', 'l', 'k'], ['n']
+    ],
+  },
+]
 
 # Using BFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
-class Tree(NaryTree):
-  def mirror(self):
+class Solution:
+  def solve(self, tree):
     queue = Queue()
-    queue.put(self.root)
+    queue.put(tree.root)
 
     while not queue.empty():
       node = queue.get()
@@ -18,12 +28,6 @@ class Tree(NaryTree):
       for child in node.children:
         queue.put(child)
 
-def test(klass):
-  print_class_name(klass)
-  tree = sample_nary_tree(klass)
+    return tree.level_order()
 
-  print(tree.level_order())
-  tree.mirror()
-  print(tree.level_order())
-
-test(Tree)
+test_class(Solution, examples)

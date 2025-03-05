@@ -1,28 +1,26 @@
 from queue import Queue
-from nary_tree import NaryTree, Node
-from nary_tree_utils import test_class
-
-examples = [
-  {
-    'input': [],
-    'output': [['a'], ['b', 'c', 'd', 'e'], ['f', 'g', 'h', 'i', 'j'], ['k', 'l', 'm'], ['n']]
-  }
-]
+from utils import test_class
+from m11_tree.library.nary_tree import sample_nary_tree
 
 # Level Order Traversal
 # Traverse all the nodes of a lower level before moving to any higher level node
 
+examples = [
+  {
+    'input': [sample_nary_tree()],
+    'output': [
+      ['a'], ['b', 'c', 'd', 'e'], ['f', 'g', 'h', 'i', 'j'], ['k', 'l', 'm'], ['n']
+    ],
+  },
+]
+
 # Using Recursion based DFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n), due to recursive stack
-class Tree:
-  def __init__(self, root = None):
-    self.root = Node(root)
+class Solution:
+  def solve(self, tree):
     self.level_traversal = []
-
-  def level_order(self):
-    self.level_traversal = []
-    self.traverse_level_order(self.root, 0)
+    self.traverse_level_order(tree.root, 0)
     return self.level_traversal
 
   def traverse_level_order(self, node, level):
@@ -30,22 +28,23 @@ class Tree:
 
     if level == len(self.level_traversal):
       self.level_traversal.append([])
+
     self.level_traversal[level].append(node.key)
 
     for child in node.children:
       self.traverse_level_order(child, level + 1)
 
-test_class(Tree, 'level_order', examples)
+test_class(Solution, examples)
 
 # Using Iteration based BFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n), due to recursive stack
-class Tree2(NaryTree):
-  def level_order(self):
+class Solution2:
+  def solve(self, tree):
     level_traversal = []
     # Use Stack for iteration based DFS
     queue = Queue()
-    queue.put([self.root, 0])
+    queue.put([tree.root, 0])
 
     while not queue.empty():
       node, level = queue.get()
@@ -59,4 +58,4 @@ class Tree2(NaryTree):
 
     return level_traversal
 
-test_class(Tree2, 'level_order', examples)
+test_class(Solution2, examples)

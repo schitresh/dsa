@@ -1,18 +1,40 @@
-from nary_tree import NaryTree, Node
-from nary_tree_utils import sample_nary_tree
-from utils import print_class_name
+from utils import test_class
+from m11_tree.library.nary_tree import NaryTree, Node, sample_nary_tree
+
+# Given an N-ary tree where every node has the most N children, add a way to serialize
+# and deserialize it.
+# Serialization is to store a tree in a file so that it can be later restored. The
+# structure of the tree must be maintained. Deserialization is reading the tree back
+# from the file.
+
+examples = [
+  {
+    'input': ['serialize', sample_nary_tree()],
+    'output': 'a b f k ) ) g ) ) c ) d h ) i l n ) ) m ) ) j ) ) e ) )',
+  },
+  {
+    'input': ['deserialize', 'a b f k ) ) g ) ) c ) d h ) i l n ) ) m ) ) j ) ) e ) )'],
+    'output': [
+      ['a'], ['b', 'c', 'd', 'e'], ['f', 'g', 'h', 'i', 'j'], ['k', 'l', 'm'], ['n']
+    ],
+  },
+]
 
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
-class Tree(NaryTree):
-  def __init__(self, *args):
-    super().__init__(*args)
-    self.tree_string = ''
+class Solution:
+  def solve(self, action, action_input):
+    if action == 'serialize':
+      self.root = action_input.root
+      return self.serialize()
+
+    self.tree_string = action_input
+    return self.deserialize().level_order()
 
   def serialize(self):
     self.tree_string = ''
     self.serializer(self.root)
-    return self.tree_string
+    return self.tree_string.strip()
 
   def serializer(self, node):
     if not node: return
@@ -26,10 +48,10 @@ class Tree(NaryTree):
 
   def deserialize(self):
     tree_keys = self.tree_string.split(' ')
-    self.tree_string = ''
-
     iterator = iter(tree_keys)
-    self.root = self.deserializer(iterator)
+    tree = NaryTree()
+    tree.root = self.deserializer(iterator)
+    return tree
 
   def deserializer(self, iterator):
     key = next(iterator)
@@ -43,14 +65,4 @@ class Tree(NaryTree):
 
     return node
 
-def test(klass):
-  print_class_name(klass)
-  tree = sample_nary_tree(klass)
-
-  print(tree.level_order())
-  tree.serialize()
-  print(tree.tree_string)
-  tree.deserialize()
-  print(tree.level_order())
-
-test(Tree)
+test_class(Solution, examples)

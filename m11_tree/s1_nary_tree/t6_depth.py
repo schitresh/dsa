@@ -1,7 +1,8 @@
 from queue import Queue
-from nary_tree import NaryTree
-from nary_tree_utils import test_class
+from utils import test_class
+from m11_tree.library.nary_tree import sample_nary_tree
 
+# Given an n-ary tree containing positive node values, find the depth of the tree.
 # Height is the number of edges on longest path from the node to a leaf node
 # Depth is the number of edges on longest path from the root to the node
 # Height of tree = Depth of tree
@@ -9,22 +10,22 @@ from nary_tree_utils import test_class
 
 examples = [
   {
-    'input': ['n'],
+    'input': [sample_nary_tree(), 'n'],
     'output': 4
   },
   {
-    'input': ['l'],
+    'input': [sample_nary_tree(), 'l'],
     'output': 3
   }
 ]
 
-# Recursive Approach
-class Tree(NaryTree):
-  # Time Complexity: O(n)
-  # Auxiliary Space: O(n), due to recursive stack
-  def depth(self, key):
-    node = self.search_node(key)
-    return self.depth_of_node(self.root, node)
+# Recursive DFS
+# Time Complexity: O(n)
+# Auxiliary Space: O(h), due to recursive stack
+class Solution:
+  def solve(self, tree, key):
+    node = tree.search_node(key)
+    return self.depth_of_node(tree.root, node)
 
   def depth_of_node(self, root, node):
     if not root or not node: return
@@ -34,15 +35,15 @@ class Tree(NaryTree):
       depth = self.depth_of_node(child, node)
       if depth is not None: return 1 + depth
 
-test_class(Tree, 'depth', examples)
+test_class(Solution, examples)
 
-# Using BFS
-class Tree2(NaryTree):
-  # Time Complexity: O(n)
-  # Auxiliary Space: O(n)
-  def depth(self, key):
-    node = self.search_node(key)
-    return self.depth_of_node(self.root, node)
+# Iterative BFS
+# Time Complexity: O(n)
+# Auxiliary Space: O(h)
+class Solution2:
+  def solve(self, tree, key):
+    node = tree.search_node(key)
+    return self.depth_of_node(tree.root, node)
 
   def depth_of_node(self, root, node):
     if not root or not node: return
@@ -62,4 +63,4 @@ class Tree2(NaryTree):
 
     return depth
 
-test_class(Tree2, 'depth', examples)
+test_class(Solution2, examples)

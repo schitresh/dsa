@@ -1,29 +1,28 @@
 from queue import LifoQueue
-from nary_tree import NaryTree, Node
-from nary_tree_utils import test_class
+from utils import test_class
+from m11_tree.library.nary_tree import sample_nary_tree
+
+# Return values of all the leaf nodes of the given tree from left to right.
 
 examples = [
   {
-    'input': [],
+    'input': [sample_nary_tree()],
     'output': ['k', 'g', 'c', 'h', 'n', 'm', 'j', 'e']
   }
 ]
 
-class Tree(NaryTree):
-  def __init__(self, *args):
-    super().__init__(*args)
+# Recursive DFS
+# Time Complexity: O(n)
+# Auxiliary Space: O(n), due to recursive stack
+# Recursive stack will take O(h) space which can be n in worst case
+class Solution:
+  def solve(self, tree):
     self.leaves = []
-
-  def leaf_keys(self):
-    self.reach_leaf_nodes(self.root)
+    self.reach_leaf_nodes(tree.root)
     return self.leaves
 
-  # Time Complexity: O(n)
-  # Auxiliary Space: O(n), due to recursive stack
-    # Recursive stack will take O(h) space which can be n in worst case
   def reach_leaf_nodes(self, node):
-    if not node:
-      return
+    if not node: return
 
     if len(node.children) == 0:
       self.leaves.append(node.key)
@@ -31,19 +30,17 @@ class Tree(NaryTree):
     for child in node.children:
       self.reach_leaf_nodes(child)
 
-test_class(Tree, 'leaf_keys', examples)
+test_class(Solution, examples)
 
-class Tree2:
-  def __init__(self, root = None):
-    self.root = Node(root)
-
-  # Time Complexity: O(n)
-  # Auxiliary Space: O(n)
-  def leaf_keys(self):
+# Iterative DFS
+# Time Complexity: O(n)
+# Auxiliary Space: O(n)
+class Solution2:
+  def solve(self, tree):
     leaf_nodes = []
     # Stack used for DFS, Can use Queue instead for BFS
     stack = LifoQueue()
-    stack.put(self.root)
+    stack.put(tree.root)
 
     while not stack.empty():
       node = stack.get()
@@ -56,4 +53,4 @@ class Tree2:
 
     return leaf_nodes
 
-test_class(Tree2, 'leaf_keys', examples)
+test_class(Solution2, examples)

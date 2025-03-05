@@ -1,6 +1,6 @@
 from queue import Queue
-from nary_tree import NaryTree
-from nary_tree_utils import test_class
+from utils import test_class
+from m11_tree.library.nary_tree import sample_nary_tree
 
 # Height is the number of edges on longest path from the node to a leaf node
 # Depth is the number of edges on longest path from the root to the node
@@ -9,21 +9,21 @@ from nary_tree_utils import test_class
 
 examples = [
   {
-    'input': ['a'],
+    'input': [sample_nary_tree(), 'a'],
     'output': 4
   },
   {
-    'input': ['l'],
+    'input': [sample_nary_tree(), 'l'],
     'output': 1
   }
 ]
 
-# Recursive Approach
-class Tree(NaryTree):
-  # Time Complexity: O(n)
-  # Auxiliary Space: O(n), due to recursive stack
-  def height(self, key):
-    node = self.search_node(key)
+# Recursive DFS
+# Time Complexity: O(n)
+# Auxiliary Space: O(n), due to recursive stack
+class Solution:
+  def solve(self, tree, key):
+    node = tree.search_node(key)
     return self.height_of_node(node)
 
   def height_of_node(self, node):
@@ -36,14 +36,14 @@ class Tree(NaryTree):
 
     return height
 
-test_class(Tree, 'height', examples)
+test_class(Solution, examples)
 
-# Using BFS
-class Tree2(NaryTree):
-  # Time Complexity: O(n)
-  # Auxiliary Space: O(n)
-  def height(self, key):
-    node = self.search_node(key)
+# Iterative BFS
+# Time Complexity: O(n)
+# Auxiliary Space: O(n)
+class Solution2:
+  def solve(self, tree, key):
+    node = tree.search_node(key)
     return self.height_of_node(node)
 
   def height_of_node(self, node):
@@ -62,4 +62,4 @@ class Tree2(NaryTree):
 
     return height
 
-test_class(Tree2, 'height', examples)
+test_class(Solution2, examples)

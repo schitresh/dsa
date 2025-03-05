@@ -1,23 +1,25 @@
-from nary_tree import NaryTree
-from nary_tree_utils import test_class
+from utils import test_class
+from m11_tree.library.nary_tree import sample_nary_tree
+
+# Given an n-ary tree, find if a given key exists or not
 
 examples = [
   {
-    'input': ['n'],
+    'input': [sample_nary_tree(), 'n'],
     'output': True
   },
   {
-    'input': ['zz'],
+    'input': [sample_nary_tree(), 'zz'],
     'output': False
   }
 ]
 
-class Tree(NaryTree):
-  # Time Complexity: O(n)
-  # Auxiliary Space: O(n), due to recursive stack
-    # Recursive stack will take O(h) space which can be n in worst case
-  def search(self, key):
-    return self.search_from_node(self.root, key)
+# Time Complexity: O(n)
+# Auxiliary Space: O(n), due to recursive stack
+# Recursive stack will take O(h) space which can be n in worst case
+class Solution:
+  def solve(self, tree, key):
+    return self.search_from_node(tree.root, key)
 
   def search_from_node(self, node, key):
     if not node: return False
@@ -30,4 +32,4 @@ class Tree(NaryTree):
 
     return False
 
-test_class(Tree, 'search', examples)
+test_class(Solution, examples)
