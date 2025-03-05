@@ -1,4 +1,4 @@
-from avl_tree import AvlTree
+from m11_tree.library.avl_tree import AvlTree
 
 class Tree(AvlTree):
   # Time Complexity: O(log(n))

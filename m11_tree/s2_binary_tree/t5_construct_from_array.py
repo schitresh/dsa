@@ -1,19 +1,27 @@
 from queue import Queue
-from binary_tree import BinaryTree, Node
-from binary_tree_array import sample_tree_array
-from utils import print_class_name
+from m11_tree.library.binary_tree import BinaryTree, Node
+from m11_tree.library.binary_tree_array import sample_tree_array
+from utils import test_class
 
 # Given the array representation of binary tree
 # Construct the binary tree using nodes
-class Tree(BinaryTree):
-  # Time Complexity: O(n)
-  # Auxiliary Space: O(n)
-  def construct_from_array(self, array):
+
+examples = [
+  {
+    'input': [sample_tree_array()],
+    'output': [['a'], ['b', 'c'], ['d', 'e', 'f', 'g'], ['h', 'i', 'j'], ['k']]
+  }
+]
+
+# Time Complexity: O(n)
+# Auxiliary Space: O(n)
+class Solution:
+  def solve(self, array):
     queue = Queue()
     queue.put(0)
 
-    self.root = Node(array[0])
-    array[0] = self.root
+    tree = BinaryTree(array[0])
+    array[0] = tree.root
 
     while not queue.empty():
       index = queue.get()
@@ -32,12 +40,6 @@ class Tree(BinaryTree):
         array[right_index] = node.right
         queue.put(right_index)
 
-def test(klass):
-  print_class_name(klass)
-  tree = klass()
-  array = sample_tree_array()
+    return tree.level_order()
 
-  tree.construct_from_array(array)
-  print(tree.level_order())
-
-test(Tree)
+test_class(Solution, examples)

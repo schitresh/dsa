@@ -1,21 +1,37 @@
 from queue import LifoQueue
-from binary_tree import BinaryTree
-from binary_tree_utils import sample_binary_tree
+from utils import test_class
+from m11_tree.library.binary_tree import sample_binary_tree
 
-from utils import print_class_name
+# Inorder: Left -> Node -> Right
+# Preorder: Node -> Left -> Right
+# Postorder: Left -> Right -> Node
 
-# Depth First Search (DFS)
-  # Inorder: Left -> Node -> Right
-  # Preorder: Node -> Left -> Right
-  # Postorder: Left -> Right -> Node
+examples = [
+  {
+    'input': [sample_binary_tree(), 'inorder'],
+    'output': ['d', 'b', 'h', 'e', 'a', 'i', 'k', 'f', 'j', 'c', 'g'],
+  },
+  {
+    'input': [sample_binary_tree(), 'preorder'],
+    'output': ['a', 'b', 'd', 'e', 'h', 'c', 'f', 'i', 'k', 'j', 'g'],
+  },
+  {
+    'input': [sample_binary_tree(), 'postorder'],
+    'output': ['d', 'h', 'e', 'b', 'k', 'i', 'j', 'f', 'g', 'c', 'a'],
+  },
+]
+
+# Recursive
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
-class Tree(BinaryTree):
-  def __init__(self, *args) -> None:
-    super().__init__(*args)
-    self.inorder_traversal = []
-    self.preorder_traversal = []
-    self.postorder_traversal = []
+class Solution:
+  def solve(self, tree, order):
+    self.root = tree.root
+    if order == 'inorder': return self.inorder()
+    if order == 'preorder': return self.preorder()
+    if order == 'postorder': return self.postorder()
+
+  # Inorder
 
   def inorder(self):
     self.inorder_traversal = []
@@ -28,6 +44,8 @@ class Tree(BinaryTree):
     self.inorder_traversal.append(node.key)
     self.traverse_inorder(node.right)
 
+  # Preorder
+
   def preorder(self):
     self.preorder_traversal = []
     self.traverse_preorder(self.root)
@@ -38,6 +56,8 @@ class Tree(BinaryTree):
     self.preorder_traversal.append(node.key)
     self.traverse_preorder(node.left)
     self.traverse_preorder(node.right)
+
+  # Postorder
 
   def postorder(self):
     self.postorder_traversal = []
@@ -50,7 +70,16 @@ class Tree(BinaryTree):
     self.traverse_postorder(node.right)
     self.postorder_traversal.append(node.key)
 
-class Tree2(BinaryTree):
+test_class(Solution, examples)
+
+# Iterative
+class Solution2:
+  def solve(self, tree, order):
+    self.root = tree.root
+    if order == 'inorder': return self.inorder()
+    if order == 'preorder': return self.preorder()
+    if order == 'postorder': return self.postorder()
+
   def inorder(self):
     inorder_traversal = []
     stack = LifoQueue()
@@ -103,17 +132,4 @@ class Tree2(BinaryTree):
 
     return postorder_traversal
 
-def test(klass):
-  print_class_name(klass)
-  tree = sample_binary_tree(klass)
-
-  # [d, b, h, e, a, i, k, f, j, c, g]
-  print(tree.inorder())
-  # [a, b, d, e, h, c, f, i, k, j, g]
-  print(tree.preorder())
-  # [d, h, e, b, k, i, j, f, g, c, a]
-  print(tree.postorder())
-  print()
-
-test(Tree)
-test(Tree2)
+test_class(Solution2, examples)

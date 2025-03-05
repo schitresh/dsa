@@ -1,10 +1,10 @@
 from queue import Queue
-from binary_tree import BinaryTree
-from binary_tree_utils import test_class
+from utils import test_class
+from m11_tree.library.binary_tree import sample_binary_tree
 
 examples = [
   {
-    'input': [],
+    'input': [sample_binary_tree()],
     'output': [['a'], ['b', 'c'], ['d', 'e', 'f', 'g'], ['h', 'i', 'j'], ['k']]
   }
 ]
@@ -12,16 +12,12 @@ examples = [
 # Level order recursion using BFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
-class Tree(BinaryTree):
-  def __init__(self, *args) -> None:
-    super().__init__(*args)
-    self.level_traversal = []
-
-  def level_order(self):
+class Solution:
+  def solve(self, tree):
     self.level_traversal = []
 
     level = 0
-    while self.traverse_level_order(self.root, 0, level):
+    while self.traverse_level_order(tree.root, 0, level):
       level = level + 1
 
     return self.level_traversal
@@ -40,19 +36,15 @@ class Tree(BinaryTree):
 
     return left or right
 
-test_class(Tree, 'level_order', examples)
+test_class(Solution, examples)
 
 # Level order recursion using DFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
-class Tree2(BinaryTree):
-  def __init__(self, *args) -> None:
-    super().__init__(*args)
+class Solution2:
+  def solve(self, tree):
     self.level_traversal = []
-
-  def level_order(self):
-    self.level_traversal = []
-    self.traverse_level_order(self.root, 0)
+    self.traverse_level_order(tree.root, 0)
     return self.level_traversal
 
   def traverse_level_order(self, node, level):
@@ -65,17 +57,17 @@ class Tree2(BinaryTree):
     if node.left: self.traverse_level_order(node.left, level + 1)
     if node.right: self.traverse_level_order(node.right, level + 1)
 
-test_class(Tree2, 'level_order', examples)
+test_class(Solution2, examples)
 
 # Level order iterative using BFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
-class Tree3(BinaryTree):
-  def level_order(self):
+class Solution3:
+  def solve(self, tree):
     traversal = []
     # Use Stack for iteration based DFS
     queue = Queue()
-    queue.put([self.root, 0])
+    queue.put([tree.root, 0])
 
     while not queue.empty():
       node, level = queue.get()
@@ -89,4 +81,4 @@ class Tree3(BinaryTree):
 
     return traversal
 
-test_class(Tree3, 'level_order', examples)
+test_class(Solution3, examples)

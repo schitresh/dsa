@@ -69,3 +69,18 @@ class BSTree:
       if node.right: queue.put([node.right, level + 1])
 
     return traversal
+
+# [5]
+# [2, 9]
+# [[1, 3], [8, 10]]
+# [[[], [4]], [[6, ]]
+# [[[], []]], [[[, 7], []]]]
+def sample_bstree():
+  tree = BSTree()
+  keys = [5, 2, 1, 3, 4, 9, 8, 6, 7, 10]
+
+  for key in keys:
+    if key % 2 == 0: tree.insert(key)
+    else: tree.insert(key)
+
+  return tree

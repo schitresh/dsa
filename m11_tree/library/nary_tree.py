@@ -50,12 +50,12 @@ class NaryTree:
 
     return level_traversal
 
-def nary_tree_from_level_hash(tree_hash):
+def nary_tree_from_level_hash(tree_input):
   tree = None
   nodes = {}
 
-  for level in range(len(tree_hash)):
-    level_keys = tree_hash[level]
+  for level in range(len(tree_input)):
+    level_keys = tree_input[level]
 
     for key, children in level_keys.items():
       if level == 0:
@@ -69,11 +69,11 @@ def nary_tree_from_level_hash(tree_hash):
   return tree
 
 def sample_nary_tree():
-  tree_hash = [
+  tree_input = [
     { 'a': ['b', 'c', 'd', 'e'] },
     { 'b': ['f', 'g'], 'd': ['h', 'i', 'j'] },
     { 'f': ['k'], 'i': ['l', 'm'] },
     { 'l': ['n'] }
   ]
 
-  return nary_tree_from_level_hash(tree_hash)
+  return nary_tree_from_level_hash(tree_input)

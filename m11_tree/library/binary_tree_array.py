@@ -1,6 +1,6 @@
 from queue import Queue
 
-class Tree:
+class BinaryTreeArray:
   def __init__(self, root):
     self.tree = [None] * 100
     self.tree[0] = root
@@ -10,7 +10,7 @@ class Tree:
     return self.set_left_of_index(parent_index, key)
 
   def set_left_of_index(self, parent_index, key):
-    if not self.tree[parent_index]: return
+    if not self.tree[parent_index]: return None
 
     left_index = 2 * parent_index + 1
     self.tree[left_index] = key
@@ -21,7 +21,7 @@ class Tree:
     return self.set_right_of_index(parent_index, key)
 
   def set_right_of_index(self, parent_index, key):
-    if not self.tree[parent_index]: return
+    if not self.tree[parent_index]: return None
 
     right_index = 2 * parent_index + 2
     self.tree[right_index] = key
@@ -49,25 +49,29 @@ class Tree:
 
     return traversal
 
-def sample_tree():
-  tree = Tree('a')
-  tree.set_left_of_key('a', 'b')
-  tree.set_right_of_key('a', 'c')
-  tree.set_left_of_key('b', 'd')
-  tree.set_right_of_key('b', 'e')
-  tree.set_left_of_key('c', 'f')
-  tree.set_right_of_key('c', 'g')
-  tree.set_left_of_key('e', 'h')
-  tree.set_left_of_key('f', 'i')
-  tree.set_right_of_key('f', 'j')
-  tree.set_right_of_key('i', 'k')
+
+def binary_tree_from_level_hash(tree_input):
+  tree = None
+
+  for level in range(len(tree_input)):
+    level_keys = tree_input[level]
+
+    for key, children in level_keys.items():
+      if level == 0:
+        tree = BinaryTreeArray(key)
+
+      left, right = children
+      tree.set_left_of_key(key, left)
+      tree.set_right_of_key(key, right)
+
   return tree
 
 def sample_tree_array():
-  return sample_tree().tree
+  tree_input = [
+    { 'a': ['b', 'c'] },
+    { 'b': ['d', 'e'], 'c': ['f', 'g'] },
+    { 'e': ['h', None], 'f': ['i', 'j'] },
+    { 'i': [None, 'k'] }
+  ]
 
-def test():
-  tree = sample_tree()
-  print(tree.level_order())
-
-test()
+  return binary_tree_from_level_hash(tree_input).tree

@@ -1,23 +1,23 @@
 from queue import LifoQueue
-from binary_tree import BinaryTree, Node
-from binary_tree_utils import test_class
+from utils import test_class
+from m11_tree.library.binary_tree import sample_binary_tree
 
 examples = [
   {
-    'input': [],
+    'input': [sample_binary_tree()],
     'output': ['a', 'b', 'd', 'h', 'k', 'j', 'g', 'c']
   }
 ]
 
 # Time Complexity: O(n * log(n))
 # Auxiliary Space: O(n)
-class Tree(BinaryTree):
-  def boundary_order(self):
-    self.boundary_traversal = [self.root.key]
+class Solution:
+  def solve(self, tree):
+    self.boundary_traversal = [tree.root.key]
 
-    self.boundary_left(self.root.left)
-    self.boundary_leaves(self.root)
-    self.boundary_right(self.root.right)
+    self.boundary_left(tree.root.left)
+    self.boundary_leaves(tree.root)
+    self.boundary_right(tree.root.right)
 
     return self.boundary_traversal
 
@@ -50,12 +50,13 @@ class Tree(BinaryTree):
     self.boundary_leaves(node.left)
     self.boundary_leaves(node.right)
 
-test_class(Tree, 'boundary_order', examples)
+test_class(Solution, examples)
 
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
-class Tree2(BinaryTree):
-  def boundary_order(self):
+class Solution2:
+  def solve(self, tree):
+    self.root = tree.root
     traversal = [self.root.key]
     traversal += self.boundary_left()
     traversal += self.boundary_leaves()
@@ -119,4 +120,4 @@ class Tree2(BinaryTree):
 
     return traversal
 
-test_class(Tree2, 'boundary_order', examples)
+test_class(Solution2, examples)
