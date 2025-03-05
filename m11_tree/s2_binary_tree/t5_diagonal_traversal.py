@@ -2,6 +2,15 @@ from queue import Queue
 from binary_tree import BinaryTree
 from binary_tree_utils import test_class
 
+
+examples = [
+  {
+    'input': [],
+    'output': [['a', 'c', 'g'], ['b', 'e', 'f', 'j'], ['d', 'h', 'i', 'k']]
+  }
+]
+
+
 # Time Complexity: O(n * log(n))
 # Auxiliary Space: O(n)
 class Tree(BinaryTree):
@@ -19,6 +28,8 @@ class Tree(BinaryTree):
 
     self.traverse_diagonal(node.left, diagonal + 1)
     self.traverse_diagonal(node.right, diagonal)
+
+test_class(Tree, 'diagonal_order', examples)
 
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
@@ -46,12 +57,4 @@ class Tree2(BinaryTree):
 
     return traversal
 
-examples = [
-  {
-    'input': [],
-    'output': [['a', 'c', 'g'], ['b', 'e', 'f', 'j'], ['d', 'h', 'i', 'k']]
-  }
-]
-
-test_class(Tree, 'diagonal_order', examples)
 test_class(Tree2, 'diagonal_order', examples)

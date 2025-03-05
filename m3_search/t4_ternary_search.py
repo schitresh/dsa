@@ -43,6 +43,8 @@ class TernarySearch:
 
     return -1
 
+test_class(TernarySearch, examples)
+
 # Time Complexity: Same as iterative
 # Auxiliary Space: O(log3(n)) for recusion
 class RecursiveTernarySearch:
@@ -68,5 +70,4 @@ class RecursiveTernarySearch:
   def solve(self, array, key):
     return self.search(array, key, 0, len(array) - 1)
 
-test_class(TernarySearch, examples)
 test_class(RecursiveTernarySearch, examples)

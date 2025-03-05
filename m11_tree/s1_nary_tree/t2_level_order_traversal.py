@@ -2,6 +2,13 @@ from queue import Queue
 from nary_tree import NaryTree, Node
 from nary_tree_utils import test_class
 
+examples = [
+  {
+    'input': [],
+    'output': [['a'], ['b', 'c', 'd', 'e'], ['f', 'g', 'h', 'i', 'j'], ['k', 'l', 'm'], ['n']]
+  }
+]
+
 # Level Order Traversal
 # Traverse all the nodes of a lower level before moving to any higher level node
 
@@ -28,6 +35,8 @@ class Tree:
     for child in node.children:
       self.traverse_level_order(child, level + 1)
 
+test_class(Tree, 'level_order', examples)
+
 # Using Iteration based BFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n), due to recursive stack
@@ -50,12 +59,4 @@ class Tree2(NaryTree):
 
     return level_traversal
 
-examples = [
-  {
-    'input': [],
-    'output': [['a'], ['b', 'c', 'd', 'e'], ['f', 'g', 'h', 'i', 'j'], ['k', 'l', 'm'], ['n']]
-  }
-]
-
-test_class(Tree, 'level_order', examples)
 test_class(Tree2, 'level_order', examples)

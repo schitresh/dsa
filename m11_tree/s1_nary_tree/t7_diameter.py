@@ -8,6 +8,13 @@ from nary_tree_utils import test_class
 # and again come down to the deepest node of some other subtree
 # Or, it can be one of the child of the current node
 
+examples = [
+  {
+    'input': [],
+    'output': 8
+  }
+]
+
 # By returning diameter and calculating height
 class Tree(NaryTree):
   # Time Complexity: O(n^2)
@@ -50,6 +57,8 @@ class Tree(NaryTree):
 
     return 1 + height
 
+test_class(Tree, 'diameter', examples)
+
 # By returning height and calculating diameter
 class Tree2(NaryTree):
   def __init__(self, *args):
@@ -82,6 +91,8 @@ class Tree2(NaryTree):
     self.max_diameter = max(self.max_diameter, current_diameter)
 
     return 1 + height1
+
+test_class(Tree2, 'diameter', examples)
 
 # Iterative depth first search
 # First reach the leaf nodes by going downwards in the tree
@@ -121,13 +132,4 @@ class Tree3(NaryTree):
 
     return diameter
 
-examples = [
-  {
-    'input': [],
-    'output': 8
-  }
-]
-
-test_class(Tree, 'diameter', examples)
-test_class(Tree2, 'diameter', examples)
 test_class(Tree3, 'diameter', examples)

@@ -2,6 +2,22 @@ from queue import Queue
 from nary_tree import NaryTree
 from nary_tree_utils import test_class
 
+
+examples = [
+  {
+    'input': ['a'],
+    'output': []
+  },
+  {
+    'input': ['d'],
+    'output': ['b', 'c', 'e']
+  },
+  {
+    'input': ['i'],
+    'output': ['h', 'j']
+  }
+]
+
 class Tree(NaryTree):
   # Time Complexity: O(n)
   # Auxiliary Space: O(n), due to recursive stack
@@ -24,6 +40,8 @@ class Tree(NaryTree):
 
       parent = self.parent(child, key)
       if parent: return parent
+
+test_class(Tree, 'siblings', examples)
 
 class Tree2(NaryTree):
   # Time Complexity: O(n)
@@ -51,20 +69,4 @@ class Tree2(NaryTree):
     siblings.remove(key)
     return siblings
 
-examples = [
-  {
-    'input': ['a'],
-    'output': []
-  },
-  {
-    'input': ['d'],
-    'output': ['b', 'c', 'e']
-  },
-  {
-    'input': ['i'],
-    'output': ['h', 'j']
-  }
-]
-
-test_class(Tree, 'siblings', examples)
 test_class(Tree2, 'siblings', examples)

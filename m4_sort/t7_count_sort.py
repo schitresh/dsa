@@ -31,6 +31,8 @@ class CountSort:
 
     return array
 
+test_class(CountSort, examples)
+
 # Time Complexity: O(n + k), where k is the largest element
   # Best, Worst, Average: O(n + k)
 # Auxiliary Space: O(n + k)
@@ -63,5 +65,4 @@ class PositionalCountSort:
 
     return array
 
-test_class(CountSort, examples)
 test_class(PositionalCountSort, examples)

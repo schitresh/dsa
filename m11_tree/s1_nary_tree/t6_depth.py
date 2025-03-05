@@ -7,6 +7,17 @@ from nary_tree_utils import test_class
 # Height of tree = Depth of tree
 # Height of node + Depth of node = Height/Depth of tree
 
+examples = [
+  {
+    'input': ['n'],
+    'output': 4
+  },
+  {
+    'input': ['l'],
+    'output': 3
+  }
+]
+
 # Recursive Approach
 class Tree(NaryTree):
   # Time Complexity: O(n)
@@ -22,6 +33,8 @@ class Tree(NaryTree):
     for child in root.children:
       depth = self.depth_of_node(child, node)
       if depth is not None: return 1 + depth
+
+test_class(Tree, 'depth', examples)
 
 # Using BFS
 class Tree2(NaryTree):
@@ -49,16 +62,4 @@ class Tree2(NaryTree):
 
     return depth
 
-examples = [
-  {
-    'input': ['n'],
-    'output': 4
-  },
-  {
-    'input': ['l'],
-    'output': 3
-  }
-]
-
-test_class(Tree, 'depth', examples)
 test_class(Tree2, 'depth', examples)

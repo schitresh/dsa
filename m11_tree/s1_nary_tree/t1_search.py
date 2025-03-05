@@ -1,6 +1,17 @@
 from nary_tree import NaryTree
 from nary_tree_utils import test_class
 
+examples = [
+  {
+    'input': ['n'],
+    'output': True
+  },
+  {
+    'input': ['zz'],
+    'output': False
+  }
+]
+
 class Tree(NaryTree):
   # Time Complexity: O(n)
   # Auxiliary Space: O(n), due to recursive stack
@@ -18,16 +29,5 @@ class Tree(NaryTree):
       if result: return True
 
     return False
-
-examples = [
-  {
-    'input': ['n'],
-    'output': True
-  },
-  {
-    'input': ['zz'],
-    'output': False
-  }
-]
 
 test_class(Tree, 'search', examples)

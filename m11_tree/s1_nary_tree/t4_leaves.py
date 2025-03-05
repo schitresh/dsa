@@ -2,6 +2,13 @@ from queue import LifoQueue
 from nary_tree import NaryTree, Node
 from nary_tree_utils import test_class
 
+examples = [
+  {
+    'input': [],
+    'output': ['k', 'g', 'c', 'h', 'n', 'm', 'j', 'e']
+  }
+]
+
 class Tree(NaryTree):
   def __init__(self, *args):
     super().__init__(*args)
@@ -23,6 +30,8 @@ class Tree(NaryTree):
 
     for child in node.children:
       self.reach_leaf_nodes(child)
+
+test_class(Tree, 'leaf_keys', examples)
 
 class Tree2:
   def __init__(self, root = None):
@@ -47,13 +56,4 @@ class Tree2:
 
     return leaf_nodes
 
-
-examples = [
-  {
-    'input': [],
-    'output': ['k', 'g', 'c', 'h', 'n', 'm', 'j', 'e']
-  }
-]
-
-test_class(Tree, 'leaf_keys', examples)
 test_class(Tree2, 'leaf_keys', examples)

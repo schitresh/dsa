@@ -39,6 +39,8 @@ class RotateOneByOne:
 
     return array
 
+test_class(RotateOneByOne, examples)
+
 # Find the rotated place of an element and store it in another array
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
@@ -53,6 +55,8 @@ class RotateUsingTempArray:
       output[rotated_index] = array[i]
 
     return output
+
+test_class(RotateUsingTempArray, examples)
 
 # Divide the array into different sets
 # The number of sets is equal to GCD of array length & rotate_by
@@ -86,6 +90,8 @@ class RotateByJuggling:
 
     return array
 
+test_class(RotateByJuggling, examples)
+
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
 class RotateByReversal:
@@ -109,7 +115,4 @@ class RotateByReversal:
 
     return array
 
-test_class(RotateOneByOne, examples)
-test_class(RotateUsingTempArray, examples)
-test_class(RotateByJuggling, examples)
 test_class(RotateByReversal, examples)

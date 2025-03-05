@@ -38,6 +38,8 @@ class BinarySearch:
 
     return -1
 
+test_class(BinarySearch, examples)
+
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(log(n)) for recursion
 class RecursiveBinarySearch:
@@ -58,6 +60,8 @@ class RecursiveBinarySearch:
 
   def solve(self, array, key):
     return self.search(array, key, 0, len(array) - 1)
+
+test_class(RecursiveBinarySearch, examples)
 
 # Works by constructing the index (that holds the key) in binary
 # Avoids overflow errors, but slower than regular binary search
@@ -98,6 +102,8 @@ class MetaBinarySearch:
 
     return -1
 
+test_class(MetaBinarySearch, examples)
+
 # Less comparisons than the regular binary search
 # This happens because the equality condition is not checked within the loop
 # It is checked only once after the loop
@@ -123,7 +129,4 @@ class UbiquitousBinarySearch:
       return right
     return -1
 
-test_class(BinarySearch, examples)
-test_class(RecursiveBinarySearch, examples)
-test_class(MetaBinarySearch, examples)
 test_class(UbiquitousBinarySearch, examples)

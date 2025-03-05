@@ -2,6 +2,13 @@ from queue import Queue
 from binary_tree import BinaryTree
 from binary_tree_utils import test_class
 
+examples = [
+  {
+    'input': [],
+    'output': [['a'], ['b', 'c'], ['d', 'e', 'f', 'g'], ['h', 'i', 'j'], ['k']]
+  }
+]
+
 # Level order recursion using BFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
@@ -33,6 +40,8 @@ class Tree(BinaryTree):
 
     return left or right
 
+test_class(Tree, 'level_order', examples)
+
 # Level order recursion using DFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
@@ -56,6 +65,8 @@ class Tree2(BinaryTree):
     if node.left: self.traverse_level_order(node.left, level + 1)
     if node.right: self.traverse_level_order(node.right, level + 1)
 
+test_class(Tree2, 'level_order', examples)
+
 # Level order iterative using BFS
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
@@ -78,13 +89,4 @@ class Tree3(BinaryTree):
 
     return traversal
 
-examples = [
-  {
-    'input': [],
-    'output': [['a'], ['b', 'c'], ['d', 'e', 'f', 'g'], ['h', 'i', 'j'], ['k']]
-  }
-]
-
-test_class(Tree, 'level_order', examples)
-test_class(Tree2, 'level_order', examples)
 test_class(Tree3, 'level_order', examples)

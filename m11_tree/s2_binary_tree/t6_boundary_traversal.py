@@ -2,6 +2,13 @@ from queue import LifoQueue
 from binary_tree import BinaryTree, Node
 from binary_tree_utils import test_class
 
+examples = [
+  {
+    'input': [],
+    'output': ['a', 'b', 'd', 'h', 'k', 'j', 'g', 'c']
+  }
+]
+
 # Time Complexity: O(n * log(n))
 # Auxiliary Space: O(n)
 class Tree(BinaryTree):
@@ -42,6 +49,8 @@ class Tree(BinaryTree):
 
     self.boundary_leaves(node.left)
     self.boundary_leaves(node.right)
+
+test_class(Tree, 'boundary_order', examples)
 
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
@@ -110,12 +119,4 @@ class Tree2(BinaryTree):
 
     return traversal
 
-examples = [
-  {
-    'input': [],
-    'output': ['a', 'b', 'd', 'h', 'k', 'j', 'g', 'c']
-  }
-]
-
-test_class(Tree, 'boundary_order', examples)
 test_class(Tree2, 'boundary_order', examples)
