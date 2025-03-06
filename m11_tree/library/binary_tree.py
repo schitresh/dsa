@@ -112,30 +112,40 @@ class BinaryTree:
       queue.put(temp.right)
       queue.put(temp.left)
 
-def binary_tree_from_level_hash(tree_input):
-  tree = None
-  nodes = {}
+def binary_tree_from_level_array(tree_input):
+  if not tree_input or not tree_input[0]: return None
 
-  for level in range(len(tree_input)):
+  tree = BinaryTree(tree_input[0][0])
+  parents = [tree.root]
+
+  for level in range(1, len(tree_input)):
     level_keys = tree_input[level]
+    level_nodes = []
 
-    for key, children in level_keys.items():
-      if level == 0:
-        tree = BinaryTree(key)
-        nodes[key] = tree.root
+    for i in range(len(level_keys)):
+      child_keys = level_keys[i]
+      if not child_keys: continue
 
-      left, right = children
-      if left: nodes[left] = nodes[key].set_left(left)
-      if right: nodes[right] = nodes[key].set_right(right)
+      left, right = child_keys
+      if left:
+        left_node = parents[i].set_left(left)
+        level_nodes.append(left_node)
+
+      if right:
+        right_node = parents[i].set_right(right)
+        level_nodes.append(right_node)
+
+    parents = level_nodes
 
   return tree
 
 def sample_binary_tree():
   tree_input = [
-    { 'a': ['b', 'c'] },
-    { 'b': ['d', 'e'], 'c': ['f', 'g'] },
-    { 'e': ['h', None], 'f': ['i', 'j'] },
-    { 'i': [None, 'k'] }
+    ['a'],
+    [['b', 'c']],
+    [['d', 'e'], ['f', 'g']],
+    [None, ['h', None], ['i', 'j'], None],
+    [None, [None, 'k'], None],
   ]
 
-  return binary_tree_from_level_hash(tree_input)
+  return binary_tree_from_level_array(tree_input)

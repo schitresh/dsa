@@ -50,7 +50,7 @@ class BinaryTreeArray:
     return traversal
 
 
-def binary_tree_from_level_hash(tree_input):
+def btree_array_from_level_hash(tree_input):
   tree = None
 
   for level in range(len(tree_input)):
@@ -66,7 +66,7 @@ def binary_tree_from_level_hash(tree_input):
 
   return tree
 
-def sample_tree_array():
+def sample_btree_array():
   tree_input = [
     { 'a': ['b', 'c'] },
     { 'b': ['d', 'e'], 'c': ['f', 'g'] },
@@ -74,4 +74,4 @@ def sample_tree_array():
     { 'i': [None, 'k'] }
   ]
 
-  return binary_tree_from_level_hash(tree_input).tree
+  return btree_array_from_level_hash(tree_input).tree

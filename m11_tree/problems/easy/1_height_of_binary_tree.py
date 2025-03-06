@@ -1,23 +1,25 @@
 from queue import Queue
 from utils import test_class
-from m11_tree.library.binary_tree import binary_tree_from_level_hash
+from m11_tree.library.binary_tree import binary_tree_from_level_array
 
 # Given a binary tree, find the maximum depth of the tree. The maximum depth or height
 # of a tree is the number of edges in the tree from the root to the deepest node.
 
 examples = [
   {
-    'input': [binary_tree_from_level_hash([
-      { 12: [8, 18] },
-      { 8: [5, 11] }
+    'input': [binary_tree_from_level_array([
+      [12],
+      [[8, 18]],
+      [[5, 11], None],
     ])],
     'output': 2,
   },
   {
-    'input': [binary_tree_from_level_hash([
-      { 1: [2, 3] },
-      { 2: [4, None], 3: [None, 5] },
-      { 5: [6, 7] }
+    'input': [binary_tree_from_level_array([
+      [1],
+      [[2, 3]],
+      [[4, None], [None, 5]],
+      [None, [6, 7]],
     ])],
     'output': 3,
   },

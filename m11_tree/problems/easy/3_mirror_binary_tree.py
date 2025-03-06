@@ -1,6 +1,6 @@
 from queue import Queue
 from utils import test_class
-from m11_tree.library.binary_tree import binary_tree_from_level_hash
+from m11_tree.library.binary_tree import binary_tree_from_level_array
 
 # Given a binary tree, convert the binary tree to its mirror tree. Mirror of a binary
 # tree is another binary tree with left and right children of all non-leaf nodes
@@ -9,13 +9,13 @@ from m11_tree.library.binary_tree import binary_tree_from_level_hash
 examples = [
   {
     'input': [
-      binary_tree_from_level_hash([{ 1: [2, 3] }, { 3: [4, None] }]),
+      binary_tree_from_level_array([[1], [[2, 3]], [None, [4, None]]]),
     ],
     'output': [[1], [3, 2], [4]]
   },
   {
     'input': [
-      binary_tree_from_level_hash([{ 1: [2, 3] }, { 2: [4, 5] }]),
+      binary_tree_from_level_array([[1], [[2, 3]], [[4, 5], None]]),
     ],
     'output': [[1], [3, 2], [5, 4]],
   },

@@ -1,6 +1,6 @@
 from queue import Queue
 from utils import test_class
-from m11_tree.library.binary_tree import binary_tree_from_level_hash
+from m11_tree.library.binary_tree import binary_tree_from_level_array
 
 # Given two binary trees, find if both of them are identical or not. Two trees are
 # identical when they have the same data and the arrangement of data is also the same.
@@ -8,15 +8,15 @@ from m11_tree.library.binary_tree import binary_tree_from_level_hash
 examples = [
   {
     'input': [
-      binary_tree_from_level_hash([{ 1: [2, 3] }, { 2: [4, None] }]),
-      binary_tree_from_level_hash([{ 1: [2, 3] }, { 2: [4, None] }]),
+      binary_tree_from_level_array([[1], [[2, 3]], [[4, None], None]]),
+      binary_tree_from_level_array([[1], [[2, 3]], [[4, None], None]]),
     ],
     'output': True,
   },
   {
     'input': [
-      binary_tree_from_level_hash([{ 1: [2, 3] }, { 2: [4, None] }]),
-      binary_tree_from_level_hash([{ 1: [2, 3] }, { 3: [4, None] }]),
+      binary_tree_from_level_array([[1], [[2, 3]], [[4, None], None]]),
+      binary_tree_from_level_array([[1], [[2, 3]], [None, [4, None]]]),
     ],
     'output': False,
   },

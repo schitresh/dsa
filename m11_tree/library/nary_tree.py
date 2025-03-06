@@ -50,30 +50,35 @@ class NaryTree:
 
     return level_traversal
 
-def nary_tree_from_level_hash(tree_input):
-  tree = None
-  nodes = {}
+def nary_tree_from_level_array(tree_input):
+  if not tree_input or not tree_input[0]: return None
 
-  for level in range(len(tree_input)):
+  tree = NaryTree(tree_input[0][0])
+  parents = [tree.root]
+
+  for level in range(1, len(tree_input)):
     level_keys = tree_input[level]
+    level_nodes = []
 
-    for key, children in level_keys.items():
-      if level == 0:
-        tree = NaryTree(key)
-        nodes[key] = tree.root
+    for i in range(len(level_keys)):
+      child_keys = level_keys[i]
+      if not child_keys: continue
 
-      for child_key in children:
-        child_node = nodes[key].add_child(child_key)
-        nodes[child_key] = child_node
+      for key in child_keys:
+        node = parents[i].add_child(key)
+        level_nodes.append(node)
+
+    parents = level_nodes
 
   return tree
 
 def sample_nary_tree():
   tree_input = [
-    { 'a': ['b', 'c', 'd', 'e'] },
-    { 'b': ['f', 'g'], 'd': ['h', 'i', 'j'] },
-    { 'f': ['k'], 'i': ['l', 'm'] },
-    { 'l': ['n'] }
+    ['a'],
+    [['b', 'c', 'd', 'e']],
+    [['f', 'g'], None, ['h', 'i', 'j'], None],
+    [['k'], None, None, ['l', 'm'], None],
+    [None, ['n'], None]
   ]
 
-  return nary_tree_from_level_hash(tree_input)
+  return nary_tree_from_level_array(tree_input)

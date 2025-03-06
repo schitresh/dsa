@@ -1,6 +1,6 @@
 from queue import Queue
 from m11_tree.library.binary_tree import BinaryTree, Node
-from m11_tree.library.binary_tree_array import sample_tree_array
+from m11_tree.library.binary_tree_array import sample_btree_array
 from utils import test_class
 
 # Given the array representation of binary tree
@@ -8,7 +8,7 @@ from utils import test_class
 
 examples = [
   {
-    'input': [sample_tree_array()],
+    'input': [sample_btree_array()],
     'output': [['a'], ['b', 'c'], ['d', 'e', 'f', 'g'], ['h', 'i', 'j'], ['k']]
   }
 ]
