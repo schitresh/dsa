@@ -19,7 +19,7 @@ examples = [
 
 # Iterative BFS with levels
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution:
   def solve(self, tree):
     queue = Queue()
@@ -55,7 +55,7 @@ test_class(Solution, examples)
 
 # Iterative BFS without levels
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution2:
   def solve(self, tree):
     queue = Queue()
@@ -82,7 +82,7 @@ test_class(Solution2, examples)
 
 # Recursive DFS
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution3:
   def solve(self, tree):
     return self.is_symmetric(tree.root.left, tree.root.right)
@@ -100,7 +100,7 @@ test_class(Solution3, examples)
 
 # Iterative DFS
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution4:
   def solve(self, tree):
     stack = LifoQueue()

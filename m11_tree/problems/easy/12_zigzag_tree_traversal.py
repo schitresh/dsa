@@ -21,7 +21,7 @@ examples = [
 
 # Iterative BFS & Stack
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution:
   def solve(self, tree):
     traversal = []
@@ -58,7 +58,7 @@ test_class(Solution, examples)
 
 # Using two Stacks
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution2:
   def solve(self, tree):
     traversal = []
@@ -92,7 +92,7 @@ test_class(Solution2, examples)
 
 # Recursive DFS
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution3:
   def solve(self, tree):
     self.levels = []

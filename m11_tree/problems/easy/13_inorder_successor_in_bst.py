@@ -29,7 +29,7 @@ examples = [
 # Keep track of whether the target has been reached or not. If the target has reached,
 # return the key from the next inorder node.
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution:
   def solve(self, target, tree):
     self.target = target
@@ -60,7 +60,7 @@ test_class(Solution, examples)
 # successor and proceed to left
 # 2. If the current node is smaller or equal to the target, proceed to right.
 # Time Complexity: O(height)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class Solution2:
   def solve(self, target, tree):
     successor = None

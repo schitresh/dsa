@@ -17,7 +17,7 @@ examples = [
 
 # Recursive DFS
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution:
   def solve(self, tree):
     self.level_largest = []
@@ -39,7 +39,7 @@ test_class(Solution, examples)
 
 # Iterative BFS
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution2:
   def solve(self, tree):
     level_largest = []

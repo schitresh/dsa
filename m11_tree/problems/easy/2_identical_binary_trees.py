@@ -24,7 +24,7 @@ examples = [
 
 # Recursive DFS
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution:
   def solve(self, tree1, tree2):
     return self.compare_tree(tree1.root, tree2.root)
@@ -43,7 +43,7 @@ test_class(Solution, examples)
 
 # Iterative BFS
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution2:
   def solve(self, tree1, tree2):
     queue = Queue()
@@ -64,4 +64,4 @@ test_class(Solution2, examples)
 
 # Todo: Morris Traversal
 # Time Complexity: O(n)
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)

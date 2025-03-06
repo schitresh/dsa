@@ -23,7 +23,7 @@ examples = [
 
 # Recursive DFS
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution:
   def solve(self, tree):
     return self.children_sum_property(tree.root)
@@ -45,7 +45,7 @@ test_class(Solution, examples)
 
 # Iterative BFS
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution2:
   def solve(self, tree):
     queue = Queue()

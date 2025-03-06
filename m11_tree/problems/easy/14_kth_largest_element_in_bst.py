@@ -14,7 +14,7 @@ examples = [
 ]
 
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution:
   def solve(self, k, tree):
     self.k = k
@@ -40,4 +40,4 @@ test_class(Solution, examples)
 
 # Todo: Reverse Morris Traversal
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)

@@ -21,7 +21,7 @@ examples = [
 
 # Recursive DFS
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution:
   def solve(self, array):
     self.array = array
@@ -46,7 +46,7 @@ test_class(Solution, examples)
 
 # Recursive DFS optimization
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution2:
   def solve(self, array):
     self.array = array
@@ -68,7 +68,7 @@ test_class(Solution2, examples)
 
 # Iterative BFS
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Auxiliary Space: O(n)
 class Solution3:
   def solve(self, array):
     left = 0

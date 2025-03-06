@@ -28,7 +28,7 @@ examples = [
 
 # Recursive DFS with range of min & max values
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution:
   def solve(self, tree):
     return self.is_bst(tree.root, -float('inf'), float('inf'))
@@ -47,7 +47,7 @@ test_class(Solution, examples)
 # Inorder traversal is left -> node -> right. For BST, inorder traversal will output
 # values in sorted order since for each node: left_subtree < node < right_subtree.
 # Time Complexity: O(n)
-# Space Complexity: O(height)
+# Auxiliary Space: O(height)
 class Solution2:
   def solve(self, tree):
     return self.is_bst(tree.root, [float('-inf')])

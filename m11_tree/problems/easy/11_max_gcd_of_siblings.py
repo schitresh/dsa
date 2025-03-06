@@ -26,7 +26,7 @@ examples = [
 # Sorting and GCD
 # Sort the numbers and calculate gcd for all nodes with the same parent
 # Time Complexity: O(n * log(n))
-# Space Complexity: O(1)
+# Auxiliary Space: O(1)
 class Solution:
   def solve(self, array):
     max_gcd = 0
