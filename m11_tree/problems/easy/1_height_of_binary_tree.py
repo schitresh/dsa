@@ -27,7 +27,7 @@ examples = [
 
 # Recursive DFS
 # Time Complexity: O(n)
-# Space Complexity: O(log(n)), where height = log(n)
+# Space Complexity: O(height)
 class Solution:
   def solve(self, tree):
     return self.height_of_node(tree.root)

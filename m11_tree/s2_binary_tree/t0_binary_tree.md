@@ -1,9 +1,12 @@
 ## Properties
-- Number of edges = Number of nodes - 1
-- Maximum nodes at level L is 2^L
-- Maximum nodes for height H is 2^H - 1
-- Minimum height for N nodes is log2(N + 1)
-- Minimum levels for L leaves is log2(L) + 1
+- Nodes
+  - Edges = Nodes - 1
+  - Maximum nodes for height H = 2^H - 1
+  - Maximum nodes at level L = 2^L
+  - Maximum nodes at leaves level = (N + 1) / 2 [complete binary tree]
+- Height
+  - Minimum height for N nodes = log2(N + 1)
+  - Minimum levels for l leaves = log2(l) + 1
 
 ## Types
 ### On basis of number of children

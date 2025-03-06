@@ -24,7 +24,7 @@ examples = [
 
 # Recursive DFS
 # Time Complexity: O(n)
-# Space Complexity: O(log(n)), where height = log(n)
+# Space Complexity: O(height)
 class Solution:
   def solve(self, tree1, tree2):
     return self.compare_tree(tree1.root, tree2.root)

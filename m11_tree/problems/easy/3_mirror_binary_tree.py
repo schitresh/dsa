@@ -8,22 +8,18 @@ from m11_tree.library.binary_tree import binary_tree_from_level_array
 
 examples = [
   {
-    'input': [
-      binary_tree_from_level_array([[1], [[2, 3]], [None, [4, None]]]),
-    ],
+    'input': [binary_tree_from_level_array([[1], [[2, 3]], [None, [4, None]]])],
     'output': [[1], [3, 2], [4]]
   },
   {
-    'input': [
-      binary_tree_from_level_array([[1], [[2, 3]], [[4, 5], None]]),
-    ],
+    'input': [binary_tree_from_level_array([[1], [[2, 3]], [[4, 5], None]])],
     'output': [[1], [3, 2], [5, 4]],
   },
 ]
 
 # Recursive DFS
 # Time Complexity: O(n)
-# Space Complexity: O(log(n)), where height = log(n)
+# Space Complexity: O(height)
 class Solution:
   def solve(self, tree):
     self.mirror_tree(tree.root)
