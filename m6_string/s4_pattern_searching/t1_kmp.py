@@ -36,37 +36,41 @@ class Solution:
     return indices
 
   # Longest proper prefix which is also a suffix
-  # Proper prefix means that the whole word is not considered a prefix
-  # Let's say that a text matches the pattern till k chars
-  # Considering the pattern till k chars, is there a suffix which matches a proper prefix
-  # If so, we can start matching after that prefix
-  # Because we've already iterated through the suffix & suffix matches the prefix
+  # Proper prefix means that the whole word is not considered a prefix.
+  # Let's say that a text matches the pattern till k chars. Considering the pattern till
+  # k chars, is there a suffix which matches a proper prefix. If so, we can start
+  # matching after that prefix. Because we've already iterated through the suffix &
+  # suffix matches the prefix.
   def calculate_lps(self, key):
     lps = [0] * len(key)
-    left = 0
-    right = 1
+    prefix = 0
+    suffix = 1
 
-    while right < len(key):
-      # If chars are equal, it means prefix equals suffix
-      # Here prefix is string[0..left] and suffix is string[(right-left)..right]
-      # Because 0..left is already matched, lps of right should be left + 1
-      if key[left] == key[right]:
-        lps[right] = left + 1
-        left += 1
-        right += 1
+    while suffix < len(key):
+      # If chars are equal, it means prefix equals suffix.
+      # Here prefix is string[0..prefix] and suffix is string[(suffix - prefix)..suffix]
+      # Because 0..prefix is already matched, lps of suffix should be prefix + 1
+      if key[prefix] == key[suffix]:
+        lps[suffix] = prefix + 1
+        prefix += 1
+        suffix += 1
       else:
-        # Since the chars don't match and left is at the start of the key
-        # lps of right should be 0 and right should be moved ahead to check next suffix
-        if left == 0:
-          lps[right] = 0
-          right += 1
-        # The current chars don't match and left at the start
-        # That means prefix till (left - 1) matched with suffix till (right - 1)
-        # But instead of starting from the start, we can check if there any suffix
-        # in the current prefix (left - 1) that matches any previous prefix
-        # If so, we can start matching from there, else lps[left - 1] will anyways be 0
+        # Since the chars don't match and prefix is at the start of the key
+        # lps of suffix should be 0 and suffix should be moved ahead to check next suffix
+        if prefix == 0:
+          lps[suffix] = 0
+          suffix += 1
+        # The current chars don't match and prefix is not at the start.
+        # That means prefix till (prefix - 1) matched with suffix till (suffix - 1). But
+        # we need to check if there is any suffix within the current suffix that matches
+        # any prefix. Since (prefix - 1) = (suffix - 1), we have already calculated that
+        # in prefix - 1, so start checking again from lps[prefix - 1]
+        # For example, in abacxyababa, consider abac and abab. When we compare c & b, it
+        # is not a match, but the lps is not 0 because the suffix ab within the original
+        # suffix abab matches the prefix ab. Further which the new suffix aba matches
+        # with the prefix.
         else:
-          left = lps[left - 1]
+          prefix = lps[prefix - 1]
 
     return lps
 

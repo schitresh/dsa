@@ -19,6 +19,7 @@ examples = [
   },
 ]
 
+# Two Pointers
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
 class Solution:
@@ -36,3 +37,12 @@ class Solution:
     return True
 
 test_class(Solution, examples)
+
+# By Reversing
+# Time Complexity: O(n)
+# Auxiliary Space: O(1)
+class Solution2:
+  def solve(self, string):
+    return string == string[::-1]
+
+test_class(Solution2, examples)

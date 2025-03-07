@@ -5,7 +5,7 @@ from utils import test_class
 
 examples = [
   {
-    'input': ['abc'], # Src, Dest, Ajacency list
+    'input': ['abc'],
     'output': ['abc', 'ab c', 'a bc', 'a b c']
   },
 ]
