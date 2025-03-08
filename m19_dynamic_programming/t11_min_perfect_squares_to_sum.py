@@ -126,7 +126,3 @@ class Solution4:
     return count
 
 test_class(Solution4, examples)
-
-# Todo: Lagrange's Four Square Theorem
-# Time Complexity: O(sqrt(n))
-# Auxiliary Space: O(1)

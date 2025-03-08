@@ -37,7 +37,3 @@ class Solution:
     self.k_largest(node.left)
 
 test_class(Solution, examples)
-
-# Todo: Reverse Morris Traversal
-# Time Complexity: O(n)
-# Auxiliary Space: O(height)

@@ -61,7 +61,3 @@ class Solution2:
     return True
 
 test_class(Solution2, examples)
-
-# Todo: Morris Traversal
-# Time Complexity: O(n)
-# Auxiliary Space: O(1)

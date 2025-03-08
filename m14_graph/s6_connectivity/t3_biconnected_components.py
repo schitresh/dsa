@@ -28,7 +28,6 @@ examples = [
   },
 ]
 
-# Todo: Output not correct, check later
 # Almost same as checking for biconnected graph. Additionally iterate over all the nodes.
 # Time Complexity: O(V + E)
 # Auxiliary Space: O(V + E)
@@ -93,11 +92,8 @@ class Solution:
         # That means there is no back edge to any ancestor of the node
         # So check if low value of one of its neighbor is more than discovery value of
         # the node
-        if (
-          self.parent[node] == -1 and children > 1
-        ) or (
-          self.parent[node] != -1 and self.low[neighbor] >= self.disc[node]
-        ):
+        if ((self.parent[node] == -1 and children > 1)
+          or (self.parent[node] != -1 and self.low[neighbor] >= self.disc[node])):
           edge = ()
           curr_comp = []
 

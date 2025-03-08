@@ -38,13 +38,3 @@ class Solution:
     return result
 
 test_class(Solution, examples)
-
-# Todo: Using Priority Queue
-# Time Complexity: O(total_nums * log(n))
-# Auxiliary Space: O(total_nums)
-class Solution2:
-  def solve(self, machines):
-    result = []
-    return result
-
-test_class(Solution2, examples)

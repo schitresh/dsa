@@ -94,7 +94,3 @@ class Solution4:
     return prev1
 
 test_class(Solution4, examples)
-
-# Todo: Matrix Exponentiation
-# Time Complexity: O(log(n))
-# Auxiliary Space: O(log(n)), due to recursion stack

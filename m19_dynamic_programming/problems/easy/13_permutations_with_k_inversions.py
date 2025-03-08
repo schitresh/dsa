@@ -1,6 +1,6 @@
 from utils import test_class
 
-# Given an array, an inversion is defined as a pair a[i], a[j] such that i < j and
+# Given an array, an inversion is defined as a pair (a[i], a[j]) such that i < j and
 # a[i] > a[j]. We are given two numbers n and k, the task is to find how many permutations
 # of the first n number have exactly k inversion.
 
@@ -57,8 +57,25 @@ class Solution:
 
 test_class(Solution, examples)
 
-# Todo: Understand the recursion formula
-# Recursion
+# Recursion Relation
+# Consider we need to count inversions for n = 4, i.e. the numbers are 1, 2, 3, 4.
+# Let's say we have counted inversions for n = 3, then place 4 at the following
+# permutations:
+# 1. At the end: then the new inversions for 4 are 0 because all number before 4
+# (i.e. 1, 2, 3) will be smaller irrespective of how they are arranged. That means
+# we need to find permutations for n = 3 with k inversions.
+# Hence, with 4 at index 2, inv(4, k) = inv(3, k)
+# 2. Second position from the end: then the new inversions for 4 are 1 because
+# any number put after 4 will be smaller. E.g. 1243, 1342, 2341, etc.
+# This means we need to find permuations for n = 3 with (k - 1) inversions.
+# Hence, with 4 at index 2, inv(4, k) = inv(3, k - 1)
+# And so on.
+
+# Thus, inv(4, k) = inv(i = 3)(3, k) + inv(i = 2)(3, k - 1) + inv(i = 1)(3, k - 2)
+#                   + inv(i = 0)(3, k - 3)
+# Though we need to avoid i = 0 if k = 2.
+# So the recurrence relation is:
+# inv(n, k) = Sum[i = 0 to min(n - 1, k)] { inv(n - 1, k - i) }
 # Time Complexity: O(n! * k)
 # Auxiliary Space: O(n), due to recursive stack
 class Solution2:
