@@ -47,7 +47,3 @@ class Solution:
     return True
 
 test_class(Solution, examples)
-
-# Todo: Using Mancher's algorithm
-# Time Complexity: O(n^2)
-# Auxiliary Space: O(n)

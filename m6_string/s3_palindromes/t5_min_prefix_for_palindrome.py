@@ -86,10 +86,3 @@ class Solution2:
     return lps
 
 test_class(Solution2, examples)
-
-# Todo: Using Z array of Z algorithm
-# Concat the string with its reverse and calculate its Z array
-# Each index of Z array represents the length of the longest substring
-# starting at index i, which is also a proper prefix
-# Time Complexity: O(n)
-# Auxiliary Space: O(n)
