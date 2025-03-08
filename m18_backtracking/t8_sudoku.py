@@ -100,6 +100,3 @@ class Solution:
     return True
 
 test_class(Solution, examples)
-
-# Todo: Bitmask
-# Todo: Cross-hatching
