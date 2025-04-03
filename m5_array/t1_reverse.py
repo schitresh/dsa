@@ -1,6 +1,7 @@
 from utils import test_class
 
-# Reverse an Array
+# Reverse a given array
+
 examples = [
   {
     'input': [[1, 2, 3, 4, 5]],

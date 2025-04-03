@@ -7,13 +7,14 @@ examples = [
   }
 ]
 
-# Non-comparision based sort that works well if there limited range of values
-# Counts frequency of elements and places them in their correct position\
+# Count Sort
+# Non-comparision based sort that works well if there is a limited range of values
+# Counts frequency of elements and places them in their correct position
 # Stable sort, but doesn't work on decimal values
 # Time Complexity: O(n + k), where k is the largest element
-  # Best, Worst, Average: O(n + k)
+# Best, Worst, Average: O(n + k)
 # Auxiliary Space: O(k)
-class CountSort:
+class Solution:
   def solve(self, array):
     max_item = max(array)
     item_counts = [0] * (max_item + 1)
@@ -31,17 +32,19 @@ class CountSort:
 
     return array
 
-test_class(CountSort, examples)
+test_class(Solution, examples)
 
+# Positional Count Sort
 # Time Complexity: O(n + k), where k is the largest element
-  # Best, Worst, Average: O(n + k)
+# Best, Worst, Average: O(n + k)
 # Auxiliary Space: O(n + k)
-class PositionalCountSort:
+class Solution2:
   def solve(self, array):
     length = len(array)
+    sorted_array = [0] * (length)
+
     max_item = max(array)
     item_positions = [0] * (max_item + 1)
-    sorted_array = [0] * (length)
 
     # Calculate the count of elements
     for item in array:
@@ -55,7 +58,8 @@ class PositionalCountSort:
     # This is because highest position is assigned to the higher element in the original order
     # This is not prominent for integers, but important in case of other data types
     # like pairs, objects with additional info, radix sort
-    for item in array:
+    for i in range(len(array) - 1, -1, -1):
+      item = array[i]
       position = item_positions[item]
       sorted_array[position - 1] = item
       item_positions[item] -= 1
@@ -65,4 +69,4 @@ class PositionalCountSort:
 
     return array
 
-test_class(PositionalCountSort, examples)
+test_class(Solution2, examples)

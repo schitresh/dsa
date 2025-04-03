@@ -1,5 +1,8 @@
 from utils import test_class
 
+# Given an array of integers and a key, find whether the key is present in the array.
+# Return the index of the first occurrence  or -1 if it doesn’t exist.
+
 examples = [
   {
     'input': [[4, 5, 6, 7, 8, 9], 8],
@@ -15,11 +18,12 @@ examples = [
   }
 ]
 
+# Ternary Search
 # Does more comparisions than binary search
 # So binary search is better than ternary search
 # Time Complexity: O(2 * log3(n))
 # Auxiliary Space: O(1)
-class TernarySearch:
+class Solution:
   def solve(self, array, key):
     left = 0
     right = len(array) - 1
@@ -43,12 +47,18 @@ class TernarySearch:
 
     return -1
 
-test_class(TernarySearch, examples)
+test_class(Solution, examples)
 
-# Time Complexity: Same as iterative
+# Recursive Ternary Search
+# Time Complexity: O(2 * log3(n)), same as iterative
 # Auxiliary Space: O(log3(n)) for recusion
-class RecursiveTernarySearch:
+class Solution2:
+  def solve(self, array, key):
+    return self.search(array, key, 0, len(array) - 1)
+
   def search(self, array, key, left, right):
+    if left > right: return - 1
+
     mid1 = left + (right - left) // 3
     mid2 = right - (right - left) // 3
 
@@ -67,7 +77,4 @@ class RecursiveTernarySearch:
 
     return self.search(array, key, left, right)
 
-  def solve(self, array, key):
-    return self.search(array, key, 0, len(array) - 1)
-
-test_class(RecursiveTernarySearch, examples)
+test_class(Solution2, examples)

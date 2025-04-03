@@ -7,12 +7,12 @@ examples = [
   }
 ]
 
+# Bucket Sort
 # Divides elements into various buckets
-# Time Complexity: O(n + k), where k is no of buckets
-  # Best: O(n + k)
-  # Worst: O(n^2)
+# Time Complexity: O(n + k), where k is number of buckets
+# Best: O(n + k), Worst: O(n^2)
 # Auxiliary Space: O(n + k)
-class BucketSort:
+class Solution:
   def solve(self, array):
     length = len(array)
     bucket = [[] for _ in range(length)]
@@ -34,4 +34,4 @@ class BucketSort:
 
     return array
 
-test_class(BucketSort, examples)
+test_class(Solution, examples)

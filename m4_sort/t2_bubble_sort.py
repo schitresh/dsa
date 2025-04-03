@@ -7,22 +7,19 @@ examples = [
   }
 ]
 
-# Keep swapping the adjacent elements
-# Till the smallest element bubbles up at the front
+# Bubble Sort
+# Keep swapping the adjacent elements till the smallest element bubbles up at the front
 # Stable sort since only the adjacent elements are swapped
 # Time Complexity: O(n^2)
-  # Best: O(n)
-  # Worst, Average: O(n^2)
+# Best: O(n), Worst & Average: O(n^2)
 # Auxiliary Space: O(1)
-class BubbleSort:
-  def swap(self, array, i, j):
-    array[i], array[j] = array[j], array[i]
-
+class Solution:
   def solve(self, array):
     for i in range(len(array)):
       swapped = True
 
       for j in range(len(array) - 1 - i):
+        # This will keep the smallest element at j
         if array[j] > array[j + 1]:
           self.swap(array, j, j + 1)
           swapped = True
@@ -33,4 +30,7 @@ class BubbleSort:
 
     return array
 
-test_class(BubbleSort, examples)
+  def swap(self, array, i, j):
+    array[i], array[j] = array[j], array[i]
+
+test_class(Solution, examples)

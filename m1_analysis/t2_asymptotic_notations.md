@@ -60,4 +60,4 @@ o: Lim(n -> ∞) f(n)/g(n) = 0
   - If f(n) is Θ(g(n)), then g(n) is Θ(f(n))
 - Transpose Symmetric
   - This property only satisfies O and Ω notations
-  - If f(n) is O(g(n)), then g(n) is Ω (f(n))
+  - If f(n) is O(g(n)), then g(n) is Ω(f(n))

@@ -1,13 +1,11 @@
 from utils import test_class
 
-# Traverse a string from the beginning
-# Swap a char with the char after k places from it
-# Repeat this process for the given number of times
-# Input: [string, times, k_places]
+# Traverse a string from the beginning. Swap a char with the char after k places from it.
+# Repeat this process for the given number of times.
 
 examples = [
   {
-    'input': ['abcdefgh', 4, 3],
+    'input': ['abcdefgh', 4, 3], # [string, times, k_places]
     'output': 'defgbcah'
   },
   {
@@ -16,7 +14,7 @@ examples = [
   }
 ]
 
-# Time Complexity: O(swap_till)
+# Time Complexity: O(times)
 # Auxiliary Space: O(1)
 class Solution:
   def solve(self, string, times, places):

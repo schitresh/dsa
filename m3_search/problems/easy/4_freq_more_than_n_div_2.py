@@ -45,7 +45,7 @@ test_class(Solution, examples)
 # The final candidate can be the majority element. To check that, calculate the count of
 # the candidate in the array and confirm that its greater than N/2.
 # Time Complexity: O(n)
-#  Auxiliary Space: O(1)
+# Auxiliary Space: O(1)
 class Solution2:
   def solve(self, array):
     candidate = -1

@@ -1,6 +1,9 @@
 import math
 from utils import test_class
 
+# Given an array of integers and a key, find whether the key is present in the array.
+# Return the index of the first occurrence  or -1 if it doesn’t exist.
+
 examples = [
   {
     'input': [[4, 5, 6, 7, 8, 9], 8],
@@ -24,14 +27,15 @@ examples = [
   }
 ]
 
+# Jump Search
 # Divide the array into windows of fixed size
 # Find the window where key must be present, and then linear search within it
 # Time Complexity: O(sqrt(n))
-  # Linear < Jump < Binary
+# Linear < Jump < Binary
 # Auxiliary Space: O(1)
 # Comparisons: (length/step) + (step - 1)
-  # Comparisons will be least when step is sqrt(length)
-class JumpSearch:
+# Comparisons will be least when step is sqrt(length)
+class Solution:
   def solve(self, array, key):
     length = len(array)
     # Subtract 1 because sqrt of 1 is 1 which will be out of bounds
@@ -54,4 +58,4 @@ class JumpSearch:
 
     return -1
 
-test_class(JumpSearch, examples)
+test_class(Solution, examples)

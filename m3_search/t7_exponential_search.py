@@ -1,5 +1,8 @@
 from utils import test_class
 
+# Given an array of integers and a key, find whether the key is present in the array.
+# Return the index of the first occurrence  or -1 if it doesn’t exist.
+
 examples = [
   {
     'input': [[4, 5, 6, 7, 8, 9], 8],
@@ -15,13 +18,14 @@ examples = [
   }
 ]
 
+# Exponential Search
 # Figure out the window exponentially in which the key must be present
 # Window indexes: 0 to 2^0, 2^0 to 2^1, 2^1 to 2^2, and so on
 # And then binary search the key within that window
 # Useful for unbounded arrays with large size
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(1)
-class ExponentialSearch:
+class Solution:
   def solve(self, array, key):
     length = len(array)
     # Important to start with 1 since 0 * 2 will always return 0
@@ -46,4 +50,4 @@ class ExponentialSearch:
 
     return -1
 
-test_class(ExponentialSearch, examples)
+test_class(Solution, examples)

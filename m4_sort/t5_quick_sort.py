@@ -8,19 +8,24 @@ examples = [
   }
 ]
 
+# Quick Sort
 # Divide and conquer approach that picks a pivot and paritions the array around it
 # Not a stable sort as the elements are swapped depending on the partition
 # Best partition scheme is to choose pivot randomly
 # Time Complexity: O(n * log(n))
-  # Best, Average: O(n * log(n))
-  # Worst: O(n^2)
-# Auxiliary Space: O(n) for the recursive stack
+# Best & Average: O(n * log(n)), Worst: O(n^2)
+# Auxiliary Space: O(n), due to the recursive stack
 class QuickSort:
-  def random_index(self, start, end):
-    return randint(start, end)
+  def solve(self, array):
+    self.pivot_and_partition(array, 0, len(array) - 1)
+    return array
 
-  def swap(self, array, i, j):
-    array[i], array[j] = array[j], array[i]
+  def pivot_and_partition(self, array, start, end):
+    if start >= end: return
+
+    pivot = self.pivot_sort(array, start, end)
+    self.pivot_and_partition(array, start, pivot - 1)
+    self.pivot_and_partition(array, pivot + 1, end)
 
   def pivot_sort(self, array, start, end):
     pivot = self.random_index(start, end)
@@ -36,16 +41,10 @@ class QuickSort:
     self.swap(array, start, pivot)
     return pivot
 
-  def pivot_and_partition(self, array, start, end):
-    if start >= end:
-      return
+  def random_index(self, start, end):
+    return randint(start, end)
 
-    pivot = self.pivot_sort(array, start, end)
-    self.pivot_and_partition(array, start, pivot - 1)
-    self.pivot_and_partition(array, pivot + 1, end)
-
-  def solve(self, array):
-    self.pivot_and_partition(array, 0, len(array) - 1)
-    return array
+  def swap(self, array, i, j):
+    array[i], array[j] = array[j], array[i]
 
 test_class(QuickSort, examples)

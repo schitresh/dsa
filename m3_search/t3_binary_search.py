@@ -1,6 +1,9 @@
 import math
 from utils import test_class
 
+# Given an array of integers and a key, find whether the key is present in the array.
+# Return the index of the first occurrence  or -1 if it doesn’t exist.
+
 examples = [
   {
     'input': [[4, 5, 6, 7, 8, 9], 8],
@@ -16,10 +19,11 @@ examples = [
   }
 ]
 
+# Iterative Binary Search
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(1)
 # Comparisons: 2 * log(n) excluding the while condition
-class BinarySearch:
+class Solution:
   def solve(self, array, key):
     left = 0
     right = len(array) - 1
@@ -38,14 +42,17 @@ class BinarySearch:
 
     return -1
 
-test_class(BinarySearch, examples)
+test_class(Solution, examples)
 
+# Recursive Binary Search
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(log(n)) for recursion
-class RecursiveBinarySearch:
+class Solution2:
+  def solve(self, array, key):
+    return self.search(array, key, 0, len(array) - 1)
+
   def search(self, array, key, left, right):
-    if left > right:
-      return -1
+    if left > right: return -1
 
     mid = left + (right - left) // 2
 
@@ -58,17 +65,44 @@ class RecursiveBinarySearch:
 
     return self.search(array, key, left, right)
 
+test_class(Solution2, examples)
+
+# Ubiquitous Binary Search
+# Less comparisons than the regular binary search
+# This happens because the equality condition is not checked within the loop
+# It is checked only once after the loop
+# Time Complexity: O(log(n))
+# Auxiliary Space: O(1)
+# Comparisons: log(n) + 2 excluding the while condition
+class Solution3:
   def solve(self, array, key):
-    return self.search(array, key, 0, len(array) - 1)
+    left = 0
+    right = len(array) - 1
 
-test_class(RecursiveBinarySearch, examples)
+    while left + 1 < right:
+      mid = left + (right - left) // 2
 
+      if key < array[mid]:
+        right = mid
+      else:
+        left = mid
+
+    if array[left] == key:
+      return left
+    if array[right] == key:
+      return right
+    return -1
+
+test_class(Solution3, examples)
+
+
+# Meta Binary Search
 # Works by constructing the index (that holds the key) in binary
 # Avoids overflow errors, but slower than regular binary search
 # Also called one sided binary search
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(1)
-class MetaBinarySearch:
+class Solution4:
   def solve(self, array, key):
     length = len(array)
     # Number of bits required to represent the largest index (length - 1)
@@ -102,31 +136,4 @@ class MetaBinarySearch:
 
     return -1
 
-test_class(MetaBinarySearch, examples)
-
-# Less comparisons than the regular binary search
-# This happens because the equality condition is not checked within the loop
-# It is checked only once after the loop
-# Time Complexity: O(log(n))
-# Auxiliary Space: O(1)
-# Comparisons: log(n) + 2 excluding the while condition
-class UbiquitousBinarySearch:
-  def solve(self, array, key):
-    left = 0
-    right = len(array) - 1
-
-    while left + 1 < right:
-      mid = left + (right - left) // 2
-
-      if key < array[mid]:
-        right = mid
-      else:
-        left = mid
-
-    if array[left] == key:
-      return left
-    if array[right] == key:
-      return right
-    return -1
-
-test_class(UbiquitousBinarySearch, examples)
+test_class(Solution4, examples)

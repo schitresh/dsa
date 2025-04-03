@@ -7,13 +7,26 @@ examples = [
   }
 ]
 
-
-# Divide and conquer approach that partitions, sorts, and merges
+# Merge Sort
+# Divide and conquer approach that partitions into two, sorts the partitions individually
+# and the merges them back to sort the whole range
 # Stable sort
 # Time Complexity: O(n * log(n))
-  # Best, Worst, Average: O(n * log(n))
-# Auxiliary Space: O(n) required for temporary array during merging
-class MergeSort:
+# Best, Worst, Average: O(n * log(n))
+# Auxiliary Space: O(n), required for temporary array during merging
+class Solution:
+  def solve(self, array):
+    self.partition_and_merge(array, 0, len(array) - 1)
+    return array
+
+  def partition_and_merge(self, array, start, end):
+    if start >= end: return
+
+    mid = start + (end - start) // 2
+    self.partition_and_merge(array, start, mid)
+    self.partition_and_merge(array, mid + 1, end)
+    self.merge(array, start, mid, end)
+
   def merge(self, array, start, mid, end):
     left = start
     right = mid + 1
@@ -38,18 +51,4 @@ class MergeSort:
     for index in range(end - start + 1):
       array[start + index] = merged_array[index]
 
-  def partition_and_merge(self, array, start, end):
-    if start >= end:
-      return
-
-    mid = start + (end - start) // 2
-    self.partition_and_merge(array, start, mid)
-    self.partition_and_merge(array, mid + 1, end)
-
-    self.merge(array, start, mid, end)
-
-  def solve(self, array):
-    self.partition_and_merge(array, 0, len(array) - 1)
-    return array
-
-test_class(MergeSort, examples)
+test_class(Solution, examples)

@@ -7,17 +7,17 @@ examples = [
   }
 ]
 
+# Insertion Sort
 # Selects each element one by one, and inserts it at its correct position
 # Stable sort
 # Time Complexity: O(n^2)
-  # Best: O(n)
-  # Worst, Average: O(n^2)
+# Best: O(n), Worst & Average: O(n^2)
 # Auxiliary Space: O(1)
-class InsertionSort:
+class Solution:
   def solve(self, array):
     for i in range(len(array)):
-      j = i
       curr = array[i]
+      j = i
 
       while j > 0 and array[j - 1] > curr:
         array[j] = array[j - 1]
@@ -27,4 +27,4 @@ class InsertionSort:
 
     return array
 
-test_class(InsertionSort, examples)
+test_class(Solution, examples)

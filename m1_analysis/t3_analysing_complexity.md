@@ -17,7 +17,7 @@
   - For example, a linear loop nested within a linear loop
 - Polynomial: O(n^k)
 - Exponential: O(2^n)
-  - Running tinme doubles with each addition to the input data set
+  - Running time doubles with each addition to the input data set
   - For example, generating all subsets of a set
 - Factorial: O(n!)
 
@@ -27,7 +27,7 @@
 - Determine the order of growth of the closed-form expression
   - By using techniques like master theorem
   - Or by finding the dominant term and ignoring lower order terms
-- Use the order of growth to determine the aymptotic upper bound
+- Use the order of growth to determine the asymptotic upper bound
 
 ## Substitution Method
 - Make a guess for the solution

@@ -3,12 +3,12 @@
   - How much time & memory is used when a program is run
   - Depends on how the code is written, machine, compiler, etc.
 - Complexity
-  - How do the resource requirement of a program or algorithm scale
+  - How do the resource requirements of a program or algorithm scale
   - What happens as the size of the problem being solved gets larger
   - Complexity affects performance but not vice-versa
 
 ## Algorithm Analysis
-- Provides theoretical estimation for the required resources of a algorithm
+- Provides theoretical estimation for the required resources of an algorithm
 - Determines the amount of time and space required to execute it
 - Useful way to measure the efficiency rather than implementating the algorithm directly
 - Types

@@ -1,5 +1,8 @@
 from utils import test_class
 
+# Given an array of integers and a key, find whether the key is present in the array.
+# Return the index of the first occurrence  or -1 if it doesn’t exist.
+
 examples = [
   {
     'input': [[4, 5, 6, 7, 8, 9], 8],
@@ -19,10 +22,11 @@ examples = [
   }
 ]
 
+# Fibonacci Search
 # Useful for unbounded arrays with large size
 # Time Complexity: O(log(n))
 # Auxiliary Space: O(1)
-class FibonacciSearch:
+class Solution:
   def solve(self, array, key):
     fib1 = 0
     fib2 = 1
@@ -60,4 +64,4 @@ class FibonacciSearch:
 
     return -1
 
-test_class(FibonacciSearch, examples)
+test_class(Solution, examples)

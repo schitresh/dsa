@@ -13,6 +13,7 @@ examples = [
   },
 ]
 
+# Count Sort
 # Time Complexity: O(n)
 # Auxiliary Space: O(n), to store sorted string
 class Solution:

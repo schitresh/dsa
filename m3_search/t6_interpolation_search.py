@@ -1,5 +1,8 @@
 from utils import test_class
 
+# Given an array of integers and a key, find whether the key is present in the array.
+# Return the index of the first occurrence  or -1 if it doesn’t exist.
+
 examples = [
   {
     'input': [[4, 5, 6, 7, 8, 9], 8],
@@ -15,15 +18,15 @@ examples = [
   }
 ]
 
+# Interpolation Search
 # Better than Binary Search if elements are uniformly distributed
-  # That is, if for any index i & j, if (aj - ai) is roughly the same
+# That is, if for any index i & j, if (aj - ai) is roughly the same
 # Instead of mid, a value based index is calculated
-  # Value Index = left + (key - array[left]) * (right - left) / (array[right] - array[left])
-  # This is derived from the equation of a line `y = mx + c` by putting left & right
-# Time Complexity: O(log2(log2(n)))
-  # Worst case: O(n)
+# Value Index = left + (key - array[left]) * (right - left) / (array[right] - array[left])
+# This is derived from the equation of a line `y = mx + c` by putting left & right
+# Time Complexity: O(log2(log2(n))), worst case: O(n)
 # Auxiliary Space: O(1)
-class InterpolationSearch:
+class Solution:
   def solve(self, array, key):
     left = 0
     right = len(array) - 1
@@ -40,4 +43,4 @@ class InterpolationSearch:
 
     return -1
 
-test_class(InterpolationSearch, examples)
+test_class(Solution, examples)

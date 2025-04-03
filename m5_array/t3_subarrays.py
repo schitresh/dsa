@@ -1,6 +1,7 @@
 from utils import test_class
 
-# Generate all Subarrays
+# Given an array, generate all the possible subarrays
+
 examples = [
   {
     'input': [[1, 2]],
@@ -12,8 +13,8 @@ examples = [
   }
 ]
 
-# Maintain two pointers left & right
-# Iterate left over all elements of the array
+# Iteration
+# Maintain two pointers left & right, and iterate left over all elements of the array.
 # For each left, generate all subarrays from right = left to n
 # Time Complexity: O(n^2)
 # Auxiliary Space: O(n)

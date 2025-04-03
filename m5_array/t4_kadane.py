@@ -1,7 +1,8 @@
 from utils import test_class
 
-# Kadane Algorithm
-# Maximum sum of contiguous subarray
+# Given an array, find the contiguous subarray that has the maximum sum
+# and return its sum.
+
 examples = [
   {
     'input': [[-2, -3, 4, -1, -2, 1, 5, -3]],
@@ -9,6 +10,7 @@ examples = [
   }
 ]
 
+# Kadane Algorithm
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
 class Solution:

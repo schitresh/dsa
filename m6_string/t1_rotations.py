@@ -1,6 +1,6 @@
 from utils import test_class
 
-# Generate all rotations
+# Generate all rotations of a given string
 
 examples = [
   {
@@ -40,7 +40,8 @@ class Solution2:
     temp = string + string
 
     for i in range(len(string)):
-      output.append(temp[i : i + len(string)])
+      rotation = temp[i : i + len(string)]
+      output.append(rotation)
 
     return output
 
