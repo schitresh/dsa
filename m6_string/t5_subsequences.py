@@ -1,7 +1,9 @@
 from utils import test_class
 
-# Generate all subsequences
-# Total subsequences = 2n - 1
+# Given a string, generate all its subsequences. A string is said to be a subsequence
+# of another string, if it can be obtained by deleting 0 or more character without
+# changing its order.
+# Total subsequences = 2^n - 1 (excluding empty string)
 
 examples = [
   {
@@ -10,8 +12,9 @@ examples = [
   }
 ]
 
-# Time Complexity: O(n * 2^n)
-# Auxiliary Space: O(n) due to recursive stack
+# Generate for each length
+# Time Complexity: O(2^n),
+# Auxiliary Space: O(n), due to recursive stack
 class Solution:
   def solve(self, string):
     self.subsequences = []
@@ -26,8 +29,9 @@ class Solution:
 
 test_class(Solution, examples)
 
+# Including & Excluding
 # Time Complexity: O(2^n)
-# Auxiliary Space: O(n) due to recursive stack
+# Auxiliary Space: O(n), due to recursive stack
 class Solution2:
   def solve(self, string):
     self.subsequences = []

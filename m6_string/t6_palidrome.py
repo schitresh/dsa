@@ -1,5 +1,7 @@
 from utils import test_class
 
+# Given a string, check if it is a palindrome or not.
+
 examples = [
   {
     'input': ['abcdcba'],
@@ -19,10 +21,19 @@ examples = [
   },
 ]
 
+# By Reversing
+# Time Complexity: O(n)
+# Auxiliary Space: O(n), to generate reversed string
+class Solution:
+  def solve(self, string):
+    return string == string[::-1]
+
+test_class(Solution, examples)
+
 # Two Pointers
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
-class Solution:
+class Solution2:
   def solve(self, string):
     left = 0
     right = len(string) - 1
@@ -35,14 +46,5 @@ class Solution:
       right -= 1
 
     return True
-
-test_class(Solution, examples)
-
-# By Reversing
-# Time Complexity: O(n)
-# Auxiliary Space: O(1)
-class Solution2:
-  def solve(self, string):
-    return string == string[::-1]
 
 test_class(Solution2, examples)

@@ -14,6 +14,7 @@ examples = [
   }
 ]
 
+# Naive Approach
 # Time Complexity: O(times)
 # Auxiliary Space: O(1)
 class Solution:
@@ -30,6 +31,19 @@ class Solution:
 
 test_class(Solution, examples)
 
+# Observing Pattern
+# Observe the string formed after every N successive iterations and swaps (let’s call it
+# one full iteration). We get a pattern with two parts, each rotated by some places.
+# The first part is rotated right by (N % C) places every full iteration. The second part
+# is rotated left by C places every full iteration. We can calculate the number of full
+# iterations f by dividing Times by N.
+# So, the first part will be rotated left by (N % C) * f . This value can go beyond C,
+# so it is effectively ((N % C) * f) % C.
+# The second part will be rotated left by C * f places. This value can go beyond the
+# length of the second part (N – C), so it is effectively ((C * f) % (N – C)).
+# After f full iterations, there may still be some iterations remaining to complete. This
+# value is Times % N which is less than N. We can follow the naive approach on these
+# remaining iterations after f full iterations to get the resultant string.
 # Time Complexity: O(n)
 # Auxiliary Space: O(n)
 class Solution2:

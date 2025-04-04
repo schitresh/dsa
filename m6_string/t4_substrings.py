@@ -1,6 +1,6 @@
 from utils import test_class
 
-# Generate all substrings
+# Given a string, generate all non-empty substrings
 # Total substrings = n * (n - 1) / 2
 
 examples = [
@@ -25,7 +25,7 @@ class Solution:
 test_class(Solution, examples)
 
 # Time Complexity: O(n^2)
-# Auxiliary Space: O(n)
+# Auxiliary Space: O(1)
 class Solution2:
   def solve(self, string):
     substrings = []
