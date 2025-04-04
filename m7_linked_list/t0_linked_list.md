@@ -7,7 +7,7 @@
 
 ## Advantages
 - Memory can be allocated or de-allocated dynamically
-- Insertion and Deletion are simpler than array since no shifting is required
+- Insertion and deletion are simpler than array since no shifting is required
 - Easy to reorganise the data
 - Efficient memory utilization since the size is dynamic
 

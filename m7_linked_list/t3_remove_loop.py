@@ -1,38 +1,37 @@
+from utils import test_class_with_checker
 from library.circular_list import circular_list_from_array
 from library.linked_list import linked_list_from_array
-from utils import print_class_name
 
 def linked_list_with_loop():
   linked_list = linked_list_from_array([1, 2, 3, 4, 5, 6])
   linked_list.last_node().next = linked_list.search(3)
   return linked_list
 
-def examples():
-  return [
-    {
-      'input': [linked_list_with_loop().head],
-      'output': False
-    },
-    {
-      'input': [circular_list_from_array([1, 2, 3, 4, 5, 6]).head],
-      'output': False
-    },
-    {
-      'input': [linked_list_from_array([1, 2, 3, 4, 5, 6]).head],
-      'output': False
-    },
-  ]
+examples = [
+  {
+    'input': [linked_list_with_loop().head],
+    'output': False
+  },
+  {
+    'input': [circular_list_from_array([1, 2, 3, 4, 5, 6]).head],
+    'output': False
+  },
+  {
+    'input': [linked_list_from_array([1, 2, 3, 4, 5, 6]).head],
+    'output': False
+  },
+]
 
 # By finding loop length
 # Time Complexity: O(n)
 # Auxiliary Space: O(1)
 class Solution:
   def solve(self, head):
-    return self.detect_and_remove_loop(head)
+    self.detect_and_remove_loop(head)
+    return head
 
   def detect_and_remove_loop(self, head):
-    if not head:
-      return
+    if not head: return
 
     slow = head
     fast = head
@@ -83,11 +82,11 @@ class Solution:
 # Auxiliary Space: O(1)
 class Solution2:
   def solve(self, head):
-    return self.detect_and_remove_loop(head)
+    self.detect_and_remove_loop(head)
+    return head
 
   def detect_and_remove_loop(self, head):
-    if not head:
-      return
+    if not head: return
 
     slow = head
     fast = head
@@ -116,27 +115,17 @@ class Solution2:
 
     temp2.next = None
 
-def test(klass):
-  def detect_loop(head):
-    if not head: return
-    slow = head
-    fast = head
+def checker(head):
+  if not head: return
+  slow = head
+  fast = head
 
-    while fast.next and fast.next.next:
-      slow = slow.next
-      fast = fast.next.next
-      if slow == fast: return True
+  while fast.next and fast.next.next:
+    slow = slow.next
+    fast = fast.next.next
+    if slow == fast: return True
 
-    return False
+  return False
 
-  print_class_name(klass)
-  for example in examples():
-    klass().solve(*example['input'])
-    loop = detect_loop(*example['input'])
-    result = loop == example['output']
-    print(f'{result}:', loop)
-
-  print()
-
-test(Solution)
-test(Solution2)
+test_class_with_checker(Solution, examples, checker)
+test_class_with_checker(Solution2, examples, checker)

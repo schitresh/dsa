@@ -2,6 +2,8 @@ from utils import test_class
 from library.circular_list import circular_list_from_array
 from library.linked_list import linked_list_from_array
 
+# Given a linked list, check if it has a loop/cycle or not
+
 def linked_list_with_loop():
   linked_list = linked_list_from_array([1, 2, 3, 4, 5, 6])
   linked_list.last_node().next = linked_list.search(3)
@@ -27,8 +29,7 @@ examples = [
 # Auxiliary Space: O(1)
 class Solution:
   def solve(self, head):
-    if not head:
-      return
+    if not head: return
 
     slow = head
     fast = head
@@ -37,8 +38,7 @@ class Solution:
       slow = slow.next
       fast = fast.next.next
 
-      if slow == fast:
-        return True
+      if slow == fast: return True
 
     return False
 

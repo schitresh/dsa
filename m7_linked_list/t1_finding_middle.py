@@ -1,6 +1,9 @@
 from library.linked_list import linked_list_from_array
 from utils import test_class
 
+# Given a linked list, find the middle of the linked list. If the number of nodes are
+# even, then there would be two middle nodes, return the first one.
+
 examples = [
   {
     'input': [linked_list_from_array([1, 2, 3, 4, 5, 6]).head],
@@ -17,6 +20,18 @@ examples = [
 # Auxiliary Space: O(1)
 class Solution:
   def solve(self, head):
+    count = self.length(head)
+    middle_len = count // 2
+    if count % 2 == 0: middle_len -= 1
+
+    temp = head
+    while middle_len:
+      temp = temp.next
+      middle_len -= 1
+
+    return temp.key
+
+  def length(self, head):
     count = 0
     temp = head
 
@@ -24,14 +39,7 @@ class Solution:
       count += 1
       temp = temp.next
 
-    temp = head
-    middle_len = count // 2
-    if count % 2 == 0: middle_len -= 1
-    while middle_len:
-      temp = temp.next
-      middle_len -= 1
-
-    return temp.key
+    return count
 
 test_class(Solution, examples)
 
@@ -40,8 +48,7 @@ test_class(Solution, examples)
 # Auxiliary Space: O(1)
 class Solution2:
   def solve(self, head):
-    if not head:
-      return
+    if not head: return
 
     slow = head
     fast = head
