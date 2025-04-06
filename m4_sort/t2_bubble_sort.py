@@ -19,7 +19,6 @@ class Solution:
       swapped = True
 
       for j in range(len(array) - 1 - i):
-        # This will keep the smallest element at j
         if array[j] > array[j + 1]:
           self.swap(array, j, j + 1)
           swapped = True
