@@ -2,19 +2,17 @@ from heapq import heapify, heappush
 from utils import test_class
 
 # Given n rectangular buildings in a 2-dimensional city, compute the skyline of these
-# buildings, eliminating hidden lines.
-# The main task is to view buildings from a side and remove all sections that are not
-# visible. All buildings share a common bottom and each building is represented by a
-# triplet (left, ht, right) where:
-# 'left' is the x coordinate of the left side (or wall)
-# 'ht' is the height of the building
-# 'right' is x coordinate of the right side
+# buildings eliminating the hidden lines.
+# View the buildings from a side and remove all the sections that are not visible. All
+# buildings share a common bottom and each building is represented by a triplet
+# (left, height, right), where left and right are x coordinates of the left and right
+# wall of the building.
 
 # A skyline is a collection of rectangular strips. A rectangular strip is represented as
-# a pair (x, ht) where x is the x coordinate and ht is the height of the strip.
-# For the left side it will be (left, ht) and for the right side it will be (right, 0).
+# a pair (x, h) where x is the x coordinate and h is the height of the strip.
+# For the left side it will be (left, h) and for the right side it will be (right, 0).
 # But if there is another building present ahead of the right side, then it will be
-# (right, height of the building ahead).
+# (right, h of the building ahead).
 
 examples = [
   {
@@ -67,7 +65,7 @@ class Solution:
 
       # Need to track both left and right height because left and right buildings
       # may overlap. And we need only the max overlapping height, so keeping a
-      # global max height not correct since it the global max height can be anywhere.
+      # global max height is not correct since the global max height can be anywhere.
       max_height = max(height_left, height_right)
 
       # If there is no change in height, then it is not a critical point

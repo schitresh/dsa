@@ -14,7 +14,7 @@ examples = [
   }
 ]
 
-# Iteration
+# Brute Force
 # Time Complexity: O(sqrt(n))
 # Auxiliary Space: O(1)
 class Solution:
@@ -30,7 +30,8 @@ test_class(Solution, examples)
 # Auxiliary Space: O(1)
 class Solution2:
   def solve(self, num):
-    result = 1
+    if num == 1: return 1
+
     left = 0
     right = num // 2
 
@@ -39,11 +40,10 @@ class Solution2:
       square = mid * mid
 
       if square <= num:
-        result = mid
         left = mid + 1
       else:
         right = mid - 1
 
-    return result
+    return left - 1
 
 test_class(Solution2, examples)

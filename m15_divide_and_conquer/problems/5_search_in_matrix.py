@@ -1,7 +1,7 @@
 from utils import test_class
 
 # Given an n x n matrix, where every row and column is sorted in increasing order.
-# Given a key, search whether this key is in the matrix.
+# And given a key, search whether the key is present in the matrix.
 
 examples = [
   {
@@ -30,6 +30,7 @@ class Solution:
   def solve(self, key, matrix):
     for row in range(len(matrix)):
       if key < matrix[row][0] or matrix[row][-1] < key: continue
+
       left = 0
       right = len(matrix[0]) - 1
 

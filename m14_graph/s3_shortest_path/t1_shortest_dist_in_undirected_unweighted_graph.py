@@ -1,7 +1,7 @@
 from queue import Queue
 from utils import test_class
 
-#  Given an unweighted, undirected graph of V nodes and E edges, a source node S, and
+# Given an unweighted, undirected graph of V nodes and E edges, a source node S, and
 # a destination node D, find the shortest distance from node S to node D in the graph.
 
 examples = [

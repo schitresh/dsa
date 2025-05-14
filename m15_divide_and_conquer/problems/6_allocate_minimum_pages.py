@@ -36,6 +36,7 @@ examples = [
 class Solution:
   def solve(self, students, book_pages):
     if students > len(book_pages): return -1
+
     self.students = students
     self.book_pages = book_pages
 
@@ -70,6 +71,7 @@ test_class(Solution, examples)
 class Solution2:
   def solve(self, students, book_pages):
     if students > len(book_pages): return -1
+
     self.students = students
     self.book_pages = book_pages
 
