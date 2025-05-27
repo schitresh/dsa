@@ -1,6 +1,6 @@
 from utils import test_class
 
-# Convert the given decimal number into an equivalent binary number.
+# Calculate the sum of numbers in a given array
 
 examples = [
   {
@@ -23,6 +23,7 @@ class Solution:
 
   def sum_array(self, index):
     if index == -1: return 0
+
     return self.array[index] + self.sum_array(index - 1)
 
 test_class(Solution, examples)

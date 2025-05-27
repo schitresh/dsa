@@ -1,6 +1,6 @@
 from utils import test_class
 
-# Find the mean of the elements of given array.
+# Find the mean of the numbers in a given array
 
 examples = [
   {
@@ -9,9 +9,10 @@ examples = [
   },
 ]
 
-# To find the mean using recursion, assume that the problem is already solved for N-1
-# Sum of first N-1 elements = (Mean of N-1 elements) * (N-1)
-# Mean of N elements = (Sum of first N-1 elements + Nth element) / N
+# Recursion
+# Assume that the problem is already solved for n - 1
+# sum(n - 1) = mean(n - 1) * (n - 1)
+# mean(n) = (sum(n - 1) + arr[n]) / n
 # Time Complexity: O(n)
 # Auxiliary Space: O(n), due to recursive stack
 class Solution:

@@ -1,4 +1,4 @@
-from library.linked_list import LinkedList
+from m7_linked_list.library.linked_list import LinkedList
 
 class Node:
   def __init__(self, key):
@@ -25,6 +25,16 @@ class DoublyList(LinkedList):
   def last_node(self):
     return self.tail
 
+  def elements_backward(self):
+    result = []
+    temp = self.tail
+
+    while temp:
+      result.append(temp.key)
+      temp = temp.prev
+
+    return result
+
   # Insertion
 
   def append(self, key):
@@ -50,6 +60,14 @@ class DoublyList(LinkedList):
     node.next = self.head
     self.head.prev = node
     self.head = node
+
+def doubly_list_from_array(array):
+  doubly_list = DoublyList()
+
+  for item in array:
+    doubly_list.append(item)
+
+  return doubly_list
 
 def test():
   linked_list = DoublyList()
