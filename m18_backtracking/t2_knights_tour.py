@@ -65,7 +65,7 @@ test_class(Solution, examples)
 # 1. We can start from any initial position of the knight on the board
 # 2. We always move to an adjacent, unvisited square with minimal degree
 # i.e. minimum number of unvisited adjacent squares
-# Time Complexity: O(8^(n^2))
+# Time Complexity: O(n^3)
 # Auxiliary Space: O(n^2)
 class Solution2:
   def solve(self, size):
